@@ -8,5 +8,6 @@ namespace ServiceLayer
 {
     public class Class1
     {
+        public string prueba { get; set; }
     }
 }
