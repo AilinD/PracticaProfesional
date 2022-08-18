@@ -17,12 +17,12 @@ using DOMAIN;
 namespace DOMAIN {
 	public class Diagnostico {
 
-		private string diagnostico;
-		private DateTime Fecha;
-		private int Id;
-		private int MM;
-		private int Paciente;
-		private bool RequiereEstudio;
+		public string diagnostico { get; set; }
+		public DateTime Fecha { get; set; }
+		public int Id { get; set; }
+		public int MatriculaMedico { get; set; }
+		public Guid Paciente { get; set; }
+		//private void RequiereEstudio { get; set; }
 		public DOMAIN.Medico m_Medico;
 
 		public Diagnostico(){

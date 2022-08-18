@@ -16,8 +16,8 @@ using System.IO;
 namespace DOMAIN {
 	public class ObraSocial {
 
-		private int IdObraSocial;
-		private string obraSocial;
+		public Guid IdObraSocial { get; set; }
+		public string obraSocial { get; set; }
 
 		public ObraSocial(){
 

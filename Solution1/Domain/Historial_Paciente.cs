@@ -16,11 +16,11 @@ using System.IO;
 namespace DOMAIN {
 	public class Historial_Paciente {
 
-		private string Comentarios;
-		private int DNIPaciente;
-		private DateTime Fecha;
-		private int Id;
-		private int MatriculaMedico;
+		public string Comentarios { get; set; }
+		public Guid DNIPaciente { get; set; }
+		public DateTime Fecha{ get; set; }
+		public Guid Id { get; set; }
+		public int MatriculaMedico { get; set; }
 
 		public Historial_Paciente(){
 

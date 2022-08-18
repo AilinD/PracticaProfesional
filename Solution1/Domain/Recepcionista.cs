@@ -17,11 +17,11 @@ using DOMAIN;
 namespace DOMAIN {
 	public class Recepcionista {
 
-		private string Apellido;
-		private int DNI;
-		private int Id;
-		private string Nombre;
-		public DOMAIN.Turno m_Turno;
+		public string Apellido { get; set; }
+		public int DNI { get; set; }
+		public Guid Id { get; set; }
+		public string Nombre { get; set; }
+		//public DOMAIN.Turno m_Turno;
 
 		public Recepcionista(){
 

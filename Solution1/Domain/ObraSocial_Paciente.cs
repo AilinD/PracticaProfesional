@@ -17,9 +17,9 @@ using DOMAIN;
 namespace DOMAIN {
 	public class ObraSocial_Paciente {
 
-		private int DNI_Paciente;
-		private string ObraSocial;
-		public DOMAIN.Paciente m_Paciente;
+		public int DNI_Paciente { get; set; }
+		public string ObraSocial { get; set; }
+		public DOMAIN.Paciente m_Paciente { get; set; }
 
 		public ObraSocial_Paciente(){
 

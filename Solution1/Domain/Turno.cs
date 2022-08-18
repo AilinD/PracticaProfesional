@@ -16,11 +16,11 @@ using System.IO;
 namespace DOMAIN {
 	public class Turno {
 
-		private int DNIPaciente;
-		private DateTime Fecha;
-		private int Id;
-		private int IdRecepcionista;
-		private int MarticulaM;
+		public int DNIPaciente { get; set; }
+		public DateTime Fecha { get; set; }
+		public Guid Id { get; set; }
+		public int IdRecepcionista { get; set; }
+		public Guid MarticulaM { get; set; }
 
 		public Turno(){
 

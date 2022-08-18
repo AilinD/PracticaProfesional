@@ -15,19 +15,19 @@ using System.IO;
 
 using DOMAIN;
 namespace DOMAIN {
-	public class Horarios_Medicos {
+	public class Horarios_Profesional {
 
-		private int id;
-		private int idTurno;
-		private int Matricula;
+		public Guid id { get; set; }
+		public int idHorario { get; set; }
+		public int Matricula { get; set; }
 		//public Medico Especialista m_Medico Especialista;
-		public DOMAIN.Clinico m_Clinico;
+		//public DOMAIN.Clinico m_Clinico;
 
-		public Horarios_Medicos(){
+		public Horarios_Profesional(){
 
 		}
 
-		~Horarios_Medicos(){
+		~Horarios_Profesional(){
 
 		}
 

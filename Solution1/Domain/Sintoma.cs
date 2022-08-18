@@ -14,16 +14,16 @@ using System.IO;
 
 
 namespace DOMAIN {
-	public class Sintomas {
+	public class Sintoma {
 
-		private int IdSintoma;
-		private string Sintoma;
+		public Guid IdSintoma { get; set; }
+		public string sintoma { get; set; }
 
-		public Sintomas(){
+		public Sintoma(){
 
 		}
 
-		~Sintomas(){
+		~Sintoma(){
 
 		}
 

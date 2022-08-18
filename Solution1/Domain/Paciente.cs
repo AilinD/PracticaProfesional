@@ -20,14 +20,13 @@ using System.IO;
 namespace DOMAIN {
 	public class Paciente {
 
-		private string Apellido;
-		private int Celular;
-		private int d;
-		private string Dirección;
-		private int DNI;
-		private DateTime FechaNacimiento;
-		private int IdPaciente;
-		private string Nombre;
+		public string Apellido { get; set; }
+		public int Celular { get; set; }
+		public string Dirección { get; set; }
+		public int DNI { get; set; }
+		public DateTime FechaNacimiento { get; set; }
+		public Guid IdPaciente { get; set; }
+		public string Nombre { get; set; }
 		//public Domain Model.Medicos m_Medicos;
 		public DOMAIN.Historial_Paciente m_Historial_Paciente;
 		public DOMAIN.Turno m_Turno;

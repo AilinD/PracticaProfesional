@@ -17,8 +17,8 @@ using DOMAIN;
 namespace DOMAIN {
 	public class Sintomas_Paciente {
 
-		private string Paciente;
-		private int Sintoma;
+		public Guid Paciente { get; set; }
+		public Guid Sintoma { get; set; }
 		public DOMAIN.Paciente m_Paciente;
 
 		public Sintomas_Paciente(){

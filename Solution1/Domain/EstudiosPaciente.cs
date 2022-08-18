@@ -17,12 +17,12 @@ using DOMAIN;
 namespace DOMAIN {
 	public class EstudiosPaciente {
 
-		private string Comentarios;
-		private int DNI;
-		private int Estudio;
-		private DateTime Fecha;
-		private int MM;
-		public DOMAIN.Paciente m_Paciente;
+		public string Comentarios { get; set; }
+		public Guid DNI { get; set; }
+		public Guid Estudio { get; set; }
+		public DateTime Fecha { get; set; }
+		public Guid MatriculaMedico { get; set; }
+		//public DOMAIN.Paciente m_Paciente;
 
 		public EstudiosPaciente(){
 

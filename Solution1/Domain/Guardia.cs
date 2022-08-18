@@ -17,11 +17,11 @@ using DOMAIN;
 namespace DOMAIN {
 	public class Guardia {
 
-		private int DNIPaciente;
-		private DateTime Fecha;
-		private int Id;
-		private int Matricula;
-		public DOMAIN.Paciente m_Paciente;
+		public Guid DNIPaciente { get; set; }
+		public DateTime Fecha { get; set; }
+		public Guid Id { get; set; }
+		public int Matricula { get; set; }
+		//public DOMAIN.Paciente m_Paciente;
 
 		public Guardia(){
 

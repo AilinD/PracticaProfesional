@@ -14,16 +14,16 @@ using System.IO;
 
 
 namespace DOMAIN {
-	public class Estudios {
+	public class Estudio {
 
-		private string Descripción;
-		private int Id;
+		public string Descripción { get; set; }
+		public Guid Id { get; set; }
 
-		public Estudios(){
+		public Estudio(){
 
 		}
 
-		~Estudios(){
+		~Estudio(){
 
 		}
 
