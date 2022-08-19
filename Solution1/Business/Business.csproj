@@ -41,9 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DiagnosticarBLL.cs" />
+    <Compile Include="EnfermedadBLL.cs" />
+    <Compile Include="EspecialidadBLL.cs" />
+    <Compile Include="EstudioBLL.cs" />
     <Compile Include="Exceptions\WordNotFound.cs" />
+    <Compile Include="GuardiaBLL.cs" />
+    <Compile Include="MedicoBLL.cs" />
+    <Compile Include="PacienteBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SintomaBLL.cs" />
+    <Compile Include="TurnoBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{158702F4-E1F7-4E02-B7E9-129DF324F40A}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
