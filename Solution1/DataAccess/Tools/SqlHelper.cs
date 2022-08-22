@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace DataAccess.Tools
 {
-    public class SqlHelper
+    public static class SqlHelper
     {
         readonly static string conString;
         static SqlHelper()

@@ -42,7 +42,7 @@ namespace BLL {
 
 		}
 
-		public List<Sintoma> ListSintoma(){
+		public List<Sintoma> ListarSintoma(){
 
 			return null;
 		}

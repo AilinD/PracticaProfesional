@@ -8,17 +8,17 @@ namespace ServiceLayer.BLL
 {
     public static class LanguageManager
     {
-        public static string Translate(string word)
-        {
-            try
-            {
-                return DAL.LanguageDAL.Translate(word);
-            }
-            catch (WordNotFoundException ex)
-            {
-                DAL.LanguageDAL.Add(word, String.Empty, "DefaultCulture");
-                throw;
-            }
-        }
+        //public static string Translate(string word)
+        ////{
+        ////    try
+        ////    {
+        ////        return DAL.LanguageDAL.Translate(word);
+        ////    }
+        ////    catch (WordNotFoundException ex)
+        ////    {
+        ////        DAL.LanguageDAL.Add(word, String.Empty, "DefaultCulture");
+        ////        throw;
+        ////    }
+        //}
     }
 }

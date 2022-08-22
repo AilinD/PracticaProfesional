@@ -23,7 +23,8 @@ namespace BLL {
 
 		}
 
-		/// 
+
+		//
 		/// <param name="diagnostico"></param>
 		public void ActualizarDiagnostico(Diagnostico diagnostico){
 
