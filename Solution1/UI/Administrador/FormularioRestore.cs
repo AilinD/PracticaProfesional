@@ -7,43 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
-using Microsoft.SqlServer.Management.Smo;
-using ServiceLayer.BLL;
 
 namespace UI.Administrador
 {
-    public partial class FormularioBakup : Form
+    public partial class FormularioRestore : Form
     {
-        public FormularioBakup()
+        public FormularioRestore()
         {
             InitializeComponent();
         }
 
-        private void btnBackup_Click(object sender, EventArgs e)
+        private void FormularioRestore_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
         {
             try
             {
 
-                ServiceLayer.BLL.BackupService.Current.CrearBackup();
-                CaluculateAll(progressBar1);
-                MessageBox.Show("Restore Exitoso!");
+                ServiceLayer.BLL.RestoreService.Current.RestoreDatabase();
+               // CaluculateAll(progressBar1);
+                MessageBox.Show("Copia Exitosa!");
             }
             catch (Exception)
             {
 
                 throw;
             }
-               
-                
-
-           
         }
 
-        private void FormularioBakup_Load(object sender, EventArgs e)
-        {
-           
-        }
         private void CaluculateAll(System.Windows.Forms.ProgressBar progressBar)
         {
             progressBar.Maximum = 100000;
@@ -56,10 +50,5 @@ namespace UI.Administrador
             }
         }
 
-
-        private void lblPorcentaje_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -231,6 +231,12 @@
     <Compile Include="Administrador\FormularioBakup.Designer.cs">
       <DependentUpon>FormularioBakup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\FormularioRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FormularioRestore.Designer.cs">
+      <DependentUpon>FormularioRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </Compile>
     <EmbeddedResource Include="Administrador\FormularioBakup.resx">
       <DependentUpon>FormularioBakup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FormularioRestore.resx">
+      <DependentUpon>FormularioRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
