@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,7 @@ namespace ServiceLayer.BLL
 {
     public static class LanguageManager
     {
-        //public static string Translate(string word)
-        ////{
-        ////    try
-        ////    {
-        ////        return DAL.LanguageDAL.Translate(word);
-        ////    }
-        ////    catch (WordNotFoundException ex)
-        ////    {
-        ////        DAL.LanguageDAL.Add(word, String.Empty, "DefaultCulture");
-        ////        throw;
-        ////    }
-        //}
+       
+        readonly static ILenguajeRepositorio repoLenguaje;
     }
 }

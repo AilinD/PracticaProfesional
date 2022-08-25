@@ -61,5 +61,15 @@ namespace UI.Administrador
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                txtubicacion.Text = fbd.SelectedPath;
+                btnBackup.Enabled = true;
+            }
+        }
     }
 }

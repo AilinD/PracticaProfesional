@@ -38,6 +38,8 @@ namespace UI.Administrador
             this.txtboxDB = new System.Windows.Forms.TextBox();
             this.lblDB = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtubicacion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnBackup
@@ -89,11 +91,30 @@ namespace UI.Administrador
             this.lblDB.TabIndex = 4;
             this.lblDB.Text = "Database:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(392, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Ubicacion";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtubicacion
+            // 
+            this.txtubicacion.Location = new System.Drawing.Point(392, 97);
+            this.txtubicacion.Name = "txtubicacion";
+            this.txtubicacion.Size = new System.Drawing.Size(100, 20);
+            this.txtubicacion.TabIndex = 7;
+            // 
             // FormularioBakup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 216);
+            this.ClientSize = new System.Drawing.Size(504, 216);
+            this.Controls.Add(this.txtubicacion);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtboxDB);
             this.Controls.Add(this.lblDB);
             this.Controls.Add(this.progressBar1);
@@ -118,5 +139,7 @@ namespace UI.Administrador
         private System.Windows.Forms.TextBox txtboxDB;
         private System.Windows.Forms.Label lblDB;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtubicacion;
     }
 }

@@ -36,7 +36,7 @@ namespace DataAccess.Repo.Sql
         {
             string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
 
-            return Path.Combine(ConfigurationManager.AppSettings.Get("BackupPath"), filename);
+            return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath"), filename);
         }
     }
 }

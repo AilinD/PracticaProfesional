@@ -29,12 +29,12 @@ namespace UI.Administrador
 
                 ServiceLayer.BLL.RestoreService.Current.RestoreDatabase();
                // CaluculateAll(progressBar1);
-                MessageBox.Show("Copia Exitosa!");
+                MessageBox.Show("Restore Exitoso!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Repo.Sql.Interfaz;
+using System.IO;
 
 namespace DataAccess.Repo.Sql
 {
@@ -20,11 +21,12 @@ namespace DataAccess.Repo.Sql
         public void CrearRestore(string databasename)
         {
 
-            string filePath = BuildBackupPathWithFilename(databasename);
+            string filePath = BuildRestorePathWithFilename(databasename);
+            string filename = string.Format("{0}-{1}.bak", databasename);
 
             using (var connection = new SqlConnection(ConString))
             {
-                var query = String.Format("BACKUP DATABASE [{0}] TO DISK='{1}'", databasename, filePath);
+                var query = String.Format("use master RESTORE DATABASE [{0}] FROM DISK='{1}'", databasename, filePath);
 
                 using (var command = new SqlCommand(query, connection))
                 {
@@ -33,11 +35,11 @@ namespace DataAccess.Repo.Sql
                 }
             }
         }
-        private string BuildBackupPathWithFilename(string databaseName)
+        private string BuildRestorePathWithFilename(string databaseName)
         {
-            string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
+            string filename = string.Format("{0}-{1}.bak", databaseName);
 
-            return Path.Combine(ConfigurationManager.AppSettings.Get("BackupPath"), filename);
+            return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath"), filename);
         }
     }
 }

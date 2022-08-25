@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess.Repo.Sql;
+using DataAccess.Repo.Sql.Interfaz;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,7 @@ namespace ServiceLayer.BLL
 {
     public class RestoreService: IRestoreService
     {
-        private readonly IRestoreService restoreRepository = new RestoreService();
+        private readonly IRestoreRepository restoreRepository = new RestoreRepository();
         #region Singleton
         private readonly static RestoreService _instance = new RestoreService();
 
@@ -19,7 +21,7 @@ namespace ServiceLayer.BLL
                 return _instance;
             }
         }
-
+        #endregion
         public RestoreService()
         {
 
@@ -27,8 +29,7 @@ namespace ServiceLayer.BLL
 
         public void RestoreDatabase()
         {
-            //  BackupBLL.Current.PerformRestore(dbname, path);
-          //  restoreRepository.RestoreDatabase("SysCExpert");
+            restoreRepository.CrearRestore("SysCExpert");
         }
 
        
