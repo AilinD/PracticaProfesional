@@ -16,5 +16,17 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
