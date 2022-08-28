@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Servicios.Criptografía
 {
-    public static class Cryptografy
+    public static class Cryptografia
     {
         public static string Hash(string word)
             {
