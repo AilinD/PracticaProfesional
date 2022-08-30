@@ -22,7 +22,7 @@ namespace DataAccess.Repo.Sql
         {
 
             string filePath = BuildRestorePathWithFilename(databasename);
-            string filename = string.Format("{0}-{1}.bak", databasename);
+            //string filename = string.Format("{0}-{1}.bak", databasename);
 
             using (var connection = new SqlConnection(ConString))
             {
@@ -37,7 +37,7 @@ namespace DataAccess.Repo.Sql
         }
         private string BuildRestorePathWithFilename(string databaseName)
         {
-            string filename = string.Format("{0}-{1}.bak", databaseName);
+            string filename = string.Format("{0}.bak", databaseName);
 
             return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath"), filename);
         }
