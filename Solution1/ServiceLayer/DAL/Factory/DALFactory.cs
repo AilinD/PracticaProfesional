@@ -1,4 +1,5 @@
-﻿using ServiceLayer.DAL.Interfaces;
+﻿using ServiceLayer.DAL.Implementaciones;
+using ServiceLayer.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace ServiceLayer.DAL.Factory
     {
         public static ILenguajeRepositorio LenguajeRepositorio { get; private set; }
 
+        public static LenguajeRepositorio LanguageRepository { get; private set; }
 
+        public static LoggerRepositorio LoggerRepository { get; private set; }
         static DALFactory()
         {
            // LenguajeRepositorio = CreateInstance<ILenguajeRepositorio>("BaseServices." + JsonRepository + ".LanguageRepository");

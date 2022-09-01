@@ -1,4 +1,5 @@
-﻿using ServiceLayer.Servicios.Criptografía;
+﻿using ServiceLayer.DAL.Implementaciones;
+using ServiceLayer.Servicios.Criptografía;
 using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
@@ -34,24 +35,18 @@ namespace ConsolaPruebas
             //Console.ReadKey();
 
 
-            var key = "b14ca5898a4e4133bbce2ea2315a1916";
-            //var key = Guid.NewGuid().ToString();
+            //var key = "b14ca5898a4e4133bbce2ea2315a1916";
 
-            //Aes aes = Aes.Create();
-            //aes.GenerateIV();
-            //aes.GenerateKey();
+            //Console.WriteLine("Please enter a string for encryption");
+            //var str = Console.ReadLine();
+            //var encryptedString = Hashing.EncryptString(key, str);
+            //Console.WriteLine($"encrypted string = {encryptedString}");
 
-            Console.WriteLine("Please enter a string for encryption");
-            var str = Console.ReadLine();
-            var encryptedString = Hashing.EncryptString(key, str);
-            Console.WriteLine($"encrypted string = {encryptedString}");
+            //var decryptedString = Hashing.DecryptString(key, encryptedString);
+            //Console.WriteLine($"decrypted string = {decryptedString}");
 
-            var decryptedString = Hashing.DecryptString(key, encryptedString);
-            Console.WriteLine($"decrypted string = {decryptedString}");
-
-            Console.ReadKey();
-
-
+            LoggerRepositorio.Current.WriteLog();
+            Console.ReadKey();   
         }
     }
 }
