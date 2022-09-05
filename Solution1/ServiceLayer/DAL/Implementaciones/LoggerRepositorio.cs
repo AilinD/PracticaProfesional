@@ -24,7 +24,7 @@ namespace ServiceLayer.DAL.Implementaciones
             }
         }
 
-        private LoggerRepositorio()
+        public LoggerRepositorio()
         {
             //Implement here the initialization code
         }
@@ -59,8 +59,8 @@ namespace ServiceLayer.DAL.Implementaciones
             //    .WriteTo.Console(theme: AnsiConsoleTheme.Code)
             //    .CreateLogger();
 
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.File(@)
+            //Log.Logger = new LoggerConfiguration()
+            //   // .WriteTo.File()
 
             try
             {

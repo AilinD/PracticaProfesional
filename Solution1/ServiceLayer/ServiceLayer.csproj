@@ -71,6 +71,7 @@
     <Compile Include="DAL\Interfaces\ILenguajeRepositorio.cs" />
     <Compile Include="DAL\LanguageDAL.cs" />
     <Compile Include="Domain\Composite\Componente.cs" />
+    <Compile Include="Domain\Exepciones\WordNotFoundExeption.cs" />
     <Compile Include="Domain\PatenteFamilia\Familia.cs" />
     <Compile Include="Domain\PatenteFamilia\Patente.cs" />
     <Compile Include="Domain\PatenteFamilia\Usuario.cs" />
