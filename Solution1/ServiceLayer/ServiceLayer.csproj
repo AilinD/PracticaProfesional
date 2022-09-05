@@ -65,13 +65,17 @@
     <Compile Include="BLL\Log\Logger.cs" />
     <Compile Include="BLL\RestoreService.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DAL\Contratos\IJoinRepository.cs" />
     <Compile Include="DAL\Factory\DALFactory.cs" />
+    <Compile Include="DAL\Implementaciones\FamiliaFamiliaRepository.cs" />
+    <Compile Include="DAL\Implementaciones\FamiliaRepository.cs" />
     <Compile Include="DAL\Implementaciones\LenguajeRepositorio.cs" />
     <Compile Include="DAL\Implementaciones\LoggerRepositorio.cs" />
     <Compile Include="DAL\Interfaces\ILenguajeRepositorio.cs" />
     <Compile Include="DAL\LanguageDAL.cs" />
     <Compile Include="Domain\Composite\Componente.cs" />
     <Compile Include="Domain\Exepciones\WordNotFoundExeption.cs" />
+    <Compile Include="Domain\PatenteFamilia\Component.cs" />
     <Compile Include="Domain\PatenteFamilia\Familia.cs" />
     <Compile Include="Domain\PatenteFamilia\Patente.cs" />
     <Compile Include="Domain\PatenteFamilia\Usuario.cs" />
