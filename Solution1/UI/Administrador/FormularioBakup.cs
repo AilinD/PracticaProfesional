@@ -27,7 +27,7 @@ namespace UI.Administrador
 
                 ServiceLayer.BLL.BackupService.Current.CrearBackup();
                 CaluculateAll(progressBar1);
-                MessageBox.Show("Restore Exitoso!");
+                MessageBox.Show("Backup Exitoso!");
             }
             catch (Exception)
             {

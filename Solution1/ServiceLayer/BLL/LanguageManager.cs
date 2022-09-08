@@ -1,4 +1,5 @@
-﻿using ServiceLayer.DAL.Factory;
+﻿using Business.Exceptions;
+using ServiceLayer.DAL.Factory;
 using ServiceLayer.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,17 @@ namespace ServiceLayer.BLL
     {
 
         //readonly static ILenguajeRepositorio repoLenguaje;
-        public static string Translate(string word)
-        {
-            try
-            {
-                return DALFactory.LenguajeRepositorio.Find(word);
-            }
-            catch (WordNotFoundException)
-            {
-                ServiceFactory.LanguageRepository.WriteNewWord(word, String.Empty);
-                return word;
-            }
-        }
+        //public static string Translate(string word)
+        //{
+        //    try
+        //    {
+        //        return DALFactory.LenguajeRepositorio.Find(word);
+        //    }
+        //    catch (WordNotFoundException)
+        //    {
+        //        //ServiceFactory.LanguageRepository.WriteNewWord(word, String.Empty);
+        //        return word;
+        //    }
+        //}
     }
 }
