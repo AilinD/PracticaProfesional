@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.DAL.Implementaciones.Adapter
+namespace ServiceLayer.DAL.Adapter
 {
     internal class PatenteAdapter
     {

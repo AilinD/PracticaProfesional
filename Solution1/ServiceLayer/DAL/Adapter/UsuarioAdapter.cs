@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DataAccess.Adapter
+namespace ServiceLayer.DAL.Adapter
 {
     public class UsuarioAdapter
     {

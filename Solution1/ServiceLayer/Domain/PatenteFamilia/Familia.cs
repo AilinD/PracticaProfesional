@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ServiceLayer.Domain.PatenteFamilia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.PatenteFamilia
+namespace ServiceLayer.Domain.PatenteFamilia
 {
     public class Familia:FamiliaElement
     {

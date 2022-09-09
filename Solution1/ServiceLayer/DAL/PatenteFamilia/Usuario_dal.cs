@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
     public class Usuario_dal
     {
@@ -15,7 +15,7 @@ namespace DataAccess.PatenteFamilia
 
         static Usuario_dal()
         {
-            conString = @"Data Source=DESKTOP-RM3UB93\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+            conString = @"Data Source=DESKTOP-H0P0HUN\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
         }
 
 

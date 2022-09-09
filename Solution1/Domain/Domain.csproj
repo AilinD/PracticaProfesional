@@ -56,11 +56,6 @@
     <Compile Include="Obra Social.cs" />
     <Compile Include="ObraSocial_Paciente.cs" />
     <Compile Include="Paciente.cs" />
-    <Compile Include="PatenteFamilia\Familia.cs" />
-    <Compile Include="PatenteFamilia\FamiliaElement.cs" />
-    <Compile Include="PatenteFamilia\Patente.cs" />
-    <Compile Include="PatenteFamilia\Sesion.cs" />
-    <Compile Include="PatenteFamilia\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recepcionista.cs" />
     <Compile Include="Sintoma.cs" />

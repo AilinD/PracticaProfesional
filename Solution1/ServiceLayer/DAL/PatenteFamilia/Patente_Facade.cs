@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
 	public class Patente_Facade
 	{

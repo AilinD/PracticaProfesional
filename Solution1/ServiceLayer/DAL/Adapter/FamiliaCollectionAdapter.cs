@@ -1,4 +1,4 @@
-﻿using DataAccess.PatenteFamilia;
+﻿using DataAccess.Adapter;
 using Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
@@ -7,23 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Adapter
+namespace ServiceLayer.DAL.Adapter
 {
-    internal class PatenteCollectionAdapter
+    public class FamiliaCollectionAdapter
     {
 		private DataTable datosDT;
 
-		public PatenteCollectionAdapter(DataTable datosDT)
+		public FamiliaCollectionAdapter(DataTable datosDT)
 		{
 			this.datosDT = datosDT;
 		}
 
-		public void Fill(List<Patente> collection)
+		public void Fill(List<Familia> collection)
 		{
 			foreach (DataRow row in datosDT.Rows)
 			{
-				Patente _object = new Patente();
-				PatenteAdapter adapter = new PatenteAdapter(row);
+				Familia _object = new Familia();
+				FamiliaAdapter adapter = new FamiliaAdapter(row);
 				adapter.Fill(_object);
 				collection.Add(_object);
 			}

@@ -1,7 +1,7 @@
 ﻿
 using DataAccess.PatenteFamilia;
 using Domain.PatenteFamilia;
-using ServiceLayer.Domain.PatenteFamilia;
+//using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Data;
 using System.Linq;

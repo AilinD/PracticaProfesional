@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.PatenteFamilia
+namespace ServiceLayer.Domain.PatenteFamilia
 {
 	public class Usuario
 	{

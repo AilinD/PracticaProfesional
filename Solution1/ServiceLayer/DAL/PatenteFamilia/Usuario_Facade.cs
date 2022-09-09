@@ -1,13 +1,9 @@
-﻿using DataAccess.Adapter;
-using Domain.PatenteFamilia;
+﻿using ServiceLayer.DAL.Adapter;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
     public class Usuario_Facade
     {
@@ -27,7 +23,7 @@ namespace DataAccess.PatenteFamilia
             }
         }
 
-        public static Domain.PatenteFamilia.Usuario GetAdapted(System.String IdUsuario)
+        public static ServiceLayer.Domain.PatenteFamilia.Usuario GetAdapted(System.String IdUsuario)
         {
             try
             {

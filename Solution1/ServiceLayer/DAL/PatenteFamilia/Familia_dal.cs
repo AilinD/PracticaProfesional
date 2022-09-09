@@ -1,5 +1,5 @@
-﻿using DataAccess.PatenteFamilia;
-using Domain.PatenteFamilia;
+﻿using ServiceLayer.DAL.PatenteFamilia;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
 	public class Familia_dal
 	{
@@ -16,10 +16,14 @@ namespace DataAccess.PatenteFamilia
 
 		static Familia_dal()
 		{
-			conString = @"Data Source=DESKTOP-RM3UB93\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+			conString = @"Data Source=DESKTOP-H0P0HUN\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
 		}
+        /*
+		 Data Source=DESKTOP-H0P0HUN\SQLEXPRESS
+		Data Source=DESKTOP-RM3UB93\SQLEXPRESS
+		*/
 
-		public static DataSet SelectAll()
+        public static DataSet SelectAll()
 		{
 			try
 			{
@@ -112,7 +116,7 @@ namespace DataAccess.PatenteFamilia
 		/// <history>
 		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
-		public static void Delete(Domain.PatenteFamilia.Familia _object)
+		public static void Delete(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
 			if (_object.Accesos != null)
 				DeleteAccesos(_object);
@@ -150,7 +154,7 @@ namespace DataAccess.PatenteFamilia
 		/// <history>
 		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
-		public static void Update(Domain.PatenteFamilia.Familia _object)
+		public static void Update(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
 			using (SqlConnection conn = new SqlConnection(conString))
 			{
@@ -230,7 +234,7 @@ namespace DataAccess.PatenteFamilia
 			}
 		}
 
-		public static void Insert(Domain.PatenteFamilia.Familia _object)
+		public static void Insert(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
 			using (SqlConnection conn = new SqlConnection(conString))
 			{

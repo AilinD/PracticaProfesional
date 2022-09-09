@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Domain.PatenteFamilia;
 using DataAccess.Adapter;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
 	public class Familia_Facade
 	{

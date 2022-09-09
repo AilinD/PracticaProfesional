@@ -3,7 +3,7 @@ using Domain.PatenteFamilia;
 using System;
 using System.Data;
 
-namespace DataAccess.Adapter
+namespace ServiceLayer.DAL.Adapter
 {
 
     public class FamiliaAdapter

@@ -6,23 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Adapter
+namespace ServiceLayer.DAL.PatenteFamilia
 {
-	public class UsuarioCollectionAdapter
-	{
-		private System.Data.DataTable datosDT;
+    public class PatenteCollectionAdapter
+    {
+		private DataTable datosDT;
 
-		public UsuarioCollectionAdapter(DataTable datosDT)
+		public PatenteCollectionAdapter(DataTable datosDT)
 		{
 			this.datosDT = datosDT;
 		}
 
-		public void Fill(List<Usuario> collection)
+		public void Fill(List<Patente> collection)
 		{
 			foreach (DataRow row in datosDT.Rows)
 			{
-				Usuario _object = new Usuario();
-				UsuarioAdapter adapter = new UsuarioAdapter(row);
+				Patente _object = new Patente();
+				PatenteAdapter adapter = new PatenteAdapter(row);
 				adapter.Fill(_object);
 				collection.Add(_object);
 			}

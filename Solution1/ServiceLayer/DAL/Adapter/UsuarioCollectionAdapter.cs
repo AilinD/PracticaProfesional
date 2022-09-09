@@ -1,6 +1,4 @@
-﻿using DataAccess.Adapter;
-using Domain.PatenteFamilia;
-//using ServiceLayer.Domain.PatenteFamilia;
+﻿using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.DAL.Implementaciones.Adapter
+namespace ServiceLayer.DAL.Adapter
 {
 	public class UsuarioCollectionAdapter
 	{

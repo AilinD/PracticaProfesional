@@ -8,15 +8,15 @@ using System.Configuration;
 using System.Data.SqlClient;
 using Domain.PatenteFamilia;
 
-namespace DataAccess.PatenteFamilia
+namespace ServiceLayer.DAL.PatenteFamilia
 {
 	public class Familia_Patente
 	{
 		readonly static string conString;
-
-		static Familia_Patente()
+        //DESKTOP-RM3UB93\SQLEXPRESS
+        static Familia_Patente()
 		{
-			conString = @"Data Source=DESKTOP-RM3UB93\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+			conString = @"Data Source=DESKTOP-H0P0HUN\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
 		}
 
 		public static DataSet SelectAll()
