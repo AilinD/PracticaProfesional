@@ -1,5 +1,5 @@
-﻿using DataAccess.PatenteFamilia;
-using Domain.PatenteFamilia;
+﻿using ServiceLayer.DAL.PatenteFamilia;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Data;
 
@@ -22,7 +22,7 @@ namespace ServiceLayer.DAL.Adapter
 			_object.Nombre = (System.String)row["Nombre"];
 
 			//Traigo accesos de familia
-			DataTable relacionesFamilia = DataAccess.PatenteFamilia.Familia_Patente.GetAccesos(_object.IdFamiliaElement);
+			DataTable relacionesFamilia = DAL.PatenteFamilia.Familia_Patente.GetAccesos(_object.IdFamiliaElement);
 
 			foreach (DataRow rowAccesos in relacionesFamilia.Rows)
 			{
@@ -30,11 +30,11 @@ namespace ServiceLayer.DAL.Adapter
 			}
 
 			//Traigo accesos de patentes
-			DataTable relacionesPatentes = DataAccess.PatenteFamilia.Familia_Patente.GetAccesos(_object.IdFamiliaElement);
+			DataTable relacionesPatentes = DAL.PatenteFamilia.Familia_Patente.GetAccesos(_object.IdFamiliaElement);
 
 			foreach (DataRow rowAccesos in relacionesPatentes.Rows)
 			{
-				_object.Add(DataAccess.PatenteFamilia.Patente_Facade.GetAdapted((System.String)rowAccesos["IdPatente"]));
+				_object.Add(DAL.PatenteFamilia.Patente_Facade.GetAdapted((System.String)rowAccesos["IdPatente"]));
 			}
 		}
 	}

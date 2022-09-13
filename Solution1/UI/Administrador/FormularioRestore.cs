@@ -28,8 +28,9 @@ namespace UI.Administrador
             {
 
                 ServiceLayer.BLL.RestoreService.Current.RestoreDatabase();
-               // CaluculateAll(progressBar1);
+                CaluculateAll(progressBarRestore);
                 MessageBox.Show("Restore Exitoso!");
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -50,5 +51,9 @@ namespace UI.Administrador
             }
         }
 
+        private void progressBarRestore_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

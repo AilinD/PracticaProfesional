@@ -1,6 +1,6 @@
 ﻿
-using DataAccess.PatenteFamilia;
-using Domain.PatenteFamilia;
+using ServiceLayer.DAL.PatenteFamilia;
+using ServiceLayer.Domain.PatenteFamilia;
 //using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Data;
@@ -20,7 +20,7 @@ namespace DataAccess.Adapter
 			this.row = row;
 		}
 
-		public void Fill(Domain.PatenteFamilia.Familia _object)
+		public void Fill(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
 			_object.IdFamiliaElement = (System.String)row["IdFamilia"];
 

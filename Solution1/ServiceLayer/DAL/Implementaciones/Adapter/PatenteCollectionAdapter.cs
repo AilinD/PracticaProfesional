@@ -1,5 +1,5 @@
-﻿using Domain.PatenteFamilia;
-//using ServiceLayer.Domain.PatenteFamilia;
+﻿
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,7 +23,7 @@ namespace D.Implementaciones.Adapter
 			foreach (DataRow row in datosDT.Rows)
 			{
 				Patente _object = new Patente();
-				DataAccess.PatenteFamilia.PatenteAdapter adapter = new DataAccess.PatenteFamilia.PatenteAdapter(row);
+				ServiceLayer.DAL.PatenteFamilia.PatenteAdapter adapter = new ServiceLayer.DAL.PatenteFamilia.PatenteAdapter(row);
 				adapter.Fill(_object);
 				collection.Add(_object);
 			}

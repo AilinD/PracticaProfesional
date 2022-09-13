@@ -225,6 +225,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\FormContBackRest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FormContBackRest.Designer.cs">
+      <DependentUpon>FormContBackRest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\FormularioBakup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     <Compile Include="Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrador\FormContBackRest.resx">
+      <DependentUpon>FormContBackRest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioBakup.resx">
       <DependentUpon>FormularioBakup.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,6 +28,7 @@ namespace UI.Administrador
                 ServiceLayer.BLL.BackupService.Current.CrearBackup();
                 CaluculateAll(progressBar1);
                 MessageBox.Show("Backup Exitoso!");
+                this.Close();
             }
             catch (Exception)
             {
@@ -64,12 +65,17 @@ namespace UI.Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                txtubicacion.Text = fbd.SelectedPath;
-                btnBackup.Enabled = true;
-            }
+            //FolderBrowserDialog fbd = new FolderBrowserDialog();
+            //if (fbd.ShowDialog() == DialogResult.OK)
+            //{
+            //    txtubicacion.Text = fbd.SelectedPath;
+            //    btnBackup.Enabled = true;
+            //}
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

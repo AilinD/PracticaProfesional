@@ -1,5 +1,5 @@
 ﻿using DataAccess.Adapter;
-using Domain.PatenteFamilia;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;

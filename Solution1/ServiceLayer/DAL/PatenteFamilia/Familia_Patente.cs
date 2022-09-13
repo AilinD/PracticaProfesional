@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-using Domain.PatenteFamilia;
+using ServiceLayer.Domain.PatenteFamilia;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -218,7 +218,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
-		public static void DeleteAccesos(Familia _object)
+		public static void DeleteAccesos(Domain.PatenteFamilia.Familia _object)
 		{
 			using (SqlConnection conn = new SqlConnection(conString))
 			{

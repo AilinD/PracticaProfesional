@@ -1,4 +1,4 @@
-﻿using Domain.PatenteFamilia;
+﻿using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceLayer.DAL.PatenteFamilia
-
+{ 
     public class Patente_dal
     {
 
