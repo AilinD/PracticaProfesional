@@ -52,7 +52,7 @@ namespace ConsolaPruebas
             //Patente_dal.SelectAll();
             //Familia_dal.SelectAll();
 
-            Console.WriteLine("NuevaPrueba");
+            Console.WriteLine("BusBus");
    
             Console.ReadKey();   
         }
