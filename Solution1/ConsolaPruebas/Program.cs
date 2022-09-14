@@ -48,9 +48,11 @@ namespace ConsolaPruebas
 
             //LoggerRepositorio.Current.WriteLog();
 
-            Usuario_dal.SelectAll();
-            Patente_dal.SelectAll();
-            Familia_dal.SelectAll();
+            //Usuario_dal.SelectAll();
+            //Patente_dal.SelectAll();
+            //Familia_dal.SelectAll();
+
+            Console.WriteLine("PruebaPrueba");
    
             Console.ReadKey();   
         }
