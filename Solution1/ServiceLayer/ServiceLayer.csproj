@@ -43,10 +43,6 @@
     <Reference Include="Serilog.Sinks.File, Version=5.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.File.5.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ServiceLayer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -82,16 +78,16 @@
     <Compile Include="DAL\Implementaciones\LoggerRepositorio.cs" />
     <Compile Include="DAL\Interfaces\ILenguajeRepositorio.cs" />
     <Compile Include="DAL\LanguageDAL.cs" />
-    <Compile Include="DAL\PatenteFamilia\Familia_dal.cs" />
-    <Compile Include="DAL\PatenteFamilia\Familia_Facade.cs" />
-    <Compile Include="DAL\PatenteFamilia\Familia_Patente.cs" />
-    <Compile Include="DAL\PatenteFamilia\Familia_Patente_Facade.cs" />
-    <Compile Include="DAL\PatenteFamilia\PatenteAdapter.cs" />
-    <Compile Include="DAL\PatenteFamilia\PatenteCollectionAdapter.cs" />
-    <Compile Include="DAL\PatenteFamilia\Patente_dal.cs" />
-    <Compile Include="DAL\PatenteFamilia\Patente_Facade.cs" />
-    <Compile Include="DAL\PatenteFamilia\Usuario_dal.cs" />
-    <Compile Include="DAL\PatenteFamilia\Usuario_Facade.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Familia_dal.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Familia_Facade.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Familia_Patente.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Familia_Patente_Facade.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\PatenteAdapter.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\PatenteCollectionAdapter.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Patente_dal.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Patente_Facade.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Usuario_dal.cs" />
+    <Compile Include="DAL\PatenteFamiliaDAL\Usuario_Facade.cs" />
     <Compile Include="Domain\Exepciones\WordNotFoundExeption.cs" />
     <Compile Include="Domain\PatenteFamilia\Familia.cs" />
     <Compile Include="Domain\PatenteFamilia\FamiliaElement.cs" />
@@ -125,15 +121,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
-      <Project>{A7A2E9BC-4342-4811-9A0B-4C838691B34B}</Project>
+      <Project>{a7a2e9bc-4342-4811-9a0b-4c838691b34b}</Project>
       <Name>Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{FEB1C9C9-1D5D-4381-86BB-9A947B971113}</Project>
+      <Project>{feb1c9c9-1d5d-4381-86bb-9a947b971113}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{158702F4-E1F7-4E02-B7E9-129DF324F40A}</Project>
+      <Project>{158702f4-e1f7-4e02-b7e9-129df324f40a}</Project>
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>

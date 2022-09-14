@@ -1,11 +1,10 @@
-﻿//using ServiceLayer.Servicios.Criptografía;
+﻿
+
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ServiceLayer.Domain.PatenteFamilia
+namespace ServiceLayer.PatenteFamilia
 {
 	public class Usuario
 	{
