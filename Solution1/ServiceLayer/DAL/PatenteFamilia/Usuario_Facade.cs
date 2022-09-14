@@ -68,7 +68,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static void Delete(Domain.PatenteFamilia.Usuario _object)
+        public static void Delete(ServiceLayer.Domain.PatenteFamilia.Usuario _object)
         {
             try
             {

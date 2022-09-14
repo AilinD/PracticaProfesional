@@ -103,7 +103,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// <remarks>
         /// </remarks>
         /// <history>
-        /// 	[lenovo]	04/06/2013 01:53:03 a.m.
         /// </history>
         public static DataSet Select(System.String IdUsuario)
         {
@@ -141,7 +140,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// <remarks>
         /// </remarks>
         /// <history>
-        /// 	[lenovo]	04/06/2013 01:53:03 a.m.
         /// </history>
         public static void Delete(Domain.PatenteFamilia.Usuario _object)
         {
@@ -348,7 +346,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// <remarks>
         /// </remarks>
         /// <history>
-        /// 	[lenovo]	04/06/2013 01:53:03 a.m.
         /// </history>
         public static void DeleteFamilias(Domain.PatenteFamilia.Usuario _object)
         {
@@ -375,7 +372,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// <remarks>
         /// </remarks>
         /// <history>
-        /// 	[lenovo]	04/06/2013 01:53:03 a.m.
         /// </history>
         public static DataTable GetPatentes(System.String IdUsuario)
         {

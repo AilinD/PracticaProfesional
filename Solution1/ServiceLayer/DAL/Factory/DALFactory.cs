@@ -13,14 +13,8 @@ namespace ServiceLayer.DAL.Factory
     /// </summary>
     internal class DALFactory
     {
-        public static ILenguajeRepositorio LenguajeRepositorio { get; private set; }
-
         public static LenguajeRepositorio LanguageRepository { get; private set; }
 
         public static LoggerRepositorio LoggerRepository { get; private set; }
-        static DALFactory()
-        {
-           // LenguajeRepositorio = CreateInstance<ILenguajeRepositorio>("BaseServices." + JsonRepository + ".LanguageRepository");
-        }
     }
 }

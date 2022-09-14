@@ -49,5 +49,24 @@ namespace ServiceLayer.DAL.Implementaciones
 
             throw new WordNotFoundExeption();
         }
+        public void WriteNewWord(string word, string value)
+        {
+
+
+        }
+
+        public Dictionary<string, string> FindAll()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Generar una implementación que lea las extensiones de todos mis archivos dentro de I18n
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetCurrentCultures()
+        {
+            return new List<string>();
+        }
     }
 }

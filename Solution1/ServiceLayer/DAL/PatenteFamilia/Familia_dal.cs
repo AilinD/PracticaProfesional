@@ -64,7 +64,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// <remarks>
 		/// </remarks>
 		/// <history>
-		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
 		public static DataSet Select(System.String IdFamiliaElement)
 		{
@@ -114,7 +113,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// <remarks>
 		/// </remarks>
 		/// <history>
-		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
 		public static void Delete(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
@@ -152,7 +150,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// <remarks>
 		/// </remarks>
 		/// <history>
-		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
 		public static void Update(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
@@ -322,7 +319,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// <remarks>
 		/// </remarks>
 		/// <history>
-		/// 	[lenovo]	04/06/2013 01:53:03 a.m.
 		/// </history>
 		public static void DeleteAccesos(Domain.PatenteFamilia.Familia _object)
 		{

@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BackupService.cs" />
-    <Compile Include="BLL\LanguageManager.cs" />
+    <Compile Include="BLL\LanguageBLL.cs" />
     <Compile Include="BLL\LoggerBLL.cs" />
     <Compile Include="BLL\Log\ArchivoLog.cs" />
     <Compile Include="BLL\Log\Logger.cs" />
@@ -110,7 +110,7 @@
     <Compile Include="Servicios\Permisos\Permiso.cs" />
     <Compile Include="Servicios\Permisos\Rol.cs" />
     <Compile Include="Servicios\Restore\ServicioRestore.cs" />
-    <Compile Include="Servicios\TranslationService\TranslationService.cs" />
+    <Compile Include="Servicios\TranslationService\LanguageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

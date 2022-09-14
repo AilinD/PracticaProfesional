@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Servicios.TranslationService
 {
-    public class TranslationService
+    public class LanguageManager
     {
-        //public static string Translate(string word)
-        //{
-        //    return BLL.LanguageManager.Translate(word);
-        //}
+        public static string Translate(string word)
+        {
+            return BLL.LanguageBLL.Translate(word);
+        }
     }
 }

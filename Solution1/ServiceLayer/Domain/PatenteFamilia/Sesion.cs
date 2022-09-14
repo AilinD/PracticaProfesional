@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Domain.PatenteFamilia
 {
-    internal class Sesion
+    public class Sesion
     {
+        public Usuario Usuario { get; set; }
     }
 }
