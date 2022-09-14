@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Management.XEvent;
+using ServiceLayer.Domain.PatenteFamilia;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,8 +19,26 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormContBackRest());
+            Application.Run(new Login());
             //Application.Run(new FormularioRestore());
         }
+
+    
+        public static Sesion PromptForLogin()
+        {
+            using (var loginForm = new Login())
+            {
+                var dialogResult = loginForm.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+
+                    return loginForm.SesionIniciada;
+
+
+                loginForm.Close();
+            }
+
+            return default;
+        }
+        
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ServiceLayer.BLL;
+using ServiceLayer.Domain.PatenteFamilia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace UI
 {
     public partial class Login : Form
     {
+        public Sesion SesionIniciada { get; private set; }
         public Login()
         {
             InitializeComponent();
@@ -27,6 +30,19 @@ namespace UI
             {
                 throw ex;
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text);
+            SesionIniciada = isAuth;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

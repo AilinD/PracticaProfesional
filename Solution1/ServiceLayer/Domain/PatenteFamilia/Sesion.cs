@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ServiceLayer.Domain.PatenteFamilia
 {
     public class Sesion
     {
-        public Usuario Usuario { get; set; }
+        public Usuario usuario { get; set; }
     }
 }
