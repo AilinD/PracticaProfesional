@@ -231,6 +231,12 @@
     <Compile Include="Administrador\FormContBackRest.Designer.cs">
       <DependentUpon>FormContBackRest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\FormPatenteFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\FormPatenteFamilia.Designer.cs">
+      <DependentUpon>FormPatenteFamilia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\FormularioBakup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </Compile>
     <EmbeddedResource Include="Administrador\FormContBackRest.resx">
       <DependentUpon>FormContBackRest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\FormPatenteFamilia.resx">
+      <DependentUpon>FormPatenteFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioBakup.resx">
       <DependentUpon>FormularioBakup.cs</DependentUpon>

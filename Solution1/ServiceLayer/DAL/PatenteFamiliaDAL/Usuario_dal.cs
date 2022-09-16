@@ -115,6 +115,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
                     SqlCommand sqlComm = new SqlCommand("Usuario_Select", conn);
                     sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                    sqlComm.Parameters.AddWithValue("@Password", IdUsuario);
 
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
@@ -153,7 +154,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
                 SqlCommand sqlComm = new SqlCommand("Usuario_Delete", conn);
                 sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-
+                sqlComm.Parameters.AddWithValue("@Password", _object.IdUsuario);
 
 
                 sqlComm.CommandType = CommandType.StoredProcedure;
