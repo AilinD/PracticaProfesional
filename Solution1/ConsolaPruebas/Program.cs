@@ -1,6 +1,5 @@
 ﻿using ServiceLayer.DAL.Implementaciones;
 using ServiceLayer.DAL.PatenteFamilia;
-using ServiceLayer.Servicios.Criptografía;
 using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace ConsolaPruebas
         static void Main(string[] args)
 
         {
-            //private string key = "";
+            //    private string key = "";
             //Console.WriteLine("Digite una palabra");
 
             //string opcion = "";
@@ -36,15 +35,15 @@ namespace ConsolaPruebas
             //Console.ReadKey();
 
 
-            //var key = "b14ca5898a4e4133bbce2ea2315a1916";
+            var key = "b14ca5898a4e4133bbce2ea2315a1916";
 
-            //Console.WriteLine("Please enter a string for encryption");
-            //var str = Console.ReadLine();
-            //var encryptedString = Hashing.EncryptString(key, str);
-            //Console.WriteLine($"encrypted string = {encryptedString}");
+            Console.WriteLine("Please enter a string for encryption");
+            var str = Console.ReadLine();
+            var encryptedString = Hashing.EncryptString(key, str);
+            Console.WriteLine($"encrypted string = {encryptedString}");
 
-            //var decryptedString = Hashing.DecryptString(key, encryptedString);
-            //Console.WriteLine($"decrypted string = {decryptedString}");
+            var decryptedString = Hashing.DecryptString(key, encryptedString);
+            Console.WriteLine($"decrypted string = {decryptedString}");
 
             //LoggerRepositorio.Current.WriteLog();
 
