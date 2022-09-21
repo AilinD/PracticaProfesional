@@ -62,6 +62,7 @@
             this.Name = "FormContBackRest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Backup & Restore";
+            this.Load += new System.EventHandler(this.FormContBackRest_Load);
             this.ResumeLayout(false);
 
         }

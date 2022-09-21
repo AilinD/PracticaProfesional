@@ -14,7 +14,7 @@ namespace DataAccess.Tools
         readonly static string conString;
         static SqlHelper()
         {
-            conString = ConfigurationManager.ConnectionStrings["MainConString2"].ConnectionString;
+            conString = ConfigurationManager.ConnectionStrings["dbpatentefam"].ConnectionString;
         }
         public static Int32 ExecuteNonQuery(String commandText,
             CommandType commandType, params SqlParameter[] parameters)

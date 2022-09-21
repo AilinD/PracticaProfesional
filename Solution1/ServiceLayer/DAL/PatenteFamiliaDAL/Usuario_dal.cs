@@ -15,7 +15,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
         static Usuario_dal()
         {
-            conString = @"Data Source=DESKTOP-H0P0HUN\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+            conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
         }
 
 
@@ -52,8 +52,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
         {
             try
             {
-
-
 
                 DataTable data = new DataTable();
                 using (SqlConnection conn = new SqlConnection(conString))
@@ -254,7 +252,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 SqlCommand sqlComm = new SqlCommand("Usuario_Insert", conn);
                 sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
                 sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
-                sqlComm.Parameters.AddWithValue("password", _object.Password);
+                //sqlComm.Parameters.AddWithValue("",DateTime.Now);
+                //sqlComm.Parameters.AddWithValue("password", _object.Password);
 
 
 

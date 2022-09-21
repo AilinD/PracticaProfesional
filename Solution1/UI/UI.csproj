@@ -249,11 +249,47 @@
     <Compile Include="Administrador\FormularioRestore.Designer.cs">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Administrador\MenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Administrador\MenuAdministrador.Designer.cs">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\MenuPatenteFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\MenuPatenteFamilia.Designer.cs">
+      <DependentUpon>MenuPatenteFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\MenuPatentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\MenuPatentes.Designer.cs">
+      <DependentUpon>MenuPatentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\MenuRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\MenuRoles.Designer.cs">
+      <DependentUpon>MenuRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\MenuUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\MenuUsuarios.Designer.cs">
+      <DependentUpon>MenuUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generales\MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generales\MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Navegacion\AyudaNavegacion.cs" />
     <Compile Include="Program.cs" />
@@ -276,8 +312,26 @@
     <EmbeddedResource Include="Administrador\FormularioRestore.resx">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Administrador\MenuAdministrador.resx">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\MenuPatenteFamilia.resx">
+      <DependentUpon>MenuPatenteFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\MenuPatentes.resx">
+      <DependentUpon>MenuPatentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\MenuRoles.resx">
+      <DependentUpon>MenuRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\MenuUsuarios.resx">
+      <DependentUpon>MenuUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generales\MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

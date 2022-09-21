@@ -77,5 +77,17 @@ namespace UI.Administrador
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog diag = new OpenFileDialog();
+            diag.Filter = "Backup Sql Server.bak";
+            diag.Filter = "";
+            if(diag.ShowDialog() == DialogResult.OK)
+            {
+                txtUbic.Text=diag.FileName;
+                btnBackup.Enabled=true; 
+            }
+        }
     }
 }

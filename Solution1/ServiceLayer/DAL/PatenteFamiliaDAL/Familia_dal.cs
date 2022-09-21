@@ -1,4 +1,4 @@
-﻿using ServiceLayer.DAL.PatenteFamilia;
+﻿ using ServiceLayer.DAL.PatenteFamilia;
 using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;

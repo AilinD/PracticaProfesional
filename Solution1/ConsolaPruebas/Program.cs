@@ -35,21 +35,28 @@ namespace ConsolaPruebas
             //Console.ReadKey();
 
 
-            var key = "b14ca5898a4e4133bbce2ea2315a1916";
+            //var key = "b14ca5898a4e4133bbce2ea2315a1916";
 
-            Console.WriteLine("Please enter a string for encryption");
-            var str = Console.ReadLine();
-            var encryptedString = Hashing.EncryptString(key, str);
-            Console.WriteLine($"encrypted string = {encryptedString}");
+            //Console.WriteLine("Please enter a string for encryption");
+            //var str = Console.ReadLine();
+            //var encryptedString = Hashing.EncryptString(key, str);
+            //Console.WriteLine($"encrypted string = {encryptedString}");
 
-            var decryptedString = Hashing.DecryptString(key, encryptedString);
-            Console.WriteLine($"decrypted string = {decryptedString}");
+            //var decryptedString = Hashing.DecryptString(key, encryptedString);
+            //Console.WriteLine($"decrypted string = {decryptedString}");
 
             //LoggerRepositorio.Current.WriteLog();
 
             //Usuario_dal.SelectAll();
             //Patente_dal.SelectAll();
             //Familia_dal.SelectAll();
+
+            ServiceLayer.Domain.PatenteFamilia.Usuario usuario = new ServiceLayer.Domain.PatenteFamilia.Usuario();
+            usuario.Nombre = "Ailin";
+          //  usuario.IdUsuario = "";
+          //  usuario.Permisos = List<permisos>;
+
+            Usuario_dal.Insert(usuario);
 
             Console.WriteLine("BusBus");
    

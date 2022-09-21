@@ -30,5 +30,10 @@ namespace UI.Administrador
             formularioRestore.ShowDialog();
             formularioRestore.Hide();
         }
+
+        private void FormContBackRest_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
