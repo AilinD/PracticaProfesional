@@ -279,6 +279,12 @@
     <Compile Include="Administrador\MenuUsuarios.Designer.cs">
       <DependentUpon>MenuUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\NNuevoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\NNuevoUsuario.Designer.cs">
+      <DependentUpon>NNuevoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generales\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\MenuUsuarios.resx">
       <DependentUpon>MenuUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\NNuevoUsuario.resx">
+      <DependentUpon>NNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Generales\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

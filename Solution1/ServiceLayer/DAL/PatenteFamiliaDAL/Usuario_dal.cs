@@ -253,7 +253,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
                 sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
                 //sqlComm.Parameters.AddWithValue("",DateTime.Now);
-                //sqlComm.Parameters.AddWithValue("password", _object.Password);
+                sqlComm.Parameters.AddWithValue("Contraseña", _object.Password);
 
 
 

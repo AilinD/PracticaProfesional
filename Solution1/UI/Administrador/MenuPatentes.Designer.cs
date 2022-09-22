@@ -44,9 +44,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(296, 177);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
@@ -78,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 77);
+            this.label2.Location = new System.Drawing.Point(365, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(28, 241);
+            this.button2.Location = new System.Drawing.Point(28, 265);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 23);
             this.button2.TabIndex = 5;
@@ -96,7 +96,7 @@
             // chkModificar
             // 
             this.chkModificar.AutoSize = true;
-            this.chkModificar.Location = new System.Drawing.Point(300, 106);
+            this.chkModificar.Location = new System.Drawing.Point(368, 106);
             this.chkModificar.Name = "chkModificar";
             this.chkModificar.Size = new System.Drawing.Size(69, 17);
             this.chkModificar.TabIndex = 6;
@@ -106,7 +106,7 @@
             // chkEliminar
             // 
             this.chkEliminar.AutoSize = true;
-            this.chkEliminar.Location = new System.Drawing.Point(300, 130);
+            this.chkEliminar.Location = new System.Drawing.Point(368, 129);
             this.chkEliminar.Name = "chkEliminar";
             this.chkEliminar.Size = new System.Drawing.Size(62, 17);
             this.chkEliminar.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(336, 23);
+            this.btnAll.Location = new System.Drawing.Point(368, 22);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(82, 23);
             this.btnAll.TabIndex = 8;
@@ -124,7 +124,7 @@
             // 
             // btnAccionar
             // 
-            this.btnAccionar.Location = new System.Drawing.Point(300, 176);
+            this.btnAccionar.Location = new System.Drawing.Point(362, 192);
             this.btnAccionar.Name = "btnAccionar";
             this.btnAccionar.Size = new System.Drawing.Size(75, 23);
             this.btnAccionar.TabIndex = 9;
@@ -135,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 293);
+            this.ClientSize = new System.Drawing.Size(481, 314);
             this.Controls.Add(this.btnAccionar);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.chkEliminar);

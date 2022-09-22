@@ -20,7 +20,7 @@ namespace ServiceLayer.Servicios.Login
                 else if (user != null && pass != null)
                 {
                     var verificacionUsuario = Usuario_dal.Select(user);
-                    var verificacionPass = 
+                   // var verificacionPass = 
                     return true;
                 }
             }

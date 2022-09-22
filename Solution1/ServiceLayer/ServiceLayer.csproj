@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BackupService.cs" />
+    <Compile Include="BLL\BLLFamillia.cs" />
     <Compile Include="BLL\BLLUsuario.cs" />
     <Compile Include="BLL\CheckeoDigitoV.cs" />
     <Compile Include="BLL\LanguageBLL.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="BLL\LogginService.cs" />
     <Compile Include="BLL\Log\ArchivoLog.cs" />
     <Compile Include="BLL\Log\Logger.cs" />
+    <Compile Include="BLL\PatenteBLL.cs" />
     <Compile Include="BLL\RestoreService.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DAL\Adapter\FamiliaAdapter.cs" />

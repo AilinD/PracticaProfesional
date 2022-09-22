@@ -16,7 +16,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
         //DESKTOP-RM3UB93\SQLEXPRESS
         static Familia_Patente()
 		{
-			conString = @"Data Source=DESKTOP-H0P0HUN\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+			conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
 		}
 
 		public static DataSet SelectAll()

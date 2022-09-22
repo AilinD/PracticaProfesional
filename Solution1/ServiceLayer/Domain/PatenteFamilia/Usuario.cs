@@ -1,6 +1,7 @@
 ﻿
 
 using ServiceLayer.Domain.PatenteFamilia;
+using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
 
@@ -46,7 +47,9 @@ namespace ServiceLayer.Domain.PatenteFamilia
 		{
 			get
 			{
-				return _password;
+				var key = "b14ca5898a4e4133bbce2ea2315a1916";
+				var encryptedpass = Hashing.EncryptString(_password,key);
+				return encryptedpass;
 			}
 			set
 			{
