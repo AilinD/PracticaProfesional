@@ -277,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BD\PatenteFamilia" />
     <None Include="BD\PatenteFamilia.bak" />
     <None Include="packages.config" />
   </ItemGroup>

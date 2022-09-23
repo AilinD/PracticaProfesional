@@ -41,7 +41,7 @@ namespace ServiceLayer.Servicios.Hash
 
         public static string DecryptString(string key, string cipherText)
         {
-            byte[] iv = new byte[16];
+            byte[] iv = new byte[16]; //ERA 16
             byte[] buffer = Convert.FromBase64String(cipherText);
 
             using (Aes aes = Aes.Create())

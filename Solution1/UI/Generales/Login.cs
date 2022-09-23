@@ -14,6 +14,16 @@ namespace UI
 {
     public partial class Login : Form
     {
+        #region singleton
+        private readonly static Patente _instance = new Patente();
+        public static Patente Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        #endregion
         public Sesion SesionIniciada { get; private set; }
         public Login()
         {
@@ -24,6 +34,10 @@ namespace UI
         {
             try
             {
+                var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text,textBox2.Text);
+                SesionIniciada = isAuth;
+                this.DialogResult = DialogResult.OK;
+                MessageBox.Show("Login correcto!");
 
             }
             catch (Exception ex)
@@ -34,10 +48,9 @@ namespace UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-            var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text);
-            SesionIniciada = isAuth;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
+            
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

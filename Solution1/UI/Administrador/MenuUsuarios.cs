@@ -16,5 +16,12 @@ namespace UI.Administrador
         {
             InitializeComponent();
         }
+
+        private void btnNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            NNuevoUsuario nNuevoUsuario = new NNuevoUsuario();
+            nNuevoUsuario.ShowDialog();
+            nNuevoUsuario.Hide();
+        }
     }
 }

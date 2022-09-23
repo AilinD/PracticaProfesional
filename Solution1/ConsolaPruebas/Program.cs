@@ -35,7 +35,7 @@ namespace ConsolaPruebas
             //Console.ReadKey();
 
 
-            //var key = "b14ca5898a4e4133bbce2ea2315a1916";
+            var key = "b14ca5898a4e4133bbce2ea2315a1916";
 
             //Console.WriteLine("Please enter a string for encryption");
             //var str = Console.ReadLine();
@@ -45,18 +45,22 @@ namespace ConsolaPruebas
             //var decryptedString = Hashing.DecryptString(key, encryptedString);
             //Console.WriteLine($"decrypted string = {decryptedString}");
 
+            string opt = "LqNHT2VaRK0jBeI7JT8O1qQyJAWS6AalkWfKz5xT7KQgxIuIj2";
+            var proof = Hashing.DecryptString(key, opt);
+            Console.WriteLine($"decrypted string = {proof}");
+
             //LoggerRepositorio.Current.WriteLog();
 
             //Usuario_dal.SelectAll();
             //Patente_dal.SelectAll();
             //Familia_dal.SelectAll();
 
-            ServiceLayer.Domain.PatenteFamilia.Usuario usuario = new ServiceLayer.Domain.PatenteFamilia.Usuario();
-            usuario.Nombre = "Ailin";
+            //ServiceLayer.Domain.PatenteFamilia.Usuario usuario = new ServiceLayer.Domain.PatenteFamilia.Usuario();
+            //usuario.Nombre = "Ailin";
           //  usuario.IdUsuario = "";
           //  usuario.Permisos = List<permisos>;
 
-            Usuario_dal.Insert(usuario);
+            //Usuario_dal.Insert(usuario);
 
             Console.WriteLine("BusBus");
    

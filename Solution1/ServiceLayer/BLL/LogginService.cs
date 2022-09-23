@@ -22,7 +22,7 @@ namespace ServiceLayer.BLL
         #endregion
         public  Sesion IniciarSesion(string usuario, string pass)
         {
-            var user = BLLUsuario.GetUsuarioByUserName(usuario);
+            var user = BLLUsuario.GetUsuarioByUserName(usuario,pass);
 
             return new Sesion() { usuario = user.usuario};
         }

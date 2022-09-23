@@ -1,6 +1,8 @@
 ﻿using ServiceLayer.Domain.PatenteFamilia;
+using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -48,9 +50,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static Domain.PatenteFamilia.Usuario GetUsuarioByNameAndPassword(string user)
+        public static Domain.PatenteFamilia.Usuario GetUsuarioByNameAndPassword(string user, string contraseña)
         {
             try
+            
             {
 
                 DataTable data = new DataTable();
@@ -59,7 +62,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     Domain.PatenteFamilia.Usuario usuario = new Domain.PatenteFamilia.Usuario();
 
 
-                    SqlCommand sqlComm = new SqlCommand("Usuario_ByUserName", conn);
+                    SqlCommand sqlComm = new SqlCommand("GetUsuarioByNameAndPassword", conn);
                     sqlComm.Parameters.AddWithValue("@User", user);
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
@@ -74,12 +77,19 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     {
                         var permisos = usuario.Permisos.Select(x => x.Nombre).ToString();
                         usuario.Nombre = dr["Nombre"].ToString();
-                        usuario.Password = dr["password"].ToString();
-                        usuario.IdUsuario = dr["IdUsuario"].ToString();
+                        usuario.Password = dr["Contraseña"].ToString();
+                        //usuario.IdUsuario = dr["IdUsuario"].ToString();
 
 
                     }
-                    return usuario;
+                    string key = ConfigurationManager.AppSettings["key"];
+                    string passwd = usuario.Password;
+                    contraseña.Equals(Hashing.DecryptString(key, passwd));
+
+
+
+                   return usuario;
+                    
                 }
             }
             catch (Exception ex)

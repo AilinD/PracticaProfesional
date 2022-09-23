@@ -14,7 +14,7 @@ namespace DataAccess.Repo.Sql
         private  string ConString { get; }
         public BackupRepository()
         {
-            ConString = ConfigurationManager.ConnectionStrings["MainConString2"].ConnectionString;
+            ConString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
         }
         public void CrearBackup(string databasename)
         {
@@ -36,7 +36,7 @@ namespace DataAccess.Repo.Sql
         {
             string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
 
-            return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath2"), filename);
+            return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath"), filename);
         }
     }
 }

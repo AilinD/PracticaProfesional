@@ -107,11 +107,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static Domain.PatenteFamilia.Usuario GetUsuario(string user)
+        public static Domain.PatenteFamilia.Usuario GetUsuario(string user, string contraseña)
         {
             try
             {
-                return Usuario_dal.GetUsuarioByNameAndPassword(user);
+                return Usuario_dal.GetUsuarioByNameAndPassword(user,contraseña);
 
             }
             catch (Exception ex)

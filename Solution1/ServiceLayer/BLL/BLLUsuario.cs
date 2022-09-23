@@ -10,11 +10,11 @@ namespace ServiceLayer.BLL
 {
     public static class BLLUsuario
     {
-        public static ServiceLayer.Domain.PatenteFamilia.Sesion GetUsuarioByUserName(string user)
+        public static ServiceLayer.Domain.PatenteFamilia.Sesion GetUsuarioByUserName(string user, string contraseña)
         {
             try
             {
-                var call = DAL.PatenteFamilia.Usuario_Facade.GetUsuario(user);
+                var call = DAL.PatenteFamilia.Usuario_Facade.GetUsuario(user,contraseña);
                 return new Sesion() {usuario=call };
 
             }
