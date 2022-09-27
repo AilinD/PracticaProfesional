@@ -32,7 +32,7 @@
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.btnIngreso = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -76,12 +76,14 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // txtContraseña
             // 
-            this.textBox2.Location = new System.Drawing.Point(411, 167);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(195, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtContraseña.Location = new System.Drawing.Point(411, 167);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(195, 20);
+            this.txtContraseña.TabIndex = 3;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // lblUsuario
             // 
@@ -112,7 +114,7 @@
             this.ClientSize = new System.Drawing.Size(665, 330);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnIngreso);
             this.Controls.Add(this.panel1);
@@ -134,7 +136,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnIngreso;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblBienvenido;

@@ -2,6 +2,7 @@
 using DataAccess.Repo.Sql.Interfaz;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,8 @@ namespace ServiceLayer.BLL
         #endregion
         public void CrearBackup()
         {
-            backupRepository.CrearBackup("SysCExpert");
+            // backupRepository.CrearBackup("SysCExpert");
+            backupRepository.CrearBackup(ConfigurationManager.AppSettings.Get("BD_PatenteFamilia"));
             
         }
     }

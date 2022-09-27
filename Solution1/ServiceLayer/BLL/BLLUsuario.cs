@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ServiceLayer.BLL
 {
@@ -38,11 +39,11 @@ namespace ServiceLayer.BLL
 				throw  ex;
 			}
 		}
-		public static Domain.PatenteFamilia.Usuario GetAdapted(System.String IdUsuario)
+		public static Domain.PatenteFamilia.Usuario GetAdapted(string usuario)
 		{
 			try
 			{
-				return DAL.PatenteFamilia.Usuario_Facade.GetAdapted(IdUsuario);
+				return DAL.PatenteFamilia.Usuario_Facade.GetAdapted(usuario);
 			}
 			catch (Exception ex)
 			{
@@ -89,11 +90,11 @@ namespace ServiceLayer.BLL
 		public static void Getpermisos(List<string> permisos)
 		{
 		}
-		public static DataRow Select(System.String IdUsuario)
+		public static DataRow Select(string usuario)
 		{
 			try
 			{
-				return DAL.PatenteFamilia.Usuario_Facade.Select(IdUsuario);
+				return DAL.PatenteFamilia.Usuario_Facade.Select(usuario);
 			}
 			catch (Exception ex)
 			{
@@ -101,10 +102,28 @@ namespace ServiceLayer.BLL
 				throw ex;
 			}
 		}
+
+		public static DataTable SSelect(DataGridView dataGridView)
+        {
+			DataTable ExportDataTable = new DataTable();
+			foreach (DataGridViewColumn col in dataGridView.Columns)
+            {
+				ExportDataTable.Columns.Add(col.Name);
+            }
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+				DataRow dataRow = ExportDataTable.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+					dataRow[cell.ColumnIndex] = cell.Value;
+                }ExportDataTable.Rows.Add();
+            }return ExportDataTable;
+        }
 		public static System.Data.DataTable SelectAll()
 		{
 			try
 			{
+               
 				return DAL.PatenteFamilia.Usuario_Facade.SelectAll();
 			}
 			catch (Exception ex)

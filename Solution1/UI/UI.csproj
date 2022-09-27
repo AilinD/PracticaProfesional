@@ -225,6 +225,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\EliminarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\EliminarUsuario.Designer.cs">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\FormContBackRest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,12 +261,6 @@
     <Compile Include="Administrador\MenuAdministrador.Designer.cs">
       <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\MenuPatenteFamilia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\MenuPatenteFamilia.Designer.cs">
-      <DependentUpon>MenuPatenteFamilia.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\MenuPatentes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +278,12 @@
     </Compile>
     <Compile Include="Administrador\MenuUsuarios.Designer.cs">
       <DependentUpon>MenuUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\NNuevoUsuario.cs">
       <SubType>Form</SubType>
@@ -306,6 +312,9 @@
     <Compile Include="Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrador\EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormContBackRest.resx">
       <DependentUpon>FormContBackRest.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,9 +330,6 @@
     <EmbeddedResource Include="Administrador\MenuAdministrador.resx">
       <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\MenuPatenteFamilia.resx">
-      <DependentUpon>MenuPatenteFamilia.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\MenuPatentes.resx">
       <DependentUpon>MenuPatentes.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\MenuUsuarios.resx">
       <DependentUpon>MenuUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\NNuevoUsuario.resx">
       <DependentUpon>NNuevoUsuario.cs</DependentUpon>

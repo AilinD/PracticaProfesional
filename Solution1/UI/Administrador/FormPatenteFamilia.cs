@@ -21,5 +21,29 @@ namespace UI.Administrador
         {
 
         }
+
+        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NNuevoUsuario nNuevoUsuario = new NNuevoUsuario();
+            nNuevoUsuario.MdiParent=this;
+            nNuevoUsuario.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ModificarUsuario modificarUsuario = new ModificarUsuario();
+            modificarUsuario.MdiParent = this;
+            modificarUsuario.Show();
+        }
+
+        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

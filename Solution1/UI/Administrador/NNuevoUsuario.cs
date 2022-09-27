@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ServiceLayer.BLL;
+using System.Configuration;
 
 namespace UI.Administrador
 {
@@ -34,7 +35,7 @@ namespace UI.Administrador
         {
             if (txtContraseña.Text.Equals(txtContra2.Text))
             {
-                var key = "b14ca5898a4e4133bbce2ea2315a1916";
+                var key = ConfigurationManager.AppSettings.Get("key");
                 Usuario usuario = new Usuario();
                 Familia familia = new Familia();
                 familia.Nombre = cboxPatentes.SelectedItem.ToString();
@@ -85,6 +86,11 @@ namespace UI.Administrador
         }
 
         private void cboxPatentes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
 
         }

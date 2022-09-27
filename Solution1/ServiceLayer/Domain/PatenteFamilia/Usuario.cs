@@ -48,7 +48,7 @@ namespace ServiceLayer.Domain.PatenteFamilia
 			get
 			{
 				var key = "b14ca5898a4e4133bbce2ea2315a1916";
-				var encryptedpass = Hashing.EncryptString(_password,key);
+				var encryptedpass = Hashing.EncryptString(key,_password);
 				return encryptedpass;
 			}
 			set

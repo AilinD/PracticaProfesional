@@ -16,5 +16,10 @@ namespace UI.Administrador
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

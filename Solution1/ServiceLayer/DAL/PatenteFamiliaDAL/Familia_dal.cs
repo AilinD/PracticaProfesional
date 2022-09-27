@@ -2,6 +2,7 @@
 using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
 		static Familia_dal()
 		{
-			conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+			//conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+			conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
 		}
         /*
 		 Data Source=DESKTOP-H0P0HUN\SQLEXPRESS

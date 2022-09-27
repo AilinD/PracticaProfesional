@@ -31,7 +31,7 @@ namespace UI.Administrador
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MenuPatenteFamilia formPatenteFam = new MenuPatenteFamilia();
+            FormPatenteFamilia formPatenteFam = new  FormPatenteFamilia();
             formPatenteFam.ShowDialog();
             formPatenteFam.Hide();
         }

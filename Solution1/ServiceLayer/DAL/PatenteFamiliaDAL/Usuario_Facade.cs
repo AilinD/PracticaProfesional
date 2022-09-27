@@ -1,4 +1,5 @@
 ﻿using ServiceLayer.DAL.Adapter;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,11 +24,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static ServiceLayer.Domain.PatenteFamilia.Usuario GetAdapted(System.String IdUsuario)
+        public static ServiceLayer.Domain.PatenteFamilia.Usuario GetAdapted(string usuario)
         {
             try
             {
-                UsuarioAdapter adapter = new UsuarioAdapter(Select(IdUsuario));
+                UsuarioAdapter adapter = new UsuarioAdapter(Select(usuario));
                 Domain.PatenteFamilia.Usuario _object = new Domain.PatenteFamilia.Usuario();
                 adapter.Fill(_object);
                 return _object;
@@ -81,11 +82,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static DataRow Select(System.String IdUsuario)
+        public static DataRow Select(string usuario)
         {
             try
             {
-                return Usuario_dal.Select(IdUsuario).Tables[0].Rows[0];
+                return Usuario_dal.Select(usuario).Tables[0].Rows[0];
             }
             catch (Exception ex)
             {

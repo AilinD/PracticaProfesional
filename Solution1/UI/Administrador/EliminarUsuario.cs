@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI.Administrador
 {
-    public partial class MenuPatenteFamilia : Form
+    public partial class EliminarUsuario : Form
     {
-        public MenuPatenteFamilia()
+        public EliminarUsuario()
         {
             InitializeComponent();
         }

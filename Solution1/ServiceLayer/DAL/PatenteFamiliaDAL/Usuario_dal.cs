@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -17,7 +18,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
         static Usuario_dal()
         {
-            conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+           // conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+            conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
         }
 
 
@@ -40,6 +42,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     conn.Open();
                     sqlComm.ExecuteNonQuery();
                     da.Fill(ds);
+
+
                 }
                 return ds;
             }
@@ -84,11 +88,13 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     }
                     string key = ConfigurationManager.AppSettings["key"];
                     string passwd = usuario.Password;
-                    contraseña.Equals(Hashing.DecryptString(key, passwd));
+                    string basePass =Hashing.EncryptString(key, contraseña);
+                    if (contraseña == basePass);
+                    return usuario;
 
 
 
-                   return usuario;
+                   // return usuario;
                     
                 }
             }
@@ -112,18 +118,19 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </remarks>
         /// <history>
         /// </history>
-        public static DataSet Select(System.String IdUsuario)
+        public static DataSet Select(System.String Usuario)
         {
             try
             {
-
+               
                 DataSet ds = new DataSet("test");
                 using (SqlConnection conn = new SqlConnection(conString))
                 {
 
-                    SqlCommand sqlComm = new SqlCommand("Usuario_Select", conn);
-                    sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-                    sqlComm.Parameters.AddWithValue("@Password", IdUsuario);
+                    SqlCommand sqlComm = new SqlCommand("Usuario_ByUsername", conn);
+                    sqlComm.Parameters.AddWithValue("@Nombre", Usuario);
+                    //sqlComm.Parameters.AddWithValue("@Nombre",usuario.Nombre);
+                    //sqlComm.Parameters.AddWithValue("@Password", usuario.Password);
 
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
@@ -134,6 +141,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     sqlComm.ExecuteNonQuery();
                     da.Fill(ds);
                 }
+               
                 return ds;
             }
             catch (Exception ex)
@@ -142,6 +150,21 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 throw ex;
             }
         }
+
+        public static DataSet DataGridToDataTable(DataGridView dataGridView)
+        {
+            DataSet ExportDataTable = new DataSet();
+            foreach (DataGridViewColumn col in dataGridView.Columns)
+            {
+                ExportDataTable.Copy();
+                ExportDataTable.Tables.Add();
+            }
+            
+                
+            
+            return ExportDataTable;
+        }
+
 
         /// <summary>
         /// Suprime un registro de la tabla Usuario por una clave primaria(primary key).
@@ -185,6 +208,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 SqlCommand sqlComm = new SqlCommand("Usuario_Update", conn);
                 sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
                 sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+                sqlComm.Parameters.AddWithValue("@Contraseña", _object.Password);
 
 
                 sqlComm.CommandType = CommandType.StoredProcedure;

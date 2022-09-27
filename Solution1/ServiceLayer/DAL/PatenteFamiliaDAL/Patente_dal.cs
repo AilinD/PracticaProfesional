@@ -1,6 +1,7 @@
 ﻿using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -21,7 +22,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
                 //DESKTOP-RM3UB93\SQLEXPRESS
 
-                conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+                //conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
+                conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
 
             }
             catch (Exception ex)

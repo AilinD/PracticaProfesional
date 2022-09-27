@@ -34,7 +34,7 @@ namespace UI
         {
             try
             {
-                var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text,textBox2.Text);
+                var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text,txtContraseña.Text);
                 SesionIniciada = isAuth;
                 this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Login correcto!");
@@ -48,12 +48,16 @@ namespace UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
-            
-            
+       
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
