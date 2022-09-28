@@ -7,6 +7,7 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using ServiceLayer.Domain.PatenteFamilia;
+using Serilog;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -17,7 +18,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
         static Familia_Patente()
 		{
 			//conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
-			conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 		}
 
 		public static DataSet SelectAll()
@@ -48,7 +49,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -91,7 +93,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -104,42 +107,53 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// </history>
 		public static void Delete(FamiliaElement _object)
 		{
-			using (SqlConnection conn = new SqlConnection(conString))
+			try
 			{
-				SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);
-				sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+                    SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);
+                    sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
 
-				sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandType = CommandType.StoredProcedure;
 
-				SqlDataAdapter da = new SqlDataAdapter();
-				da.SelectCommand = sqlComm;
-				conn.Open();
-				sqlComm.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
 
 
+                }
+            }
+			catch (Exception ex)
+			{
+                Log.Error(ex, "");
+                throw ex;
 			}
-			//Database myDatabase = DatabaseFactory.CreateDatabase();
-			//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Patente_Delete");
-			//myDatabase.AddInParameter(myCommand, "@IdFamilia", DbType.String, _object.IdFamiliaElement);
-
-			//myDatabase.ExecuteNonQuery(myCommand);
 		}
 
 		public static void Update(FamiliaElement _object)
 		{
-			using (SqlConnection conn = new SqlConnection(conString))
+			try
 			{
-				SqlCommand sqlComm = new SqlCommand("Familia_Patente_Update", conn);
-				sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
-				sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+				using (SqlConnection conn = new SqlConnection(conString))
+				{
+					SqlCommand sqlComm = new SqlCommand("Familia_Patente_Update", conn);
+					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
+					sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
 
-				sqlComm.CommandType = CommandType.StoredProcedure;
+					sqlComm.CommandType = CommandType.StoredProcedure;
 
-				SqlDataAdapter da = new SqlDataAdapter();
-				da.SelectCommand = sqlComm;
-				conn.Open();
-				sqlComm.ExecuteNonQuery();
+					SqlDataAdapter da = new SqlDataAdapter();
+					da.SelectCommand = sqlComm;
+					conn.Open();
+					sqlComm.ExecuteNonQuery();
+				}
 			}
+			catch (Exception ex)
+			{
+                Log.Error(ex, "");
+				throw ex;
+            }
 		}
 
 		//Database myDatabase = DatabaseFactory.CreateDatabase();
@@ -158,19 +172,27 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		/// </history>
 		public static void Insert(FamiliaElement _object)
 		{
-			using (SqlConnection conn = new SqlConnection(conString))
+			try
 			{
-				SqlCommand sqlComm = new SqlCommand("Familia_Patente_Insert", conn);
-				sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
-				sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+				using (SqlConnection conn = new SqlConnection(conString))
+				{
+					SqlCommand sqlComm = new SqlCommand("Familia_Patente_Insert", conn);
+					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
+					sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
 
-				sqlComm.CommandType = CommandType.StoredProcedure;
+					sqlComm.CommandType = CommandType.StoredProcedure;
 
-				SqlDataAdapter da = new SqlDataAdapter();
-				da.SelectCommand = sqlComm;
-				conn.Open();
-				sqlComm.ExecuteNonQuery();
+					SqlDataAdapter da = new SqlDataAdapter();
+					da.SelectCommand = sqlComm;
+					conn.Open();
+					sqlComm.ExecuteNonQuery();
+				}
 			}
+			catch (Exception ex)
+			{
+                Log.Error(ex, "");
+				throw ex;
+            }
 
 
 
@@ -212,26 +234,36 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
 		public static void DeleteAccesos(Domain.PatenteFamilia.Familia _object)
 		{
-			using (SqlConnection conn = new SqlConnection(conString))
+			try
 			{
 
-				SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);
-				sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
+
+				using (SqlConnection conn = new SqlConnection(conString))
+				{
+
+					SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);
+					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
 
 
-				sqlComm.CommandType = CommandType.StoredProcedure;
+					sqlComm.CommandType = CommandType.StoredProcedure;
 
-				SqlDataAdapter da = new SqlDataAdapter();
-				da.SelectCommand = sqlComm;
-				conn.Open();
-				sqlComm.ExecuteNonQuery();
-			}
+					SqlDataAdapter da = new SqlDataAdapter();
+					da.SelectCommand = sqlComm;
+					conn.Open();
+					sqlComm.ExecuteNonQuery();
+				}
+			}catch(Exception ex)
+			{
+                Log.Error(ex, "");
+				throw ex;
+            }
 		}
 	}
 }

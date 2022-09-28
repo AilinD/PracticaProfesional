@@ -35,10 +35,10 @@ namespace UI
             try
             {
                 var isAuth = BLLUsuario.GetUsuarioByUserName(textBox1.Text,txtContraseña.Text);
-                SesionIniciada = isAuth;
-                this.DialogResult = DialogResult.OK;
+                //SesionIniciada = isAuth;
+                //this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Login correcto!");
-
+                
             }
             catch (Exception ex)
             {

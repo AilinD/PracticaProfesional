@@ -1,4 +1,5 @@
-﻿using ServiceLayer.Domain.PatenteFamilia;
+﻿using Serilog;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,11 +24,12 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 //DESKTOP-RM3UB93\SQLEXPRESS
 
                 //conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
-                conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+                conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 
             }
             catch (Exception ex)
             {
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -56,7 +58,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -95,7 +97,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -109,20 +111,27 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static void Delete(Patente _object)
         {
-
-
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
 
-                SqlCommand sqlComm = new SqlCommand("Patente_Delete", conn);
-                sqlComm.Parameters.AddWithValue("@IdFamiliaElement", _object.IdFamiliaElement);
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
 
-                sqlComm.CommandType = CommandType.StoredProcedure;
+                    SqlCommand sqlComm = new SqlCommand("Patente_Delete", conn);
+                    sqlComm.Parameters.AddWithValue("@IdFamiliaElement", _object.IdFamiliaElement);
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
@@ -135,20 +144,26 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static void Update(Domain.PatenteFamilia.Patente _object)
         {
-
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
 
-                SqlCommand sqlComm = new SqlCommand("Patente_Update", conn);
-                sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
-                sqlComm.Parameters.AddWithValue("@IdPatente", _object.IdFamiliaElement);
+                    SqlCommand sqlComm = new SqlCommand("Patente_Update", conn);
+                    sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+                    sqlComm.Parameters.AddWithValue("@IdPatente", _object.IdFamiliaElement);
 
-                sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
@@ -161,19 +176,27 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static void Insert(Domain.PatenteFamilia.Patente _object)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
 
-                SqlCommand sqlComm = new SqlCommand("Patente_Insert", conn);
-                sqlComm.Parameters.AddWithValue("@IdPatente", _object.IdFamiliaElement);
-                sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+                    SqlCommand sqlComm = new SqlCommand("Patente_Insert", conn);
+                    sqlComm.Parameters.AddWithValue("@IdPatente", _object.IdFamiliaElement);
+                    sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
 
-                sqlComm.CommandType = CommandType.StoredProcedure;
+                    sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
     }

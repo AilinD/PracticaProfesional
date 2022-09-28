@@ -1,4 +1,5 @@
-﻿using ServiceLayer.Domain.PatenteFamilia;
+﻿using Serilog;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,8 +22,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -43,8 +44,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -56,8 +57,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -69,8 +70,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -82,8 +83,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -95,8 +96,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, ""); 
+				throw ex;
 			}
 		}
 
@@ -108,8 +109,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 	}

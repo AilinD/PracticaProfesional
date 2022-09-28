@@ -39,9 +39,9 @@ namespace DataAccess.Tools
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

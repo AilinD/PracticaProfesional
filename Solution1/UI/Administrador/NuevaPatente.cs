@@ -35,7 +35,7 @@ namespace UI.Administrador
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            PatenteBLL.Insert();
+           // PatenteBLL.Insert();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +16,7 @@ namespace ServiceLayer.BLL
             {
                 var call = DAL.PatenteFamilia.Usuario_Facade.GetUsuario(user,contraseña);
                 return new Sesion() {usuario=call };
-
+				Serilog.Log.Debug(user);
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@ namespace DataAccess.Repo.Sql
         private string ConString { get; }
         public RestoreRepository()
         {
-            ConString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
+            ConString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
         }
         public void CrearRestore(string databasename)
         {

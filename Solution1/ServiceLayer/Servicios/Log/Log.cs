@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Servicios.Log
 {
-    internal class log
+    public class log
     {
         public log()
         {
@@ -17,5 +17,6 @@ namespace ServiceLayer.Servicios.Log
         {
 
         }
+
     }
 }

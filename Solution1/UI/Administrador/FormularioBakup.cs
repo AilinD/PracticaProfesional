@@ -30,10 +30,10 @@ namespace UI.Administrador
                 MessageBox.Show("Backup Exitoso!");
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
                
                 

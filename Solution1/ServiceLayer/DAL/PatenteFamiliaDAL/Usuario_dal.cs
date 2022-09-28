@@ -1,7 +1,9 @@
-﻿using ServiceLayer.Domain.PatenteFamilia;
+﻿using Serilog;
+using ServiceLayer.Domain.PatenteFamilia;
 using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -19,7 +21,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
         static Usuario_dal()
         {
            // conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
-            conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+            conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
         }
 
 
@@ -49,7 +51,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -100,7 +102,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -146,7 +148,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex, "");
                 throw ex;
             }
         }
@@ -163,202 +165,233 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static void Delete(Domain.PatenteFamilia.Usuario _object)
         {
-            if (_object.Permisos != null)
+            try
             {
-                DeleteFamilias(_object);
-                DeletePatentes(_object);
+
+
+                if (_object.Permisos != null)
+                {
+                    DeleteFamilias(_object);
+                    DeletePatentes(_object);
+                }
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Delete", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                    //  sqlComm.Parameters.AddWithValue("@Password", _object.IdUsuario);
+
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+                    // sqlComm.ExecuteNonQuery();
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+
+
+                }
             }
-            using (SqlConnection conn = new SqlConnection(conString))
+            catch (Exception ex)
             {
-
-                SqlCommand sqlComm = new SqlCommand("Usuario_Delete", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-              //  sqlComm.Parameters.AddWithValue("@Password", _object.IdUsuario);
-
-
-                sqlComm.CommandType = CommandType.StoredProcedure;
-               // sqlComm.ExecuteNonQuery();
-
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
-
-
+                Log.Error(ex, "");
             }
         }
 
         public static void Update(Domain.PatenteFamilia.Usuario _object)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
 
-                SqlCommand sqlComm = new SqlCommand("Usuario_Update", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
-                sqlComm.Parameters.AddWithValue("@Contraseña", _object.Password);
 
-
-                sqlComm.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
-
-
-            }
-
-            if (_object.Permisos != null)
-            {
-                DeleteFamilias(_object);
-                DeletePatentes(_object);
-
-                foreach (FamiliaElement _tipo in _object.Permisos)
+                using (SqlConnection conn = new SqlConnection(conString))
                 {
-                    if (_tipo.GetType().Name == "Familia")
-                    {
 
-                        using (SqlConnection conn = new SqlConnection(conString))
-                        {
-
-                            SqlCommand sqlComm = new SqlCommand("Usuario_Familia_Insert", conn);
-                            sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                            sqlComm.Parameters.AddWithValue("@IdFamilia", _tipo.IdFamiliaElement);
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Update", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                    sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+                    sqlComm.Parameters.AddWithValue("@Contraseña", _object.Password);
 
 
+                    sqlComm.CommandType = CommandType.StoredProcedure;
 
-                            sqlComm.CommandType = CommandType.StoredProcedure;
-
-                            SqlDataAdapter da = new SqlDataAdapter();
-                            da.SelectCommand = sqlComm;
-                            conn.Open();
-                            sqlComm.ExecuteNonQuery();
-
-
-                        }
-
-                    }
-                    else
-                    {
-                        using (SqlConnection conn = new SqlConnection(conString))
-                        {
-
-                            SqlCommand sqlComm = new SqlCommand("Usuario_Patente_Insert", conn);
-                            sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                            sqlComm.Parameters.AddWithValue("@IdPatente", _tipo.IdFamiliaElement);
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
 
 
-
-                            sqlComm.CommandType = CommandType.StoredProcedure;
-
-                            SqlDataAdapter da = new SqlDataAdapter();
-                            da.SelectCommand = sqlComm;
-                            conn.Open();
-                            sqlComm.ExecuteNonQuery();
-
-
-                        }
-                    }
                 }
 
+                if (_object.Permisos != null)
+                {
+                    DeleteFamilias(_object);
+                    DeletePatentes(_object);
+
+                    foreach (FamiliaElement _tipo in _object.Permisos)
+                    {
+                        if (_tipo.GetType().Name == "Familia")
+                        {
+
+                            using (SqlConnection conn = new SqlConnection(conString))
+                            {
+
+                                SqlCommand sqlComm = new SqlCommand("Usuario_Familia_Insert", conn);
+                                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                                sqlComm.Parameters.AddWithValue("@IdFamilia", _tipo.IdFamiliaElement);
+
+
+
+                                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                                SqlDataAdapter da = new SqlDataAdapter();
+                                da.SelectCommand = sqlComm;
+                                conn.Open();
+                                sqlComm.ExecuteNonQuery();
+
+
+                            }
+
+                        }
+                        else
+                        {
+                            using (SqlConnection conn = new SqlConnection(conString))
+                            {
+
+                                SqlCommand sqlComm = new SqlCommand("Usuario_Patente_Insert", conn);
+                                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                                sqlComm.Parameters.AddWithValue("@IdPatente", _tipo.IdFamiliaElement);
+
+
+
+                                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                                SqlDataAdapter da = new SqlDataAdapter();
+                                da.SelectCommand = sqlComm;
+                                conn.Open();
+                                sqlComm.ExecuteNonQuery();
+
+
+                            }
+                        }
+                    }
+
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
 
         public static void Insert(Domain.PatenteFamilia.Usuario _object)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
-
-                SqlCommand sqlComm = new SqlCommand("Usuario_Insert", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
-                //sqlComm.Parameters.AddWithValue("",DateTime.Now);
-                sqlComm.Parameters.AddWithValue("Contraseña", _object.Password);
-
-
-
-                sqlComm.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
-
-            }
-
-
-
-
-            if (_object.Permisos != null)
-            {
-                DeleteFamilias(_object);
-                DeletePatentes(_object);
-
-                foreach (FamiliaElement _tipo in _object.Permisos)
+                using (SqlConnection conn = new SqlConnection(conString))
                 {
-                    if (_tipo.GetType().Name == "Familia")
+
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Insert", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                    sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
+                    //sqlComm.Parameters.AddWithValue("",DateTime.Now);
+                    sqlComm.Parameters.AddWithValue("Contraseña", _object.Password);
+
+
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+
+                }
+
+
+
+
+                if (_object.Permisos != null)
+                {
+                    DeleteFamilias(_object);
+                    DeletePatentes(_object);
+
+                    foreach (FamiliaElement _tipo in _object.Permisos)
                     {
-                        using (SqlConnection conn = new SqlConnection(conString))
+                        if (_tipo.GetType().Name == "Familia")
                         {
+                            using (SqlConnection conn = new SqlConnection(conString))
+                            {
 
-                            SqlCommand sqlComm = new SqlCommand("Usuario_Familia_Insert", conn);
-                            sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                            sqlComm.Parameters.AddWithValue("@IdFamilia", _tipo.IdFamiliaElement);
+                                SqlCommand sqlComm = new SqlCommand("Usuario_Familia_Insert", conn);
+                                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                                sqlComm.Parameters.AddWithValue("@IdFamilia", _tipo.IdFamiliaElement);
 
 
 
-                            sqlComm.CommandType = CommandType.StoredProcedure;
+                                sqlComm.CommandType = CommandType.StoredProcedure;
 
-                            SqlDataAdapter da = new SqlDataAdapter();
-                            da.SelectCommand = sqlComm;
-                            conn.Open();
-                            sqlComm.ExecuteNonQuery();
+                                SqlDataAdapter da = new SqlDataAdapter();
+                                da.SelectCommand = sqlComm;
+                                conn.Open();
+                                sqlComm.ExecuteNonQuery();
 
+                            }
                         }
-                    }
-                    else
-                    {
-                        using (SqlConnection conn = new SqlConnection(conString))
+                        else
                         {
+                            using (SqlConnection conn = new SqlConnection(conString))
+                            {
 
-                            SqlCommand sqlComm = new SqlCommand("Usuario_Patente_Insert", conn);
-                            sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                            sqlComm.Parameters.AddWithValue("@IdPatente", _tipo.IdFamiliaElement);
+                                SqlCommand sqlComm = new SqlCommand("Usuario_Patente_Insert", conn);
+                                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                                sqlComm.Parameters.AddWithValue("@IdPatente", _tipo.IdFamiliaElement);
 
 
 
-                            sqlComm.CommandType = CommandType.StoredProcedure;
+                                sqlComm.CommandType = CommandType.StoredProcedure;
 
-                            SqlDataAdapter da = new SqlDataAdapter();
-                            da.SelectCommand = sqlComm;
-                            conn.Open();
-                            sqlComm.ExecuteNonQuery();
+                                SqlDataAdapter da = new SqlDataAdapter();
+                                da.SelectCommand = sqlComm;
+                                conn.Open();
+                                sqlComm.ExecuteNonQuery();
+                            }
                         }
                     }
                 }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
 
         public static DataTable GetFamilias(System.String IdUsuario)
         {
-
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
 
-                DataTable data = new DataTable("Test");
-                SqlCommand sqlComm = new SqlCommand("Usuario_Familia_SelectParticular", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-                sqlComm.CommandType = CommandType.StoredProcedure;
+                    DataTable data = new DataTable("Test");
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Familia_SelectParticular", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                da.Fill(data);
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
-                return data;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    da.Fill(data);
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                    return data;
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
@@ -371,19 +404,28 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static void DeleteFamilias(Domain.PatenteFamilia.Usuario _object)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
 
-                SqlCommand sqlComm = new SqlCommand("Usuario_Familia_DeleteParticular", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Familia_DeleteParticular", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
 
 
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
@@ -397,37 +439,55 @@ namespace ServiceLayer.DAL.PatenteFamilia
         /// </history>
         public static DataTable GetPatentes(System.String IdUsuario)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
 
-                DataTable data = new DataTable("Test");
-                SqlCommand sqlComm = new SqlCommand("Usuario_Patente_SelectParticular", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
-                sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                da.Fill(data);
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
-                return data;
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+
+                    DataTable data = new DataTable("Test");
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Patente_SelectParticular", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    da.Fill(data);
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                    return data;
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
 
 
         public static void DeletePatentes(Domain.PatenteFamilia.Usuario _object)
         {
-            using (SqlConnection conn = new SqlConnection(conString))
+            try
             {
 
-                SqlCommand sqlComm = new SqlCommand("Usuario_Patente_DeleteParticular", conn);
-                sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                sqlComm.CommandType = CommandType.StoredProcedure;
 
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = sqlComm;
-                conn.Open();
-                sqlComm.ExecuteNonQuery();
+                using (SqlConnection conn = new SqlConnection(conString))
+                {
+
+                    SqlCommand sqlComm = new SqlCommand("Usuario_Patente_DeleteParticular", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                }
+            }catch(Exception ex)
+            {
+                Log.Error(ex, "");
+                throw ex;
             }
         }
     }

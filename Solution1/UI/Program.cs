@@ -22,8 +22,8 @@ namespace UI
             // Application.Run(new Login());
             // Application.Run(new FormContBackRest());
             //Application.Run(new MenuUsuarios());
-            Application.Run(new FormPatenteFamilia());
-            //Application.Run(new Login());
+            //Application.Run(new FormPatenteFamilia());
+            Application.Run(new Login());
         }
 
     

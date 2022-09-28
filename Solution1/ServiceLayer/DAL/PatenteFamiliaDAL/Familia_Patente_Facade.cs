@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,8 +18,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 	}

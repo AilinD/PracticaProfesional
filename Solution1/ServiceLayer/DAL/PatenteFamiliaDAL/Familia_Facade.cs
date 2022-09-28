@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ServiceLayer.Domain.PatenteFamilia;
 using DataAccess.Adapter;
+using Serilog;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -23,8 +24,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -39,8 +40,9 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                //GestorErrores.Execute(ex);
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -52,8 +54,9 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                //GestorErrores.Execute(ex);
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -65,8 +68,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -78,8 +81,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -91,8 +94,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -104,8 +107,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 
@@ -117,8 +120,8 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				//GestorErrores.Execute(ex);
-				throw;
+                Log.Error(ex, "");
+                throw ex;
 			}
 		}
 	}
