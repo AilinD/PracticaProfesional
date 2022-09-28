@@ -13,6 +13,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 {
 	public class Familia_Facade
 	{
+		/// <summary>
+		/// Retorna una lista de tipo familia 
+		/// </summary>
+		/// <returns></returns>
 		public static List<Familia> GetAllAdapted()
 		{
 			try
@@ -29,6 +33,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
+		/// <summary>
+		/// Obtiene el id de una familia
+		/// </summary>
+		/// <param name="IdFamiliaElement"></param>
+		/// <returns></returns>
 		public static Familia GetAdapted(System.String IdFamiliaElement)
 		{
 			try
@@ -46,6 +55,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
+		/// <summary>
+		/// Solicita a Familia.dal el inserrt de un objeto de tipo familia
+		/// </summary>
+		/// <param name="_object"></param>
 		public static void Insert(Familia _object)
 		{
 			try
@@ -60,6 +73,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
+		/// <summary>
+		/// Solicita a familia_dal la Modificacion un registro de tipo familia
+		/// </summary>
+		/// <param name="_object"></param>
 		public static void Update(Familia _object)
 		{
 			try
@@ -73,7 +90,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
-		public static void Delete(Familia _object)
+        /// <summary>
+        /// Solicita a familia_dal la eliminacion un objeto de tipo familia
+        /// </summary>
+        /// <param name="_object"></param>
+        public static void Delete(Familia _object)
 		{
 			try
 			{
@@ -86,7 +107,12 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
-		public static DataRow Select(System.String IdFamiliaElement)
+        /// <summary>
+        /// Solicita a familia_dal un select de un idfamilia
+        /// </summary>
+        /// <param name="IdFamiliaElement"></param>
+        /// <returns></returns>
+        public static DataRow Select(System.String IdFamiliaElement)
 		{
 			try
 			{
@@ -99,7 +125,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
-		public static DataTable SelectAll()
+        /// <summary>
+        /// Solicita a familia_dal un select con tofos los datos de una familia
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable SelectAll()
 		{
 			try
 			{
@@ -112,7 +142,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
-		public static void DeleteAccesos(Familia _object)
+        /// <summary>
+        /// Solicita a familia_dal el eliminado de los accesos de una familia
+        /// </summary>
+        /// <param name="_object"></param>
+        public static void DeleteAccesos(Familia _object)
 		{
 			try
 			{

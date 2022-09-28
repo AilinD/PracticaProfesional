@@ -19,14 +19,13 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
 		static Familia_dal()
 		{
-			//conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
 			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 		}
-        /*
-		 Data Source=DESKTOP-H0P0HUN\SQLEXPRESS
-		Data Source=DESKTOP-RM3UB93\SQLEXPRESS
-		*/
 
+		/// <summary>
+		/// Selecciona todos los registros de una tabla
+		/// </summary>
+		/// <returns></returns>
         public static DataSet SelectAll()
 		{
 			try
@@ -47,19 +46,13 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
 				}
 				return ds;
-
-				//Database myDatabase = DatabaseFactory.CreateDatabase();
-				//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_SelectAll");
-				//return myDatabase.ExecuteDataSet(myCommand);
-				//LoggerService.WriteLog(String message, Usuario);
-
-
             }
 
 
             catch (Exception ex)
 			{
-				throw ex;
+                Log.Error(ex, "");
+                throw ex;
               
             }
 		}
@@ -100,13 +93,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
 
 				//Log.Information("",Environment.GetEnvironmentVariable(""));
-
-
-				////	Database myDatabase = DatabaseFactory.CreateDatabase();
-				////	DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Select");
-				//myDatabase.AddInParameter(myCommand, "@IdFamilia", DbType.String, IdFamiliaElement);
-
-				//	return myDatabase.ExecuteDataSet(myCommand);
 			}
 			catch (Exception ex)
 			{
@@ -126,30 +112,38 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		{
 			if (_object.Accesos != null)
 				DeleteAccesos(_object);
-
-			using (SqlConnection conn = new SqlConnection("conString"))
+			try
 			{
 
-				SqlCommand sqlComm = new SqlCommand("Familia_Delete", conn);
-				sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
 
-				sqlComm.CommandType = CommandType.StoredProcedure;
+				using (SqlConnection conn = new SqlConnection("conString"))
+				{
 
-				SqlDataAdapter da = new SqlDataAdapter();
-				da.SelectCommand = sqlComm;
-				conn.Open();
-				sqlComm.ExecuteNonQuery();
-				conn.Close();
+					SqlCommand sqlComm = new SqlCommand("Familia_Delete", conn);
+					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
+
+					sqlComm.CommandType = CommandType.StoredProcedure;
+
+					SqlDataAdapter da = new SqlDataAdapter();
+					da.SelectCommand = sqlComm;
+					conn.Open();
+					sqlComm.ExecuteNonQuery();
+					conn.Close();
 
 
 
 
-				//Database myDatabase = DatabaseFactory.CreateDatabase();
-				//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Delete");
-				//myDatabase.AddInParameter(myCommand, "@IdFamilia", DbType.String, _object.IdFamiliaElement);
+					//Database myDatabase = DatabaseFactory.CreateDatabase();
+					//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Delete");
+					//myDatabase.AddInParameter(myCommand, "@IdFamilia", DbType.String, _object.IdFamiliaElement);
 
-				//myDatabase.ExecuteNonQuery(myCommand);
-			}
+					//myDatabase.ExecuteNonQuery(myCommand);
+				}
+			}catch(Exception ex)
+			{
+                Log.Error(ex, "");
+				throw ex;
+            }
 		}
 
 		/// <summary>
@@ -239,6 +233,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			
 		}
 
+		/// <summary>
+		/// Llama al sp Familia_Insert e inserta un registro un registro una tabla
+		/// </summary>
+		/// <param name="_object"></param>
 		public static void Insert(ServiceLayer.Domain.PatenteFamilia.Familia _object)
 		{
 			try
@@ -306,6 +304,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			
 		}
 
+		/// <summary>
+		/// Obtiene los accesos del id de una familia
+		/// </summary>
+		/// <param name="IdFamiliaElement"></param>
+		/// <returns></returns>
 		public static DataTable GetAccesos(System.String IdFamiliaElement)
 		{
 			try
@@ -366,6 +369,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			catch (Exception ex)
 			{
                 Log.Error(ex, "");
+				throw ex;
             }
 			
 		}

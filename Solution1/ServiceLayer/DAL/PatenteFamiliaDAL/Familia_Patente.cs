@@ -14,13 +14,15 @@ namespace ServiceLayer.DAL.PatenteFamilia
 	public class Familia_Patente
 	{
 		readonly static string conString;
-        //DESKTOP-RM3UB93\SQLEXPRESS
         static Familia_Patente()
 		{
-			//conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
 			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public static DataSet SelectAll()
 		{
 			try
@@ -41,11 +43,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
 				}
 				return ds;
 
-
-
-				//Database myDatabase = DatabaseFactory.CreateDatabase();
-				//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Patente_SelectAll");
-				//return myDatabase.ExecuteDataSet(myCommand);
 			}
 			catch (Exception ex)
 			{
@@ -131,6 +128,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="_object"></param>
 		public static void Update(FamiliaElement _object)
 		{
 			try
@@ -156,11 +157,6 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
 		}
 
-		//Database myDatabase = DatabaseFactory.CreateDatabase();
-		//DbCommand myCommand = myDatabase.GetStoredProcCommand("Familia_Patente_Update");
-		//myDatabase.AddInParameter(myCommand, "@IdFamilia", DbType.String, _object.IdFamiliaElement);
-		//myDatabase.AddInParameter(myCommand, "@Nombre", DbType.String, _object.Nombre);
-		//myDatabase.ExecuteNonQuery(myCommand);
 
 
 		/// <summary>
@@ -204,6 +200,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			//myDatabase.ExecuteNonQuery(myCommand);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="IdFamiliaElement"></param>
+		/// <returns></returns>
 		public static DataTable GetAccesos(System.String IdFamiliaElement)
 		{
 			try
@@ -239,6 +240,10 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="_object"></param>
 		public static void DeleteAccesos(Domain.PatenteFamilia.Familia _object)
 		{
 			try
