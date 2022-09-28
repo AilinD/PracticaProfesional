@@ -72,21 +72,21 @@
             // agregarUsuarioToolStripMenuItem
             // 
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // modificarUsuarioToolStripMenuItem
             // 
             this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
             this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
@@ -103,20 +103,23 @@
             // agregarPatenteToolStripMenuItem
             // 
             this.agregarPatenteToolStripMenuItem.Name = "agregarPatenteToolStripMenuItem";
-            this.agregarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.agregarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarPatenteToolStripMenuItem.Text = "Agregar Patente";
+            this.agregarPatenteToolStripMenuItem.Click += new System.EventHandler(this.agregarPatenteToolStripMenuItem_Click);
             // 
             // modificarPatenteToolStripMenuItem
             // 
             this.modificarPatenteToolStripMenuItem.Name = "modificarPatenteToolStripMenuItem";
-            this.modificarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.modificarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarPatenteToolStripMenuItem.Text = "Modificar Patente";
+            this.modificarPatenteToolStripMenuItem.Click += new System.EventHandler(this.modificarPatenteToolStripMenuItem_Click);
             // 
             // eliminarPatenteToolStripMenuItem
             // 
             this.eliminarPatenteToolStripMenuItem.Name = "eliminarPatenteToolStripMenuItem";
-            this.eliminarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.eliminarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarPatenteToolStripMenuItem.Text = "Eliminar Patente";
+            this.eliminarPatenteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPatenteToolStripMenuItem_Click);
             // 
             // menuRolToolStripMenuItem
             // 

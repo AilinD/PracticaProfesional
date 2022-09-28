@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.chkModificar = new System.Windows.Forms.CheckBox();
-            this.chkEliminar = new System.Windows.Forms.CheckBox();
-            this.btnAll = new System.Windows.Forms.Button();
-            this.btnAccionar = new System.Windows.Forms.Button();
+            this.txtIdPatente = new System.Windows.Forms.TextBox();
+            this.btnNuevaPatente = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,106 +43,75 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(29, 65);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(296, 177);
+            this.dataGridView1.Size = new System.Drawing.Size(345, 177);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(215, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(299, 24);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(25, 28);
+            this.label1.Location = new System.Drawing.Point(26, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "IdPatente";
             // 
-            // textBox1
+            // txtIdPatente
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtIdPatente.Location = new System.Drawing.Point(85, 26);
+            this.txtIdPatente.Name = "txtIdPatente";
+            this.txtIdPatente.Size = new System.Drawing.Size(179, 20);
+            this.txtIdPatente.TabIndex = 3;
             // 
-            // label2
+            // btnNuevaPatente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(365, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Acciones";
+            this.btnNuevaPatente.Location = new System.Drawing.Point(29, 268);
+            this.btnNuevaPatente.Name = "btnNuevaPatente";
+            this.btnNuevaPatente.Size = new System.Drawing.Size(73, 23);
+            this.btnNuevaPatente.TabIndex = 5;
+            this.btnNuevaPatente.Text = "Nuevo";
+            this.btnNuevaPatente.UseVisualStyleBackColor = true;
+            this.btnNuevaPatente.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Location = new System.Drawing.Point(28, 265);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Nueva Patente";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnModificar.Location = new System.Drawing.Point(165, 268);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 9;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // chkModificar
+            // btnEliminar
             // 
-            this.chkModificar.AutoSize = true;
-            this.chkModificar.Location = new System.Drawing.Point(368, 106);
-            this.chkModificar.Name = "chkModificar";
-            this.chkModificar.Size = new System.Drawing.Size(69, 17);
-            this.chkModificar.TabIndex = 6;
-            this.chkModificar.Text = "Modificar";
-            this.chkModificar.UseVisualStyleBackColor = true;
-            // 
-            // chkEliminar
-            // 
-            this.chkEliminar.AutoSize = true;
-            this.chkEliminar.Location = new System.Drawing.Point(368, 129);
-            this.chkEliminar.Name = "chkEliminar";
-            this.chkEliminar.Size = new System.Drawing.Size(62, 17);
-            this.chkEliminar.TabIndex = 7;
-            this.chkEliminar.Text = "Eliminar";
-            this.chkEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnAll
-            // 
-            this.btnAll.Location = new System.Drawing.Point(368, 22);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(82, 23);
-            this.btnAll.TabIndex = 8;
-            this.btnAll.Text = "BuscarTodos";
-            this.btnAll.UseVisualStyleBackColor = true;
-            // 
-            // btnAccionar
-            // 
-            this.btnAccionar.Location = new System.Drawing.Point(362, 192);
-            this.btnAccionar.Name = "btnAccionar";
-            this.btnAccionar.Size = new System.Drawing.Size(75, 23);
-            this.btnAccionar.TabIndex = 9;
-            this.btnAccionar.Text = "Ejecutar";
-            this.btnAccionar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(299, 268);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // MenuPatentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 314);
-            this.Controls.Add(this.btnAccionar);
-            this.Controls.Add(this.btnAll);
-            this.Controls.Add(this.chkEliminar);
-            this.Controls.Add(this.chkModificar);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(427, 314);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnNuevaPatente);
+            this.Controls.Add(this.txtIdPatente);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MenuPatentes";
             this.Text = "MenuPatentes";
@@ -158,14 +124,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox chkModificar;
-        private System.Windows.Forms.CheckBox chkEliminar;
-        private System.Windows.Forms.Button btnAll;
-        private System.Windows.Forms.Button btnAccionar;
+        private System.Windows.Forms.TextBox txtIdPatente;
+        private System.Windows.Forms.Button btnNuevaPatente;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

@@ -103,22 +103,7 @@ namespace ServiceLayer.BLL
 			}
 		}
 
-		public static DataTable SSelect(DataGridView dataGridView)
-        {
-			DataTable ExportDataTable = new DataTable();
-			foreach (DataGridViewColumn col in dataGridView.Columns)
-            {
-				ExportDataTable.Columns.Add(col.Name);
-            }
-            foreach (DataGridViewRow row in dataGridView.Rows)
-            {
-				DataRow dataRow = ExportDataTable.NewRow();
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-					dataRow[cell.ColumnIndex] = cell.Value;
-                }ExportDataTable.Rows.Add();
-            }return ExportDataTable;
-        }
+		
 		public static System.Data.DataTable SelectAll()
 		{
 			try

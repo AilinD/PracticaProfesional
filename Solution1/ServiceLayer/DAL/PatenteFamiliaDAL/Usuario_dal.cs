@@ -151,19 +151,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
         }
 
-        public static DataSet DataGridToDataTable(DataGridView dataGridView)
-        {
-            DataSet ExportDataTable = new DataSet();
-            foreach (DataGridViewColumn col in dataGridView.Columns)
-            {
-                ExportDataTable.Copy();
-                ExportDataTable.Tables.Add();
-            }
-            
-                
-            
-            return ExportDataTable;
-        }
+   
 
 
         /// <summary>
@@ -185,11 +173,11 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
                 SqlCommand sqlComm = new SqlCommand("Usuario_Delete", conn);
                 sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
-                sqlComm.Parameters.AddWithValue("@Password", _object.IdUsuario);
+              //  sqlComm.Parameters.AddWithValue("@Password", _object.IdUsuario);
 
 
                 sqlComm.CommandType = CommandType.StoredProcedure;
-                sqlComm.ExecuteNonQuery();
+               // sqlComm.ExecuteNonQuery();
 
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = sqlComm;

@@ -43,6 +43,25 @@ namespace UI.Administrador
 
         private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            EliminarUsuario eliminarUsuario = new EliminarUsuario();
+            eliminarUsuario.MdiParent = this;
+            eliminarUsuario.Show();
+        }
+
+        private void eliminarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agregarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NuevaPatente nuevaPatente = new NuevaPatente();
+            nuevaPatente.MdiParent = this;
+            nuevaPatente.Show();
+        }
+
+        private void modificarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

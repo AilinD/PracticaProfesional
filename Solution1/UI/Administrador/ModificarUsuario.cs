@@ -30,21 +30,18 @@ namespace UI.Administrador
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            // string Usuario = txtIdUsuario.Text;
-
-            DataTable dt = new DataTable();
-            var user = BLLUsuario.Select(txtNombreUsuario.Text);
-            dt.Columns.Add("Nombre",typeof(string));
-            dt.Columns.Add("Contraseña", typeof(string));
-            dt.Columns.Add("IdUsuario",typeof(Guid));
-            dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
+        {          
             
 
             if (txtNombreUsuario.Text != "")
             {
-                //dataGridView1.DataSource= BLLUsuario.SSelect(txtNombreUsuario.Text,);
-
+                
+                DataTable dt = new DataTable();
+                var user = BLLUsuario.Select(txtNombreUsuario.Text);
+                dt.Columns.Add("Nombre", typeof(string));
+                dt.Columns.Add("Contraseña", typeof(string));
+                dt.Columns.Add("IdUsuario", typeof(Guid));
+                dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
                 dataGridView1.DataSource = dt;
 
             }
