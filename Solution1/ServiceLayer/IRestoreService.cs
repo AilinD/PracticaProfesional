@@ -8,7 +8,7 @@ namespace ServiceLayer
 {
     public interface IRestoreService
     {
-        void RestoreDatabase();
+        void RestoreDatabase(string databaseName,string path);
         
 
     }

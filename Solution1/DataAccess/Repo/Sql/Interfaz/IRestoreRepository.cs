@@ -8,6 +8,6 @@ namespace DataAccess.Repo.Sql.Interfaz
 {
     public interface IRestoreRepository
     {
-        void CrearRestore(string databaseName);
+        void CrearRestore(string databaseName,string path);
     }
 }

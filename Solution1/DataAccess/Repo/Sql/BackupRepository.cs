@@ -16,10 +16,10 @@ namespace DataAccess.Repo.Sql
         {
             ConString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
         }
-        public void CrearBackup(string databasename)
+        public void CrearBackup(string databasename,string save)
         {
 
-            string filePath = BuildBackupPathWithFilename(databasename);
+            string filePath = BuildBackupPathWithFilename(databasename,save);
 
             using (var connection = new SqlConnection(ConString))
             {
@@ -32,11 +32,11 @@ namespace DataAccess.Repo.Sql
                 }
             }
         }
-        private string BuildBackupPathWithFilename(string databaseName)
+        private string BuildBackupPathWithFilename(string databaseName, string save)
         {
             string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
 
-            return Path.Combine(ConfigurationManager.AppSettings.Get("RestorePath"), filename);
+            return Path.Combine(save, filename);
         }
     }
 }

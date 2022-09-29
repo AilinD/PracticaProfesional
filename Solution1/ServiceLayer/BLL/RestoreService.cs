@@ -28,9 +28,9 @@ namespace ServiceLayer.BLL
 
         }
 
-        public void RestoreDatabase()
+        public void RestoreDatabase(string databaseName,string path)
         {
-            restoreRepository.CrearRestore(ConfigurationManager.AppSettings.Get("BD_PatenteFamilia"));
+            restoreRepository.CrearRestore(databaseName,path);
         }
 
        

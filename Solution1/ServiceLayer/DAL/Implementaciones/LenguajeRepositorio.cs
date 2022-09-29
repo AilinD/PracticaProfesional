@@ -13,9 +13,9 @@ namespace ServiceLayer.DAL.Implementaciones
     internal class LenguajeRepositorio
     {
         #region Singleton
-        private readonly static LoggerRepositorio _instance = new LoggerRepositorio();
+        private readonly static LoggerRepository _instance = new LoggerRepository();
 
-        public static LoggerRepositorio Current
+        public static LoggerRepository Current
         {
             get
             {

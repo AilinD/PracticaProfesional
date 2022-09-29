@@ -25,9 +25,7 @@ namespace UI.Generales
 
         private void btnMenuAdm_Click(object sender, EventArgs e)
         {
-            MenuAdministrador menuAdministrador = new MenuAdministrador();
-            menuAdministrador.ShowDialog();
-            menuAdministrador.Hide();
+    
         }
     }
 }

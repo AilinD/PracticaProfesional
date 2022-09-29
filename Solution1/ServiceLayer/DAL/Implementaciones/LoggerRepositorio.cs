@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.DAL.Implementaciones
 {
-    public class LoggerRepositorio
+    public class LoggerRepository
     {
         #region Singleton
-        private readonly static LoggerRepositorio _instance = new LoggerRepositorio();
+        private readonly static LoggerRepository _instance = new LoggerRepository();
 
-        public static LoggerRepositorio Current
+        public static LoggerRepository Current
         {
             get
             {
@@ -24,7 +24,7 @@ namespace ServiceLayer.DAL.Implementaciones
             }
         }
 
-        public LoggerRepositorio()
+        public LoggerRepository()
         {
             //Implement here the initialization code
         }
@@ -33,53 +33,19 @@ namespace ServiceLayer.DAL.Implementaciones
         private string pathLog = ConfigurationManager.AppSettings["PathLog"];
 
         private string pathFile = ConfigurationManager.AppSettings["LogFileName"];
-        //public void WriteLog(string message, EventLevel level, string user)
-        //{
-        //    string fileName = pathLog + DateTime.Now.ToString("yyyyMMdd") + pathFile;
-
-
-        //    using (StreamWriter streamWriter = new StreamWriter(fileName, true))
-        //    {
-        //        string fromattedMessage = $"{DateTime.Now.ToString("yyyyMMdd hh:mm:ss tt")} [LEVEL {level.ToString()}] User: {user}, Mensaje: {message}";
-        //        streamWriter.WriteLine(fromattedMessage);
-        //    }
-        //}
-
-        public void WriteLog(/*string message, EventLevel level, string user*/)
+        public void WriteLog(string message, EventLevel level, string user)
         {
-            //using (var log = new LoggerConfiguration()
-            //.WriteTo.Console()
-            //.CreateLogger())
-            //{
-            //    log.Information("Hello, Serilog!");
-            //    log.Warning("Goodbye, Serilog.");
-            //}
-            //Log.Logger = new LoggerConfiguration()
-            //    .MinimumLevel.Verbose()
-            //    .WriteTo.Console(theme: AnsiConsoleTheme.Code)
-            //    .CreateLogger();
+            string fileName = pathLog + DateTime.Now.ToString("yyyyMMdd") + pathFile;
 
-            //Log.Logger = new LoggerConfiguration()
-            //   // .WriteTo.File()
+            //Aplicar sus políticas...
+            //1 opción: En función de la severity que configuren en su app.config
+            //Registro desde ese nivel hacia arriba...
+            //2 política de limpieza: Definir cada cuánto tiempo/tamaño? limpio mis logs...
 
-            try
+            using (StreamWriter streamWriter = new StreamWriter(fileName, true))
             {
-                Log.Debug("Application is starting");
-                Log.Information("Hello {name}",Environment.GetEnvironmentVariable("Username"));
-                Log.Warning("You are not allowed to see this");
-
-
-                //ThrowError();
+                string fromattedMessage = $"{DateTime.Now.ToString("yyyyMMdd hh:mm:ss tt")} [LEVEL {level.ToString()}] User: {user}, Mensaje: {message}";
+                streamWriter.WriteLine(fromattedMessage);
             }
-            catch (Exception ex)
-            {
-                Log.Error(ex,"Something went wrong!");
-            }
-            Log.CloseAndFlush();
-             void ThrowError()
-            {
-                throw new NullReferenceException();
-            }
-        }
-    }
+    }  }
 }

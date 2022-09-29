@@ -1,8 +1,10 @@
 ﻿using ServiceLayer.BLL;
 using ServiceLayer.Domain.PatenteFamilia;
+using ServiceLayer.Servicios.Hash;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -38,7 +40,7 @@ namespace UI
                 //SesionIniciada = isAuth;
                 //this.DialogResult = DialogResult.OK;
                 MessageBox.Show("Login correcto!");
-                
+
             }
             catch (Exception ex)
             {

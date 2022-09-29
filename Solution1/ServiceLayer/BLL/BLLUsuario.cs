@@ -5,6 +5,9 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Serilog;
+using System.Diagnostics.Tracing;
+using ServiceLayer.Servicios.Log;
 
 namespace ServiceLayer.BLL
 {
@@ -16,11 +19,11 @@ namespace ServiceLayer.BLL
             {
                 var call = DAL.PatenteFamilia.Usuario_Facade.GetUsuario(user,contraseña);
                 return new Sesion() {usuario=call };
-				Serilog.Log.Debug(user);
+				//Serilog.Log.Write("",user);
             }
             catch (Exception ex)
             {
-                //throw ex;
+                Serilog.Log.Error(ex, "");
                 throw ex;
             }
             
@@ -31,11 +34,12 @@ namespace ServiceLayer.BLL
 			try
 			{
 				return DAL.PatenteFamilia.Usuario_Facade.GetAllAdapted();
+				  
 			}
 			catch (Exception ex)
 			{
-
-				throw  ex;
+                LoggerService.WriteLog($"Message; {ex.Message}, StackTrace: {ex.StackTrace}", EventLevel.Error, String.Empty);
+               throw ex;
 			}
 		}
 		public static Domain.PatenteFamilia.Usuario GetAdapted(string usuario)
@@ -46,8 +50,9 @@ namespace ServiceLayer.BLL
 			}
 			catch (Exception ex)
 			{
+                LoggerService.WriteLog($"Message; {ex.Message}, StackTrace: {ex.StackTrace}", EventLevel.Error, String.Empty);
 
-				throw  ex;
+                throw ex;
 			}
 		}
 		public static void Insert(Domain.PatenteFamilia.Usuario _object)

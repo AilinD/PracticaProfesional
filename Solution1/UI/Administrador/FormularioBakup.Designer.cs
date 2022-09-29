@@ -38,11 +38,13 @@ namespace UI.Administrador
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUbic = new System.Windows.Forms.TextBox();
+            this.cboxBackup = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btnBackup
             // 
-            this.btnBackup.Location = new System.Drawing.Point(85, 175);
+            this.btnBackup.Location = new System.Drawing.Point(183, 215);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(75, 23);
             this.btnBackup.TabIndex = 0;
@@ -52,15 +54,15 @@ namespace UI.Administrador
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(37, 124);
+            this.progressBar1.Location = new System.Drawing.Point(48, 163);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(239, 23);
+            this.progressBar1.Size = new System.Drawing.Size(370, 23);
             this.progressBar1.TabIndex = 3;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(231, 28);
+            this.button1.Location = new System.Drawing.Point(346, 42);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 22);
             this.button1.TabIndex = 4;
@@ -71,7 +73,7 @@ namespace UI.Administrador
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 33);
+            this.label1.Location = new System.Drawing.Point(45, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 5;
@@ -80,24 +82,37 @@ namespace UI.Administrador
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 70);
+            this.label2.Location = new System.Drawing.Point(45, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
+            this.label2.Text = "Seleccione la base : ";
             // 
             // txtUbic
             // 
-            this.txtUbic.Location = new System.Drawing.Point(96, 29);
+            this.txtUbic.Location = new System.Drawing.Point(117, 44);
             this.txtUbic.Name = "txtUbic";
-            this.txtUbic.Size = new System.Drawing.Size(120, 20);
+            this.txtUbic.Size = new System.Drawing.Size(204, 20);
             this.txtUbic.TabIndex = 7;
+            // 
+            // cboxBackup
+            // 
+            this.cboxBackup.FormattingEnabled = true;
+            this.cboxBackup.Location = new System.Drawing.Point(171, 100);
+            this.cboxBackup.Name = "cboxBackup";
+            this.cboxBackup.Size = new System.Drawing.Size(247, 21);
+            this.cboxBackup.TabIndex = 8;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormularioBakup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 230);
+            this.ClientSize = new System.Drawing.Size(472, 264);
+            this.Controls.Add(this.cboxBackup);
             this.Controls.Add(this.txtUbic);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -123,5 +138,7 @@ namespace UI.Administrador
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUbic;
+        private System.Windows.Forms.ComboBox cboxBackup;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

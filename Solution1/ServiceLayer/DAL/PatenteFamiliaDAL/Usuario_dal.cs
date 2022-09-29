@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Events;
 using ServiceLayer.Domain.PatenteFamilia;
 using ServiceLayer.Servicios.Hash;
 using System;
@@ -7,6 +8,7 @@ using System.ComponentModel.Design;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
     public class Usuario_dal
     {
         readonly static string conString;
+        private static LogEvent logEvent;
 
         static Usuario_dal()
         {
@@ -84,20 +87,22 @@ namespace ServiceLayer.DAL.PatenteFamilia
                         var permisos = usuario.Permisos.Select(x => x.Nombre).ToString();
                         usuario.Nombre = dr["Nombre"].ToString();
                         usuario.Password = dr["Contraseña"].ToString();
-                        //usuario.IdUsuario = dr["IdUsuario"].ToString();
+                    }
 
-
+                    if (data.Equals(null))
+                    {
+                        
+                        Log.Error("Usuario Inexistente");
+                        return null;
+                        
                     }
                     string key = ConfigurationManager.AppSettings["key"];
                     string passwd = usuario.Password;
-                    string basePass =Hashing.EncryptString(key, contraseña);
-                    if (contraseña == basePass);
+                    string basePass = Hashing.EncryptString(key, contraseña);
+                    if (contraseña == basePass) ;
+
                     return usuario;
-
-
-
-                   // return usuario;
-                    
+                    Log.Write(logEvent);
                 }
             }
             catch (Exception ex)

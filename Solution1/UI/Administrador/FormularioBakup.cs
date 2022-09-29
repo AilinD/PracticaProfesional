@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,13 @@ using System.Windows.Forms;
 using Business;
 using Microsoft.SqlServer.Management.Smo;
 using ServiceLayer.BLL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI.Administrador
 {
     public partial class FormularioBakup : Form
     {
+        private FolderBrowserDialog fbd = new FolderBrowserDialog();
         public FormularioBakup()
         {
             InitializeComponent();
@@ -24,8 +27,11 @@ namespace UI.Administrador
         {
             try
             {
-
-                ServiceLayer.BLL.BackupService.Current.CrearBackup();
+                string db = cboxBackup.Text;
+                string databaseName = string.Format("{0}.bak", db);
+                string save = "t";
+                
+                ServiceLayer.BLL.BackupService.Current.CrearBackup(db,save);
                 CaluculateAll(progressBar1);
                 MessageBox.Show("Backup Exitoso!");
                 this.Close();
@@ -43,7 +49,13 @@ namespace UI.Administrador
 
         private void FormularioBakup_Load(object sender, EventArgs e)
         {
-           
+            List<string> BDS = new List<string>();
+            BDS.Add("SysCExpert");
+            BDS.Add("PatenteFamilia");
+            BDS.Add("BaseExperta");
+            cboxBackup.DataSource = BDS;
+            cboxBackup.DisplayMember = "Value";
+
         }
         private void CaluculateAll(System.Windows.Forms.ProgressBar progressBar)
         {
@@ -80,14 +92,24 @@ namespace UI.Administrador
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog diag = new OpenFileDialog();
-            diag.Filter = "Backup Sql Server.bak";
-            diag.Filter = "";
-            if(diag.ShowDialog() == DialogResult.OK)
+
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    txtUbic.Text = openFileDialog1.FileName;
+            //}
+
+            using (var fbd = new FolderBrowserDialog())
             {
-                txtUbic.Text=diag.FileName;
-                btnBackup.Enabled=true; 
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string[] files = Directory.GetFiles(fbd.SelectedPath);
+
+                    System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+                }
             }
+
         }
     }
 }

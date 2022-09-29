@@ -19,15 +19,22 @@ namespace UI.Administrador
 
         private void FormularioRestore_Load(object sender, EventArgs e)
         {
-
+            List<string> BDS = new List<string>();
+            BDS.Add("SysCExpert");
+            BDS.Add("PatenteFamilia");
+            BDS.Add("BaseExperta");
+            cboxRestore.DataSource = BDS;
+            cboxRestore.DisplayMember = "Value";
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
             try
             {
-
-                ServiceLayer.BLL.RestoreService.Current.RestoreDatabase();
+                string db = cboxRestore.Text;
+                string databaseName = string.Format("{0}.bak", db);
+                string path = openFileDialog1.FileName;
+                ServiceLayer.BLL.RestoreService.Current.RestoreDatabase(databaseName,path);
                 CaluculateAll(progressBarRestore);
                 MessageBox.Show("Restore Exitoso!");
                 this.Close();
@@ -54,6 +61,18 @@ namespace UI.Administrador
         private void progressBarRestore_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+           
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialog1.FileName;
+            }
+
+          
+           
         }
     }
 }

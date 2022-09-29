@@ -10,6 +10,6 @@ namespace DataAccess.Repo.Sql.Interfaz
 /// </summary>
     public interface IBackupRepository
     {
-        void CrearBackup(string databaseName);
+        void CrearBackup(string databaseName,string save);
     }
 }

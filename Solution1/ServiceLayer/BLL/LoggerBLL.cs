@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.DAL.Factory;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace ServiceLayer.BLL
     {
         public static void WriteLog(string message, EventLevel level, string user)
         {
-           // DAL.Implementaciones.LoggerRepositorio.WriteLog(message, level, user);
+            DALFactory.LoggerRepository.WriteLog(message, level, user);
 
+           
 
         }
     }

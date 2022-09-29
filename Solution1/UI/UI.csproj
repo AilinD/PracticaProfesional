@@ -237,11 +237,11 @@
     <Compile Include="Administrador\FormContBackRest.Designer.cs">
       <DependentUpon>FormContBackRest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\FormPatenteFamilia.cs">
+    <Compile Include="Administrador\FormMenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\FormPatenteFamilia.Designer.cs">
-      <DependentUpon>FormPatenteFamilia.cs</DependentUpon>
+    <Compile Include="Administrador\FormMenuAdministrador.Designer.cs">
+      <DependentUpon>FormMenuAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FormularioBakup.cs">
       <SubType>Form</SubType>
@@ -254,12 +254,6 @@
     </Compile>
     <Compile Include="Administrador\FormularioRestore.Designer.cs">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\MenuAdministrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\MenuAdministrador.Designer.cs">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\MenuPatentes.cs">
       <SubType>Form</SubType>
@@ -324,17 +318,14 @@
     <EmbeddedResource Include="Administrador\FormContBackRest.resx">
       <DependentUpon>FormContBackRest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FormPatenteFamilia.resx">
-      <DependentUpon>FormPatenteFamilia.cs</DependentUpon>
+    <EmbeddedResource Include="Administrador\FormMenuAdministrador.resx">
+      <DependentUpon>FormMenuAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioBakup.resx">
       <DependentUpon>FormularioBakup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormularioRestore.resx">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\MenuAdministrador.resx">
-      <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\MenuPatentes.resx">
       <DependentUpon>MenuPatentes.cs</DependentUpon>

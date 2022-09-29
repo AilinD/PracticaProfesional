@@ -329,6 +329,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                     conn.Open();
                     sqlComm.ExecuteNonQuery();
 
+                   // ex.Handle(this);
                 }
                 return data;
             }

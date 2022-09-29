@@ -28,10 +28,10 @@ namespace ServiceLayer.BLL
             //Implement here the initialization code
         }
         #endregion
-        public void CrearBackup()
+        public void CrearBackup(string databaseName, string save)
         {
-            // backupRepository.CrearBackup("SysCExpert");
-            backupRepository.CrearBackup(ConfigurationManager.AppSettings.Get("BD_PatenteFamilia"));
+            
+            backupRepository.CrearBackup(databaseName, save);
             
         }
     }

@@ -8,6 +8,6 @@ namespace ServiceLayer
 {
     public interface IBackupService
     {
-        void CrearBackup();
+        void CrearBackup(string databaseName, string save);
     }
 }
