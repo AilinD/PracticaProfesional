@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Data.SqlClient;
 using ServiceLayer.Domain.PatenteFamilia;
 using Serilog;
+using System.Diagnostics.Tracing;
+using ServiceLayer.Servicios.Log;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -46,7 +48,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
 			}
 		}
@@ -90,7 +92,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
 			}
 		}
@@ -123,7 +125,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
 			}
 		}
@@ -152,7 +154,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
 				throw ex;
             }
 		}
@@ -186,7 +188,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
 				throw ex;
             }
 
@@ -235,7 +237,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
 			}
 		}
@@ -266,7 +268,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 				}
 			}catch(Exception ex)
 			{
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
 				throw ex;
             }
 		}

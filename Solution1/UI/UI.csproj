@@ -225,17 +225,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\EliminarPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\EliminarPatente.Designer.cs">
+      <DependentUpon>EliminarPatente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\EliminarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\EliminarUsuario.Designer.cs">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\FormContBackRest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\FormContBackRest.Designer.cs">
-      <DependentUpon>FormContBackRest.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\FormMenuAdministrador.cs">
       <SubType>Form</SubType>
@@ -255,23 +255,17 @@
     <Compile Include="Administrador\FormularioRestore.Designer.cs">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\MenuPatentes.cs">
+    <Compile Include="Administrador\ModificarPatentes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrador\MenuPatentes.Designer.cs">
-      <DependentUpon>MenuPatentes.cs</DependentUpon>
+    <Compile Include="Administrador\ModificarPatentes.Designer.cs">
+      <DependentUpon>ModificarPatentes.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\MenuRoles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrador\MenuRoles.Designer.cs">
       <DependentUpon>MenuRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\MenuUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administrador\MenuUsuarios.Designer.cs">
-      <DependentUpon>MenuUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ModificarUsuario.cs">
       <SubType>Form</SubType>
@@ -312,11 +306,11 @@
     <Compile Include="Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrador\EliminarPatente.resx">
+      <DependentUpon>EliminarPatente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador\EliminarUsuario.resx">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\FormContBackRest.resx">
-      <DependentUpon>FormContBackRest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\FormMenuAdministrador.resx">
       <DependentUpon>FormMenuAdministrador.cs</DependentUpon>
@@ -327,14 +321,11 @@
     <EmbeddedResource Include="Administrador\FormularioRestore.resx">
       <DependentUpon>FormularioRestore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\MenuPatentes.resx">
-      <DependentUpon>MenuPatentes.cs</DependentUpon>
+    <EmbeddedResource Include="Administrador\ModificarPatentes.resx">
+      <DependentUpon>ModificarPatentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\MenuRoles.resx">
       <DependentUpon>MenuRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\MenuUsuarios.resx">
-      <DependentUpon>MenuUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\ModificarUsuario.resx">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>

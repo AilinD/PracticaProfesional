@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Management.XEvent;
+using ServiceLayer.Domain.PatenteFamilia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +15,13 @@ namespace UI.Administrador
 {
     public partial class FormMenuAdministrador : Form
     {
-        public FormMenuAdministrador()
+        private readonly Sesion _session;
+        public FormMenuAdministrador(Sesion session)
         {
+            IsMdiContainer = true;
+            _session = session;
             InitializeComponent();
+            
         }
 
 
@@ -47,23 +54,26 @@ namespace UI.Administrador
 
         private void eliminarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CreateMDIChild<ModificarPatentes>();
         }
 
         private void agregarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevaPatente>();
+            CreateMDIChild<ModificarPatentes>();
        
         }
 
         private void modificarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CreateMDIChild<ModificarPatentes>();
 
         }
+        
+    
 
         private void salirToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -74,7 +84,7 @@ namespace UI.Administrador
 
         private void FormMenuAdministrador_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private Form CreateMDIChild<T>() where T : Form
@@ -86,6 +96,11 @@ namespace UI.Administrador
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
             return childForm;
+        }
+
+        private void menuPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

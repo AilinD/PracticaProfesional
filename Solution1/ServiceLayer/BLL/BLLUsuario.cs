@@ -18,18 +18,34 @@ namespace ServiceLayer.BLL
             try
             {
                 var call = DAL.PatenteFamilia.Usuario_Facade.GetUsuario(user,contraseña);
+
+                if (call == null)
+                {
+                    
+                }
+
                 return new Sesion() {usuario=call };
 				//Serilog.Log.Write("",user);
             }
             catch (Exception ex)
             {
-                Serilog.Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
             
         }
+       
+		public static bool TryLogin(string usuario, string contraseña )
+		{
+			if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña))
+				return false;
+			else if (string.IsNullOrEmpty(usuario) && string.IsNullOrEmpty(contraseña))
+				return false;
+			return true;
+		}
 
-		public static List<Domain.PatenteFamilia.Usuario> GetAllAdapted()
+
+        public static List<Domain.PatenteFamilia.Usuario> GetAllAdapted()
 		{
 			try
 			{

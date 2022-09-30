@@ -17,7 +17,7 @@ namespace UI.Administrador
 {
     public partial class FormularioBakup : Form
     {
-        private FolderBrowserDialog fbd = new FolderBrowserDialog();
+        private string folder ;
         public FormularioBakup()
         {
             InitializeComponent();
@@ -29,9 +29,9 @@ namespace UI.Administrador
             {
                 string db = cboxBackup.Text;
                 string databaseName = string.Format("{0}.bak", db);
-                string save = "t";
-                
-                ServiceLayer.BLL.BackupService.Current.CrearBackup(db,save);
+                string save = folder;
+
+                ServiceLayer.BLL.BackupService.Current.CrearBackup(db, save);
                 CaluculateAll(progressBar1);
                 MessageBox.Show("Backup Exitoso!");
                 this.Close();
@@ -41,10 +41,10 @@ namespace UI.Administrador
 
                 throw ex;
             }
-               
-                
 
-           
+
+
+
         }
 
         private void FormularioBakup_Load(object sender, EventArgs e)
@@ -89,7 +89,18 @@ namespace UI.Administrador
         {
 
         }
+        private string GetSelectedPath()
+        {
+            string path = "";
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
 
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    path= fbd.SelectedPath;
+            }
+            return path;
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -97,19 +108,11 @@ namespace UI.Administrador
             //{
             //    txtUbic.Text = openFileDialog1.FileName;
             //}
-
-            using (var fbd = new FolderBrowserDialog())
-            {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
-
-                    System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
-                }
-            }
+            
+            folder= GetSelectedPath();
+            txtUbic.Text = folder;
 
         }
-    }
+
+    }  
 }

@@ -147,7 +147,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ModificarUsuario";
-            this.Text = "Modi_EliminaUsuario";
+            this.Text = "Modifica Usuario";
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using ServiceLayer.BLL;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,16 @@ namespace UI.Administrador
 {
     public partial class NuevaPatente : Form
     {
+        #region singleton
+        private readonly static Patente _instance = new Patente();
+        public static Patente Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        #endregion
         public NuevaPatente()
         {
             InitializeComponent();
@@ -26,16 +37,19 @@ namespace UI.Administrador
         private void NuevaPatente_Load(object sender, EventArgs e)
         {
             List<string> familia = new List<string>();
-            familia.Add("administrador");
-            familia.Add("medicos");
-            familia.Add("usuario");
+            familia.Add("Administrador");
+            familia.Add("Medicos");
+            familia.Add("Usuario");
             cboxFamiliaPatente.DataSource = familia;
             cboxFamiliaPatente.DisplayMember = "Value";
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-           // PatenteBLL.Insert();
+            // _instance.IdFamiliaElement = cboxFamiliaPatente.Text;
+            _instance.Nombre = txtNombrePatente.Text;
+            PatenteBLL.Insert(_instance);
+            MessageBox.Show("Patente Insertada con exito");
         }
     }
 }

@@ -37,10 +37,6 @@
             this.agregarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,13 +48,12 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuariodToolStripMenuItem,
             this.menuPatenteToolStripMenuItem,
-            this.menuRolToolStripMenuItem,
             this.salirToolStripMenuItem,
             this.salirToolStripMenuItem1,
             this.salirToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(517, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(489, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,6 +98,7 @@
             this.menuPatenteToolStripMenuItem.Name = "menuPatenteToolStripMenuItem";
             this.menuPatenteToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.menuPatenteToolStripMenuItem.Text = "Menu Patente";
+            this.menuPatenteToolStripMenuItem.Click += new System.EventHandler(this.menuPatenteToolStripMenuItem_Click);
             // 
             // agregarPatenteToolStripMenuItem
             // 
@@ -124,34 +120,6 @@
             this.eliminarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.eliminarPatenteToolStripMenuItem.Text = "Eliminar Patente";
             this.eliminarPatenteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPatenteToolStripMenuItem_Click);
-            // 
-            // menuRolToolStripMenuItem
-            // 
-            this.menuRolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarRolToolStripMenuItem,
-            this.modificarRolToolStripMenuItem,
-            this.eliminarRolToolStripMenuItem});
-            this.menuRolToolStripMenuItem.Name = "menuRolToolStripMenuItem";
-            this.menuRolToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.menuRolToolStripMenuItem.Text = "Menu Rol";
-            // 
-            // agregarRolToolStripMenuItem
-            // 
-            this.agregarRolToolStripMenuItem.Name = "agregarRolToolStripMenuItem";
-            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.agregarRolToolStripMenuItem.Text = "Agregar Rol";
-            // 
-            // modificarRolToolStripMenuItem
-            // 
-            this.modificarRolToolStripMenuItem.Name = "modificarRolToolStripMenuItem";
-            this.modificarRolToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.modificarRolToolStripMenuItem.Text = "Modificar Rol";
-            // 
-            // eliminarRolToolStripMenuItem
-            // 
-            this.eliminarRolToolStripMenuItem.Name = "eliminarRolToolStripMenuItem";
-            this.eliminarRolToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.eliminarRolToolStripMenuItem.Text = "Eliminar Rol";
             // 
             // salirToolStripMenuItem
             // 
@@ -178,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 303);
+            this.ClientSize = new System.Drawing.Size(489, 341);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -203,10 +171,6 @@
         private System.Windows.Forms.ToolStripMenuItem agregarPatenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarPatenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarPatenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarRolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem2;

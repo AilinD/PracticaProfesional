@@ -1,10 +1,12 @@
 ﻿using Serilog;
 using ServiceLayer.Domain.PatenteFamilia;
+using ServiceLayer.Servicios.Log;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }
@@ -58,7 +60,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }
@@ -81,7 +83,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 {
                     conn.Open();
                     SqlCommand sqlComm = new SqlCommand("Patente_Select", conn);
-                    sqlComm.Parameters.AddWithValue("@IdPatente", IdFamiliaElement);
+                    sqlComm.Parameters.AddWithValue("@Nombre", IdFamiliaElement);
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
 
@@ -97,7 +99,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }
@@ -118,7 +120,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Patente_Delete", conn);
-                    sqlComm.Parameters.AddWithValue("@IdFamiliaElement", _object.IdFamiliaElement);
+                    sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
 
                     sqlComm.CommandType = CommandType.StoredProcedure;
 
@@ -130,7 +132,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }
@@ -162,7 +164,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
                 }
             }catch(Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }
@@ -195,7 +197,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "");
+                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
                 throw ex;
             }
         }

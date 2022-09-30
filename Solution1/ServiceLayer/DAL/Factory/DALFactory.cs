@@ -15,7 +15,10 @@ namespace ServiceLayer.DAL.Factory
     {
         public static LenguajeRepositorio LanguageRepository { get; private set; }
 
-        public static LoggerRepository LoggerRepository { get; private set; }
+        public static LoggerRepository LoggerRepository()
+        {
+            return new LoggerRepository();
+        }
 
 
     }

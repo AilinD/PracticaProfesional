@@ -4,19 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Servicios.Log
+namespace ServiceLayer.BLL
 {
-    public class log
+    public class UIException : Exception
     {
-        public log()
+        public UIException(String message) : base(message)
         {
 
         }
-
-        public log(string mensaje)
-        {
-
-        }
-
     }
 }

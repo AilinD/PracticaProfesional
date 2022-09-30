@@ -49,7 +49,7 @@ namespace ConsolaPruebas
             var proof = Hashing.DecryptString(key, opt);
             Console.WriteLine($"decrypted string = {proof}");
 
-            LoggerRepositorio.Current.WriteLog();
+           // LoggerRepositorio.Current.WriteLog();
 
             //Usuario_dal.SelectAll();
             //Patente_dal.SelectAll();

@@ -12,7 +12,7 @@ namespace ServiceLayer.BLL
     {
         public static void WriteLog(string message, EventLevel level, string user)
         {
-            DALFactory.LoggerRepository.WriteLog(message, level, user);
+            DALFactory.LoggerRepository().WriteLog(message, level, user);
 
            
 

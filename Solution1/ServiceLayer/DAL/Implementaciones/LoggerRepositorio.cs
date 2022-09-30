@@ -13,29 +13,13 @@ namespace ServiceLayer.DAL.Implementaciones
 {
     public class LoggerRepository
     {
-        #region Singleton
-        private readonly static LoggerRepository _instance = new LoggerRepository();
-
-        public static LoggerRepository Current
-        {
-            get
-            {
-                return _instance;
-            }
-        }
-
-        public LoggerRepository()
-        {
-            //Implement here the initialization code
-        }
-        #endregion
 
         private string pathLog = ConfigurationManager.AppSettings["PathLog"];
 
-        private string pathFile = ConfigurationManager.AppSettings["LogFileName"];
+      
         public void WriteLog(string message, EventLevel level, string user)
         {
-            string fileName = pathLog + DateTime.Now.ToString("yyyyMMdd") + pathFile;
+            string fileName = pathLog + DateTime.Now.ToString("yyyyMMdd") ;
 
             //Aplicar sus políticas...
             //1 opción: En función de la severity que configuren en su app.config

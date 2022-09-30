@@ -59,17 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BackupService.cs" />
+    <Compile Include="BLL\BLLException.cs" />
     <Compile Include="BLL\BLLFamillia.cs" />
     <Compile Include="BLL\BLLUsuario.cs" />
     <Compile Include="BLL\CheckeoDigitoV.cs" />
+    <Compile Include="BLL\ExceptionManager.cs" />
     <Compile Include="BLL\LanguageBLL.cs" />
     <Compile Include="BLL\LoggerBLL.cs" />
-    <Compile Include="BLL\ILogginService.cs" />
-    <Compile Include="BLL\LogginService.cs" />
-    <Compile Include="BLL\Log\ArchivoLog.cs" />
-    <Compile Include="BLL\Log\Logger.cs" />
     <Compile Include="BLL\PatenteBLL.cs" />
     <Compile Include="BLL\RestoreService.cs" />
+    <Compile Include="BLL\UIException.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DAL\Adapter\FamiliaAdapter.cs" />
     <Compile Include="DAL\Adapter\FamiliaCollectionAdapter.cs" />
@@ -84,6 +83,7 @@
     <Compile Include="DAL\Implementaciones\Adapter\PatenteCollectionAdapter.cs" />
     <Compile Include="DAL\Implementaciones\Adapter\UsuarioAdapter.cs" />
     <Compile Include="DAL\Implementaciones\Adapter\UsuarioCollectionAdapter.cs" />
+    <Compile Include="BLL\DALException.cs" />
     <Compile Include="DAL\Implementaciones\LenguajeRepositorio.cs" />
     <Compile Include="DAL\Implementaciones\LoggerRepositorio.cs" />
     <Compile Include="DAL\Implementaciones\VerificableAttribute.cs" />
@@ -110,9 +110,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Backup\ServicioBackup.cs" />
     <Compile Include="Servicios\Hash\Hashing.cs" />
-    <Compile Include="Servicios\Login\ServiceLogin.cs" />
-    <Compile Include="Servicios\Log\ILog.cs" />
-    <Compile Include="Servicios\Log\Log.cs" />
     <Compile Include="Servicios\Log\LoggerService.cs" />
     <Compile Include="Servicios\Permisos\Permiso.cs" />
     <Compile Include="Servicios\Permisos\Rol.cs" />
@@ -128,7 +125,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BLL\Log\" />
     <Folder Include="Domain\Composite\" />
+    <Folder Include="Servicios\Login\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

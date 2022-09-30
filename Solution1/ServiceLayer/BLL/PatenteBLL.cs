@@ -78,7 +78,7 @@ namespace ServiceLayer.BLL
 			catch (Exception ex)
 			{
 
-				throw ex;
+				throw new Exception("Patente no encontrada");
 			}
 		}
 		public static DataTable SelectAll()

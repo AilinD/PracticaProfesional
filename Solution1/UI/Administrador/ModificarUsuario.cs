@@ -13,6 +13,16 @@ namespace UI.Administrador
 {
     public partial class ModificarUsuario : Form
     {
+         #region singleton
+        private readonly static ModificarUsuario _instance = new ModificarUsuario();
+        public static ModificarUsuario Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        #endregion
         public ModificarUsuario()
         {
             InitializeComponent();
