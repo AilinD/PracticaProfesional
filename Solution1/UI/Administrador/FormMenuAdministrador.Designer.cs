@@ -40,6 +40,10 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.patenteFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,12 +52,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuariodToolStripMenuItem,
             this.menuPatenteToolStripMenuItem,
+            this.patenteFamiliaToolStripMenuItem,
             this.salirToolStripMenuItem,
             this.salirToolStripMenuItem1,
             this.salirToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(489, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(554, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,21 +76,21 @@
             // agregarUsuarioToolStripMenuItem
             // 
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // modificarUsuarioToolStripMenuItem
             // 
             this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
             this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
@@ -103,21 +108,21 @@
             // agregarPatenteToolStripMenuItem
             // 
             this.agregarPatenteToolStripMenuItem.Name = "agregarPatenteToolStripMenuItem";
-            this.agregarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.agregarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarPatenteToolStripMenuItem.Text = "Agregar Patente";
             this.agregarPatenteToolStripMenuItem.Click += new System.EventHandler(this.agregarPatenteToolStripMenuItem_Click);
             // 
             // modificarPatenteToolStripMenuItem
             // 
             this.modificarPatenteToolStripMenuItem.Name = "modificarPatenteToolStripMenuItem";
-            this.modificarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.modificarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarPatenteToolStripMenuItem.Text = "Modificar Patente";
             this.modificarPatenteToolStripMenuItem.Click += new System.EventHandler(this.modificarPatenteToolStripMenuItem_Click);
             // 
             // eliminarPatenteToolStripMenuItem
             // 
             this.eliminarPatenteToolStripMenuItem.Name = "eliminarPatenteToolStripMenuItem";
-            this.eliminarPatenteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.eliminarPatenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarPatenteToolStripMenuItem.Text = "Eliminar Patente";
             this.eliminarPatenteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPatenteToolStripMenuItem_Click);
             // 
@@ -142,11 +147,39 @@
             this.salirToolStripMenuItem2.Text = "Salir";
             this.salirToolStripMenuItem2.Click += new System.EventHandler(this.salirToolStripMenuItem2_Click);
             // 
+            // patenteFamiliaToolStripMenuItem
+            // 
+            this.patenteFamiliaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarFamiliaToolStripMenuItem,
+            this.modificarFamiliaToolStripMenuItem,
+            this.eliminarFamiliaToolStripMenuItem});
+            this.patenteFamiliaToolStripMenuItem.Name = "patenteFamiliaToolStripMenuItem";
+            this.patenteFamiliaToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.patenteFamiliaToolStripMenuItem.Text = "Patente Familia";
+            // 
+            // agregarFamiliaToolStripMenuItem
+            // 
+            this.agregarFamiliaToolStripMenuItem.Name = "agregarFamiliaToolStripMenuItem";
+            this.agregarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarFamiliaToolStripMenuItem.Text = "Agregar Familia";
+            // 
+            // modificarFamiliaToolStripMenuItem
+            // 
+            this.modificarFamiliaToolStripMenuItem.Name = "modificarFamiliaToolStripMenuItem";
+            this.modificarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarFamiliaToolStripMenuItem.Text = "Modificar Familia";
+            // 
+            // eliminarFamiliaToolStripMenuItem
+            // 
+            this.eliminarFamiliaToolStripMenuItem.Name = "eliminarFamiliaToolStripMenuItem";
+            this.eliminarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarFamiliaToolStripMenuItem.Text = "Eliminar Familia";
+            // 
             // FormMenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 341);
+            this.ClientSize = new System.Drawing.Size(554, 341);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -174,5 +207,9 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem patenteFamiliaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarFamiliaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarFamiliaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarFamiliaToolStripMenuItem;
     }
 }

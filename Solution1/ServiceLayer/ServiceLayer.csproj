@@ -127,6 +127,7 @@
   <ItemGroup>
     <Folder Include="BLL\Log\" />
     <Folder Include="Domain\Composite\" />
+    <Folder Include="Domain\Interfaz\" />
     <Folder Include="Servicios\Login\" />
   </ItemGroup>
   <ItemGroup>
