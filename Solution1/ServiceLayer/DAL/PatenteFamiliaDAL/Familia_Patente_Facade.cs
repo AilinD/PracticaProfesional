@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using ServiceLayer.BLL;
 using ServiceLayer.Servicios.Log;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Select Familia_Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}

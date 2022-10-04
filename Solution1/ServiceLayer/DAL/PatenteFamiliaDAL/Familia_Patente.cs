@@ -10,6 +10,7 @@ using ServiceLayer.Domain.PatenteFamilia;
 using Serilog;
 using System.Diagnostics.Tracing;
 using ServiceLayer.Servicios.Log;
+using ServiceLayer.BLL;
 
 namespace ServiceLayer.DAL.PatenteFamilia
 {
@@ -18,7 +19,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		readonly static string conString;
         static Familia_Patente()
 		{
-			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
+			conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
 		}
 
 		/// <summary>
@@ -48,7 +49,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("SelectAll familia_patente Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -92,7 +93,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("select familia_patente Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -125,7 +126,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("delete familia_patente Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -154,7 +155,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("update familia_patente Fallo", EventLevel.Error, "");
 				throw ex;
             }
 		}
@@ -188,7 +189,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("insert familia_patente Fallo", EventLevel.Error, "");
 				throw ex;
             }
 
@@ -237,7 +238,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetAccesos Familia_patente Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -268,7 +269,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 				}
 			}catch(Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("DeleteAccesos Familia_patente Fallo", EventLevel.Error, "");
 				throw ex;
             }
 		}

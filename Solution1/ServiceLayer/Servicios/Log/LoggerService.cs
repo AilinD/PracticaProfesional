@@ -1,5 +1,5 @@
 ﻿using Serilog;
-using Serilog.Formatting.Compact;
+//using Serilog.Formatting.Compact;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

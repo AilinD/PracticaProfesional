@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceLayer.Domain.PatenteFamilia;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +14,11 @@ namespace UI.Generales
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        private readonly Sesion _sesion;
+        public MenuPrincipal(Sesion sesion)
         {
+            IsMdiContainer = true;
+            _sesion = sesion;
             InitializeComponent();
         }
 
@@ -26,6 +30,28 @@ namespace UI.Generales
         private void btnMenuAdm_Click(object sender, EventArgs e)
         {
     
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMenuAdministrador formMenuAdministrador = new FormMenuAdministrador(_sesion);
+            formMenuAdministrador.ShowDialog();
+            formMenuAdministrador.Hide();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

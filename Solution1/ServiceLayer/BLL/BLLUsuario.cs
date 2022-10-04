@@ -29,7 +29,7 @@ namespace ServiceLayer.BLL
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
                 throw ex;
             }
             
@@ -54,7 +54,7 @@ namespace ServiceLayer.BLL
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog($"Message; {ex.Message}, StackTrace: {ex.StackTrace}", EventLevel.Error, String.Empty);
+                  LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
                throw ex;
 			}
 		}
@@ -66,7 +66,7 @@ namespace ServiceLayer.BLL
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog($"Message; {ex.Message}, StackTrace: {ex.StackTrace}", EventLevel.Error, String.Empty);
+                  LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
 
                 throw ex;
 			}

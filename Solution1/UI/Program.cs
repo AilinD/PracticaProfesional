@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administrador;
+using UI.Generales;
 
 namespace UI
 {
@@ -22,8 +23,9 @@ namespace UI
             // Application.Run(new Login());
             // Application.Run(new FormContBackRest());
             //Application.Run(new MenuUsuarios());
-          //  Application.Run(new FormMenuAdministrador());
-            Application.Run(new FormMenuAdministrador(PromptForLogin()));
+            //  Application.Run(new FormMenuAdministrador());
+            Application.Run(new MenuPrincipal(PromptForLogin()));
+           // Application.Run(new FormMenuAdministrador(PromptForLogin()));
            // Application.Run(new ModificarPatentes());
             //Application.Run(new EliminarPatente());
         }

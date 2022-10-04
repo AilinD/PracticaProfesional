@@ -65,7 +65,7 @@ namespace UI
         private  void ShowError(string error = "Nombre de usuario y/o contraseña incorrectos.")
         {
             MessageBox.Show(error);
-
+            LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
         }
 
         private void Login_Load(object sender, EventArgs e)

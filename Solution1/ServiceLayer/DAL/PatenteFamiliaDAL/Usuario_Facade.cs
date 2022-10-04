@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using ServiceLayer.BLL;
 using ServiceLayer.DAL.Adapter;
 using ServiceLayer.Domain.PatenteFamilia;
 using ServiceLayer.Servicios.Log;
@@ -22,7 +23,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetAllAdapted Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -38,7 +39,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetAdapted Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -51,7 +52,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Insert Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -67,7 +68,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Update Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -80,7 +81,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Delete Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -93,7 +94,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Select Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -106,7 +107,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("SelectAll Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -120,7 +121,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetUsuario Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
 
@@ -134,7 +135,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("DeleteFamilias Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }
@@ -147,7 +148,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
             }
             catch (Exception ex)
             {
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("DeletePatentes Usuario_Facade Fallo", EventLevel.Error, "");
                 throw ex;
             }
         }

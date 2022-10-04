@@ -73,7 +73,8 @@ namespace UI.Administrador
 
         private void salirToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            //Application.Exit();
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)

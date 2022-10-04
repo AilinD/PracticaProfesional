@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using ServiceLayer.BLL;
 using ServiceLayer.Domain.PatenteFamilia;
 using ServiceLayer.Servicios.Log;
 using System;
@@ -24,7 +25,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetAllAdapted Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -46,7 +47,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("GetAdapted Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -59,7 +60,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Insert patente_facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -72,7 +73,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Update Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -85,7 +86,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("Delete Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
@@ -98,7 +99,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-				LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+				  LoggerBLL.WriteLog("Select Patente_Facade Fallo", EventLevel.Error, "");
 				throw ex;
 			}
 		}
@@ -111,7 +112,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 			}
 			catch (Exception ex)
 			{
-                LoggerService.WriteLog(ex.Message,EventLevel.Error,"");
+                  LoggerBLL.WriteLog("SelectAll Patente_Facade Fallo", EventLevel.Error, "");
                 throw ex;
 			}
 		}
