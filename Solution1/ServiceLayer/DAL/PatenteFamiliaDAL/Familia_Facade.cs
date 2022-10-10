@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ServiceLayer.Domain.PatenteFamilia;
-using DataAccess.Adapter;
+using DAL.Adapter;
 using Serilog;
 using System.Diagnostics.Tracing;
 using ServiceLayer.Servicios.Log;

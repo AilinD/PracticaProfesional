@@ -94,25 +94,26 @@
             this.modificarPacienteToolStripMenuItem,
             this.eliminarPacienteToolStripMenuItem});
             this.nuevoPacienteToolStripMenuItem.Name = "nuevoPacienteToolStripMenuItem";
-            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoPacienteToolStripMenuItem.Text = "Pacientes";
             // 
             // nuevoPacienteToolStripMenuItem1
             // 
             this.nuevoPacienteToolStripMenuItem1.Name = "nuevoPacienteToolStripMenuItem1";
-            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.nuevoPacienteToolStripMenuItem1.Text = "Nuevo Paciente";
+            this.nuevoPacienteToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPacienteToolStripMenuItem1_Click);
             // 
             // modificarPacienteToolStripMenuItem
             // 
             this.modificarPacienteToolStripMenuItem.Name = "modificarPacienteToolStripMenuItem";
-            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarPacienteToolStripMenuItem.Text = "Modificar Paciente";
             // 
             // eliminarPacienteToolStripMenuItem
             // 
             this.eliminarPacienteToolStripMenuItem.Name = "eliminarPacienteToolStripMenuItem";
-            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarPacienteToolStripMenuItem.Text = "Eliminar Paciente";
             // 
             // asignarTurnoToolStripMenuItem
@@ -122,7 +123,7 @@
             this.modificarTurnoToolStripMenuItem1,
             this.eliminarTurnoToolStripMenuItem1});
             this.asignarTurnoToolStripMenuItem.Name = "asignarTurnoToolStripMenuItem";
-            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.asignarTurnoToolStripMenuItem.Text = "Turnos";
             // 
             // nuevoTurnoToolStripMenuItem
@@ -150,7 +151,7 @@
             this.modificarGuardiaToolStripMenuItem1,
             this.eliminarGuardiaToolStripMenuItem});
             this.asignarGuardiaToolStripMenuItem.Name = "asignarGuardiaToolStripMenuItem";
-            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.asignarGuardiaToolStripMenuItem.Text = "Guardias";
             // 
             // asignarGuardiaToolStripMenuItem2

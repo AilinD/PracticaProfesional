@@ -19,43 +19,61 @@ using DOMAIN;
 namespace BLL {
 	public class PacienteBLL {
 
-		public BLL.EstudioBLL m_EstudioBLL;
-		public BLL.TurnoBLL m_TurnoBLL;
-		public BLL.GuardiaBLL m_GuardiaBLL;
+		//public BLL.EstudioBLL m_EstudioBLL;
+		//public BLL.TurnoBLL m_TurnoBLL;
+		//public BLL.GuardiaBLL m_GuardiaBLL;
 
 		public PacienteBLL(){
 
 		}
 
-		~PacienteBLL(){
 
-		}
-
+		/// <summary>
 		/// 
+		/// </summary>
 		/// <param name="paciente"></param>
 		public void AltaPaciente(Paciente paciente){
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+				throw ex;
+            }
 		}
 
+		/// <summary>
 		/// 
-		/// <param name="int"></param>
+		/// </summary>
+		/// <param name="ID"></param>
 		public void BajaPaciente(int ID){
 
 		}
 
+
+		/// <summary>
 		/// 
-		/// <param name="int"></param>
+		/// </summary>
+		/// <param name="ID"></param>
+		/// <returns></returns>
 		public Paciente  BuscarPaciente(int ID){
 
 			return null;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		public List<Paciente> ListarPaciente(){
 
 			return null;
 		}
 
+		/// <summary>
 		/// 
+		/// </summary>
 		/// <param name="paciente"></param>
 		public void ModificarPaciente(Paciente paciente){
 

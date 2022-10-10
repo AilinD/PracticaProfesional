@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Adapter
+namespace DAL.Adapter
 {
 
 	public class FamiliaAdapter

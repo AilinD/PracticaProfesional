@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 
 
-namespace DataAccess.Adapter
+namespace DAL.Adapter
 {
     public class UsuarioAdapter
     {

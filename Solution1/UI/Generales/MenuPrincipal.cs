@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administrador;
+using UI.Recepcionista;
 
 namespace UI.Generales
 {
@@ -44,14 +45,29 @@ namespace UI.Generales
 
         private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMenuAdministrador formMenuAdministrador = new FormMenuAdministrador(_sesion);
-            formMenuAdministrador.ShowDialog();
-            formMenuAdministrador.Hide();
+            CreateMDIChild<FormMenuAdministrador>();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void nuevoPacienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<NuevoPaciente>();
+        }
+
+
+        private Form CreateMDIChild<T>() where T : Form
+        {
+
+            var childForm = (Form)Activator.CreateInstance(typeof(T));
+            childForm.Text = string.Empty;
+            childForm.MdiParent = this;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Show();
+            return childForm;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace ServiceLayer.BLL
 {
     public class PatenteBLL
     {
+		//private readonly IGenericRepository<Movie> _repo = FactoryDAL.MovieRepository;
 		public static List<Domain.PatenteFamilia.Patente> GetAllAdapted()
 		{
 			try

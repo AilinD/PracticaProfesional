@@ -1,4 +1,5 @@
-﻿using DataAccess.Repo.Sql;
+﻿
+using DataAccess.Repo.Sql;
 using DataAccess.Repo.Sql.Interfaz;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace ServiceLayer.BLL
 {

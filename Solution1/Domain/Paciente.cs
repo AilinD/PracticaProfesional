@@ -21,12 +21,14 @@ namespace DOMAIN {
 	public class Paciente {
 
 		public string Apellido { get; set; }
-		public int Celular { get; set; }
+		public int Contacto { get; set; }
 		public string Dirección { get; set; }
 		public int DNI { get; set; }
+		public string Sexo { get; set; }
 		public DateTime FechaNacimiento { get; set; }
-		public Guid IdPaciente { get; set; }
+		public int IdPaciente { get; set; }
 		public string Nombre { get; set; }
+		public string ObraSocial { get;set; }
 		//public Domain Model.Medicos m_Medicos;
 		public DOMAIN.Historial_Paciente m_Historial_Paciente;
 		public DOMAIN.Turno m_Turno;

@@ -1,4 +1,4 @@
-﻿using DataAccess.Adapter;
+﻿using DAL.Adapter;
 using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
