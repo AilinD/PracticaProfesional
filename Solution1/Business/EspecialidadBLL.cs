@@ -15,17 +15,27 @@ using Domain;
 namespace BLL {
 	public class EspecialidadBLL {
 
-		public EspecialidadBLL(){
+        #region Singleton
+        private readonly static EspecialidadBLL _instance = new EspecialidadBLL();
 
-		}
+        public static EspecialidadBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		~EspecialidadBLL(){
+        private EspecialidadBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		}
 
-		/// 
-		/// <param name="especialidad"></param>
-		public void AgregarEspecialidad(Especialidad especialidad){
+        /// 
+        /// <param name="especialidad"></param>
+        public void AgregarEspecialidad(Especialidad especialidad){
 
 		}
 

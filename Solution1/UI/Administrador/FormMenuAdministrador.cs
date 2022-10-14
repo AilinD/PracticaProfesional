@@ -15,14 +15,15 @@ namespace UI.Administrador
 {
     public partial class FormMenuAdministrador : Form
     {
-        private readonly Sesion _session;
-        public FormMenuAdministrador(Sesion session)
+       
+        public FormMenuAdministrador()
         {
-            IsMdiContainer = true;
-            _session = session;
+            IsMdiContainer = false;
             InitializeComponent();
             
         }
+
+      
 
 
         private void menuUsuariodToolStripMenuItem_Click(object sender, EventArgs e)

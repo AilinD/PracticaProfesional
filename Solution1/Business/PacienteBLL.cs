@@ -19,20 +19,35 @@ using DOMAIN;
 namespace BLL {
 	public class PacienteBLL {
 
-		//public BLL.EstudioBLL m_EstudioBLL;
-		//public BLL.TurnoBLL m_TurnoBLL;
-		//public BLL.GuardiaBLL m_GuardiaBLL;
-
-		public PacienteBLL(){
-
-		}
+        //public BLL.EstudioBLL m_EstudioBLL;
+        //public BLL.TurnoBLL m_TurnoBLL;
+        //public BLL.GuardiaBLL m_GuardiaBLL;
 
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="paciente"></param>
-		public void AltaPaciente(Paciente paciente){
+        #region Singleton
+        private readonly static PacienteBLL _instance = new PacienteBLL();
+
+        public static PacienteBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        public PacienteBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paciente"></param>
+        public void AltaPaciente(Paciente paciente){
             try
             {
 

@@ -291,6 +291,18 @@
     <Compile Include="Administrador\NuevaPatente.Designer.cs">
       <DependentUpon>NuevaPatente.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseExperta\IngresarEnfermedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseExperta\IngresarEnfermedad.Designer.cs">
+      <DependentUpon>IngresarEnfermedad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseExperta\IngresarSintomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseExperta\IngresarSintomas.Designer.cs">
+      <DependentUpon>IngresarSintomas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generales\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +315,36 @@
     <Compile Include="Generales\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medicos\BuscarCoincidencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicos\BuscarCoincidencias.Designer.cs">
+      <DependentUpon>BuscarCoincidencias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicos\BuscarHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicos\BuscarHistorial.Designer.cs">
+      <DependentUpon>BuscarHistorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicos\DerivarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicos\DerivarPaciente.Designer.cs">
+      <DependentUpon>DerivarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicos\InformeDiagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicos\InformeDiagnostico.Designer.cs">
+      <DependentUpon>InformeDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicos\SolicitarEstudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicos\SolicitarEstudio.Designer.cs">
+      <DependentUpon>SolicitarEstudio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Navegacion\AyudaNavegacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -312,11 +354,23 @@
     <Compile Include="Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recepcionista\NuevaGuardia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcionista\NuevaGuardia.Designer.cs">
+      <DependentUpon>NuevaGuardia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recepcionista\NuevoPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Recepcionista\NuevoPaciente.Designer.cs">
       <DependentUpon>NuevoPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recepcionista\NuevoTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcionista\NuevoTurno.Designer.cs">
+      <DependentUpon>NuevoTurno.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Administrador\EliminarPatente.resx">
       <DependentUpon>EliminarPatente.cs</DependentUpon>
@@ -367,8 +421,14 @@
     <EmbeddedResource Include="Prueba.resx">
       <DependentUpon>Prueba.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recepcionista\NuevaGuardia.resx">
+      <DependentUpon>NuevaGuardia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recepcionista\NuevoPaciente.resx">
       <DependentUpon>NuevoPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepcionista\NuevoTurno.resx">
+      <DependentUpon>NuevoTurno.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -385,10 +445,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BaseExperta\" />
-    <Folder Include="Medicos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{a7a2e9bc-4342-4811-9a0b-4c838691b34b}</Project>

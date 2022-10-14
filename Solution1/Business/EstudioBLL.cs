@@ -15,17 +15,29 @@ using DOMAIN;
 namespace BLL {
 	public class EstudioBLL {
 
-		public EstudioBLL(){
+        #region Singleton
+        private readonly static EstudioBLL _instance = new EstudioBLL();
 
-		}
+        public static EstudioBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		~EstudioBLL(){
+        private EstudioBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		}
 
-		/// 
-		/// <param name="estudio"></param>
-		public Estudio AltaEstudio(Estudio estudio){
+
+
+        /// 
+        /// <param name="estudio"></param>
+        public Estudio AltaEstudio(Estudio estudio){
 
 			return null;
 		}

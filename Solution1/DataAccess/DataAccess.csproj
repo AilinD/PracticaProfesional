@@ -278,6 +278,7 @@
     <Compile Include="Repo\Sql\BackupRepository.cs" />
     <Compile Include="Repo\Sql\Interfaz\IBackupRepository.cs" />
     <Compile Include="Repo\Sql\Interfaz\IRestoreRepository.cs" />
+    <Compile Include="Repo\Sql\PacientesRepo.cs" />
     <Compile Include="Repo\Sql\RestoreRepository.cs" />
     <Compile Include="Tools\SqlHelper.cs" />
   </ItemGroup>

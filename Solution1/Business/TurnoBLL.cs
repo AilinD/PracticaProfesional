@@ -15,17 +15,27 @@ using DOMAIN;
 namespace BLL {
 	public class TurnoBLL {
 
-		public TurnoBLL(){
+        #region Singleton
+        private readonly static TurnoBLL _instance = new TurnoBLL();
 
-		}
+        public static TurnoBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		~TurnoBLL(){
+        public TurnoBLL()
+        {
 
-		}
+        }
 
-		/// 
-		/// <param name="Turno"></param>
-		public void AltaTurno(Turno Turno){
+        #endregion
+
+        /// 
+        /// <param name="Turno"></param>
+        public void AltaTurno(Turno Turno){
 
 		}
 

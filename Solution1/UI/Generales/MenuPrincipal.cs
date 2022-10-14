@@ -1,4 +1,5 @@
-﻿using ServiceLayer.Domain.PatenteFamilia;
+﻿using Microsoft.SqlServer.Management.XEvent;
+using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,15 @@ namespace UI.Generales
 {
     public partial class MenuPrincipal : Form
     {
-        private readonly Sesion _sesion;
+        private readonly Sesion _session;
+
         public MenuPrincipal(Sesion sesion)
         {
             IsMdiContainer = true;
-            _sesion = sesion;
+            _session = sesion;
             InitializeComponent();
         }
+       
 
         private void btnMenuRecepcion_Click(object sender, EventArgs e)
         {
@@ -43,9 +46,10 @@ namespace UI.Generales
 
         }
 
-        private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e) {
+
             CreateMDIChild<FormMenuAdministrador>();
+             
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,6 +62,17 @@ namespace UI.Generales
             CreateMDIChild<NuevoPaciente>();
         }
 
+
+        private Form CreateMDIChi<T>() where T : Form
+        {
+
+            var childForm = (Form)Activator.CreateInstance(typeof(T));
+            childForm.Text = string.Empty;
+            childForm.MdiParent = this.MdiParent;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Show();
+            return childForm;
+        }
 
         private Form CreateMDIChild<T>() where T : Form
         {

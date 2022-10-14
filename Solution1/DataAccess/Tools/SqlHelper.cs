@@ -59,7 +59,7 @@ namespace DataAccess.Tools
         /// <summary>
         /// Set the connection, command, and then execute the command and only return one value.
         /// </summary>
-        public static Object ExecuteScalar(String commandText,
+        public static object ExecuteScalar(String commandText,
             CommandType commandType, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(conString))

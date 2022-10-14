@@ -9,8 +9,24 @@ namespace ServiceLayer.BLL
 {
     public class PatenteBLL
     {
-		//private readonly IGenericRepository<Movie> _repo = FactoryDAL.MovieRepository;
-		public static List<Domain.PatenteFamilia.Patente> GetAllAdapted()
+        #region Singleton
+        private readonly static PatenteBLL _instance = new PatenteBLL();
+
+        public static PatenteBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        private PatenteBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
+        //private readonly IGenericRepository<Movie> _repo = FactoryDAL.MovieRepository;
+        public static List<Domain.PatenteFamilia.Patente> GetAllAdapted()
 		{
 			try
 			{

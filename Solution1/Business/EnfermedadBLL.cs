@@ -10,9 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
-
 using BLL;
 using DOMAIN;
 using Domain;
@@ -20,15 +17,26 @@ using Domain;
 namespace BLL {
 	public class EnfermedadBLL {
 
-		public BLL.PacienteBLL m_PacienteBLL;
+        #region Singleton
+        private readonly static EnfermedadBLL _instance = new EnfermedadBLL();
 
-		public EnfermedadBLL(){
+        public static EnfermedadBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		}
+        private EnfermedadBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		~EnfermedadBLL(){
+        public BLL.PacienteBLL m_PacienteBLL;
 
-		}
+		
 
 		/// 
 		/// <param name="enfermedad"></param>

@@ -22,17 +22,28 @@ namespace BLL {
 		public BLL.EspecialidadBLL m_EspecialidadBLL;
 		public BLL.PacienteBLL m_PacienteBLL;
 
-		public MedicoBLL(){
+        #region Singleton
+        private readonly static MedicoBLL _instance = new MedicoBLL();
 
-		}
+        public static MedicoBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		~MedicoBLL(){
+        private MedicoBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		}
 
-		/// 
-		/// <param name="medico"></param>
-		public void AltaMedico(Medico medico){
+
+        /// 
+        /// <param name="medico"></param>
+        public void AltaMedico(Medico medico){
 
 		}
 

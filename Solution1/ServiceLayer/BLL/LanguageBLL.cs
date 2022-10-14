@@ -11,6 +11,7 @@ namespace ServiceLayer.BLL
 {
     public static class LanguageBLL
     {
+      
         public static string Translate(string word)
         {
             try

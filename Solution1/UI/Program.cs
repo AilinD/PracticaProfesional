@@ -24,8 +24,8 @@ namespace UI
             // Application.Run(new FormContBackRest());
             //Application.Run(new MenuUsuarios());
             //  Application.Run(new FormMenuAdministrador());
-            Application.Run(new MenuPrincipal(PromptForLogin()));
-           // Application.Run(new FormMenuAdministrador(PromptForLogin()));
+           Application.Run(new MenuPrincipal(PromptForLogin()));
+          //  Application.Run(new FormMenuAdministrador()));
            // Application.Run(new ModificarPatentes());
             //Application.Run(new EliminarPatente());
         }

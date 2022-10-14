@@ -15,6 +15,22 @@ namespace ServiceLayer.BLL
 {
     public class CheckeoDigitoV
     {
+        #region Singleton
+        private readonly static CheckeoDigitoV _instance = new CheckeoDigitoV();
+
+        public static CheckeoDigitoV Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        private CheckeoDigitoV()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
         public static string GenerarDVH(Usuario entity)
         {
             var key = "b14ca5898a4e4133bbce2ea2315a1916";

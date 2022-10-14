@@ -21,18 +21,29 @@ namespace BLL {
 
 		public BLL.EnfermedadBLL m_EnfermedadBLL;
 		public BLL.DiagnosticarBLL m_DiagnosticarBLL;
+        #region Singleton
+        private readonly static SintomaBLL _instance = new SintomaBLL();
 
-		public SintomaBLL(){
+        public static SintomaBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		}
+        private SintomaBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		~SintomaBLL(){
 
-		}
 
-		/// 
-		/// <param name="sintoma"></param>
-		public void AltaSintoma(Sintoma sintoma){
+
+        /// 
+        /// <param name="sintoma"></param>
+        public void AltaSintoma(Sintoma sintoma){
 
 		}
 

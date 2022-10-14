@@ -15,17 +15,29 @@ using DOMAIN;
 namespace BLL {
 	public class GuardiaBLL {
 
-		public GuardiaBLL(){
 
-		}
+        #region Singleton
+        private readonly static GuardiaBLL _instance = new GuardiaBLL();
 
-		~GuardiaBLL(){
+        public static GuardiaBLL Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		}
+        private GuardiaBLL()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
 
-		/// 
-		/// <param name="paciente"></param>
-		public void AsignarGuardia(Paciente paciente){
+
+
+        /// 
+        /// <param name="paciente"></param>
+        public void AsignarGuardia(Paciente paciente){
 
 		}
 

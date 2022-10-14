@@ -8,6 +8,18 @@ namespace ServiceLayer.BLL
 {
     public class BLLException:Exception
     {
+        #region Singleton
+        private readonly static BLLException _instance = new BLLException();
+
+        public static BLLException Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        #endregion
         public bool IsBusinessException { get; private set; }
         public BLLException(bool IsBusinessException = false)
         {

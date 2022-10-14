@@ -10,9 +10,20 @@ namespace ServiceLayer.BLL
 {
 	public class BLLFamilia
 	{
+        #region Singleton
+        private readonly static BLLFamilia _instance = new BLLFamilia();
 
+        public static BLLFamilia Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
 
-		public static List<Domain.PatenteFamilia.Familia> GetAllAdapted()
+        #endregion
+
+        public static List<Domain.PatenteFamilia.Familia> GetAllAdapted()
 		{
 			try
 			{

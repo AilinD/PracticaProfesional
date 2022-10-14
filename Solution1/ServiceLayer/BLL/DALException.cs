@@ -9,6 +9,7 @@ namespace ServiceLayer.DAL.Implementaciones
    
       public class DALException : Exception
         {
+
           public DALException(Exception ex) : base("DAL Exception", ex)
             {
 

@@ -15,13 +15,22 @@ using DOMAIN;
 namespace BLL {
 	public class DiagnosticarBLL {
 
-		public DiagnosticarBLL(){
+		#region Singleton
+		private readonly static DiagnosticarBLL _instance = new DiagnosticarBLL();
 
+		public static DiagnosticarBLL Current
+		{
+			get
+			{
+				return _instance;
+			}
 		}
 
-		~DiagnosticarBLL(){
-
+		private DiagnosticarBLL()
+		{
+			//Implement here the initialization code
 		}
+		#endregion
 
 
 		//
