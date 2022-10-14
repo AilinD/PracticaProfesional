@@ -15,6 +15,7 @@ using System.IO;
 
 using BLL;
 using DOMAIN;
+using DataAccess.Repo.Sql;
 
 namespace BLL {
 	public class PacienteBLL {
@@ -26,6 +27,8 @@ namespace BLL {
 
         #region Singleton
         private readonly static PacienteBLL _instance = new PacienteBLL();
+
+		PacientesRepo repo= new PacientesRepo();
 
         public static PacienteBLL Current
         {
@@ -79,10 +82,11 @@ namespace BLL {
 
 		/// <summary>
 		/// 
+		/// USAR AUTOMAPPER PARA CONVERTIR EL OBJ DE PACIENTEBLL EN EL OBJ DE LA BD
 		/// </summary>
 		/// <returns></returns>
-		public List<Paciente> ListarPaciente(){
-
+		public IEnumerable<Paciente> ListarPaciente(){
+			var paciente = repo.GetAll();
 			return null;
 		}
 
