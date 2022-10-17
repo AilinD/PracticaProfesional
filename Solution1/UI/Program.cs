@@ -1,4 +1,5 @@
-﻿using Microsoft.SqlServer.Management.XEvent;
+﻿using AutoMapper;
+using Microsoft.SqlServer.Management.XEvent;
 using ServiceLayer.Domain.PatenteFamilia;
 using System;
 using System.Collections.Generic;
@@ -7,27 +8,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administrador;
 using UI.Generales;
+using UI.Mapper;
+using UI.Recepcionista;
 
 namespace UI
 {
     internal static class Program
     {
+        internal static MapperConfiguration mapperConfiguration { get; private set; }
+
+        private static IMapper _mapper;
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
         [STAThread]
         static void Main()
         {
+           
+           // InitializeAutomapper();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Login());
-            // Application.Run(new FormContBackRest());
-            //Application.Run(new MenuUsuarios());
-            //  Application.Run(new FormMenuAdministrador());
-           Application.Run(new MenuPrincipal(PromptForLogin()));
-          //  Application.Run(new FormMenuAdministrador()));
-           // Application.Run(new ModificarPatentes());
-            //Application.Run(new EliminarPatente());
+         //---  Application.Run(new MenuPrincipal(PromptForLogin()));
+            Application.Run(new NuevoPaciente());
+
+            
+
+
         }
 
     
@@ -46,6 +53,14 @@ namespace UI
 
             return default;
         }
+
+      public static void InitializeAutomapper()
+        {
+            
+            mapperConfiguration.CreateMapper();
+        }
+     
+        
         
     }
 }

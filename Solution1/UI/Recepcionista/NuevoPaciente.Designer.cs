@@ -153,6 +153,7 @@
             this.cboxObraSocial.Name = "cboxObraSocial";
             this.cboxObraSocial.Size = new System.Drawing.Size(164, 21);
             this.cboxObraSocial.TabIndex = 14;
+            this.cboxObraSocial.SelectedIndexChanged += new System.EventHandler(this.cboxObraSocial_SelectedIndexChanged);
             // 
             // btnGenerar
             // 

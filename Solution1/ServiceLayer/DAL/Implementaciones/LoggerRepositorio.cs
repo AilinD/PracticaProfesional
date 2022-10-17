@@ -14,7 +14,7 @@ namespace ServiceLayer.DAL.Implementaciones
     public class LoggerRepository
     {
 
-        private string pathLog = ConfigurationManager.AppSettings["logPc"];
+        private string pathLog = ConfigurationManager.AppSettings["logNote"];
 
       
         public void WriteLog(string message, EventLevel level, string user)

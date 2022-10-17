@@ -19,7 +19,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 		readonly static string conString;
         static Familia_Patente()
 		{
-			conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 		}
 
 		/// <summary>

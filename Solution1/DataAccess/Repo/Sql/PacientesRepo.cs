@@ -1,4 +1,4 @@
-﻿using DataAccess.bASEpROD;
+﻿using DataAccess.BaseProd;
 using DataAccess.Interfaces;
 using DataAccess.Tools;
 using DOMAIN;
@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Paciente = DataAccess.bASEpROD.Paciente;
+using Paciente = DataAccess.BaseProd.Paciente;
 
 namespace DataAccess.Repo.Sql
 {
     public class PacientesRepo : IGenericRepo<Paciente>
     {
-        SysCExpertEntities context = new SysCExpertEntities();  
+        SysCExpertEntities1 context = new SysCExpertEntities1();  
         public void Delete(Guid? guid)
         {
             throw new NotImplementedException();
@@ -22,7 +22,8 @@ namespace DataAccess.Repo.Sql
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
         {
 
-            return context.Pacientes.ToList();
+            // return context..ToList();
+            throw new NotImplementedException();
         }
 
         public Paciente GetOne(Guid? guid)

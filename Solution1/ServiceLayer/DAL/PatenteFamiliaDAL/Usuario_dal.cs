@@ -26,7 +26,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
         static Usuario_dal()
         {
            // conString = @"Data Source=DESKTOP-2ECCL58\SQLEXPRESS;Initial Catalog=PatenteFamilia;Integrated Security=True";
-            conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+            conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
         }
 
 

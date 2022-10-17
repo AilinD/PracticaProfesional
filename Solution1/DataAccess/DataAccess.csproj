@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -37,20 +38,35 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.EF6, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.EF6.2.1.1\lib\net461\AutoMapper.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="Azure.Core, Version=1.24.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Core.1.24.0\lib\net461\Azure.Core.dll</HintPath>
     </Reference>
     <Reference Include="Azure.Identity, Version=1.6.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Azure.Identity.1.6.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.dll</HintPath>
+    <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.0.28.0\lib\net45\DelegateDecompiler.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.28.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Entity.Build.Tasks">
+      <HintPath>..\packages\EntityFramework.6.4.4\build\Microsoft.Data.Entity.Build.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.SqlClient.5.0.0\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
@@ -163,6 +179,9 @@
     <Reference Include="Microsoft.SqlServer.WmiEnum, Version=16.200.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.161.47027.0\lib\net462\Microsoft.SqlServer.WmiEnum.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Reflection, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Reflection.Core.1.1.1\lib\net45\Mono.Reflection.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -177,6 +196,7 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -280,74 +300,68 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bASEpROD\Diagnostico.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Diagnostico.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Especialidad.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Especialidad.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Estudio.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Estudio.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\EstudioPaciente.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\EstudioPaciente.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Guardia.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Guardia.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\HistorialPaciente.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\HistorialPaciente.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Horario.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Horario.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\HorarioProfesional.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\HorarioProfesional.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Medico.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Medico.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\MedicoPorEspecialida.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\MedicoPorEspecialida.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\ObraSocial.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\Paciente.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\Recepcionista.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\Sintoma.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\sp_helpdiagrams_Result.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bASEpROD\SysCExpert.Context.cs">
+    <Compile Include="BaseProd\ModelContainer.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SysCExpert.Context.tt</DependentUpon>
+      <DependentUpon>ModelContainer.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\SysCExpert.cs">
+    <Compile Include="BaseProd\ModelContainer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\SysCExpert.Designer.cs">
+    <Compile Include="BaseProd\ModelContainer.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SysCExpert.edmx</DependentUpon>
+      <DependentUpon>ModelContainer.edmx</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\sysdiagram.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\ObraSocial.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="bASEpROD\Turno.cs">
-      <DependentUpon>SysCExpert.tt</DependentUpon>
+    <Compile Include="BaseProd\Paciente.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Recepcionista.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Sintoma.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\sysdiagram.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Turno.cs">
+      <DependentUpon>ModelContainer.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Interfaces\IGenericRepo.cs" />
@@ -361,12 +375,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EntityDeploy Include="bASEpROD\SysCExpert.edmx">
+    <EntityDeploy Include="BaseProd\ModelContainer.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SysCExpert.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelContainer.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="bASEpROD\SysCExpert.edmx.diagram">
-      <DependentUpon>SysCExpert.edmx</DependentUpon>
+    <None Include="BaseProd\ModelContainer.edmx.diagram">
+      <DependentUpon>ModelContainer.edmx</DependentUpon>
     </None>
     <None Include="BD\PatenteFamilia" />
     <None Include="BD\PatenteFamilia.bak" />
@@ -383,22 +397,22 @@
     <Folder Include="Repo\Prolog\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bASEpROD\SysCExpert.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SysCExpert.Context.cs</LastGenOutput>
-      <DependentUpon>SysCExpert.edmx</DependentUpon>
-    </Content>
-    <Content Include="bASEpROD\SysCExpert.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SysCExpert.edmx</DependentUpon>
-      <LastGenOutput>SysCExpert.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BaseProd\ModelContainer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContainer.edmx</DependentUpon>
+      <LastGenOutput>ModelContainer.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BaseProd\ModelContainer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelContainer.edmx</DependentUpon>
+      <LastGenOutput>ModelContainer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.5.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
@@ -407,5 +421,8 @@
       <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Data.SqlClient.SNI.5.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Data.SqlClient.SNI.5.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

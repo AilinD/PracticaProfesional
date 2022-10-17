@@ -16,6 +16,13 @@ using System.IO;
 using BLL;
 using DOMAIN;
 using DataAccess.Repo.Sql;
+using AutoMapper;
+using System.Runtime.InteropServices;
+using DataAccess.Tools;
+using System.Data;
+using DataAccess.Interfaces;
+using DataAccess.BaseProd;
+using System.Linq;
 
 namespace BLL {
 	public class PacienteBLL {
@@ -24,6 +31,8 @@ namespace BLL {
         //public BLL.TurnoBLL m_TurnoBLL;
         //public BLL.GuardiaBLL m_GuardiaBLL;
 
+		internal static MapperConfiguration MapperConfiguration { get;private set; }
+		private static IGenericRepo<DataAccess.BaseProd.Paciente> genericRepo;
 
         #region Singleton
         private readonly static PacienteBLL _instance = new PacienteBLL();
@@ -50,15 +59,36 @@ namespace BLL {
         /// 
         /// </summary>
         /// <param name="paciente"></param>
-        public void AltaPaciente(Paciente paciente){
+        public void AltaPaciente(DataAccess.BaseProd.Paciente paciente){
             try
             {
+				genericRepo.Insert(paciente);
 
             }
             catch (Exception ex)
             {
 				throw ex;
             }
+		}
+
+		public void Call(int DNI, string Apellido, string Nombre, string FechaNac, string Domicilio, int Contacto, string Sexo, string ObraSocial)
+        {
+			DOMAIN.Paciente paciente = new DOMAIN.Paciente();
+            paciente.DNI = DNI;
+            paciente.Apellido = Apellido;
+            paciente.Nombre = Nombre;
+			paciente.FechaNacimiento = FechaNac;
+            paciente.Dirección = Domicilio;
+            paciente.Contacto = Contacto;
+			paciente.Sexo=Sexo;
+			paciente.ObraSocial = ObraSocial;
+
+
+			var pacientemapeado = ConversionAM(paciente);
+
+
+
+            AltaPaciente(pacientemapeado);
 		}
 
 		/// <summary>
@@ -75,7 +105,7 @@ namespace BLL {
 		/// </summary>
 		/// <param name="ID"></param>
 		/// <returns></returns>
-		public Paciente  BuscarPaciente(int ID){
+		public DOMAIN.Paciente  BuscarPaciente(int ID){
 
 			return null;
 		}
@@ -85,7 +115,7 @@ namespace BLL {
 		/// USAR AUTOMAPPER PARA CONVERTIR EL OBJ DE PACIENTEBLL EN EL OBJ DE LA BD
 		/// </summary>
 		/// <returns></returns>
-		public IEnumerable<Paciente> ListarPaciente(){
+		public IEnumerable<DOMAIN.Paciente> ListarPaciente(){
 			var paciente = repo.GetAll();
 			return null;
 		}
@@ -94,8 +124,32 @@ namespace BLL {
 		/// 
 		/// </summary>
 		/// <param name="paciente"></param>
-		public void ModificarPaciente(Paciente paciente){
+		public void ModificarPaciente(DOMAIN.Paciente paciente){
 
+		}
+
+		public DataTable LLenarCbox(string nombreSP)
+		{			
+			return SqlHelper.CargarCbox(nombreSP);
+        }
+
+		public static DataAccess.BaseProd.Paciente ConversionAM(DOMAIN.Paciente paciente)
+		{
+			DataAccess.BaseProd.Paciente result = new DataAccess.BaseProd.Paciente
+			{
+                DNI = paciente.DNI,
+                Nombre = paciente.Nombre,
+				Apellido = paciente.Apellido,
+				FechaNacimiento = paciente.FechaNacimiento,
+				Domicilio = paciente.Dirección,
+				Contacto =paciente.Contacto,
+				Sexo=paciente.Sexo,
+				
+
+
+
+			};
+			return result;
 		}
 
 	}//end PacienteBLL

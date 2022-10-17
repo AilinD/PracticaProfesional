@@ -79,7 +79,6 @@ namespace UI.Generales
 
             var childForm = (Form)Activator.CreateInstance(typeof(T));
             childForm.Text = string.Empty;
-            childForm.MdiParent = this;
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
             return childForm;

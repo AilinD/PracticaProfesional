@@ -21,7 +21,7 @@ namespace ServiceLayer.DAL.PatenteFamilia
 
 		static Familia_dal()
 		{
-			conString = ConfigurationManager.ConnectionStrings["MainConString3"].ConnectionString;
+			conString = ConfigurationManager.ConnectionStrings["MainConString4"].ConnectionString;
 		}
 
 		/// <summary>

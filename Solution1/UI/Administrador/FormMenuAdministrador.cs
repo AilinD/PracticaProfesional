@@ -55,12 +55,12 @@ namespace UI.Administrador
 
         private void eliminarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarPatentes>();
+            CreateMDIChild<EliminarPatente>();
         }
 
         private void agregarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarPatentes>();
+            CreateMDIChild<NuevaPatente>();
        
         }
 
