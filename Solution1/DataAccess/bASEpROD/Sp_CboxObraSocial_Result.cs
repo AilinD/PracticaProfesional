@@ -10,20 +10,10 @@
 namespace DataAccess.BaseProd
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Horario
+    public partial class Sp_CboxObraSocial_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Horario()
-        {
-            this.HorarioProfesional = new HashSet<HorarioProfesional>();
-        }
-    
         public int Id { get; set; }
         public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HorarioProfesional> HorarioProfesional { get; set; }
     }
 }

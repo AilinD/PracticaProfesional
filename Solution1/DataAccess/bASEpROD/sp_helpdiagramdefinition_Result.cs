@@ -10,17 +10,10 @@
 namespace DataAccess.BaseProd
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class HistorialPaciente
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int Id { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
-        public Nullable<int> DNIPaciente { get; set; }
-        public string Comentario { get; set; }
-        public Nullable<int> MatriculaMedico { get; set; }
-    
-        public virtual Medico Medico { get; set; }
-        public virtual Paciente Paciente { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

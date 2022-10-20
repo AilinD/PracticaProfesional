@@ -12,18 +12,17 @@ namespace DataAccess.BaseProd
     using System;
     using System.Collections.Generic;
     
-    public partial class Sintoma
+    public partial class Diagnosticoes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sintoma()
-        {
-            this.Paciente = new HashSet<Paciente>();
-        }
+        public string Id { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public Nullable<int> MatriculaMedico { get; set; }
+        public string Diagnostico1 { get; set; }
+        public Nullable<int> DNIPaciente { get; set; }
+        public string Medico_Id { get; set; }
+        public Nullable<int> Paciente_DNI { get; set; }
     
-        public int IdSintoma { get; set; }
-        public string Nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Paciente> Paciente { get; set; }
+        public virtual Medicos Medicos { get; set; }
+        public virtual Pacientes Pacientes { get; set; }
     }
 }

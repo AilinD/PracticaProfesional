@@ -30,17 +30,12 @@ namespace DOMAIN {
 		public string Nombre { get; set; }
 		public string ObraSocial { get;set; }
 		//public Domain Model.Medicos m_Medicos;
-		public DOMAIN.Historial_Paciente m_Historial_Paciente;
-		public DOMAIN.Turno m_Turno;
-		public DOMAIN.Diagnostico m_Diagnostico;
+
 
 		public Paciente(){
 
 		}
 
-		~Paciente(){
-
-		}
 
 	}//end Paciente
 

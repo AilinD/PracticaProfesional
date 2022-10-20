@@ -338,7 +338,6 @@
     <Compile Include="Generales\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mapper\MapperConfig.cs" />
     <Compile Include="Medicos\BuscarCoincidencias.cs">
       <SubType>Form</SubType>
     </Compile>

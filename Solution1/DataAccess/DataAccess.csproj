@@ -300,68 +300,122 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseProd\Context.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Context.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Context.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Context.edmx</DependentUpon>
+    </Compile>
     <Compile Include="BaseProd\Diagnostico.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Diagnosticoes.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Especialidad.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Especialidads.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Estudio.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\EstudioPaciente.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\EstudioPacientes.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Estudios.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Guardia.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Guardias.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\HistorialPaciente.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\HistorialPacientes.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Horario.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\HorarioProfesional.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\HorarioProfesionals.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Horarios.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Medico.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseProd\MedicoPorEspecialida.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+    <Compile Include="BaseProd\MedicoPorEspecialidad.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseProd\ModelContainer.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelContainer.Context.tt</DependentUpon>
+    <Compile Include="BaseProd\MedicoPorEspecialidads.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseProd\ModelContainer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelContainer.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BaseProd\ModelContainer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelContainer.edmx</DependentUpon>
+    <Compile Include="BaseProd\Medicos.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\ObraSocial.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\ObraSocials.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Paciente.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Pacientes.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Recepcionista.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Recepcionistas.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Sintoma.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="BaseProd\sysdiagram.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+    <Compile Include="BaseProd\Sintomas.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Sp_CboxObraSocial_Result.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\sysdiagrams.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseProd\Turno.cs">
-      <DependentUpon>ModelContainer.tt</DependentUpon>
+      <DependentUpon>Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseProd\Turnoes.cs">
+      <DependentUpon>Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="Interfaces\IGenericRepo.cs" />
@@ -375,12 +429,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EntityDeploy Include="BaseProd\ModelContainer.edmx">
+    <EntityDeploy Include="BaseProd\Context.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelContainer.Designer.cs</LastGenOutput>
+      <LastGenOutput>Context.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BaseProd\ModelContainer.edmx.diagram">
-      <DependentUpon>ModelContainer.edmx</DependentUpon>
+    <None Include="BaseProd\Context.edmx.diagram">
+      <DependentUpon>Context.edmx</DependentUpon>
     </None>
     <None Include="BD\PatenteFamilia" />
     <None Include="BD\PatenteFamilia.bak" />
@@ -403,15 +457,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BaseProd\ModelContainer.Context.tt">
+    <Content Include="BaseProd\Context.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelContainer.edmx</DependentUpon>
-      <LastGenOutput>ModelContainer.Context.cs</LastGenOutput>
+      <DependentUpon>Context.edmx</DependentUpon>
+      <LastGenOutput>Context.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="BaseProd\ModelContainer.tt">
+    <Content Include="BaseProd\Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelContainer.edmx</DependentUpon>
-      <LastGenOutput>ModelContainer.cs</LastGenOutput>
+      <DependentUpon>Context.edmx</DependentUpon>
+      <LastGenOutput>Context.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

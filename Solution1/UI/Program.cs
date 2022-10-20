@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administrador;
 using UI.Generales;
-using UI.Mapper;
 using UI.Recepcionista;
 
 namespace UI

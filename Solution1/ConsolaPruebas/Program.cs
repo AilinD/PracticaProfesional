@@ -63,7 +63,7 @@ namespace ConsolaPruebas
 
             //Usuario_dal.Insert(usuario);
 
-            PacienteBLL.Current.ListarPaciente();
+           // PacienteBLL.Current.ListarPaciente();
             
             Console.WriteLine("BusBus");
    

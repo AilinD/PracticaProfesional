@@ -13,7 +13,7 @@ namespace DataAccess.Repo.Sql
 {
     public class PacientesRepo : IGenericRepo<Paciente>
     {
-        SysCExpertEntities1 context = new SysCExpertEntities1();  
+        SysEntitiesContext context = new SysEntitiesContext();  
         public void Delete(Guid? guid)
         {
             throw new NotImplementedException();
@@ -33,6 +33,9 @@ namespace DataAccess.Repo.Sql
 
         public void Insert(Paciente obj)
         {
+            context.Paciente.Add(obj);
+            context.SaveChanges();
+
             throw new NotImplementedException();
         }
 

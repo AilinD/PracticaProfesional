@@ -12,17 +12,18 @@ namespace DataAccess.BaseProd
     using System;
     using System.Collections.Generic;
     
-    public partial class Medico
+    public partial class Medicos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Medico()
+        public Medicos()
         {
-            this.Diagnostico = new HashSet<Diagnostico>();
-            this.EstudioPaciente = new HashSet<EstudioPaciente>();
-            this.Guardia = new HashSet<Guardia>();
-            this.HistorialPaciente = new HashSet<HistorialPaciente>();
-            this.HorarioProfesional = new HashSet<HorarioProfesional>();
-            this.Turno = new HashSet<Turno>();
+            this.Diagnosticoes = new HashSet<Diagnosticoes>();
+            this.EstudioPacientes = new HashSet<EstudioPacientes>();
+            this.Guardias = new HashSet<Guardias>();
+            this.HistorialPacientes = new HashSet<HistorialPacientes>();
+            this.HorarioProfesionals = new HashSet<HorarioProfesionals>();
+            this.MedicoPorEspecialidads = new HashSet<MedicoPorEspecialidads>();
+            this.Turnoes = new HashSet<Turnoes>();
         }
     
         public string Id { get; set; }
@@ -33,16 +34,18 @@ namespace DataAccess.BaseProd
         public string Direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Diagnostico> Diagnostico { get; set; }
+        public virtual ICollection<Diagnosticoes> Diagnosticoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EstudioPaciente> EstudioPaciente { get; set; }
+        public virtual ICollection<EstudioPacientes> EstudioPacientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Guardia> Guardia { get; set; }
+        public virtual ICollection<Guardias> Guardias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HistorialPaciente> HistorialPaciente { get; set; }
+        public virtual ICollection<HistorialPacientes> HistorialPacientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HorarioProfesional> HorarioProfesional { get; set; }
+        public virtual ICollection<HorarioProfesionals> HorarioProfesionals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Turno> Turno { get; set; }
+        public virtual ICollection<MedicoPorEspecialidads> MedicoPorEspecialidads { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Turnoes> Turnoes { get; set; }
     }
 }

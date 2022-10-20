@@ -23,21 +23,19 @@ using System.Data;
 using DataAccess.Interfaces;
 using DataAccess.BaseProd;
 using System.Linq;
+using Business.Interfaces;
+using Business.DTOs;
+using Business.Factory;
+using ServiceLayer.Mapper;
+using Paciente = DataAccess.BaseProd.Paciente;
 
 namespace BLL {
-	public class PacienteBLL {
+	public class PacienteBLL:IGenericBusiness<PacienteDTO> {
 
-        //public BLL.EstudioBLL m_EstudioBLL;
-        //public BLL.TurnoBLL m_TurnoBLL;
-        //public BLL.GuardiaBLL m_GuardiaBLL;
-
-		internal static MapperConfiguration MapperConfiguration { get;private set; }
-		private static IGenericRepo<DataAccess.BaseProd.Paciente> genericRepo;
+        private SysEntitiesContext _context = new SysEntitiesContext();
 
         #region Singleton
         private readonly static PacienteBLL _instance = new PacienteBLL();
-
-		PacientesRepo repo= new PacientesRepo();
 
         public static PacienteBLL Current
         {
@@ -47,111 +45,50 @@ namespace BLL {
             }
         }
 
+        #endregion
+
+
         public PacienteBLL()
         {
             //Implement here the initialization code
         }
-        #endregion
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="paciente"></param>
-        public void AltaPaciente(DataAccess.BaseProd.Paciente paciente){
-            try
-            {
-				genericRepo.Insert(paciente);
-
-            }
-            catch (Exception ex)
-            {
-				throw ex;
-            }
-		}
-
-		public void Call(int DNI, string Apellido, string Nombre, string FechaNac, string Domicilio, int Contacto, string Sexo, string ObraSocial)
+        public void Create(PacienteDTO obj)
         {
-			DOMAIN.Paciente paciente = new DOMAIN.Paciente();
-            paciente.DNI = DNI;
-            paciente.Apellido = Apellido;
-            paciente.Nombre = Nombre;
-			paciente.FechaNacimiento = FechaNac;
-            paciente.Dirección = Domicilio;
-            paciente.Contacto = Contacto;
-			paciente.Sexo=Sexo;
-			paciente.ObraSocial = ObraSocial;
-
-
-			var pacientemapeado = ConversionAM(paciente);
-
-
-
-            AltaPaciente(pacientemapeado);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ID"></param>
-		public void BajaPaciente(int ID){
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="ID"></param>
-		/// <returns></returns>
-		public DOMAIN.Paciente  BuscarPaciente(int ID){
-
-			return null;
-		}
-
-		/// <summary>
-		/// 
-		/// USAR AUTOMAPPER PARA CONVERTIR EL OBJ DE PACIENTEBLL EN EL OBJ DE LA BD
-		/// </summary>
-		/// <returns></returns>
-		public IEnumerable<DOMAIN.Paciente> ListarPaciente(){
-			var paciente = repo.GetAll();
-			return null;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="paciente"></param>
-		public void ModificarPaciente(DOMAIN.Paciente paciente){
-
-		}
-
-		public DataTable LLenarCbox(string nombreSP)
-		{			
-			return SqlHelper.CargarCbox(nombreSP);
+            var dtoToEntity = MapperHelper.GetMapper().Map<Paciente>(obj);
+            BusinesFactory.GenericRepo().Insert(dtoToEntity);
         }
 
-		public static DataAccess.BaseProd.Paciente ConversionAM(DOMAIN.Paciente paciente)
-		{
-			DataAccess.BaseProd.Paciente result = new DataAccess.BaseProd.Paciente
-			{
-                DNI = paciente.DNI,
-                Nombre = paciente.Nombre,
-				Apellido = paciente.Apellido,
-				FechaNacimiento = paciente.FechaNacimiento,
-				Domicilio = paciente.Dirección,
-				Contacto =paciente.Contacto,
-				Sexo=paciente.Sexo,
-				
+        public void Delete(PacienteDTO obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(PacienteDTO obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<PacienteDTO> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+       
+        public List<string> GetObraSocial()
+        {
+           var obs= _context.ObraSocials.Select(x => x.ObraSocial1);
+            var list = new List<string>();
+
+            foreach (var item in obs)
+            {
+                list.Add(item); 
+            }
+            return list;
+        }
 
 
 
-			};
-			return result;
-		}
 
-	}//end PacienteBLL
+    }//end PacienteBLL
 
 }//end namespace BLL

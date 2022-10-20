@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Business.DTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,12 +39,12 @@ namespace UI.Recepcionista
             cboxSexo.DataSource = Sexo;
             cboxSexo.DisplayMember = "Value";
 
+            cboxObraSocial.DataSource = PacienteBLL.Current.GetObraSocial();
 
 
-            DateTime date = dateTimePicker1.Value;
-            string nombreSP = "Sp_CboxObraSocial";
-            cboxObraSocial.DataSource= PacienteBLL.Current.LLenarCbox(nombreSP);
-            cboxObraSocial.DisplayMember = "ObraSocial";
+           
+     
+            
 
         }
 
@@ -58,7 +59,22 @@ namespace UI.Recepcionista
             string Sexo = cboxSexo.Text;
             string ObraSocial = cboxObraSocial.Text;
 
-            PacienteBLL.Current.Call(DNI, Apellido, Nombre, FechaNac, Domicilio, Contacto, Sexo, ObraSocial);
+            var paciente = new PacienteDTO()
+            {
+                DNI = DNI,
+                Apellido = Apellido,
+                Nombre = Nombre,
+                FechaNacimiento = FechaNac,
+                Dirección = Domicilio,
+                Contacto = Contacto,
+                Sexo = Sexo,
+                
+
+            };
+
+
+            PacienteBLL.Current.Create(paciente);
+          //  PacienteBLL.Current.Call(DNI, Apellido, Nombre, FechaNac, Domicilio, Contacto, Sexo, ObraSocial);
             //_instance.AltaPaciente();
             
 

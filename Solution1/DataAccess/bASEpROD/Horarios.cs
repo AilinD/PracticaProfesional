@@ -12,18 +12,18 @@ namespace DataAccess.BaseProd
     using System;
     using System.Collections.Generic;
     
-    public partial class Horario
+    public partial class Horarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Horario()
+        public Horarios()
         {
-            this.HorarioProfesional = new HashSet<HorarioProfesional>();
+            this.HorarioProfesionals = new HashSet<HorarioProfesionals>();
         }
     
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public string Horario1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HorarioProfesional> HorarioProfesional { get; set; }
+        public virtual ICollection<HorarioProfesionals> HorarioProfesionals { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Business.Exceptions;
+﻿//using Business.Exceptions;
 using ServiceLayer.DAL.Factory;
 using ServiceLayer.DAL.Interfaces;
 using System;
@@ -12,17 +12,17 @@ namespace ServiceLayer.BLL
     public static class LanguageBLL
     {
       
-        public static string Translate(string word)
+        public static void Translate(string word)
         {
-            try
-            {
-                return DALFactory.LanguageRepository.Find(word);
-            }
-            catch (WordNotFoundException)
-            {
-                DALFactory.LanguageRepository.WriteNewWord(word, String.Empty);
-                return word;
-            }
+            //try
+            //{
+            //    return DALFactory.LanguageRepository.Find(word);
+            //}
+            //catch (WordNotFoundException)
+            //{
+            //    DALFactory.LanguageRepository.WriteNewWord(word, String.Empty);
+            //    return word;
+            //}
         }
     }
 }
