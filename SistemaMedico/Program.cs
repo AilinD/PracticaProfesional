@@ -4,8 +4,12 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Services;
+using Services.BLL;
+using Services.Logger;
 using Services.MapperConfig;
 using UI;
+using UI.Generales;
 
 namespace SistemaMedico
 {
@@ -27,11 +31,13 @@ namespace SistemaMedico
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
 
+            Application.Run(new MenuPrincipal());
             var serviceCollection = new ServiceCollection();
             {
                 serviceCollection.AddSingleton<PatientRepository>();
                 serviceCollection.AddSingleton<PatientService>();
                 serviceCollection.AddSingleton<LoginService>();
+                serviceCollection.AddSingleton<LoggerService>();
             }
 
             ConfigureServices.AddServices(serviceCollection);

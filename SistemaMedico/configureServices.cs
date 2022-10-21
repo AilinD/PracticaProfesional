@@ -23,10 +23,9 @@ namespace SistemaMedico
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-
             services.AddSingleton<IServiceCollection>(services);
             services.AddDbContext<SysEntitiesContext>(options => options.UseSqlServer("PatenteFamilia"));
-
+            services.AddDbContext<SysEntitiesContext>(options => options.UseSqlServer("SysCExpert"));
 
             return services.BuildServiceProvider();
         }

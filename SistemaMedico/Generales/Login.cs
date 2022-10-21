@@ -1,5 +1,6 @@
-﻿using ServiceLayer.BLL;
+﻿using Services.BLL.PatenteBLL;
 using System.Diagnostics.Tracing;
+using UI.Generales;
 
 namespace UI
 {
@@ -21,11 +22,12 @@ namespace UI
                     var isAuth = BLLUsuario.GetUsuarioByUserName(txtUsuario.Text);
                 //SesionIniciada.usuario = isAuth.usuario;
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+               
                 //LoggerBLL.WriteLog("Logueando",EventLevel.Informational,isAuth.usuario.Nombre);
-                    MessageBox.Show("Login correcto!");
-                    
-
+                MessageBox.Show("Login correcto!");
+                this.Close();
+                //MenuPrincipal menuPrincipal = new MenuPrincipal();
+                //menuPrincipal.ShowDialog();
             }
             else
             {

@@ -1,5 +1,5 @@
-﻿using Domain;
-using ServiceLayer.BLL;
+﻿using Services.Domain;
+using Services.BLL.PatenteBLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +83,7 @@ namespace UI.Administrador
             
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
-                var busqueda = ServiceLayer.BLL.BLLUsuario.GetUsuarioByUserName(r.Cells["Nombre"].Value.ToString());
+                var busqueda = BLLUsuario.GetUsuarioByUserName(r.Cells["Nombre"].Value.ToString());
                 busqueda.usuario.Nombre = txtNuevoNombre.Text;
                 busqueda.usuario.Password = txtNuevaPass.Text;
                 busqueda.usuario.IdUsuario =r.Cells["IdUsuario"].Value.ToString();

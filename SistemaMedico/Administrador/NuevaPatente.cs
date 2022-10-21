@@ -1,5 +1,5 @@
-﻿using Domain;
-using ServiceLayer.BLL;
+﻿using Services.Domain;
+using Services.BLL.PatenteBLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

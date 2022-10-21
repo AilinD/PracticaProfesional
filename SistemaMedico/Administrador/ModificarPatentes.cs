@@ -1,5 +1,5 @@
-﻿using Domain;
-using ServiceLayer.BLL;
+﻿using Services.Domain;
+using Services.BLL.PatenteBLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +92,16 @@ namespace UI.Administrador
 
             MessageBox.Show("Patente modificada");
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModificarPatentes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

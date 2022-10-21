@@ -1,5 +1,6 @@
-﻿using BLL;
-using BLL.Dto;
+﻿
+
+using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

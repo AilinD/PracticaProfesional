@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ServiceLayer.BLL;
+using Services.BLL.PatenteBLL;
 using System.Configuration;
-using Domain;
+using Services.Domain;
 
 namespace UI.Administrador
 {
