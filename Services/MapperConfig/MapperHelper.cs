@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using BLL.Dto;
 using DOMAIN;
+using Services.BLL.Dto;
+using Services.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Services.MapperConfig
 {
-    public   class MapperHelper:Profile
+    public class MapperHelper:Profile
     {
          public MapperHelper()
         {

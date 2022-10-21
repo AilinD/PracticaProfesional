@@ -28,10 +28,6 @@ namespace DOMAIN {
 
 		}
 
-		~EstudiosPaciente(){
-
-		}
-
 		public void SolicitarTurnoPaciente(){
 
 		}

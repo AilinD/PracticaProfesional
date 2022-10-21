@@ -26,9 +26,7 @@ namespace DOMAIN {
 
 		}
 
-		~Historial_Paciente(){
-
-		}
+	
 
 	}//end Historial_Paciente
 

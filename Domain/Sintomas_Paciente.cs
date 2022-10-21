@@ -25,9 +25,7 @@ namespace DOMAIN {
 
 		}
 
-		~Sintomas_Paciente(){
 
-		}
 
 		public void AgregarSintomasPaciente(){
 

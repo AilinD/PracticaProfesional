@@ -21,9 +21,7 @@ namespace DOMAIN {
 
 		}
 
-		~MedicoEspecialista(){
 
-		}
 
 		public void AgregarEspecialista(){
 

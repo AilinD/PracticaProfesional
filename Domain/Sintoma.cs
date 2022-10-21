@@ -23,9 +23,7 @@ namespace DOMAIN {
 
 		}
 
-		~Sintoma(){
 
-		}
 
 		public void AgregarSintoma(){
 

@@ -23,10 +23,6 @@ namespace DOMAIN {
 
 		}
 
-		~Estudio(){
-
-		}
-
 		public void AgregarEstudio(){
 
 		}

@@ -26,9 +26,6 @@ namespace DOMAIN {
 
 		}
 
-		~Turno(){
-
-		}
 
 		public void SolicitarTurno(){
 

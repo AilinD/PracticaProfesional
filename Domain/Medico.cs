@@ -28,9 +28,6 @@ namespace DOMAIN {
 
 		}
 
-		~Medico(){
-
-		}
 
 		public void AgregarMedico(){
 

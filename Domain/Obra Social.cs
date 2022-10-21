@@ -23,9 +23,7 @@ namespace DOMAIN {
 
 		}
 
-		~ObraSocial(){
 
-		}
 
 	}//end Obra Social
 

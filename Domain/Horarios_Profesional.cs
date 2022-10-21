@@ -27,9 +27,6 @@ namespace DOMAIN {
 
 		}
 
-		~Horarios_Profesional(){
-
-		}
 
 		public void AgregarHorarioProfesional(){
 

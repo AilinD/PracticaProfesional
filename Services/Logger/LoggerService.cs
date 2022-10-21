@@ -1,9 +1,10 @@
 ﻿//using Serilog.Formatting.Compact;
 using DAL.Interfaces;
+using Services.DAL.Interfaces;
 using Services.Logger;
 using System.Diagnostics.Tracing;
 
-namespace Services
+namespace Services.Logger
 {
     public class LoggerService : ILoggingService
     {

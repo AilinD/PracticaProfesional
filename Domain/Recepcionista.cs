@@ -27,9 +27,7 @@ namespace DOMAIN {
 
 		}
 
-		~Recepcionista(){
 
-		}
 
 		public void AgregarRecepcionista(){
 

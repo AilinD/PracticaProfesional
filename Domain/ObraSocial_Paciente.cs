@@ -25,9 +25,7 @@ namespace DOMAIN {
 
 		}
 
-		~ObraSocial_Paciente(){
 
-		}
 
 		public void AgregarObraSocialPaciente(){
 

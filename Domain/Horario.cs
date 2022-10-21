@@ -25,9 +25,7 @@ namespace DOMAIN {
 
 		}
 
-		~Horario(){
 
-		}
 
 		public void AgregarHoario(){
 

@@ -27,9 +27,6 @@ namespace DOMAIN {
 
 		}
 
-		~Guardia(){
-
-		}
 
 		public void SolicitarGuardia(){
 
