@@ -13,7 +13,8 @@ using System.IO;
 
 
 
-namespace DOMAIN {
+namespace Domain
+{
 	public class Historial_Paciente {
 
 		public string Comentarios { get; set; }

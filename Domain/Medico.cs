@@ -13,8 +13,8 @@ using System.IO;
 
 
 
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain
+{
 	public class Medico {
 
 		public string Apellido { get; set; }

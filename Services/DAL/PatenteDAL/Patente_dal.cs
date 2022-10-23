@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Services.BLL;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
@@ -33,6 +34,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Patente_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -71,6 +74,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("SelectAll Patente_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -103,6 +108,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Delete Patente_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -134,6 +141,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("Update Patente_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -166,6 +175,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("insert patente_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }

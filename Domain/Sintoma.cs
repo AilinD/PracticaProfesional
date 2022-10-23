@@ -13,7 +13,8 @@ using System.IO;
 
 
 
-namespace DOMAIN {
+namespace Domain
+{
 	public class Sintoma {
 
 		public Guid IdSintoma { get; set; }

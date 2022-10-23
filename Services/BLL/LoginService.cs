@@ -23,7 +23,7 @@ namespace Services.BLL
                 }
 
                 return new Sesion() { usuario = call };
-                //Serilog.Log.Write("",user);
+                
             }
             catch (Exception ex)
             {

@@ -12,8 +12,8 @@ using System.Text;
 using System.IO;
 
 
-
-namespace DOMAIN {
+namespace Domain
+{
 	public class Turno {
 
 		public int DNIPaciente { get; set; }

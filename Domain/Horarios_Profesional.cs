@@ -12,9 +12,8 @@ using System.Text;
 using System.IO;
 
 
-
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain
+{
 	public class Horarios_Profesional {
 
 		public Guid id { get; set; }

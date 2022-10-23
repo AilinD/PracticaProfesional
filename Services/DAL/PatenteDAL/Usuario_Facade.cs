@@ -3,6 +3,7 @@ using Services.Domain;
 using Services.DAL;
 using System.Data;
 using System.Diagnostics.Tracing;
+using Services.BLL;
 
 namespace Services.DAL.PatenteDAL
 {
@@ -20,6 +21,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("GetAllAdapted Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -35,6 +38,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("GetAdapted Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -47,6 +52,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Insert Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -62,6 +69,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Update Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -74,6 +83,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Delete Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -86,6 +97,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Select Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -98,6 +111,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("SelectAll Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -111,6 +126,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("GetUsuario Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
 
@@ -124,6 +141,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("DeleteFamilias Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -136,6 +155,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("DeletePatentes Usuario_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }

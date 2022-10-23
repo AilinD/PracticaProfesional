@@ -1,7 +1,6 @@
 
 
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain {
 	public class Clinico : Medico {
 
 		public Clinico(){

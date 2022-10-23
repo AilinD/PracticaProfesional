@@ -11,10 +11,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-
-
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain
+{
 	public class Guardia {
 
 		public Guid DNIPaciente { get; set; }

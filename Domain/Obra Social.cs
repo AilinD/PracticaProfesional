@@ -13,7 +13,8 @@ using System.IO;
 
 
 
-namespace DOMAIN {
+namespace Domain
+{
 	public class ObraSocial {
 
 		public Guid IdObraSocial { get; set; }

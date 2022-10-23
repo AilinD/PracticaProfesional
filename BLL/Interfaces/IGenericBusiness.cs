@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
-    public interface IGenericBusiness<T> where T : class, new()
+    public  interface IGenericBusiness<T> where T : class, new()
     {
         /// <summary>
         /// Inserta un objeto en el repositorio.

@@ -1,4 +1,5 @@
-﻿using Services.DAL;
+﻿using Services.BLL;
+using Services.DAL;
 using System.Data;
 using System.Diagnostics.Tracing;
 
@@ -17,6 +18,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("GetAllAdapted Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -38,6 +41,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("GetAdapted Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -50,6 +55,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Insert patente_facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -62,6 +69,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Update Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -74,6 +83,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Delete Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -86,7 +97,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                LoggerBLL.WriteLog("Select Patente_Facade Fallo", EventLevel.Error, "");
+
+                throw ex;
 			}
 		}
 
@@ -98,6 +111,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("SelectAll Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}

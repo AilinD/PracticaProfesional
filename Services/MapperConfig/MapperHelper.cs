@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DOMAIN;
+using Domain;
 using Services.BLL.Dto;
 using Services.Domain;
 using System;

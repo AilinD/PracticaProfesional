@@ -13,13 +13,14 @@ using System.IO;
 
 
 
-using DOMAIN;
-namespace DOMAIN {
+
+namespace Domain
+{
 	public class Sintomas_Paciente {
 
 		public Guid Paciente { get; set; }
 		public Guid Sintoma { get; set; }
-		public DOMAIN.Paciente m_Paciente;
+		public Domain.Paciente m_Paciente;
 
 		public Sintomas_Paciente(){
 

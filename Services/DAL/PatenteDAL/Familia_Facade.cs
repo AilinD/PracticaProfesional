@@ -2,6 +2,7 @@
 using Services.DAL;
 using System.Data;
 using System.Diagnostics.Tracing;
+using Services.BLL;
 
 namespace Services.DAL.PatenteDAL
 {
@@ -25,8 +26,11 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-			}
-			return null ;
+
+                LoggerBLL.WriteLog("GetAllAdapdted Familia_Facade Fallo", EventLevel.Error, "");
+
+            }
+            return null ;
 		}
 
 		/// <summary>
@@ -45,7 +49,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                //GestorErrores.Execute(ex);
+                LoggerBLL.WriteLog("GetAdapted Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -63,6 +68,8 @@ namespace Services.DAL.PatenteDAL
 			catch (Exception ex)
 			{
                 //GestorErrores.Execute(ex);
+                LoggerBLL.WriteLog("Insert Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -79,6 +86,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Update Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -95,6 +104,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Delete Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -112,6 +123,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Select Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -128,6 +141,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Select_All Familia_facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}
@@ -144,6 +159,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("DeleteAccesos Familia_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}

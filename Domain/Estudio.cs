@@ -13,7 +13,8 @@ using System.IO;
 
 
 
-namespace DOMAIN {
+namespace Domain
+{
 	public class Estudio {
 
 		public string Descripción { get; set; }

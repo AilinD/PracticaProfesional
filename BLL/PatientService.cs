@@ -2,14 +2,11 @@
 using BLL.Interfaces;
 using DAL;
 using DAL.Interfaces;
-using DOMAIN;
+using Domain;
+using Services.BLL;
 using Services.BLL.Dto;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BLL
 {
@@ -17,7 +14,10 @@ namespace BLL
     {
         private IGenericRepository<Paciente> _repository;
         private readonly IMapper _mapper;
+       
+  
 
+    
         public PatientService(IMapper mapper, IGenericRepository<Paciente> genericRepository)
         {
             _mapper = mapper;
@@ -43,7 +43,7 @@ namespace BLL
 
         public void Insert(PacienteDto obj)
         {
-            throw new NotImplementedException();
+            //var insertpaciente = _mapper.Map<PacienteDto>(_repository.Insert(obj));
         }
 
         public void Update(PacienteDto obj)

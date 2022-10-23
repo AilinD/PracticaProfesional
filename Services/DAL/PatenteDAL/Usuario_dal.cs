@@ -1,7 +1,9 @@
-﻿using Services.Domain;
+﻿using Services.BLL;
+using Services.Domain;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Tracing;
 //using ConfigurationManager = Services.ConfigurationManager;
 
 namespace Services.DAL.PatenteDAL
@@ -44,6 +46,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("SelectAll Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -96,6 +100,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("GetUsuarioByNameAndPassword Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -141,6 +147,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Select Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -187,6 +195,8 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
+                LoggerBLL.WriteLog("Delete Usuario_dal Fallo", EventLevel.Error, "");
+
             }
         }
 
@@ -271,6 +281,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("Update Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -353,6 +365,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("Insert Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -379,6 +393,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("GetFamilias Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -412,6 +428,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("DeleteFamilias Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -447,6 +465,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("GetPatentes Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -472,6 +492,8 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
+                LoggerBLL.WriteLog("DeletePatentes Usuario_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }

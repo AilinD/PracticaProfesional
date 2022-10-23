@@ -4,6 +4,9 @@ using Services.Domain;
 using Microsoft.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Services.BLL.Exepciones;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace Services.DAL.PatenteDAL
 {
@@ -42,10 +45,10 @@ namespace Services.DAL.PatenteDAL
 				return ds;
 			}
 
-			catch (Exception ex)
+			catch (DALException ex)
 			{
-
-			}
+                LoggerBLL.WriteLog("Select All Familia_dal Fallo", EventLevel.Error, "");
+            }
 			return null;
 		}
 
@@ -86,9 +89,10 @@ namespace Services.DAL.PatenteDAL
 
 				//Log.Information("",Environment.GetEnvironmentVariable(""));
 			}
-			catch (Exception ex)
+			catch (DALException ex)
 			{
-			}
+                LoggerBLL.WriteLog("Select Familia_dal Fallo", EventLevel.Error, "");
+            }
 			return null;
 		}
 
@@ -130,8 +134,10 @@ namespace Services.DAL.PatenteDAL
 
 					//myDatabase.ExecuteNonQuery(myCommand);
 				}
-			}catch(Exception ex)
+			}catch(DALException ex)
 			{
+                LoggerBLL.WriteLog("Delete Familia_dal Fallo", EventLevel.Error, "");
+
             }
         }
 
@@ -214,8 +220,10 @@ namespace Services.DAL.PatenteDAL
                     }
                 }
             }
-            catch (Exception ex)
+            catch (DALException ex)
             {
+                LoggerBLL.WriteLog("Update Familia_dal Fallo", EventLevel.Error, "");
+
                 throw ex;
             }
         }
@@ -283,8 +291,10 @@ namespace Services.DAL.PatenteDAL
                     }
                 }
             }
-            catch(Exception ex)
+            catch(DALException ex)
 			{
+                LoggerBLL.WriteLog("Insert familia_dal Fallo", EventLevel.Error, "");
+
             }
 
 
@@ -319,8 +329,10 @@ namespace Services.DAL.PatenteDAL
                 }
                 return data;
             }
-			catch (Exception ex)
+			catch (DALException ex)
 			{
+                LoggerBLL.WriteLog("Get Accesos Familia_dal Fallo", EventLevel.Error, "");
+
             }
             return null;
 
@@ -352,8 +364,11 @@ namespace Services.DAL.PatenteDAL
                     sqlComm.ExecuteNonQuery();
                 }
             }
-			catch (Exception ex)
+			catch (DALException ex)
 			{
+                //BLL.Exepciones.ExceptionManager.Current.Handle(ex);
+                LoggerBLL.WriteLog("DeleteAccesos familia_dal Fallo", EventLevel.Error, "");
+ 
             }
 
         }

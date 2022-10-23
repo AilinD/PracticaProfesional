@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Services.BLL;
+using System.Data;
 using System.Diagnostics.Tracing;
 
 namespace Services.DAL.PatenteDAL
@@ -13,6 +14,8 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
+                LoggerBLL.WriteLog("Select Familia_Patente_Facade Fallo", EventLevel.Error, "");
+
                 throw ex;
 			}
 		}

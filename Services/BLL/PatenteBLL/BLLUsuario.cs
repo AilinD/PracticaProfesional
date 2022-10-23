@@ -9,12 +9,7 @@ namespace Services.BLL.PatenteBLL
 {
 	public static class BLLUsuario
     {
-		private readonly static ILoggingService loggingService;
-
-		static BLLUsuario(ILoggingService _logginservice)
-		{
-            loggingService = _logginservice;
-		}
+		
         public static Sesion GetUsuarioByUserName(string user)
         {
             try
@@ -31,8 +26,8 @@ namespace Services.BLL.PatenteBLL
             }
             catch (Exception ex)
             {
-                  LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
-				  //lanzar exepcion
+				// LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
+				//new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
                 throw ex;
             }
             

@@ -12,9 +12,7 @@ using System.Text;
 using System.IO;
 
 
-
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain  {
 	public class Recepcionista {
 
 		public string Apellido { get; set; }

@@ -17,7 +17,8 @@ using System.IO;
 //using DOMAIN;
 //using DAL;
 
-namespace DOMAIN {
+namespace Domain
+{
 	public class Paciente {
 
 		public string Apellido { get; set; }

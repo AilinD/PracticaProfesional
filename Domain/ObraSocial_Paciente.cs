@@ -12,14 +12,13 @@ using System.Text;
 using System.IO;
 
 
-
-using DOMAIN;
-namespace DOMAIN {
+namespace Domain
+{
 	public class ObraSocial_Paciente {
 
 		public int DNI_Paciente { get; set; }
 		public string ObraSocial { get; set; }
-		public DOMAIN.Paciente m_Paciente { get; set; }
+		public Domain.Paciente m_Paciente { get; set; }
 
 		public ObraSocial_Paciente(){
 
