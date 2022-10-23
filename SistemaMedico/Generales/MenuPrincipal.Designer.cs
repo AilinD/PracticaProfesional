@@ -73,7 +73,8 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(521, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(608, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,26 +95,26 @@
             this.modificarPacienteToolStripMenuItem,
             this.eliminarPacienteToolStripMenuItem});
             this.nuevoPacienteToolStripMenuItem.Name = "nuevoPacienteToolStripMenuItem";
-            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.nuevoPacienteToolStripMenuItem.Text = "Pacientes";
             // 
             // nuevoPacienteToolStripMenuItem1
             // 
             this.nuevoPacienteToolStripMenuItem1.Name = "nuevoPacienteToolStripMenuItem1";
-            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
             this.nuevoPacienteToolStripMenuItem1.Text = "Nuevo Paciente";
             this.nuevoPacienteToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPacienteToolStripMenuItem1_Click);
             // 
             // modificarPacienteToolStripMenuItem
             // 
             this.modificarPacienteToolStripMenuItem.Name = "modificarPacienteToolStripMenuItem";
-            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.modificarPacienteToolStripMenuItem.Text = "Modificar Paciente";
             // 
             // eliminarPacienteToolStripMenuItem
             // 
             this.eliminarPacienteToolStripMenuItem.Name = "eliminarPacienteToolStripMenuItem";
-            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.eliminarPacienteToolStripMenuItem.Text = "Eliminar Paciente";
             // 
             // asignarTurnoToolStripMenuItem
@@ -123,7 +124,7 @@
             this.modificarTurnoToolStripMenuItem1,
             this.eliminarTurnoToolStripMenuItem1});
             this.asignarTurnoToolStripMenuItem.Name = "asignarTurnoToolStripMenuItem";
-            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.asignarTurnoToolStripMenuItem.Text = "Turnos";
             // 
             // nuevoTurnoToolStripMenuItem
@@ -151,7 +152,7 @@
             this.modificarGuardiaToolStripMenuItem1,
             this.eliminarGuardiaToolStripMenuItem});
             this.asignarGuardiaToolStripMenuItem.Name = "asignarGuardiaToolStripMenuItem";
-            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.asignarGuardiaToolStripMenuItem.Text = "Guardias";
             // 
             // asignarGuardiaToolStripMenuItem2
@@ -303,11 +304,13 @@
             // 
             // MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 307);
+            this.ClientSize = new System.Drawing.Size(608, 354);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);

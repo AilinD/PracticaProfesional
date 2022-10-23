@@ -56,11 +56,11 @@ namespace UI.Generales
 
         private void nuevoPacienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevoPaciente>();
+            CreateMDIParent<NuevoPaciente>();
         }
 
 
-        private Form CreateMDIChi<T>() where T : Form
+        private Form CreateMDIParent<T>() where T : Form
         {
 
             var childForm = (Form)Activator.CreateInstance(typeof(T));
