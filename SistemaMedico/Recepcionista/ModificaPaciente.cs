@@ -1,6 +1,8 @@
 ﻿using BLL;
+using BLL.Business;
 using BLL.Interfaces;
 using Domain;
+using Microsoft.VisualBasic.ApplicationServices;
 using Services.BLL.Dto;
 using Services.BLL.PatenteBLL;
 using System;
@@ -9,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,14 +20,12 @@ namespace UI.Recepcionista
 {
     public partial class ModificaPaciente : Form
     {
-        private readonly IGenericBusiness<PacienteDto> _PatientService;
 
       
-        public ModificaPaciente(IGenericBusiness<PacienteDto> genericBusiness)
+        public ModificaPaciente()
         {
             
             InitializeComponent();
-            _PatientService = genericBusiness;
         }
         
         
@@ -51,13 +52,18 @@ namespace UI.Recepcionista
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)
         {
-            //DataTable dt = new DataTable();
-             var user = _PatientService.GetAll();
-            //dt.Columns.Add("Nombre", typeof(string));
-            //dt.Columns.Add("Contraseña", typeof(string));
-            //dt.Columns.Add("IdUsuario", typeof(Guid));
-            //dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
-            //dataGridView1.DataSource = dt;
+            if (string.IsNullOrEmpty(txtNombrePaciente.Text))
+            {
+                var user = PacienteBll.Current.GetAll();
+                dataGridView1.DataSource = user;
+            }
+            else
+            {
+                var usser = PacienteBll.Current.GetAll().Where(x=>x.Nombre.Contains(txtNombrePaciente.Text));
+                //dataGridView1.DataSource = usser;
+                dataGridView1.DataSource = usser.ToList();
+            }
+                
         }
     }
 }

@@ -20,7 +20,7 @@ namespace DAL
 
         public void Delete(Guid? guid)
         {
-            throw new NotImplementedException();
+           
         }
 
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
@@ -30,12 +30,14 @@ namespace DAL
 
         public Paciente GetOne(Guid? guid)
         {
+            _context.Paciente.FirstOrDefault();
+            _context.SaveChanges();
             throw new NotImplementedException();
         }
 
         public void Insert(Paciente obj)
         {
-            throw new NotImplementedException();
+            //throw new NotImp_lementedException();
         }
 
         public void Update(Paciente obj)

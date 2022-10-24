@@ -43,7 +43,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        IEnumerable<TurnoDto> IGenericBusiness<TurnoDto>.GetAll(TurnoDto parameters)
+        IEnumerable<TurnoDto> IGenericBusiness<TurnoDto>.GetAll()
         {
             throw new NotImplementedException();
         }

@@ -42,7 +42,7 @@
             // 
             // txtNuevoContacto
             // 
-            this.txtNuevoContacto.Location = new System.Drawing.Point(486, 141);
+            this.txtNuevoContacto.Location = new System.Drawing.Point(580, 148);
             this.txtNuevoContacto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevoContacto.Name = "txtNuevoContacto";
             this.txtNuevoContacto.PasswordChar = '*';
@@ -52,7 +52,7 @@
             // lblNuevoContacto
             // 
             this.lblNuevoContacto.AutoSize = true;
-            this.lblNuevoContacto.Location = new System.Drawing.Point(355, 149);
+            this.lblNuevoContacto.Location = new System.Drawing.Point(449, 156);
             this.lblNuevoContacto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevoContacto.Name = "lblNuevoContacto";
             this.lblNuevoContacto.Size = new System.Drawing.Size(94, 15);
@@ -61,7 +61,7 @@
             // 
             // txtNuevoDomicilio
             // 
-            this.txtNuevoDomicilio.Location = new System.Drawing.Point(486, 103);
+            this.txtNuevoDomicilio.Location = new System.Drawing.Point(580, 110);
             this.txtNuevoDomicilio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevoDomicilio.Name = "txtNuevoDomicilio";
             this.txtNuevoDomicilio.Size = new System.Drawing.Size(116, 23);
@@ -70,7 +70,7 @@
             // lblNuevoDomicilio
             // 
             this.lblNuevoDomicilio.AutoSize = true;
-            this.lblNuevoDomicilio.Location = new System.Drawing.Point(355, 106);
+            this.lblNuevoDomicilio.Location = new System.Drawing.Point(449, 113);
             this.lblNuevoDomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevoDomicilio.Name = "lblNuevoDomicilio";
             this.lblNuevoDomicilio.Size = new System.Drawing.Size(96, 15);
@@ -79,7 +79,7 @@
             // 
             // btnModificarPaciente
             // 
-            this.btnModificarPaciente.Location = new System.Drawing.Point(461, 237);
+            this.btnModificarPaciente.Location = new System.Drawing.Point(555, 244);
             this.btnModificarPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificarPaciente.Name = "btnModificarPaciente";
             this.btnModificarPaciente.Size = new System.Drawing.Size(88, 27);
@@ -109,7 +109,7 @@
             // 
             // btnBuscaPaciente
             // 
-            this.btnBuscaPaciente.Location = new System.Drawing.Point(339, 40);
+            this.btnBuscaPaciente.Location = new System.Drawing.Point(433, 47);
             this.btnBuscaPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBuscaPaciente.Name = "btnBuscaPaciente";
             this.btnBuscaPaciente.Size = new System.Drawing.Size(88, 27);
@@ -124,14 +124,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(28, 90);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(300, 173);
+            this.dataGridView1.Size = new System.Drawing.Size(380, 216);
             this.dataGridView1.TabIndex = 34;
             // 
             // ModificaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 519);
+            this.ClientSize = new System.Drawing.Size(740, 342);
             this.Controls.Add(this.txtNuevoContacto);
             this.Controls.Add(this.lblNuevoContacto);
             this.Controls.Add(this.txtNuevoDomicilio);

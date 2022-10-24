@@ -24,7 +24,7 @@ namespace BLL.Interfaces
         /// Obtiene todos los registros del repositorio.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T> GetAll(T parameters = null);
+         IEnumerable<T> GetAll();
 
         /// <summary>
         /// Obtiene un registro del repositorio.

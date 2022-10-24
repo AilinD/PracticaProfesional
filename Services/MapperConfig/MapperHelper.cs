@@ -9,17 +9,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Services.MapperConfig
-{
-    public class MapperHelper:Profile
+{ 
+    public static class MapperHelper
     {
-         public MapperHelper()
+        readonly private static IMapper _mapper;
+         static  MapperHelper()
         {
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Paciente, PacienteDto>();
                 cfg.CreateMap<PacienteDto,Paciente>();
             });
+
+            _mapper = config.CreateMapper();
   
+        }
+
+        public static IMapper GetMapper()
+        {
+            return _mapper;
         }
 
     }

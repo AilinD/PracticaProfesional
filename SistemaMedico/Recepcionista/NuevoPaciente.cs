@@ -43,11 +43,11 @@ namespace UI.Recepcionista
             int DNI = int.Parse(txtDNI.Text);
             string Apellido = txtApellido.Text;
             string Nombre = txtNombre.Text;
-            string FechaNac = dateTimePicker1.Text;
+            DateTime FechaNac = dateTimePicker1.Value;
             string Domicilio = txtDomicilio.Text;
-            int Contacto =int.Parse(txtContacto.Text);
+            string Contacto =txtContacto.Text;
             string Sexo = cboxSexo.Text;
-            string ObraSocial = cboxObraSocial.Text;
+            //string ObraSocial = cboxObraSocial.Text;
 
             var paciente = new PacienteDto()
             {
