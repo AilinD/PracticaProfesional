@@ -37,6 +37,6 @@ namespace BLL.Interfaces
         /// Elimina un registro del repositorio.
         /// </summary>
         /// <param name="guid"></param>
-        void Delete(Guid? guid);
+        void Delete(int? guid);
     }
 }

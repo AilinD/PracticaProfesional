@@ -25,8 +25,16 @@ namespace Services
             //services.AddSingleton<P>();
 
 
-            services.AddDbContext<SysEntitiesContext>(options => options.UseSqlServer("PatenteFamilia"));
-            services.AddDbContext<SysEntitiesContext>(options => options.UseSqlServer("Data Source=DESKTOP-H0P0HUN\\SQLEXPRESS;Initial Catalog=SysCExpert;Integrated Security=True"));
+            //services.AddDbContext<SysEntitiesContext>(options => options.UseSqlServer("PatenteFamilia"));
+            services.AddDbContext<SysEntitiesContext>(options
+                =>
+            {
+                options.UseSqlServer("Data Source=DESKTOP-H0P0HUN\\SQLEXPRESS;Initial Catalog=SysCExpert;Integrated Security=True");
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
+                
+                                                    
+
             var service = services.BuildServiceProvider();
 
             return service;

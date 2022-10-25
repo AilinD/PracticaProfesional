@@ -45,6 +45,7 @@
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 
@@ -56,6 +57,7 @@
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dataGridView1
             // 
@@ -82,7 +84,7 @@
             this.lblpatente.Name = "lblpatente";
             this.lblpatente.Size = new System.Drawing.Size(99, 15);
             this.lblpatente.TabIndex = 10;
-            this.lblpatente.Text = "Apellido Paciente";
+            this.lblpatente.Text = "Nombre Paciente";
             // 
             // EliminarPaciente
             // 

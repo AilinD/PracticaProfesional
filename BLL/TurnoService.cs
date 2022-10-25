@@ -53,7 +53,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        void IGenericBusiness<TurnoDto>.Delete(Guid? guid)
+        void IGenericBusiness<TurnoDto>.Delete(int? guid)
         {
             throw new NotImplementedException();
         }

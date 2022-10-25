@@ -2,6 +2,7 @@
 using BLL.Business;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
+using SistemaMedico.Recepcionista;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,9 @@ namespace SistemaMedico
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ModificaPaciente());
+            //Application.Run(new ModificaPaciente());
             //Application.Run(new NuevoPaciente());
-
+            Application.Run(new EliminarPaciente());
 
             var services = new ServiceCollection();
 

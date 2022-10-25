@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAL.GenericRepos;
 using DAL.Interfaces;
 using Domain;
 using System;

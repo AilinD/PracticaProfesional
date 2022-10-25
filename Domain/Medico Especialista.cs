@@ -13,17 +13,12 @@ using System.IO;
 
 namespace Domain
 {
-	public class MedicoEspecialista : Medico {
-
-		public MedicoEspecialista(){
-
-		}
-
-
-
-		public void AgregarEspecialista(){
-
-		}
+	public class MedicoEspecialista  {
+		/// <summary>
+		/// Agregar el contexto al dbset
+		/// </summary>
+		public int IdEspecialidad { get; set; }
+		public int IdMedico { get; set; }
 
 	}//end Medico Especialista
 

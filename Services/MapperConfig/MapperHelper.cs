@@ -19,6 +19,8 @@ namespace Services.MapperConfig
             {
                 cfg.CreateMap<Paciente, PacienteDto>();
                 cfg.CreateMap<PacienteDto,Paciente>();
+                cfg.CreateMap<Medico, MedicoDto>();
+                cfg.CreateMap<MedicoDto, Medico>();
             });
 
             _mapper = config.CreateMapper();

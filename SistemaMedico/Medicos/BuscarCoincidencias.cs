@@ -16,5 +16,10 @@ namespace UI.Medicos
         {
             InitializeComponent();
         }
+
+        private void BuscarCoincidencias_Load(object sender, EventArgs e)
+        {
+            Environment.SetEnvironmentVariable("", @"C:\\Program Files (x86)\\swipl\\bin");
+        }
     }
 }

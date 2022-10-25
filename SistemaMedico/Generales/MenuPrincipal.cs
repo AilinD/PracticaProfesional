@@ -1,4 +1,5 @@
 ﻿
+using SistemaMedico.Recepcionista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,6 +80,16 @@ namespace UI.Generales
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
             return childForm;
+        }
+
+        private void modificarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<ModificaPaciente>();
+        }
+
+        private void eliminarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<EliminarPaciente>();
         }
     }
 }

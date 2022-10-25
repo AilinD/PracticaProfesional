@@ -22,7 +22,6 @@ namespace Domain
 		public Guid Estudio { get; set; }
 		public DateTime Fecha { get; set; }
 		public Guid MatriculaMedico { get; set; }
-		//public DOMAIN.Paciente m_Paciente;
 
 		public EstudiosPaciente(){
 

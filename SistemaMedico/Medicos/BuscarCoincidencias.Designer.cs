@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // BuscarCoincidencias
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(519, 349);
+            this.Name = "BuscarCoincidencias";
             this.Text = "BuscarCoincidencias";
+            this.Load += new System.EventHandler(this.BuscarCoincidencias_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

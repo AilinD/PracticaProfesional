@@ -29,9 +29,14 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
 
     IGenericRepository<Paciente> genericRepository = FactoryDAL._pacienteRepository;
 
-    public void Delete(Guid? guid)
+    public void Delete(int? guid)
     {
-        throw new NotImplementedException();
+        var op = genericRepository.GetOne(guid);
+        if(op!= null)
+        {
+            genericRepository.Delete(op);
+        }
+
     }
 
     public IEnumerable<PacienteDto> GetAll()

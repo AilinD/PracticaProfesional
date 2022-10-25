@@ -45,7 +45,6 @@
             this.txtNuevoContacto.Location = new System.Drawing.Point(580, 148);
             this.txtNuevoContacto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevoContacto.Name = "txtNuevoContacto";
-            this.txtNuevoContacto.PasswordChar = '*';
             this.txtNuevoContacto.Size = new System.Drawing.Size(116, 23);
             this.txtNuevoContacto.TabIndex = 43;
             // 
