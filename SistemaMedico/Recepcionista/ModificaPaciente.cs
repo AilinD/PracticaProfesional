@@ -35,19 +35,48 @@ namespace UI.Recepcionista
 
         }
 
-        private  void btnModificarPaciente_Click(object sender, EventArgs e)
+        private void btnModificarPaciente_Click(object sender, EventArgs e)
         {
+            //var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtNombrePaciente.Text));
+
+
             var paciente = new PacienteDto();
+
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
-                //PatientService.GetAll(paciente);
-                //busqueda..Nombre = txtNuevoNombre.Text;
-                //busqueda.usuario.Password = txtNuevaPass.Text;
-                //busqueda.usuario.IdUsuario = r.Cells["IdUsuario"].Value.ToString();
-                //PatientService.Current.Update(paciente.DNI);
-                MessageBox.Show("Paciente Modificado con Éxito!");
+
+                //var busqueda = PacienteBll.Current.GetOne((int)r.Cells["IdPaciente"].Value);
+                paciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                paciente.DNI = (int)r.Cells["DNI"].Value;
+                paciente.Nombre = r.Cells["Nombre"].Value.ToString();
+                paciente.Apellido = r.Cells["Apellido"].Value.ToString();
+                paciente.FechaNacimiento = (DateTime)r.Cells["FechaNacimiento"].Value;
+                if (string.IsNullOrEmpty(txtNuevoDomicilio.Text))
+                {
+                    
+                    paciente.Dirección = r.Cells["Dirección"].Value.ToString();
+                }
+                else
+                {
+                    paciente.Dirección = txtNuevoDomicilio.Text;
+                }
+
+                if (string.IsNullOrEmpty(txtNuevoContacto.Text))
+                {
+                    paciente.Contacto = r.Cells["Contacto"].Value.ToString();
+                }
+                else
+                {
+                    paciente.Contacto = txtNuevoContacto.Text;
+                }                  
+                paciente.Sexo = r.Cells["Sexo"].Value.ToString();
+                PacienteBll.Current.Update(paciente);
+                
 
             }
+            MessageBox.Show("Paciente modificado con éxito!");
+
+
         }
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)

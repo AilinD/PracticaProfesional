@@ -1,5 +1,6 @@
 ﻿
 
+using BLL.Business;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,7 @@ namespace UI.Recepcionista
             cboxSexo.DataSource = Sexo;
             cboxSexo.DisplayMember = "Value";
 
-            //cboxObraSocial.DataSource = PacienteBLL.Current.GetObraSocial();
-
-
-           
-     
-            
+            //cboxObraSocial.DataSource = PacienteBLL.Current.GetObraSocial();         
 
         }
 
@@ -61,6 +57,9 @@ namespace UI.Recepcionista
                 
 
             };
+            PacienteBll.Current.Insert(paciente);
+            MessageBox.Show("Paciente insertado con éxito!");
+
         }
 
         private void cboxObraSocial_SelectedIndexChanged(object sender, EventArgs e)

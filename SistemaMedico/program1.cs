@@ -23,7 +23,7 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ModificaPaciente());
-
+            //Application.Run(new NuevoPaciente());
 
 
             var services = new ServiceCollection();
