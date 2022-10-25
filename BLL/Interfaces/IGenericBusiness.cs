@@ -31,7 +31,7 @@ namespace BLL.Interfaces
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        T GetOne(Guid? guid);
+        T GetOne(int? guid);
 
         /// <summary>
         /// Elimina un registro del repositorio.

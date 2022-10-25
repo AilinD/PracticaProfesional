@@ -48,7 +48,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        TurnoDto IGenericBusiness<TurnoDto>.GetOne(Guid? guid)
+        TurnoDto IGenericBusiness<TurnoDto>.GetOne(int? guid)
         {
             throw new NotImplementedException();
         }

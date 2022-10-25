@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,19 +25,19 @@ namespace DAL.Interfaces
         /// Obtiene todos los registros del repositorio.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T> GetAll(T parameters = null);
+        IEnumerable<T> GetAll(Paciente parameters = null);
 
         /// <summary>
         /// Obtiene un registro del repositorio.
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        T GetOne(Guid? guid);
+        T GetOne(int? guid);
 
         /// <summary>
         /// Elimina un registro del repositorio.
         /// </summary>
         /// <param name="guid"></param>
-        void Delete(Guid? guid);
+        void Delete(T guid);
     }
 }

@@ -22,15 +22,17 @@ namespace Domain
 {
 	public class Paciente {
 		[Key]
+        public int IdPaciente { get; set; }
         public int DNI { get; set; }
-
+        public string Nombre { get; set; }
         public string Apellido { get; set; }
-		public string Contacto { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string Contacto { get; set; }
 		public string Dirección { get; set; }
 		public string Sexo { get; set; }
-		public DateTime FechaNacimiento { get; set; }
-		public int IdPaciente { get; set; }
-		public string Nombre { get; set; }
+
+
+
 		//public string ObraSocial { get;set; }
 		//public Domain Model.Medicos m_Medicos;
 

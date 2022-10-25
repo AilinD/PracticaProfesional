@@ -18,31 +18,39 @@ namespace DAL
         }
 
 
-        public void Delete(Guid? guid)
+        public void Delete(Paciente obj)
         {
-           
+            _context.Paciente.Remove(obj);
+            _context.SaveChanges();
         }
 
+        //public IEnumerable<Paciente> GetAll(Paciente parameters = null)
+        //{
+        //    return _context.Paciente.ToList();
+        //}
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
         {
             return _context.Paciente.ToList();
         }
 
-        public Paciente GetOne(Guid? guid)
+        public Paciente GetOne(int? guid)
         {
-            _context.Paciente.FirstOrDefault();
-            _context.SaveChanges();
-            throw new NotImplementedException();
+           var r =_context.Paciente.FirstOrDefault(x=>x.IdPaciente==guid);
+
+            return r;
         }
 
         public void Insert(Paciente obj)
         {
-            //throw new NotImp_lementedException();
+            _context.Paciente.Add(obj);
+            _context.SaveChanges();
+            
         }
 
         public void Update(Paciente obj)
         {
-            throw new NotImplementedException();
+            _context.Paciente.Update(obj);
+            _context.SaveChanges();
         }
     }
 }

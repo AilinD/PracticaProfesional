@@ -3,6 +3,7 @@ using BLL.Interfaces;
 using DAL;
 using DAL.Interfaces;
 using Domain;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.PatternContexts;
 using Services;
 using Services.BLL.Dto;
@@ -36,26 +37,49 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
     public IEnumerable<PacienteDto> GetAll()
     {
         var entity = MapperHelper.GetMapper().
-Map<List<PacienteDto>>(genericRepository.GetAll());
+            Map<List<PacienteDto>>(genericRepository.GetAll());
 
         return entity;
     }
 
-    public PacienteDto GetOne(Guid? guid)
+    public PacienteDto GetOne(int? guid)
     {
-        throw new NotImplementedException();
+        var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
+       
+        return op;
     }
 
     public void Insert(PacienteDto obj)
     {
-        var dtoToentity= new Paciente()
+        var dtoToentity = new Paciente()
         {
-            Dirección=obj.Dirección
-        }
+            DNI = obj.DNI,
+            Nombre=obj.Nombre,
+            Apellido=obj.Apellido,
+            FechaNacimiento=(DateTime)obj.FechaNacimiento,
+            Dirección = obj.Dirección,
+            Contacto=obj.Contacto,
+            Sexo=obj.Sexo
+
+        };
+        genericRepository.Insert(dtoToentity);
     }
 
-    public void Update(PacienteDto obj)
+    public async void Update(PacienteDto obj)
     {
-        throw new NotImplementedException();
+        var dtoToentity = new Paciente()
+        {
+            IdPaciente=obj.IdPaciente,
+            DNI = obj.DNI,
+            Nombre = obj.Nombre,
+            Apellido = obj.Apellido,
+            FechaNacimiento = (DateTime)obj.FechaNacimiento,
+            Dirección = obj.Dirección,
+            Contacto = obj.Contacto,
+            Sexo = obj.Sexo
+
+        };
+        genericRepository.Update(dtoToentity);
+       
     }
 }
