@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI.Medicos;
 using UI.Recepcionista;
 
 namespace SistemaMedico
@@ -25,7 +26,8 @@ namespace SistemaMedico
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ModificaPaciente());
             //Application.Run(new NuevoPaciente());
-            Application.Run(new EliminarPaciente());
+            //Application.Run(new EliminarPaciente());
+            Application.Run(new BuscarCoincidencias());
 
             var services = new ServiceCollection();
 
