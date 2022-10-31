@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Services.BLL.Dto
 {
-    internal class MedicoDto
+    public class MedicoDto
     {
         [Key]
         public int Id { get; set; }
@@ -15,7 +15,7 @@ namespace Services.BLL.Dto
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Direccion { get; set; }
-        public int Contacto { get; set; }
+        public string Contacto { get; set; }
 
     }
 }

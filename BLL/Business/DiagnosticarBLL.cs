@@ -39,10 +39,11 @@ namespace BLL.Business {
 
 		//}
 
-		//public List<string> BuscarCoincidencias(){
+		public List<string> BuscarCoincidencias()
+		{
 
-		//	return null;
-		//}
+			return null;
+		}
 
 		///// 
 		///// <param name="diagnostico"></param>

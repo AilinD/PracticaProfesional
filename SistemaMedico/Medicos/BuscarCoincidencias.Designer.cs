@@ -33,6 +33,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chkSintomaDe
@@ -78,15 +79,26 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(51, 65);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 23);
+            this.textBox1.Size = new System.Drawing.Size(101, 23);
             this.textBox1.TabIndex = 5;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(413, 65);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // BuscarCoincidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 363);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.listBox1);
@@ -107,5 +119,6 @@
         private ListBox listBox1;
         private Button btnConsultar;
         private TextBox textBox1;
+        private Button btnLimpiar;
     }
 }

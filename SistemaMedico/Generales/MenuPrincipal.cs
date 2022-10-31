@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administrador;
+using UI.Medicos;
 using UI.Recepcionista;
 
 namespace UI.Generales
@@ -90,6 +91,11 @@ namespace UI.Generales
         private void eliminarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateMDIParent<EliminarPaciente>();
+        }
+
+        private void buscarCoincidenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<BuscarCoincidencias>();
         }
     }
 }

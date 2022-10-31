@@ -6,24 +6,56 @@
 //  Original author: Ailin
 ///////////////////////////////////////////////////////////
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 
-
-
-using BLL;
 using Domain;
+using BLL.Interfaces;
+using Services;
+using Services.BLL.Dto;
+using DAL.Interfaces;
+using Services.MapperConfig;
 
 namespace BLL.Business {
-	public class MedicoBLL {
+	public class MedicoBLL : IGenericBusiness<MedicoDto>
+    {
 
-		//public BLL.EspecialidadBLL m_EspecialidadBLL;
-		//public BLL.PacienteBLL m_PacienteBLL;
-
-        #region Singleton
         private readonly static MedicoBLL _instance = new MedicoBLL();
+
+        #region old
+        //      /// 
+        //      /// <param name="medico"></param>
+        //      public void AltaMedico(Medico medico){
+
+        //}
+
+        ///// 
+        ///// <param name="int"></param>
+        //public void BajaMedico(int id){
+
+        //}
+
+        ///// 
+        ///// <param name="matricula"></param>
+        //public List<DateTime> GetDisponibilidad(int matricula){
+
+        //	return null;
+        //}
+
+        //public List<Medico> ListarMedico<Medico>(){
+
+        //	return null;
+        //}
+
+        ///// 
+        ///// <param name="medico"></param>
+        //public void ModificarMedico(Medico medico){
+
+        //}
+
+        //public Medico SeleccionarMedico(){
+
+        //	return null;
+        //}
+        #endregion
 
         public static MedicoBLL Current
         {
@@ -33,49 +65,36 @@ namespace BLL.Business {
             }
         }
 
-        private MedicoBLL()
-        {
-            //Implement here the initialization code
+
+        IGenericRepository<Medico> genericRepository = FactoryDAL._medicoRepository;
+
+        public void Insert(MedicoDto obj)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Update(MedicoDto obj)
+		{
+			throw new NotImplementedException();
+		}
+
+		public IEnumerable<MedicoDto> GetAll()
+		{
+            var entity = MapperHelper.GetMapper().
+           Map<List<MedicoDto>>(genericRepository.GetAll());
+
+            return entity;
         }
-        #endregion
 
-
-
-        /// 
-        /// <param name="medico"></param>
-        public void AltaMedico(Medico medico){
-
+		public MedicoDto GetOne(int? guid)
+		{
+			throw new NotImplementedException();
 		}
 
-		/// 
-		/// <param name="int"></param>
-		public void BajaMedico(int id){
-
+		public void Delete(int? guid)
+		{
+			throw new NotImplementedException();
 		}
-
-		/// 
-		/// <param name="matricula"></param>
-		public List<DateTime> GetDisponibilidad(int matricula){
-
-			return null;
-		}
-
-		public List<Medico> ListarMedico<Medico>(){
-
-			return null;
-		}
-
-		/// 
-		/// <param name="medico"></param>
-		public void ModificarMedico(Medico medico){
-
-		}
-
-		public Medico SeleccionarMedico(){
-
-			return null;
-		}
-
-	}//end MedicoBLL
+	}
 
 }//end namespace BLL

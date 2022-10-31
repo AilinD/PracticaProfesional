@@ -95,27 +95,27 @@
             this.modificarPacienteToolStripMenuItem,
             this.eliminarPacienteToolStripMenuItem});
             this.nuevoPacienteToolStripMenuItem.Name = "nuevoPacienteToolStripMenuItem";
-            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.nuevoPacienteToolStripMenuItem.Text = "Pacientes";
             // 
             // nuevoPacienteToolStripMenuItem1
             // 
             this.nuevoPacienteToolStripMenuItem1.Name = "nuevoPacienteToolStripMenuItem1";
-            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
             this.nuevoPacienteToolStripMenuItem1.Text = "Nuevo Paciente";
             this.nuevoPacienteToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPacienteToolStripMenuItem1_Click);
             // 
             // modificarPacienteToolStripMenuItem
             // 
             this.modificarPacienteToolStripMenuItem.Name = "modificarPacienteToolStripMenuItem";
-            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.modificarPacienteToolStripMenuItem.Text = "Modificar Paciente";
             this.modificarPacienteToolStripMenuItem.Click += new System.EventHandler(this.modificarPacienteToolStripMenuItem_Click);
             // 
             // eliminarPacienteToolStripMenuItem
             // 
             this.eliminarPacienteToolStripMenuItem.Name = "eliminarPacienteToolStripMenuItem";
-            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.eliminarPacienteToolStripMenuItem.Text = "Eliminar Paciente";
             this.eliminarPacienteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPacienteToolStripMenuItem_Click);
             // 
@@ -126,7 +126,7 @@
             this.modificarTurnoToolStripMenuItem1,
             this.eliminarTurnoToolStripMenuItem1});
             this.asignarTurnoToolStripMenuItem.Name = "asignarTurnoToolStripMenuItem";
-            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarTurnoToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.asignarTurnoToolStripMenuItem.Text = "Turnos";
             // 
             // nuevoTurnoToolStripMenuItem
@@ -154,7 +154,7 @@
             this.modificarGuardiaToolStripMenuItem1,
             this.eliminarGuardiaToolStripMenuItem});
             this.asignarGuardiaToolStripMenuItem.Name = "asignarGuardiaToolStripMenuItem";
-            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.asignarGuardiaToolStripMenuItem.Text = "Guardias";
             // 
             // asignarGuardiaToolStripMenuItem2
@@ -212,6 +212,7 @@
             this.buscarCoincidenciasToolStripMenuItem.Name = "buscarCoincidenciasToolStripMenuItem";
             this.buscarCoincidenciasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.buscarCoincidenciasToolStripMenuItem.Text = "Buscar Coincidencias";
+            this.buscarCoincidenciasToolStripMenuItem.Click += new System.EventHandler(this.buscarCoincidenciasToolStripMenuItem_Click);
             // 
             // informeDiagnosticoToolStripMenuItem
             // 
@@ -241,7 +242,7 @@
             this.modificarEnfermedadToolStripMenuItem1,
             this.eliminarEnfermedadToolStripMenuItem1});
             this.ingresarEnfermedadToolStripMenuItem.Name = "ingresarEnfermedadToolStripMenuItem";
-            this.ingresarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.ingresarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ingresarEnfermedadToolStripMenuItem.Text = "Enfermedad";
             // 
             // ingresarEnfermedadToolStripMenuItem1
@@ -269,25 +270,25 @@
             this.modificarSintomasToolStripMenuItem1,
             this.eliminarSintomasToolStripMenuItem1});
             this.modificarEnfermedadToolStripMenuItem.Name = "modificarEnfermedadToolStripMenuItem";
-            this.modificarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.modificarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarEnfermedadToolStripMenuItem.Text = "Sintomas";
             // 
             // ingresarSintomasToolStripMenuItem1
             // 
             this.ingresarSintomasToolStripMenuItem1.Name = "ingresarSintomasToolStripMenuItem1";
-            this.ingresarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.ingresarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ingresarSintomasToolStripMenuItem1.Text = "Ingresar Sintomas";
             // 
             // modificarSintomasToolStripMenuItem1
             // 
             this.modificarSintomasToolStripMenuItem1.Name = "modificarSintomasToolStripMenuItem1";
-            this.modificarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.modificarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.modificarSintomasToolStripMenuItem1.Text = "Modificar Sintomas";
             // 
             // eliminarSintomasToolStripMenuItem1
             // 
             this.eliminarSintomasToolStripMenuItem1.Name = "eliminarSintomasToolStripMenuItem1";
-            this.eliminarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.eliminarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.eliminarSintomasToolStripMenuItem1.Text = "Eliminar Sintomas";
             // 
             // menuAdministradorToolStripMenuItem

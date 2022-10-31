@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "SistemaMedico": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    },
+    "Perfil 1": {
+      "commandName": "Project"
+    }
+  }
+}

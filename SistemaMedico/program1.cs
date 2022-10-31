@@ -24,10 +24,10 @@ namespace SistemaMedico
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ModificaPaciente());
+            Application.Run(new ModificarMedico());
             //Application.Run(new NuevoPaciente());
             //Application.Run(new EliminarPaciente());
-            Application.Run(new BuscarCoincidencias());
+            //Application.Run(new BuscarCoincidencias());
 
             var services = new ServiceCollection();
 

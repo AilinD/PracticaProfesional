@@ -14,6 +14,7 @@ namespace Services
     public static class FactoryDAL
     {
         public static IGenericRepository<Paciente> _pacienteRepository { get; private set; }
+        public static IGenericRepository<Medico> _medicoRepository { get; private set; }
         private static SysEntitiesContext _SysEntitiesContext;
         private static string connectionString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
 
@@ -27,10 +28,16 @@ namespace Services
         {
             _SysEntitiesContext = new SysEntitiesContext(connectionString);
             _pacienteRepository=PatientRepository();
+            _medicoRepository = MedicoRepository();
         }
         private static  PatientRepository PatientRepository()
         {
             return new PatientRepository(_SysEntitiesContext);
+        }
+
+        private static MedicoRepository MedicoRepository()
+        {
+            return new MedicoRepository(_SysEntitiesContext);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace DAL
         ////public virtual DbSet<HorarioProfesional> HorarioProfesional { get; set; }
         //public virtual DbSet<Medico> Medico { get; set; }
         ////public virtual DbSet<MedicoPorEspecialidad> MedicoPorEspecialidad { get; set; }
-        ////public virtual DbSet<Medicos> Medicos { get; set; }
+        public virtual DbSet<Medico> Medico { get; set; }
         //public virtual DbSet<ObraSocial> ObraSocial { get; set; }
         public virtual DbSet<Paciente> Paciente { get; set; }
         //public virtual DbSet<Recepcionista> Recepcionista { get; set; }
