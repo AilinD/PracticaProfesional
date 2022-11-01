@@ -97,5 +97,20 @@ namespace UI.Generales
         {
             CreateMDIParent<BuscarCoincidencias>();
         }
+
+        private void modificarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<ModificarMedico>();
+        }
+
+        private void agregarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<NuevoMedico>();
+        }
+
+        private void eliminarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<EliminarMedico>();
+        }
     }
 }

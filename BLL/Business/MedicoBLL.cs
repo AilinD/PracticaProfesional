@@ -70,13 +70,31 @@ namespace BLL.Business {
 
         public void Insert(MedicoDto obj)
 		{
-			throw new NotImplementedException();
-		}
+            var dtoToentity = new Medico()
+            {
+                Matricula = obj.Matricula,
+                Nombre = obj.Nombre,
+                Apellido = obj.Apellido,
+                Direccion = obj.Direccion,
+                Contacto = obj.Contacto
+
+            };
+            genericRepository.Insert(dtoToentity);
+        }
 
 		public void Update(MedicoDto obj)
 		{
-			throw new NotImplementedException();
-		}
+            var dtoToentity = new Medico()
+            {
+                Matricula = obj.Matricula,
+                Nombre = obj.Nombre,
+                Apellido = obj.Apellido,
+                Direccion = obj.Direccion,
+                Contacto = obj.Contacto
+
+            };
+            genericRepository.Update(dtoToentity);
+        }
 
 		public IEnumerable<MedicoDto> GetAll()
 		{
@@ -88,13 +106,19 @@ namespace BLL.Business {
 
 		public MedicoDto GetOne(int? guid)
 		{
-			throw new NotImplementedException();
-		}
+            var op = MapperHelper.GetMapper().Map<MedicoDto>(genericRepository.GetOne(guid));
+
+            return op;
+        }
 
 		public void Delete(int? guid)
 		{
-			throw new NotImplementedException();
-		}
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
+        }
 	}
 
 }//end namespace BLL

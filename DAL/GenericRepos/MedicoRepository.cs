@@ -17,9 +17,14 @@ namespace DAL.GenericRepos
         {
             _context = context;
         }
-        public void Delete(Medico guid)
+        public void Delete(Medico obj)
         {
-            throw new NotImplementedException();
+            var r = _context.Medico.FirstOrDefault(x => x.Id == obj.Id);
+            if (r != null)
+            {
+                _context.Medico.Remove(r);
+                _context.SaveChanges();
+            }
         }
 
         public IEnumerable<Medico> GetAll(Paciente parameters = null)
@@ -29,17 +34,31 @@ namespace DAL.GenericRepos
 
         public Medico GetOne(int? guid)
         {
-            throw new NotImplementedException();
+            var r = _context.Medico.FirstOrDefault(x => x.Id == guid);
+
+            return r;
         }
 
         public void Insert(Medico obj)
         {
-            throw new NotImplementedException();
+            _context.Medico.Add(obj);
+            _context.SaveChanges();
         }
 
         public void Update(Medico obj)
         {
-            throw new NotImplementedException();
+            var medico = _context.Medico.FirstOrDefault(x => x.Id == obj.Id);
+            if (medico != null)
+            {
+                medico.Matricula = obj.Matricula;
+                medico.Nombre = obj.Nombre;
+                medico.Apellido = obj.Apellido;
+                medico.Contacto = obj.Contacto;
+                medico.Direccion = obj.Direccion;
+                _context.Update(medico);
+                _context.SaveChanges();
+
+            }
         }
     }
 }

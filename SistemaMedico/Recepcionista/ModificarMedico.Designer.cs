@@ -85,6 +85,7 @@
             this.btnModificarMedico.TabIndex = 48;
             this.btnModificarMedico.Text = "Modificar";
             this.btnModificarMedico.UseVisualStyleBackColor = true;
+            this.btnModificarMedico.Click += new System.EventHandler(this.btnModificarMedico_Click);
             // 
             // txtApellidoMedico
             // 
@@ -129,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(766, 357);
             this.Controls.Add(this.txtNuevoContacto);
             this.Controls.Add(this.lblNuevoContacto);
             this.Controls.Add(this.txtNuevoDomicilio);

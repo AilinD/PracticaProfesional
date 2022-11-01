@@ -1,4 +1,5 @@
 ﻿using BLL.Business;
+using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,44 @@ namespace SistemaMedico.Recepcionista
                 //dataGridView1.DataSource = usser;
                 dataGridView1.DataSource = usser.ToList();
             }
+        }
+
+        private void btnModificarMedico_Click(object sender, EventArgs e)
+        {
+
+            var medico = new MedicoDto();
+
+            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            {
+                medico.Id = (int)r.Cells["Id"].Value;
+                medico.Matricula = (int)r.Cells["Matricula"].Value;
+                medico.Nombre = r.Cells["Nombre"].Value.ToString();
+                medico.Apellido = r.Cells["Apellido"].Value.ToString();
+                
+                if (string.IsNullOrEmpty(txtNuevoDomicilio.Text))
+                {
+
+                    medico.Direccion = r.Cells["Dirección"].Value.ToString();
+                }
+                else
+                {
+                    medico.Direccion = txtNuevoDomicilio.Text;
+                }
+
+                if (string.IsNullOrEmpty(txtNuevoContacto.Text))
+                {
+                    medico.Contacto = r.Cells["Contacto"].Value.ToString();
+                }
+                else
+                {
+                    medico.Contacto = txtNuevoContacto.Text;
+                }
+
+                MedicoBLL.Current.Update(medico);
+
+
+            }
+            MessageBox.Show("Medico modificado con éxito!");
         }
     }
 }
