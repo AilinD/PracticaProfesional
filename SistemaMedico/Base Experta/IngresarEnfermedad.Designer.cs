@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // IngresarEnfermedad
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(599, 310);
+            this.Name = "IngresarEnfermedad";
             this.Text = "IngresarEnfermedad";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
