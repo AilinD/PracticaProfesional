@@ -15,6 +15,8 @@ namespace Services
     {
         public static IGenericRepository<Paciente> _pacienteRepository { get; private set; }
         public static IGenericRepository<Medico> _medicoRepository { get; private set; }
+        public static IGenericRepository<Estudio> _estudioRepository { get; private set; }
+
         private static SysEntitiesContext _SysEntitiesContext;
         private static string connectionString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
 
@@ -29,6 +31,7 @@ namespace Services
             _SysEntitiesContext = new SysEntitiesContext(connectionString);
             _pacienteRepository=PatientRepository();
             _medicoRepository = MedicoRepository();
+            _estudioRepository = EstudioRepository();
         }
         private static  PatientRepository PatientRepository()
         {
@@ -38,6 +41,11 @@ namespace Services
         private static MedicoRepository MedicoRepository()
         {
             return new MedicoRepository(_SysEntitiesContext);
+        }
+
+        private static EstudioRepository EstudioRepository()
+        {
+            return new EstudioRepository(_SysEntitiesContext);
         }
     }
 }

@@ -112,5 +112,10 @@ namespace UI.Generales
         {
             CreateMDIParent<EliminarMedico>();
         }
+
+        private void solicitarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<SolicitarEstudio>();
+        }
     }
 }

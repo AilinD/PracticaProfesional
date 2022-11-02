@@ -50,6 +50,7 @@
             this.btnGenerar.TabIndex = 32;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // lbl7
             // 

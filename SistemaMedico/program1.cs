@@ -24,7 +24,7 @@ namespace SistemaMedico
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ModificarMedico());
+            Application.Run(new EliminarMedico());
             //Application.Run(new NuevoPaciente());
             //Application.Run(new EliminarPaciente());
             //Application.Run(new BuscarCoincidencias());

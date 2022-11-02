@@ -101,21 +101,21 @@
             // nuevoPacienteToolStripMenuItem1
             // 
             this.nuevoPacienteToolStripMenuItem1.Name = "nuevoPacienteToolStripMenuItem1";
-            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
             this.nuevoPacienteToolStripMenuItem1.Text = "Nuevo Paciente";
             this.nuevoPacienteToolStripMenuItem1.Click += new System.EventHandler(this.nuevoPacienteToolStripMenuItem1_Click);
             // 
             // modificarPacienteToolStripMenuItem
             // 
             this.modificarPacienteToolStripMenuItem.Name = "modificarPacienteToolStripMenuItem";
-            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.modificarPacienteToolStripMenuItem.Text = "Modificar Paciente";
             this.modificarPacienteToolStripMenuItem.Click += new System.EventHandler(this.modificarPacienteToolStripMenuItem_Click);
             // 
             // eliminarPacienteToolStripMenuItem
             // 
             this.eliminarPacienteToolStripMenuItem.Name = "eliminarPacienteToolStripMenuItem";
-            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarPacienteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.eliminarPacienteToolStripMenuItem.Text = "Eliminar Paciente";
             this.eliminarPacienteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPacienteToolStripMenuItem_Click);
             // 
@@ -132,19 +132,19 @@
             // asignarGuardiaToolStripMenuItem2
             // 
             this.asignarGuardiaToolStripMenuItem2.Name = "asignarGuardiaToolStripMenuItem2";
-            this.asignarGuardiaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.asignarGuardiaToolStripMenuItem2.Size = new System.Drawing.Size(169, 22);
             this.asignarGuardiaToolStripMenuItem2.Text = "Asignar Guardia";
             // 
             // modificarGuardiaToolStripMenuItem1
             // 
             this.modificarGuardiaToolStripMenuItem1.Name = "modificarGuardiaToolStripMenuItem1";
-            this.modificarGuardiaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.modificarGuardiaToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.modificarGuardiaToolStripMenuItem1.Text = "Modificar Guardia";
             // 
             // eliminarGuardiaToolStripMenuItem
             // 
             this.eliminarGuardiaToolStripMenuItem.Name = "eliminarGuardiaToolStripMenuItem";
-            this.eliminarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarGuardiaToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.eliminarGuardiaToolStripMenuItem.Text = "Eliminar Guardia";
             // 
             // medicosToolStripMenuItem
@@ -228,6 +228,7 @@
             this.solicitarEstudioToolStripMenuItem.Name = "solicitarEstudioToolStripMenuItem";
             this.solicitarEstudioToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.solicitarEstudioToolStripMenuItem.Text = "Solicitar Estudio";
+            this.solicitarEstudioToolStripMenuItem.Click += new System.EventHandler(this.solicitarEstudioToolStripMenuItem_Click);
             // 
             // menuBaseExpertaToolStripMenuItem
             // 
@@ -245,7 +246,7 @@
             this.modificarEnfermedadToolStripMenuItem1,
             this.eliminarEnfermedadToolStripMenuItem1});
             this.ingresarEnfermedadToolStripMenuItem.Name = "ingresarEnfermedadToolStripMenuItem";
-            this.ingresarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ingresarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.ingresarEnfermedadToolStripMenuItem.Text = "Enfermedad";
             // 
             // ingresarEnfermedadToolStripMenuItem1
@@ -273,25 +274,25 @@
             this.modificarSintomasToolStripMenuItem1,
             this.eliminarSintomasToolStripMenuItem1});
             this.modificarEnfermedadToolStripMenuItem.Name = "modificarEnfermedadToolStripMenuItem";
-            this.modificarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarEnfermedadToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.modificarEnfermedadToolStripMenuItem.Text = "Sintomas";
             // 
             // ingresarSintomasToolStripMenuItem1
             // 
             this.ingresarSintomasToolStripMenuItem1.Name = "ingresarSintomasToolStripMenuItem1";
-            this.ingresarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ingresarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.ingresarSintomasToolStripMenuItem1.Text = "Ingresar Sintomas";
             // 
             // modificarSintomasToolStripMenuItem1
             // 
             this.modificarSintomasToolStripMenuItem1.Name = "modificarSintomasToolStripMenuItem1";
-            this.modificarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.modificarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.modificarSintomasToolStripMenuItem1.Text = "Modificar Sintomas";
             // 
             // eliminarSintomasToolStripMenuItem1
             // 
             this.eliminarSintomasToolStripMenuItem1.Name = "eliminarSintomasToolStripMenuItem1";
-            this.eliminarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.eliminarSintomasToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.eliminarSintomasToolStripMenuItem1.Text = "Eliminar Sintomas";
             // 
             // menuAdministradorToolStripMenuItem

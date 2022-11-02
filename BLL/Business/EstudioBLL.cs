@@ -11,12 +11,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Domain;
+using DAL.Interfaces;
+using BLL.Interfaces;
+using Services.BLL.Dto;
+using Services;
+using Services.MapperConfig;
 
 namespace BLL.Business {
-	public class EstudioBLL {
+	public class EstudioBLL : IGenericBusiness<EstudioDto>
+    {
 
-        #region Singleton
+
+
         private readonly static EstudioBLL _instance = new EstudioBLL();
+
 
         public static EstudioBLL Current
         {
@@ -26,39 +34,79 @@ namespace BLL.Business {
             }
         }
 
-        private EstudioBLL()
+        IGenericRepository<Estudio> genericRepository = FactoryDAL._estudioRepository;
+
+        public void Insert(EstudioDto obj)
         {
-            //Implement here the initialization code
+            var dtoToentity = new Estudio()
+            {
+                Id = obj.Id,
+                Descripción = obj.Descripción
+
+            };
+            genericRepository.Insert(dtoToentity);
         }
-        #endregion
 
+        public void Update(EstudioDto obj)
+        {
+            var dtoToentity = new Estudio()
+            {
+                Id = obj.Id,
+                Descripción = obj.Descripción
 
+            };
+            genericRepository.Update(dtoToentity);
+        }
 
+        public IEnumerable<EstudioDto> GetAll()
+        {
+            var entity = MapperHelper.GetMapper().
+          Map<List<EstudioDto>>(genericRepository.GetAll());
 
-        /// 
-        /// <param name="estudio"></param>
-        public Estudio AltaEstudio(Estudio estudio){
+            return entity;
+        }
 
-			return null;
-		}
+        public EstudioDto GetOne(int? guid)
+        {
 
-		/// 
-		/// <param name="int"></param>
-		public void BajaEstudio(int ID){
+            var op = MapperHelper.GetMapper().Map<EstudioDto>(genericRepository.GetOne(guid));
 
-		}
+            return op;
+        }
 
-		public List<Estudio> ListEstudio(){
+        public void Delete(int? guid)
+        {
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
+        }
 
-			return null;
-		}
+        //      /// 
+        //      /// <param name="estudio"></param>
+        //      public Estudio AltaEstudio(Estudio estudio){
 
-		/// 
-		/// <param name="estudio"></param>
-		public void ModificacionEstudio(Estudio estudio){
+        //	return null;
+        //}
 
-		}
+        ///// 
+        ///// <param name="int"></param>
+        //public void BajaEstudio(int ID){
 
-	}//end EstudioBLL
+        //}
+
+        //public List<Estudio> ListEstudio(){
+
+        //	return null;
+        //}
+
+        ///// 
+        ///// <param name="estudio"></param>
+        //public void ModificacionEstudio(Estudio estudio){
+
+        //}
+
+    }//end EstudioBLL
 
 }//end namespace BLL
