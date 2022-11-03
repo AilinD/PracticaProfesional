@@ -10,14 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
 	public class Sintoma {
 
-		public Guid IdSintoma { get; set; }
+		[Key]
+		public int IdSintoma { get; set; }
 		public string sintoma { get; set; }
 
 		public Sintoma(){

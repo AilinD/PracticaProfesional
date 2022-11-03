@@ -42,6 +42,10 @@
             this.agregarMedicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarMedicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarMedicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrasSocialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevaObraSocialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarObraSocialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarObraSocialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMedicosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagnosticoPacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.derivarPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +87,8 @@
             this.menuRecepcionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoPacienteToolStripMenuItem,
             this.asignarGuardiaToolStripMenuItem,
-            this.medicosToolStripMenuItem});
+            this.medicosToolStripMenuItem,
+            this.obrasSocialesToolStripMenuItem});
             this.menuRecepcionToolStripMenuItem.Name = "menuRecepcionToolStripMenuItem";
             this.menuRecepcionToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.menuRecepcionToolStripMenuItem.Text = "Menu Recepcion";
@@ -160,23 +165,54 @@
             // agregarMedicoToolStripMenuItem
             // 
             this.agregarMedicoToolStripMenuItem.Name = "agregarMedicoToolStripMenuItem";
-            this.agregarMedicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarMedicoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.agregarMedicoToolStripMenuItem.Text = "Agregar Medico";
             this.agregarMedicoToolStripMenuItem.Click += new System.EventHandler(this.agregarMedicoToolStripMenuItem_Click);
             // 
             // modificarMedicoToolStripMenuItem
             // 
             this.modificarMedicoToolStripMenuItem.Name = "modificarMedicoToolStripMenuItem";
-            this.modificarMedicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarMedicoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.modificarMedicoToolStripMenuItem.Text = "Modificar Medico";
             this.modificarMedicoToolStripMenuItem.Click += new System.EventHandler(this.modificarMedicoToolStripMenuItem_Click);
             // 
             // eliminarMedicoToolStripMenuItem
             // 
             this.eliminarMedicoToolStripMenuItem.Name = "eliminarMedicoToolStripMenuItem";
-            this.eliminarMedicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarMedicoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.eliminarMedicoToolStripMenuItem.Text = "Eliminar Medico";
             this.eliminarMedicoToolStripMenuItem.Click += new System.EventHandler(this.eliminarMedicoToolStripMenuItem_Click);
+            // 
+            // obrasSocialesToolStripMenuItem
+            // 
+            this.obrasSocialesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevaObraSocialToolStripMenuItem,
+            this.modificarObraSocialToolStripMenuItem,
+            this.eliminarObraSocialToolStripMenuItem});
+            this.obrasSocialesToolStripMenuItem.Name = "obrasSocialesToolStripMenuItem";
+            this.obrasSocialesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.obrasSocialesToolStripMenuItem.Text = "Obras Sociales";
+            // 
+            // nuevaObraSocialToolStripMenuItem
+            // 
+            this.nuevaObraSocialToolStripMenuItem.Name = "nuevaObraSocialToolStripMenuItem";
+            this.nuevaObraSocialToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.nuevaObraSocialToolStripMenuItem.Text = "Nueva Obra Social";
+            this.nuevaObraSocialToolStripMenuItem.Click += new System.EventHandler(this.nuevaObraSocialToolStripMenuItem_Click);
+            // 
+            // modificarObraSocialToolStripMenuItem
+            // 
+            this.modificarObraSocialToolStripMenuItem.Name = "modificarObraSocialToolStripMenuItem";
+            this.modificarObraSocialToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.modificarObraSocialToolStripMenuItem.Text = "Modificar Obra Social";
+            this.modificarObraSocialToolStripMenuItem.Click += new System.EventHandler(this.modificarObraSocialToolStripMenuItem_Click);
+            // 
+            // eliminarObraSocialToolStripMenuItem
+            // 
+            this.eliminarObraSocialToolStripMenuItem.Name = "eliminarObraSocialToolStripMenuItem";
+            this.eliminarObraSocialToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.eliminarObraSocialToolStripMenuItem.Text = "Eliminar Obra Social";
+            this.eliminarObraSocialToolStripMenuItem.Click += new System.EventHandler(this.eliminarObraSocialToolStripMenuItem_Click);
             // 
             // menuMedicosToolStripMenuItem
             // 
@@ -362,5 +398,9 @@
         private ToolStripMenuItem agregarMedicoToolStripMenuItem;
         private ToolStripMenuItem modificarMedicoToolStripMenuItem;
         private ToolStripMenuItem eliminarMedicoToolStripMenuItem;
+        private ToolStripMenuItem obrasSocialesToolStripMenuItem;
+        private ToolStripMenuItem nuevaObraSocialToolStripMenuItem;
+        private ToolStripMenuItem modificarObraSocialToolStripMenuItem;
+        private ToolStripMenuItem eliminarObraSocialToolStripMenuItem;
     }
 }

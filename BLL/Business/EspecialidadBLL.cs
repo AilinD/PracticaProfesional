@@ -11,12 +11,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Domain;
+using BLL.Interfaces;
+using Services.BLL.Dto;
+using Services.MapperConfig;
+using Services;
+using DAL.Interfaces;
 
 namespace BLL.Business {
-	public class EspecialidadBLL {
+	public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
+    {
 
-        #region Singleton
+
+
         private readonly static EspecialidadBLL _instance = new EspecialidadBLL();
+
 
         public static EspecialidadBLL Current
         {
@@ -26,36 +34,77 @@ namespace BLL.Business {
             }
         }
 
-        private EspecialidadBLL()
+        IGenericRepository<Especialidad> genericRepository = FactoryDAL._especialidadRepository;
+
+
+        //      /// 
+        //      /// <param name="especialidad"></param>
+        //      public void AgregarEspecialidad(Especialidad especialidad){
+
+        //}
+
+        ///// 
+        ///// <param name="int"></param>
+        //public void BajaEspecialidad(int id){
+
+        //}
+
+        //public List<Especialidad> ListarEspecialidad(){
+
+        //	return null;
+        //}
+
+        ///// 
+        ///// <param name="especialidad"></param>
+        //public void ModificarExpecialidad(Especialidad especialidad){
+
+        //}
+
+        public void Insert(EspecialidadDto obj)
         {
-            //Implement here the initialization code
+            var dtoToentity = new Especialidad()
+            {
+                id = obj.id,
+                especialidad = obj.especialidad,
+
+            };
+            genericRepository.Insert(dtoToentity);
         }
-        #endregion
 
+        public void Update(EspecialidadDto obj)
+        {
+            var dtoToentity = new Especialidad()
+            {
+                id = obj.id,
+                especialidad = obj.especialidad,
 
-        /// 
-        /// <param name="especialidad"></param>
-        public void AgregarEspecialidad(Especialidad especialidad){
+            };
+            genericRepository.Update(dtoToentity);
+        }
 
-		}
+        public IEnumerable<EspecialidadDto> GetAll()
+        {
+            var entity = MapperHelper.GetMapper().
+         Map<List<EspecialidadDto>>(genericRepository.GetAll());
 
-		/// 
-		/// <param name="int"></param>
-		public void BajaEspecialidad(int id){
+            return entity;
+        }
 
-		}
+        public EspecialidadDto GetOne(int? guid)
+        {
+            var op = MapperHelper.GetMapper().Map<EspecialidadDto>(genericRepository.GetOne(guid));
 
-		public List<Especialidad> ListarEspecialidad(){
+            return op;
+        }
 
-			return null;
-		}
-
-		/// 
-		/// <param name="especialidad"></param>
-		public void ModificarExpecialidad(Especialidad especialidad){
-
-		}
-
-	}//end EspecialidadBLL
+        public void Delete(int? guid)
+        {
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
+        }
+    }//end EspecialidadBLL
 
 }//end namespace BLL

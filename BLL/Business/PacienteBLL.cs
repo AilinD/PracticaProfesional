@@ -1,8 +1,10 @@
 using AutoMapper;
 using BLL.Interfaces;
 using DAL;
+using DAL.GenericRepos;
 using DAL.Interfaces;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.PatternContexts;
 using Services;
@@ -87,4 +89,15 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
         genericRepository.Update(dtoToentity);
        
     }
+
+    //public ObraSocial GetObraSocial()
+    //{
+        
+
+    //}
+
+    //public ObraSocial OSPaciente()
+    //{
+    //    return new ObraSocial();
+    //}
 }

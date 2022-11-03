@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Services.BLL.Dto
 {
-    public class EstudioDto
+    public class EnfermedadDto
     {
         [Key]
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        
+        public int ID { get; set; }
+        public string Descripcion { get; set; }
 
+        //public List<Sintoma> sintomas { get; set; }
     }
 }

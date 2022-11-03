@@ -117,5 +117,20 @@ namespace UI.Generales
         {
             CreateMDIParent<SolicitarEstudio>();
         }
+
+        private void nuevaObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<NuevaObraSocial>();
+        }
+
+        private void modificarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<ModificarObraSocial>();
+        }
+
+        private void eliminarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<EliminarObraSocial>();
+        }
     }
 }

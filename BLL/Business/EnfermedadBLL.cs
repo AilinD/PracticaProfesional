@@ -12,13 +12,19 @@ using System.Text;
 using System.IO;
 using BLL;
 using Domain;
+using BLL.Interfaces;
+using Services.BLL.Dto;
+using Services.MapperConfig;
+
+using Services;
+using DAL.Interfaces;
 
 namespace BLL.Business
 {
-	public class EnfermedadBLL {
-
-        #region Singleton
+	public class EnfermedadBLL : IGenericBusiness<EnfermedadDto>
+    {
         private readonly static EnfermedadBLL _instance = new EnfermedadBLL();
+
 
         public static EnfermedadBLL Current
         {
@@ -28,39 +34,84 @@ namespace BLL.Business
             }
         }
 
-        private EnfermedadBLL()
-        {
-            //Implement here the initialization code
-        }
-        #endregion
+
+        IGenericRepository<Enfermedad> genericRepository = FactoryDAL._enfermedadRepository;
+
 
         //public BLL.PacienteBLL m_PacienteBLL;
 
-		
 
-		/// 
-		/// <param name="enfermedad"></param>
-		public void AltaEnfermedad(Enfermedad enfermedad){
 
-		}
+        ///// 
+        ///// <param name="enfermedad"></param>
+        //public void AltaEnfermedad(Enfermedad enfermedad){
 
-		/// 
-		/// <param name="int"></param>
-		public void BajaEnfermedad(int id){
+        //}
 
-		}
+        ///// 
+        ///// <param name="int"></param>
+        //public void BajaEnfermedad(int id){
 
-		public List<Sintoma> ListarEnfermedad(){
+        //}
 
-			return null;
-		}
+        //public List<Sintoma> ListarEnfermedad(){
 
-		/// 
-		/// <param name="enfermedad"></param>
-		public void ModificarEnfermedad(Enfermedad enfermedad){
+        //	return null;
+        //}
 
-		}
+        ///// 
+        ///// <param name="enfermedad"></param>
+        //public void ModificarEnfermedad(Enfermedad enfermedad){
 
+        //}
+
+        public void Insert(EnfermedadDto obj)
+		{
+            var dtoToentity = new Enfermedad()
+            {
+                ID = obj.ID,
+                Descripcion = obj.Descripcion,
+
+
+            };
+            genericRepository.Insert(dtoToentity);
+        }
+
+		public void Update(EnfermedadDto obj)
+		{
+            var dtoToentity = new Enfermedad()
+            {
+                ID = obj.ID,
+                Descripcion = obj.Descripcion,
+  
+
+            };
+            genericRepository.Update(dtoToentity);
+        }
+
+		public IEnumerable<EnfermedadDto> GetAll()
+		{
+            var entity = MapperHelper.GetMapper().
+         Map<List<EnfermedadDto>>(genericRepository.GetAll());
+
+            return entity;
+        }
+
+        public EnfermedadDto GetOne(int? guid)
+		{
+            var op = MapperHelper.GetMapper().Map<EnfermedadDto>(genericRepository.GetOne(guid));
+
+            return op;
+        }
+
+		public void Delete(int? guid)
+		{
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
+        }
 	}//end EnfermedadBLL
 
 }//end namespace BLL

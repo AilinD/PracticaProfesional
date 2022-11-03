@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Services.BLL.Dto
 {
-    public class EstudioDto
+    public class ObraSocialDto
     {
         [Key]
-        public int Id { get; set; }
+        public int Id{ get; set; }
         public string Nombre { get; set; }
-        
 
     }
 }

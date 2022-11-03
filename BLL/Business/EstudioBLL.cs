@@ -6,10 +6,7 @@
 //  Original author: Ailin
 ///////////////////////////////////////////////////////////
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
+
 using Domain;
 using DAL.Interfaces;
 using BLL.Interfaces;
@@ -41,7 +38,7 @@ namespace BLL.Business {
             var dtoToentity = new Estudio()
             {
                 Id = obj.Id,
-                Descripción = obj.Descripción
+                Nombre = obj.Nombre
 
             };
             genericRepository.Insert(dtoToentity);
@@ -52,7 +49,7 @@ namespace BLL.Business {
             var dtoToentity = new Estudio()
             {
                 Id = obj.Id,
-                Descripción = obj.Descripción
+                Nombre = obj.Nombre
 
             };
             genericRepository.Update(dtoToentity);

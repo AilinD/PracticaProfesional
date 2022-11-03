@@ -25,7 +25,7 @@ namespace DAL.Interfaces
         /// Obtiene todos los registros del repositorio.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T> GetAll(Paciente parameters = null);
+        IEnumerable<T> GetAll(T parameters = null);
 
         /// <summary>
         /// Obtiene un registro del repositorio.

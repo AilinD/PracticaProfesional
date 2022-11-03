@@ -10,15 +10,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
 	public class ObraSocial {
 
-		public Guid IdObraSocial { get; set; }
-		public string obraSocial { get; set; }
+		[Key]
+		public int Id { get; set; }
+		public string Nombre { get; set; }
 
 		public ObraSocial(){
 

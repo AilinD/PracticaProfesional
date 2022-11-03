@@ -27,7 +27,7 @@ namespace DAL.GenericRepos
             }
         }
 
-        public IEnumerable<Medico> GetAll(Paciente parameters = null)
+        public IEnumerable<Medico> GetAll(Medico parameters = null)
         {
             return _context.Medico.ToList();
         }

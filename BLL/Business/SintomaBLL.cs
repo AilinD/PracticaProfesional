@@ -15,14 +15,17 @@ using System.IO;
 
 using BLL;
 using Domain;
+using BLL.Interfaces;
+using Services.BLL.Dto;
+using Services.MapperConfig;
+using Services;
+using DAL.Interfaces;
 
 namespace BLL.Business {
-	public class SintomaBLL {
-
-		//public BLL.EnfermedadBLL m_EnfermedadBLL;
-		//public BLL.DiagnosticarBLL m_DiagnosticarBLL;
-        #region Singleton
+	public class SintomaBLL : IGenericBusiness<SintomaDto>
+    {
         private readonly static SintomaBLL _instance = new SintomaBLL();
+
 
         public static SintomaBLL Current
         {
@@ -32,38 +35,80 @@ namespace BLL.Business {
             }
         }
 
-        private SintomaBLL()
+        IGenericRepository<Sintoma> genericRepository = FactoryDAL._sintomaRepository;
+
+
+
+
+
+        //      /// 
+        //      /// <param name="sintoma"></param>
+        //      public void AltaSintoma(Sintoma sintoma){
+
+        //}
+
+        ///// 
+        ///// <param name="int"></param>
+        //public void BajaSintoma(int ID){
+
+        //}
+
+        //public List<Sintoma> ListarSintoma(){
+
+        //	return null;
+        //}
+
+        ///// 
+        ///// <param name="sintoma"></param>
+        //public void ModificarSintoma(Sintoma sintoma){
+
+        //}
+
+        public void Insert(SintomaDto obj)
         {
-            //Implement here the initialization code
+            var dtoToentity = new Sintoma()
+            {
+                IdSintoma = obj.IdSintoma,
+                sintoma = obj.sintoma
+
+            };
+            genericRepository.Insert(dtoToentity);
         }
-        #endregion
 
+        public void Update(SintomaDto obj)
+        {
+            var dtoToentity = new Sintoma()
+            {
+                IdSintoma = obj.IdSintoma,
+                sintoma = obj.sintoma
 
+            };
+            genericRepository.Update(dtoToentity);
+        }
 
+        public IEnumerable<SintomaDto> GetAll()
+        {
+            var entity = MapperHelper.GetMapper().
+         Map<List<SintomaDto>>(genericRepository.GetAll());
 
-        /// 
-        /// <param name="sintoma"></param>
-        public void AltaSintoma(Sintoma sintoma){
+            return entity;
+        }
 
-		}
+        public SintomaDto GetOne(int? guid)
+        {
+            var op = MapperHelper.GetMapper().Map<SintomaDto>(genericRepository.GetOne(guid));
 
-		/// 
-		/// <param name="int"></param>
-		public void BajaSintoma(int ID){
+            return op;
+        }
 
-		}
-
-		public List<Sintoma> ListarSintoma(){
-
-			return null;
-		}
-
-		/// 
-		/// <param name="sintoma"></param>
-		public void ModificarSintoma(Sintoma sintoma){
-
-		}
-
-	}//end SintomaBLL
+        public void Delete(int? guid)
+        {
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
+        }
+    }//end SintomaBLL
 
 }//end namespace BLL

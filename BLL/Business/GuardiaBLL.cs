@@ -11,9 +11,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Domain;
+using BLL.Interfaces;
 
 namespace BLL.Business {
-	public class GuardiaBLL {
+	public class GuardiaBLL : IGenericBusiness<GuardiaDto>
+    {
 
 
         #region Singleton

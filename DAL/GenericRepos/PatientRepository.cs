@@ -1,4 +1,5 @@
 ﻿using DAL.Interfaces;
+using DAL.Repo;
 using Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,10 +31,7 @@ namespace DAL.GenericRepos
 
         }
 
-        //public IEnumerable<Paciente> GetAll(Paciente parameters = null)
-        //{
-        //    return _context.Paciente.ToList();
-        //}
+       
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
         {
             return _context.Paciente.ToList();
@@ -69,12 +67,11 @@ namespace DAL.GenericRepos
                 _context.SaveChanges();
 
             }
+        }
 
-
-
-
-
-
+        public IEnumerable<ObraSocial> GetObraSocial()
+        {
+            return _context.ObraSocial.ToList();
 
         }
     }

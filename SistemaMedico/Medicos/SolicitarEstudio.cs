@@ -16,5 +16,15 @@ namespace UI.Medicos
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEstudio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

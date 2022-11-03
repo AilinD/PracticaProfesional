@@ -18,27 +18,44 @@ namespace DAL.GenericRepos
         }
         public void Delete(Estudio guid)
         {
-            throw new NotImplementedException();
+            var r = _context.Estudio.FirstOrDefault(x => x.Id == guid.Id);
+            if (r != null)
+            {
+                _context.Estudio.Remove(r);
+                _context.SaveChanges();
+            }
         }
 
-        public IEnumerable<Estudio> GetAll(Paciente parameters = null)
+        public IEnumerable<Estudio> GetAll(Estudio parameters = null)
         {
-            throw new NotImplementedException();
+            return _context.Estudio.ToList();
         }
 
         public Estudio GetOne(int? guid)
         {
-            throw new NotImplementedException();
+            var r = _context.Estudio.FirstOrDefault(x => x.Id == guid);
+
+            return r;
         }
 
         public void Insert(Estudio obj)
         {
-            throw new NotImplementedException();
+            _context.Estudio.Add(obj);
+            _context.SaveChanges();
         }
 
         public void Update(Estudio obj)
         {
-            throw new NotImplementedException();
+            var estudio = _context.Estudio.FirstOrDefault(x => x.Id == obj.Id);
+            if (estudio != null)
+            {
+                estudio.Id = obj.Id;
+                estudio.Descripción = obj.Descripción;
+         
+                _context.Update(estudio);
+                _context.SaveChanges();
+
+            }
         }
     }
 }

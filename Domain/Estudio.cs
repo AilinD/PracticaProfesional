@@ -10,17 +10,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
 	public class Estudio {
 
-		public string Descripción { get; set; }
-		public Guid Id { get; set; }
+		[Key]
+		public int Id { get; set; }
+        public string Nombre { get; set; }
 
-		public Estudio(){
+        public Estudio(){
 
 		}
 

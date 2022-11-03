@@ -24,14 +24,17 @@ namespace UI.Recepcionista
 
         private void NuevoPaciente_Load(object sender, EventArgs e)
         {
+
             List<string> Sexo = new List<string>();
             Sexo.Add("Femenino");
             Sexo.Add("Masculino");
             cboxSexo.DataSource = Sexo;
             cboxSexo.DisplayMember = "Value";
-
-            //cboxObraSocial.DataSource = PacienteBLL.Current.GetObraSocial();         
-
+            cboxObraSocial.DisplayMember = "Nombre";
+            cboxObraSocial.ValueMember = "Id";
+            cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x=>x.Nombre).ToList();
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,8 +46,11 @@ namespace UI.Recepcionista
             string Domicilio = txtDomicilio.Text;
             string Contacto =txtContacto.Text;
             string Sexo = cboxSexo.Text;
-            //string ObraSocial = cboxObraSocial.Text;
 
+            var os = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(cboxObraSocial.Text));
+            //var xxx= ObraSocialBLL.Current.GetOne().Select(x => x.Nombre).ToList();
+
+            //var idos = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre == cboxObraSocial.Text);
             var paciente = new PacienteDto()
             {
                 DNI = DNI,
@@ -57,6 +63,11 @@ namespace UI.Recepcionista
                 
 
             };
+            //var ospaciente = new pacienteOS()
+            //{
+            
+            //};
+            //ObraSocialBLL.Current.Insert(ObraSocial);
             PacienteBll.Current.Insert(paciente);
             MessageBox.Show("Paciente insertado con éxito!");
 

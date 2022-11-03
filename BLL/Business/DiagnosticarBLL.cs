@@ -11,9 +11,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Domain;
+using BLL.Interfaces;
 
 namespace BLL.Business {
-	public class DiagnosticarBLL {
+	public class DiagnosticarBLL /*: IGenericBusiness<DiagnosticarDto>*/
+    {
 
 		#region Singleton
 		private readonly static DiagnosticarBLL _instance = new DiagnosticarBLL();

@@ -23,6 +23,14 @@ namespace Services.MapperConfig
                 cfg.CreateMap<MedicoDto, Medico>();
                 cfg.CreateMap<EstudioDto, Estudio>();
                 cfg.CreateMap<Estudio, EstudioDto>();
+                cfg.CreateMap<Enfermedad, EnfermedadDto>();
+                cfg.CreateMap<EnfermedadDto, Enfermedad>();
+                cfg.CreateMap<Sintoma, SintomaDto>();
+                cfg.CreateMap<SintomaDto, Sintoma>();
+                cfg.CreateMap<Especialidad, EspecialidadDto>();
+                cfg.CreateMap<EspecialidadDto, Especialidad>();
+                cfg.CreateMap<ObraSocial, ObraSocialDto>();
+                cfg.CreateMap<ObraSocialDto, ObraSocial>();
             });
 
             _mapper = config.CreateMapper();

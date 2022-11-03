@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Business\GuardiaBLL.cs" />
     <Compile Remove="Business\TurnoBLL.cs" />
   </ItemGroup>
 
