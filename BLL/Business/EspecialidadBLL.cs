@@ -21,8 +21,6 @@ namespace BLL.Business {
 	public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
     {
 
-
-
         private readonly static EspecialidadBLL _instance = new EspecialidadBLL();
 
 

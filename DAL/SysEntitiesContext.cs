@@ -27,7 +27,7 @@ namespace DAL
         //public virtual DbSet<Diagnostico> Diagnostico { get; set; }
         public virtual DbSet<Especialidad> Especialidad { get; set; }
         public virtual DbSet<Estudio> Estudio { get; set; }
-        ////public virtual DbSet<EstudioPaciente> EstudioPaciente { get; set; }
+        public virtual DbSet<EstudioPaciente> EstudioPaciente { get; set; }
         //public virtual DbSet<Guardia> Guardia { get; set; }
         ////public virtual DbSet<HistorialPaciente> HistorialPaciente { get; set; }
         //public virtual DbSet<Horario> Horario { get; set; }

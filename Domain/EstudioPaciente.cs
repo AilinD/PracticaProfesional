@@ -10,20 +10,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
-	public class EstudiosPaciente {
+	public class EstudioPaciente {
 
-		public string Comentarios { get; set; }
-		public Guid DNI { get; set; }
-		public Guid Estudio { get; set; }
+		[Key]
+		public int Id { get; set; }
+		public int IdMedico { get; set; }
+        public int IdPaciente { get; set; }
+        public int IdEstudio { get; set; }
+        public string Comentarios { get; set; }		
 		public DateTime Fecha { get; set; }
-		public Guid MatriculaMedico { get; set; }
+		
 
-		public EstudiosPaciente(){
+		public EstudioPaciente(){
 
 		}
 

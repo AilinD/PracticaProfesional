@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class GenericRepository
+    public class EstudioPacientr
     {
     }
 }

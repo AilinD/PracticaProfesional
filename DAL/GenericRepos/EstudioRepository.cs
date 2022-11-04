@@ -50,7 +50,7 @@ namespace DAL.GenericRepos
             if (estudio != null)
             {
                 estudio.Id = obj.Id;
-                estudio.Descripción = obj.Descripción;
+                estudio.Nombre = obj.Nombre;
          
                 _context.Update(estudio);
                 _context.SaveChanges();
