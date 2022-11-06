@@ -15,7 +15,6 @@ namespace DAL.Models
             : base(options)
         {
         }
-
         public SysCExpertContext(string cadena) : base(GetOptions(cadena))
         {
         }
@@ -23,12 +22,10 @@ namespace DAL.Models
         {
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
-
         public virtual DbSet<Diagnostico> Diagnosticos { get; set; } = null!;
         public virtual DbSet<Especialidad> Especialidads { get; set; } = null!;
         public virtual DbSet<Estudio> Estudios { get; set; } = null!;
         public virtual DbSet<EstudioPaciente> EstudioPacientes { get; set; } = null!;
-        public virtual DbSet<Guardium> Guardia { get; set; } = null!;
         public virtual DbSet<HistorialPaciente> HistorialPacientes { get; set; } = null!;
         public virtual DbSet<Horario> Horarios { get; set; } = null!;
         public virtual DbSet<HorarioProfesional> HorarioProfesionals { get; set; } = null!;
@@ -39,14 +36,13 @@ namespace DAL.Models
         public virtual DbSet<Paciente> Pacientes { get; set; } = null!;
         public virtual DbSet<Recepcionistum> Recepcionista { get; set; } = null!;
         public virtual DbSet<Sintoma> Sintomas { get; set; } = null!;
-        public virtual DbSet<Turno> Turnos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-H0P0HUN\\SQLEXPRESS;Initial Catalog=SysCExpert;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-H0P0HUN\\SQLEXPRESS;Initial Catalog=SysCExpert;Integrated Security=True;");
             }
         }
 
@@ -122,23 +118,6 @@ namespace DAL.Models
                     .HasConstraintName("FK_EstudioPaciente_Paciente");
             });
 
-            modelBuilder.Entity<Guardium>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Fecha).HasColumnType("date");
-
-                entity.HasOne(d => d.IdMedicoNavigation)
-                    .WithMany(p => p.Guardia)
-                    .HasForeignKey(d => d.IdMedico)
-                    .HasConstraintName("FK_Guardia_Medico");
-
-                entity.HasOne(d => d.IdPacienteNavigation)
-                    .WithMany(p => p.Guardia)
-                    .HasForeignKey(d => d.IdPaciente)
-                    .HasConstraintName("FK_Guardia_Paciente");
-            });
-
             modelBuilder.Entity<HistorialPaciente>(entity =>
             {
                 entity.ToTable("HistorialPaciente");
@@ -194,6 +173,9 @@ namespace DAL.Models
 
             modelBuilder.Entity<Medico>(entity =>
             {
+                entity.HasKey(e => e.IdMedico)
+                    .HasName("PK_Medico_1");
+
                 entity.ToTable("Medico");
 
                 entity.Property(e => e.Apellido)
@@ -221,9 +203,9 @@ namespace DAL.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MedicoPorEspecialidad_Especialidad");
 
-                entity.HasOne(d => d.Medico)
+                entity.HasOne(d => d.IdMedicoNavigation)
                     .WithMany(p => p.MedicoPorEspecialidads)
-                    .HasForeignKey(d => d.MedicoId)
+                    .HasForeignKey(d => d.IdMedico)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_MedicoPorEspecialidad_Medico");
             });
@@ -323,33 +305,6 @@ namespace DAL.Models
 
                             j.ToTable("SintomaPaciente");
                         });
-            });
-
-            modelBuilder.Entity<Turno>(entity =>
-            {
-                entity.ToTable("Turno");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Fecha)
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
-                entity.HasOne(d => d.IdMedicoNavigation)
-                    .WithMany(p => p.Turnos)
-                    .HasForeignKey(d => d.IdMedico)
-                    .HasConstraintName("FK_Turno_Medico");
-
-                entity.HasOne(d => d.IdPacienteNavigation)
-                    .WithMany(p => p.Turnos)
-                    .HasForeignKey(d => d.IdPaciente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Turno_Paciente");
-
-                entity.HasOne(d => d.IdRecepcionistaNavigation)
-                    .WithMany(p => p.Turnos)
-                    .HasForeignKey(d => d.IdRecepcionista)
-                    .HasConstraintName("FK_Turno_Recepcionista");
             });
 
             OnModelCreatingPartial(modelBuilder);

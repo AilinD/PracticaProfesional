@@ -9,14 +9,12 @@ namespace DAL.Models
         {
             Diagnosticos = new HashSet<Diagnostico>();
             EstudioPacientes = new HashSet<EstudioPaciente>();
-            Guardia = new HashSet<Guardium>();
             HistorialPacientes = new HashSet<HistorialPaciente>();
             HorarioProfesionals = new HashSet<HorarioProfesional>();
             MedicoPorEspecialidads = new HashSet<MedicoPorEspecialidad>();
-            Turnos = new HashSet<Turno>();
         }
 
-        public int Id { get; set; }
+        public int IdMedico { get; set; }
         public int Matricula { get; set; }
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
@@ -25,10 +23,8 @@ namespace DAL.Models
 
         public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
         public virtual ICollection<EstudioPaciente> EstudioPacientes { get; set; }
-        public virtual ICollection<Guardium> Guardia { get; set; }
         public virtual ICollection<HistorialPaciente> HistorialPacientes { get; set; }
         public virtual ICollection<HorarioProfesional> HorarioProfesionals { get; set; }
         public virtual ICollection<MedicoPorEspecialidad> MedicoPorEspecialidads { get; set; }
-        public virtual ICollection<Turno> Turnos { get; set; }
     }
 }

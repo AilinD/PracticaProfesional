@@ -1,7 +1,6 @@
 using BLL.Interfaces;
 using DAL.Factory;
 using DAL.Interfaces;
-//using Domain;
 using DAL.Models;
 using Services;
 using Services.BLL.Dto;
@@ -29,7 +28,7 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
     public void Delete(int? guid)
     {
         var op = genericRepository.GetOne(guid);
-        if(op!= null)
+        if (op != null)
         {
             genericRepository.Delete(op);
         }
@@ -47,7 +46,7 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
     public PacienteDto GetOne(int? guid)
     {
         var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
-       
+
         return op;
     }
 
@@ -56,12 +55,12 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
         var dtoToentity = new Paciente()
         {
             Dni = obj.DNI,
-            Nombre=obj.Nombre,
-            Apellido=obj.Apellido,
-            FechaNacimiento=(DateTime)obj.FechaNacimiento,
+            Nombre = obj.Nombre,
+            Apellido = obj.Apellido,
+            FechaNacimiento = (DateTime)obj.FechaNacimiento,
             Dirección = obj.Dirección,
-            Contacto=obj.Contacto,
-            Sexo=obj.Sexo
+            Contacto = obj.Contacto,
+            Sexo = obj.Sexo
 
         };
         genericRepository.Insert(dtoToentity);
@@ -71,7 +70,7 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
     {
         var dtoToentity = new Paciente()
         {
-            IdPaciente=obj.IdPaciente,
+            IdPaciente = obj.IdPaciente,
             Dni = obj.DNI,
             Nombre = obj.Nombre,
             Apellido = obj.Apellido,
@@ -82,8 +81,8 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
 
         };
         genericRepository.Update(dtoToentity);
-       
-    }
 
 
-}
+
+
+}  }

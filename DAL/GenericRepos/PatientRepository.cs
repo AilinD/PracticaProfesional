@@ -1,5 +1,6 @@
 ﻿using DAL.Interfaces;
 using DAL.Models;
+//using DAL.Models;
 using DAL.Repo;
 //using Domain;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Models;
+//using DAL.Models;
 
 namespace DAL.GenericRepos
 {
@@ -33,7 +34,7 @@ namespace DAL.GenericRepos
 
         }
 
-       
+
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
         {
             return _context.Pacientes.ToList();

@@ -1,5 +1,5 @@
 ﻿using DAL;
-using Domain;
+using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Services;
 using System;
@@ -13,8 +13,8 @@ namespace BLL.Business
 {
     public class EstudioPacienteBLL
     {
-       
-        private readonly SysEntitiesContext _context;
+
+        private readonly SysCExpertContext _context;
 
         #region Singleton
         private readonly static EstudioPacienteBLL _instance = new EstudioPacienteBLL();
@@ -33,13 +33,13 @@ namespace BLL.Business
 
         public EstudioPacienteBLL()
         {
-            _context=new SysEntitiesContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
+            _context=new SysCExpertContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
         }
 
-       
+
         public void InsertEstudioPaciente(EstudioPaciente estudioPaciente)
         {
-            _context.EstudioPaciente.Add(estudioPaciente);
+            _context.EstudioPacientes.Add(estudioPaciente);
             _context.SaveChanges();
         }
     }

@@ -22,6 +22,7 @@ using Services;
 using DAL.Interfaces;
 using DAL.Factory;
 using DAL.Models;
+//using DAL.Models;
 
 namespace BLL.Business {
 	public class SintomaBLL : IGenericBusiness<SintomaDto>

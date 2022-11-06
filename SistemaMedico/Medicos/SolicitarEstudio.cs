@@ -1,5 +1,5 @@
 ﻿using BLL.Business;
-using Domain;
+//using DAL.Models;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace UI.Medicos
 
         private void SolicitarEstudio_Load_1(object sender, EventArgs e)
         {
-            cbocestudio.DataSource = EstudioBLL.Current.GetAll().Select(x => x.Nombre).ToList();
+            //cbocestudio.DataSource = EstudioBLL.Current.GetAll().Select(x => x.Nombre).ToList();
 
         }
 
@@ -47,9 +47,9 @@ namespace UI.Medicos
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)
         {
-            var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoaciente.Text));
-            //dataGridView1.DataSource = usser;
-            gridpaciente.DataSource = usser.ToList();
+            //var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoaciente.Text));
+            ////dataGridView1.DataSource = usser;
+            //gridpaciente.DataSource = usser.ToList();
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
@@ -66,25 +66,25 @@ namespace UI.Medicos
                
             }
 
-            var estudioPaciente = new EstudioPaciente();
-            foreach (DataGridViewRow r in gridmedico.SelectedRows)
-            {
-                estudioPaciente.IdMedico = (int)r.Cells["Id"].Value;
-                estudioPaciente.IdPaciente = idpaciente;
-                estudioPaciente.IdEstudio = cbocestudio.SelectedIndex;
-                estudioPaciente.Fecha = DateTime.Now;
-                estudioPaciente.Comentarios = txtComentarios.Text;
-            }
+            //var estudioPaciente = new EstudioPaciente();
+            //foreach (DataGridViewRow r in gridmedico.SelectedRows)
+            //{
+            //    estudioPaciente.IdMedico = (int)r.Cells["Id"].Value;
+            //    estudioPaciente.IdPaciente = idpaciente;
+            //    estudioPaciente.IdEstudio = cbocestudio.SelectedIndex;
+            //    estudioPaciente.Fecha = DateTime.Now;
+            //    estudioPaciente.Comentarios = txtComentarios.Text;
+            //}
             
-            EstudioPacienteBLL.Current.InsertEstudioPaciente(estudioPaciente);
-            MessageBox.Show("Estudio solicitado con éxito!");
+            //EstudioPacienteBLL.Current.InsertEstudioPaciente(estudioPaciente);
+            //MessageBox.Show("Estudio solicitado con éxito!");
         }
 
         private void btnBuscaMedico_Click(object sender, EventArgs e)
         {
-            var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
-            //dataGridView1.DataSource = usser;
-            gridmedico.DataSource = usser.ToList();
+            //var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
+            ////dataGridView1.DataSource = usser;
+            //gridmedico.DataSource = usser.ToList();
         }
 
         private void txtApellidoaciente_TextChanged(object sender, EventArgs e)

@@ -23,13 +23,13 @@ namespace SistemaMedico.Recepcionista
         {
             if (string.IsNullOrEmpty(txtMedicoAEliminar.Text))
             {
-                var user = MedicoBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
+                //var user = MedicoBLL.Current.GetAll();
+                //dataGridView1.DataSource = user;
             }
             else
             {
-                var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtMedicoAEliminar.Text));
-                dataGridView1.DataSource = usser.ToList();
+                //var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtMedicoAEliminar.Text));
+                //dataGridView1.DataSource = usser.ToList();
             }
         }
 
@@ -40,13 +40,13 @@ namespace SistemaMedico.Recepcionista
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
 
-                medico.Id = (int)r.Cells["Id"].Value;
+                medico.IdMedico = (int)r.Cells["Id"].Value;
                 medico.Matricula = (int)r.Cells["Matricula"].Value;
                 medico.Nombre = r.Cells["Nombre"].Value.ToString();
                 medico.Apellido = r.Cells["Apellido"].Value.ToString();
                 medico.Direccion = r.Cells["Direccion"].Value.ToString();
                 medico.Contacto = r.Cells["Contacto"].Value.ToString();
-                MedicoBLL.Current.Delete(medico.Id);
+                //MedicoBLL.Current.Delete(medico.IdMedico);
 
 
             }

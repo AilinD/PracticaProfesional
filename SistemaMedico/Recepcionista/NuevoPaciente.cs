@@ -1,8 +1,8 @@
 ﻿
 
 using BLL.Business;
-using DAL.Repo;
-using Domain;
+using DAL.Models;
+//using DAL.Models;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -48,7 +48,6 @@ namespace UI.Recepcionista
             string Domicilio = txtDomicilio.Text;
             string Contacto = txtContacto.Text;
             string Sexo = cboxSexo.Text;
-            int Obrasocial = cboxObraSocial.TabIndex;
             var paciente = new PacienteDto()
             {
                 DNI = DNI,
@@ -59,15 +58,18 @@ namespace UI.Recepcionista
                 Contacto = Contacto,
                 Sexo = Sexo,
             };
-
-            var odp = new ObraSocial_Paciente()
+            PacienteBll.Current.Insert(paciente);
+            int dniint = int.Parse(txtDNI.Text);
+            var odp = new ObraSocialPaciente();
             {
-                IdObraSocial = Obrasocial,
-                IdPaciente = paciente.IdPaciente
+                var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
+                cboxObraSocial_SelectedIndexChanged(sender,e);
+                odp.IdPaciente = Search.IdPaciente;
+                odp.IdObraSocial = cboxObraSocial.SelectedIndex;
             };
             ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
 
-            PacienteBll.Current.Insert(paciente);
+            
             MessageBox.Show("Paciente insertado con éxito!");
 
         }

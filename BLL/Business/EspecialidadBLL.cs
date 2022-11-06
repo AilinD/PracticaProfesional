@@ -18,6 +18,7 @@ using Services;
 using DAL.Interfaces;
 using DAL.Factory;
 using DAL.Models;
+//using DAL.Models;
 
 namespace BLL.Business {
 	public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
@@ -37,28 +38,32 @@ namespace BLL.Business {
         IGenericRepository<Especialidad> genericRepository = FactoryDAL._especialidadRepository;
 
 
-        //      /// 
-        //      /// <param name="especialidad"></param>
-        //      public void AgregarEspecialidad(Especialidad especialidad){
+        /// 
+        /// <param name="especialidad"></param>
+        public void AgregarEspecialidad(Especialidad especialidad)
+        {
 
-        //}
+        }
 
-        ///// 
-        ///// <param name="int"></param>
-        //public void BajaEspecialidad(int id){
+        /// 
+        /// <param name="int"></param>
+        public void BajaEspecialidad(int id)
+        {
 
-        //}
+        }
 
-        //public List<Especialidad> ListarEspecialidad(){
+        public List<Especialidad> ListarEspecialidad()
+        {
 
-        //	return null;
-        //}
+            return null;
+        }
 
-        ///// 
-        ///// <param name="especialidad"></param>
-        //public void ModificarExpecialidad(Especialidad especialidad){
+        /// 
+        /// <param name="especialidad"></param>
+        public void ModificarExpecialidad(Especialidad especialidad)
+        {
 
-        //}
+        }
 
         public void Insert(EspecialidadDto obj)
         {
@@ -85,9 +90,11 @@ namespace BLL.Business {
         public IEnumerable<EspecialidadDto> GetAll()
         {
             List<DAL.Models.Especialidad> listado = genericRepository.GetAll().ToList();
-            var entity = MapperHelper.GetMapper().
-         Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
+            //   var entity = MapperHelper.GetMapper().
+            //Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
 
+            var entity = MapperHelper.GetMapper().
+        Map<List<Especialidad>, List< EspecialidadDto >> (genericRepository.GetAll().ToList());
             return entity;
         }
 

@@ -23,13 +23,13 @@ namespace SistemaMedico.Recepcionista
         {
             if (string.IsNullOrEmpty(txtOSaEliminar.Text))
             {
-                var user = ObraSocialBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
+                //var user = ObraSocialBLL.Current.GetAll();
+                //dataGridView1.DataSource = user;
             }
             else
             {
-                var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtOSaEliminar.Text));
-                dataGridView1.DataSource = usser.ToList();
+                //var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtOSaEliminar.Text));
+                //dataGridView1.DataSource = usser.ToList();
             }
         }
 
@@ -43,7 +43,7 @@ namespace SistemaMedico.Recepcionista
                 obrasocial.Nombre = r.Cells["Nombre"].Value.ToString();
 
 
-                ObraSocialBLL.Current.Delete(obrasocial.Id);
+                //ObraSocialBLL.Current.Delete(obrasocial.Id);
 
 
             }

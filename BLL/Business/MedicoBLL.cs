@@ -15,6 +15,7 @@ using DAL.Interfaces;
 using Services.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
+//using DAL.Models;
 
 namespace BLL.Business {
 	public class MedicoBLL : IGenericBusiness<MedicoDto>
@@ -71,7 +72,7 @@ namespace BLL.Business {
         IGenericRepository<Medico> genericRepository = FactoryDAL._medicoRepository;
 
         public void Insert(MedicoDto obj)
-		{
+        {
             var dtoToentity = new Medico()
             {
                 Matricula = obj.Matricula,
@@ -84,8 +85,8 @@ namespace BLL.Business {
             genericRepository.Insert(dtoToentity);
         }
 
-		public void Update(MedicoDto obj)
-		{
+        public void Update(MedicoDto obj)
+        {
             var dtoToentity = new Medico()
             {
                 Matricula = obj.Matricula,
@@ -98,29 +99,29 @@ namespace BLL.Business {
             genericRepository.Update(dtoToentity);
         }
 
-		public IEnumerable<MedicoDto> GetAll()
-		{
+        public IEnumerable<MedicoDto> GetAll()
+        {
             var entity = MapperHelper.GetMapper().
            Map<List<MedicoDto>>(genericRepository.GetAll());
 
             return entity;
         }
 
-		public MedicoDto GetOne(int? guid)
-		{
+        public MedicoDto GetOne(int? guid)
+        {
             var op = MapperHelper.GetMapper().Map<MedicoDto>(genericRepository.GetOne(guid));
 
             return op;
         }
 
-		public void Delete(int? guid)
-		{
+        public void Delete(int? guid)
+        {
             var op = genericRepository.GetOne(guid);
             if (op != null)
             {
                 genericRepository.Delete(op);
             }
         }
-	}
+    }
 
 }//end namespace BLL

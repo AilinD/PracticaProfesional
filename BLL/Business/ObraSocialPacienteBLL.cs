@@ -1,5 +1,6 @@
 ﻿using DAL;
-using Domain;
+using DAL.Models;
+//using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +12,7 @@ namespace BLL.Business
 {
     public class ObraSocialPacienteBLL
     {
-        private readonly SysEntitiesContext _context;
+        private readonly SysCExpertContext _context;
 
         #region Singleton
         private readonly static ObraSocialPacienteBLL _instance = new ObraSocialPacienteBLL();
@@ -30,13 +31,13 @@ namespace BLL.Business
 
         public ObraSocialPacienteBLL()
         {
-            _context = new SysEntitiesContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
+            _context = new SysCExpertContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
         }
 
 
-        public void InsertOsPaciente(ObraSocial_Paciente OsPaciente)
+        public void InsertOsPaciente(ObraSocialPaciente OsPaciente)
         {
-            _context.ObraSocialPaciente.Add(OsPaciente);
+            _context.ObraSocialPacientes.Add(OsPaciente);
             _context.SaveChanges();
         }
     }

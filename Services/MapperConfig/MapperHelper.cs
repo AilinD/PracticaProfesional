@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Domain;
+using DAL.Models;
+//using DAL.Models;
 using Services.BLL.Dto;
 using Services.Domain;
 using System;
@@ -18,13 +19,13 @@ namespace Services.MapperConfig
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Paciente, PacienteDto>();
-                cfg.CreateMap<PacienteDto,Paciente>();
+                cfg.CreateMap<PacienteDto, Paciente>();
                 cfg.CreateMap<Medico, MedicoDto>();
                 cfg.CreateMap<MedicoDto, Medico>();
                 cfg.CreateMap<EstudioDto, Estudio>();
                 cfg.CreateMap<Estudio, EstudioDto>();
-                cfg.CreateMap<Enfermedad, EnfermedadDto>();
-                cfg.CreateMap<EnfermedadDto, Enfermedad>();
+                //cfg.CreateMap<Enfermedad, EnfermedadDto>();
+                //cfg.CreateMap<EnfermedadDto, Enfermedad>();
                 cfg.CreateMap<Sintoma, SintomaDto>();
                 cfg.CreateMap<SintomaDto, Sintoma>();
                 cfg.CreateMap<Especialidad, EspecialidadDto>();

@@ -2,6 +2,7 @@
 using DAL.GenericRepos;
 using DAL.Interfaces;
 using DAL.Models;
+//using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -39,15 +40,15 @@ namespace DAL.Factory
         static FactoryDAL()
         {
             _SysEntitiesContext = new SysCExpertContext(connectionString);
-            //_pacienteRepository=PatientRepository();
-            //_medicoRepository = MedicoRepository();
-            //_estudioRepository = EstudioRepository();
+            _pacienteRepository=PatientRepository();
+            _medicoRepository = MedicoRepository();
+            _estudioRepository = EstudioRepository();
             //_enfermedadRepository = EnfermedadRepository();
-            //_sintomaRepository = SintomaRepository();
+            _sintomaRepository = SintomaRepository();
             _especialidadRepository = EspecialidadRepository();
-            //_obraSocialRepository = ObraSocialRepository();
+            _obraSocialRepository = ObraSocialRepository();
         }
-        /*private static  PatientRepository PatientRepository()
+        private static PatientRepository PatientRepository()
         {
             return new PatientRepository(_SysEntitiesContext);
         }
@@ -62,24 +63,24 @@ namespace DAL.Factory
             return new EstudioRepository(_SysEntitiesContext);
         }
 
-        private static EnfermedadRepository EnfermedadRepository()
-        {
-            return new EnfermedadRepository(_SysEntitiesContext);
-        }
+        //private static EnfermedadRepository EnfermedadRepository()
+        //{
+        //    return new EnfermedadRepository(_SysEntitiesContext);
+        //}
 
         private static SintomaRepository SintomaRepository()
         {
             return new SintomaRepository(_SysEntitiesContext);
-        }*/
+        }
 
         private static EspecialidadRepository EspecialidadRepository()
         {
             return new EspecialidadRepository(_SysEntitiesContext);
         }
 
-        /*private static ObraSocialRepository ObraSocialRepository()
+        private static ObraSocialRepository ObraSocialRepository()
         {
             return new ObraSocialRepository(_SysEntitiesContext);
-        }*/
+        }
     }
 }

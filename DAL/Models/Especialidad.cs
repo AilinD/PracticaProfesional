@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
 {
@@ -10,6 +11,7 @@ namespace DAL.Models
             MedicoPorEspecialidads = new HashSet<MedicoPorEspecialidad>();
         }
 
+        [Key]
         public int Id { get; set; }
         public string? Nombre { get; set; }
 

@@ -15,6 +15,7 @@ using Services;
 using Services.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
+//using DAL.Models;
 
 namespace BLL.Business {
 	public class EstudioBLL : IGenericBusiness<EstudioDto>
@@ -82,29 +83,33 @@ namespace BLL.Business {
             }
         }
 
-        //      /// 
-        //      /// <param name="estudio"></param>
-        //      public Estudio AltaEstudio(Estudio estudio){
+        /// 
+        /// <param name="estudio"></param>
+        public Estudio AltaEstudio(Estudio estudio)
+        {
 
-        //	return null;
-        //}
+            return null;
+        }
 
-        ///// 
-        ///// <param name="int"></param>
-        //public void BajaEstudio(int ID){
+        /// 
+        /// <param name="int"></param>
+        public void BajaEstudio(int ID)
+        {
 
-        //}
+        }
 
-        //public List<Estudio> ListEstudio(){
+        public List<Estudio> ListEstudio()
+        {
 
-        //	return null;
-        //}
+            return null;
+        }
 
-        ///// 
-        ///// <param name="estudio"></param>
-        //public void ModificacionEstudio(Estudio estudio){
+        /// 
+        /// <param name="estudio"></param>
+        public void ModificacionEstudio(Estudio estudio)
+        {
 
-        //}
+        }
 
     }//end EstudioBLL
 

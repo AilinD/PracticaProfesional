@@ -41,6 +41,7 @@
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.cboxEspecialidad = new System.Windows.Forms.ComboBox();
             this.Especialidad = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerar
@@ -151,6 +152,7 @@
             this.cboxEspecialidad.Name = "cboxEspecialidad";
             this.cboxEspecialidad.Size = new System.Drawing.Size(190, 23);
             this.cboxEspecialidad.TabIndex = 37;
+            this.cboxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cboxEspecialidad_SelectedIndexChanged);
             // 
             // Especialidad
             // 
@@ -162,11 +164,21 @@
             this.Especialidad.TabIndex = 38;
             this.Especialidad.Text = "Especialidad";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(649, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 15);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "labelId";
+            // 
             // NuevoMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 308);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Especialidad);
             this.Controls.Add(this.cboxEspecialidad);
             this.Controls.Add(this.txtMatricula);
@@ -202,5 +214,6 @@
         private TextBox txtMatricula;
         private ComboBox cboxEspecialidad;
         private Label Especialidad;
+        private Label label4;
     }
 }

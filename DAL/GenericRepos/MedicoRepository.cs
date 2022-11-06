@@ -1,53 +1,54 @@
 ﻿using DAL.Interfaces;
-using Domain;
+using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Medico = DAL.Models.Medico;
 
 namespace DAL.GenericRepos
 {
     public class MedicoRepository : IGenericRepository<Medico>
     {
-        private readonly SysEntitiesContext _context;
+        private readonly SysCExpertContext _context;
 
-        public MedicoRepository(SysEntitiesContext context)
+        public MedicoRepository(SysCExpertContext context)
         {
             _context = context;
         }
         public void Delete(Medico obj)
         {
-            var r = _context.Medico.FirstOrDefault(x => x.Id == obj.Id);
+            var r = _context.Medicos.FirstOrDefault(x => x.IdMedico == obj.IdMedico);
             if (r != null)
             {
-                _context.Medico.Remove(r);
+                _context.Medicos.Remove(r);
                 _context.SaveChanges();
             }
         }
 
         public IEnumerable<Medico> GetAll(Medico parameters = null)
         {
-            return _context.Medico.ToList();
+            return _context.Medicos.ToList();
         }
 
         public Medico GetOne(int? guid)
         {
-            var r = _context.Medico.FirstOrDefault(x => x.Id == guid);
+            var r = _context.Medicos.FirstOrDefault(x => x.IdMedico == guid);
 
             return r;
         }
 
         public void Insert(Medico obj)
         {
-            _context.Medico.Add(obj);
+            _context.Medicos.Add(obj);
             _context.SaveChanges();
         }
 
         public void Update(Medico obj)
         {
-            var medico = _context.Medico.FirstOrDefault(x => x.Id == obj.Id);
+            var medico = _context.Medicos.FirstOrDefault(x => x.IdMedico == obj.IdMedico);
             if (medico != null)
             {
                 medico.Matricula = obj.Matricula;

@@ -1,6 +1,6 @@
 ﻿using BLL.Business;
 using DAL.Repo;
-using Domain;
+using DAL.Models;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -41,14 +41,16 @@ namespace SistemaMedico.Recepcionista
             };
             MedicoBLL.Current.Insert(medico);
 
-            var medicoEspecialista = new MedicoEspecialista();
+            var medicoEspecialista = new MedicoPorEspecialidad();
             {
-                medicoEspecialista.IdMedico = medico.Id;
-                medicoEspecialista.IdEspecialidad=cboxEspecialidad.SelectedIndex;
+                var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
+                 cboxEspecialidad_SelectedIndexChanged( sender, e);
+                medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
+                medicoEspecialista.IdMedico = Search.IdMedico;
             }
-            
-               
-            
+
+
+
 
             MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
 
@@ -59,7 +61,14 @@ namespace SistemaMedico.Recepcionista
         {
             cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
             cboxEspecialidad.DisplayMember = "Nombre";
-            //cboxEspecialidad.ValueMember = "Id";
+            cboxEspecialidad.ValueMember = "Id";
+            label4.Hide();
+        }
+
+
+        private void cboxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

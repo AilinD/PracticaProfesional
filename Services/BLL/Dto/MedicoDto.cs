@@ -10,7 +10,7 @@ namespace Services.BLL.Dto
     public class MedicoDto
     {
         [Key]
-        public int Id { get; set; }
+        public int IdMedico { get; set; }
         public int Matricula { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

@@ -1,5 +1,6 @@
 ﻿using DAL;
-using Domain;
+using DAL.Models;
+//using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +12,7 @@ namespace BLL.Business
 {
     public class MedicoEspecialidadBLL
     {
-        private readonly SysEntitiesContext _context;
+        private readonly SysCExpertContext _context;
 
         #region Singleton
         private readonly static MedicoEspecialidadBLL _instance = new MedicoEspecialidadBLL();
@@ -30,13 +31,13 @@ namespace BLL.Business
 
         public MedicoEspecialidadBLL()
         {
-            _context = new SysEntitiesContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
+            _context = new SysCExpertContext(ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString);
         }
 
 
-        public void InsertEspecialidadMedico(MedicoEspecialista medicoEspecialista)
+        public void InsertEspecialidadMedico(MedicoPorEspecialidad medicoEspecialista)
         {
-            _context.MedicoPorEspecialidad.Add(medicoEspecialista);
+            _context.MedicoPorEspecialidads.Add(medicoEspecialista);
             _context.SaveChanges();
         }
     }

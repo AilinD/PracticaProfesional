@@ -23,14 +23,14 @@ namespace SistemaMedico.Recepcionista
         {
             if (string.IsNullOrEmpty(txtPacienteAEliminar.Text))
             {
-                var user = PacienteBll.Current.GetAll();
-                dataGridView1.DataSource = user;
+                //var user = PacienteBll.Current.GetAll();
+                //dataGridView1.DataSource = user;
             }
             else
             {
-                var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtPacienteAEliminar.Text));
-                //dataGridView1.DataSource = usser;
-                dataGridView1.DataSource = usser.ToList();
+                //var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtPacienteAEliminar.Text));
+                ////dataGridView1.DataSource = usser;
+                //dataGridView1.DataSource = usser.ToList();
             }
         }
 
@@ -50,7 +50,7 @@ namespace SistemaMedico.Recepcionista
                 paciente.Dirección = r.Cells["Dirección"].Value.ToString();
                 paciente.Contacto = r.Cells["Contacto"].Value.ToString();
                 paciente.Sexo = r.Cells["Sexo"].Value.ToString();
-                PacienteBll.Current.Delete(paciente.IdPaciente);
+                //PacienteBll.Current.Delete(paciente.IdPaciente);
 
 
             }

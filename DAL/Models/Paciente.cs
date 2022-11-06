@@ -9,10 +9,8 @@ namespace DAL.Models
         {
             Diagnosticos = new HashSet<Diagnostico>();
             EstudioPacientes = new HashSet<EstudioPaciente>();
-            Guardia = new HashSet<Guardium>();
             HistorialPacientes = new HashSet<HistorialPaciente>();
             ObraSocialPacientes = new HashSet<ObraSocialPaciente>();
-            Turnos = new HashSet<Turno>();
             IdSintomas = new HashSet<Sintoma>();
         }
 
@@ -27,10 +25,8 @@ namespace DAL.Models
 
         public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
         public virtual ICollection<EstudioPaciente> EstudioPacientes { get; set; }
-        public virtual ICollection<Guardium> Guardia { get; set; }
         public virtual ICollection<HistorialPaciente> HistorialPacientes { get; set; }
         public virtual ICollection<ObraSocialPaciente> ObraSocialPacientes { get; set; }
-        public virtual ICollection<Turno> Turnos { get; set; }
 
         public virtual ICollection<Sintoma> IdSintomas { get; set; }
     }

@@ -13,6 +13,23 @@ namespace Services.DAL
 {
     public class BackupRepository : IBackupRepository
     {
+        #region Singleton
+        private readonly static BackupRepository _instance = new BackupRepository();
+
+        public static BackupRepository Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
+        private BackupRepository()
+        {
+            //Implement here the initialization code
+        }
+        #endregion
+
 
         private IConfiguration _configuration;
 

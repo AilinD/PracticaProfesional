@@ -24,7 +24,7 @@ namespace Domain
 		public string Contacto { get; set; }
 
 
-		public ICollection<Especialidad> Especialidades { get; set; }
+		//public ICollection<Especialidad> Especialidades { get; set; }
 
 		
 

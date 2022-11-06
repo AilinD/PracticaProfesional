@@ -1,18 +1,18 @@
 ﻿using DAL.Interfaces;
 using DAL.Models;
-using Domain;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Especialidad = DAL.Models.Especialidad;
+//using Especialidad = DAL.Models.Especialidad;
 
 namespace DAL.GenericRepos
 {
     public class EspecialidadRepository : IGenericRepository<Especialidad>
     {
-        //private readonly SysEntitiesContext _context;
+  
         private readonly SysCExpertContext _context;
         public EspecialidadRepository(SysCExpertContext context)
         {
@@ -33,7 +33,7 @@ namespace DAL.GenericRepos
             return _context.Especialidads.ToList();
         }
 
-        public  Especialidad GetOne(int? guid)
+        public Especialidad GetOne(int? guid)
         {
             var r = _context.Especialidads.FirstOrDefault(x => x.Id == guid);
 

@@ -30,7 +30,7 @@ namespace UI.Recepcionista
                 Nombre = nuevaOS,
 
             };
-            ObraSocialBLL.Current.Insert(OS);
+            //ObraSocialBLL.Current.Insert(OS);
             MessageBox.Show("Obra Social insertada con éxito!");
         }
     }
