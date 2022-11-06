@@ -18,6 +18,7 @@ using Services.MapperConfig;
 
 using Services;
 using DAL.Interfaces;
+using DAL.Factory;
 
 namespace BLL.Business
 {
@@ -35,7 +36,7 @@ namespace BLL.Business
         }
 
 
-        IGenericRepository<Enfermedad> genericRepository = FactoryDAL._enfermedadRepository;
+        IGenericRepository<Enfermedad> genericRepository = null; // FactoryDAL._enfermedadRepository;
 
 
         //public BLL.PacienteBLL m_PacienteBLL;

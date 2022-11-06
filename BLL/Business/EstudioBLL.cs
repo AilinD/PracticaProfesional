@@ -7,12 +7,14 @@
 ///////////////////////////////////////////////////////////
 
 
-using Domain;
+//using Domain;
 using DAL.Interfaces;
 using BLL.Interfaces;
 using Services.BLL.Dto;
 using Services;
 using Services.MapperConfig;
+using DAL.Factory;
+using DAL.Models;
 
 namespace BLL.Business {
 	public class EstudioBLL : IGenericBusiness<EstudioDto>

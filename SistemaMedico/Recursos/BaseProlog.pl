@@ -1,5 +1,3 @@
-:- discontiguous sintomade/2.
-:- discontiguous especialistade/2.
 enfermedad(gripe).
 enfermedad(malaria).
 enfermedad(rubeola).
@@ -26,6 +24,12 @@ sintoma(nauseas).
 sintoma(desnutricion).
 sintoma(colorpielamarillo).
 sintoma(diarrea).
+area_especialista(otorrino).
+area_especialista(nutricionista).
+area_especialista(endocrinologo).
+area_especialista(clinico).
+area_especialista(nutricionista).
+area_especialista(clinico).
 sintomade(tos,gripe).
 sintomade(dolorpecho,gripe).
 sintomade(mareos,gripe).
@@ -48,17 +52,9 @@ sintomade(nauseas,anemia).
 sintomade(vomitos,anemia).
 sintomade(colorpielamarillo,hepatitis).
 sintomade(diarrea,hepatitis).
-area_especialista(otorrino).
-area_especialista(nutricionista).
-area_especialista(endocrinologo).
-area_especialista(clinico).
-area_especialista(nutricionista).
-area_especialista(clinico).
 especialistade(otorrino,gripe).
 especialistade(nutricionista,anemia).
 especialistade(endocrinologo,hepatitis).
 especialistade(clinico,rubeola).
 especialistade(nutricionista,tuberculosis).
 especialistade(clinico,malaria).
-sintomade(S,E):- sintoma(S),enfermedad(E).
-especialistade(A,E):- area_especialista(A),enfermedad(E).

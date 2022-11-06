@@ -14,12 +14,14 @@ using System.IO;
 
 
 using BLL;
-using Domain;
+//using Domain;
 using BLL.Interfaces;
 using Services.BLL.Dto;
 using Services.MapperConfig;
 using Services;
 using DAL.Interfaces;
+using DAL.Factory;
+using DAL.Models;
 
 namespace BLL.Business {
 	public class SintomaBLL : IGenericBusiness<SintomaDto>
@@ -69,7 +71,7 @@ namespace BLL.Business {
             var dtoToentity = new Sintoma()
             {
                 IdSintoma = obj.IdSintoma,
-                sintoma = obj.sintoma
+                Nombre = obj.sintoma
 
             };
             genericRepository.Insert(dtoToentity);
@@ -80,7 +82,7 @@ namespace BLL.Business {
             var dtoToentity = new Sintoma()
             {
                 IdSintoma = obj.IdSintoma,
-                sintoma = obj.sintoma
+                Nombre = obj.sintoma
 
             };
             genericRepository.Update(dtoToentity);

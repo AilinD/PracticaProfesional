@@ -32,10 +32,6 @@ namespace UI.Medicos
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
-            //var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
-            ////dataGridView1.DataSource = usser;
-            //dataGridView1.DataSource = usser.ToList();
         }
 
         private void SolicitarEstudio_Load_1(object sender, EventArgs e)

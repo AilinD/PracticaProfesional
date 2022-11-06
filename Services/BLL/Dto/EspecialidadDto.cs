@@ -10,7 +10,7 @@ namespace Services.BLL.Dto
     public class EspecialidadDto
     {
         [Key]
-        public int id { get; set; }
-        public string especialidad { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
     }
 }

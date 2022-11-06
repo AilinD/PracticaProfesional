@@ -1,55 +1,58 @@
 ﻿using DAL.Interfaces;
+using DAL.Models;
 using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Especialidad = DAL.Models.Especialidad;
 
 namespace DAL.GenericRepos
 {
     public class EspecialidadRepository : IGenericRepository<Especialidad>
     {
-        private readonly SysEntitiesContext _context;
-        public EspecialidadRepository(SysEntitiesContext context)
+        //private readonly SysEntitiesContext _context;
+        private readonly SysCExpertContext _context;
+        public EspecialidadRepository(SysCExpertContext context)
         {
             _context = context;
         }
         public void Delete(Especialidad guid)
         {
-            var r = _context.Especialidad.FirstOrDefault(x => x.id == guid.id);
+            var r = _context.Especialidads.FirstOrDefault(x => x.Id == guid.Id);
             if (r != null)
             {
-                _context.Especialidad.Remove(r);
+                _context.Especialidads.Remove(r);
                 _context.SaveChanges();
             }
         }
 
         public IEnumerable<Especialidad> GetAll(Especialidad parameters = null)
         {
-            return _context.Especialidad.ToList();
+            return _context.Especialidads.ToList();
         }
 
         public  Especialidad GetOne(int? guid)
         {
-            var r = _context.Especialidad.FirstOrDefault(x => x.id == guid);
+            var r = _context.Especialidads.FirstOrDefault(x => x.Id == guid);
 
             return r;
         }
 
         public void Insert(Especialidad obj)
         {
-            _context.Especialidad.Add(obj);
+            _context.Especialidads.Add(obj);
             _context.SaveChanges();
         }
 
         public void Update(Especialidad obj)
         {
-            var especialidad = _context.Especialidad.FirstOrDefault(x => x.id == obj.id);
+            var especialidad = _context.Especialidads.FirstOrDefault(x => x.Id == obj.Id);
             if (especialidad != null)
             {
-                especialidad.id = obj.id;
-                especialidad.especialidad = obj.especialidad;
+                especialidad.Id = obj.Id;
+                especialidad.Nombre = obj.Nombre;
                 _context.Update(especialidad);
                 _context.SaveChanges();
 

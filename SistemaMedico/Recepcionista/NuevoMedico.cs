@@ -1,4 +1,6 @@
 ﻿using BLL.Business;
+using DAL.Repo;
+using Domain;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -38,7 +40,26 @@ namespace SistemaMedico.Recepcionista
 
             };
             MedicoBLL.Current.Insert(medico);
+
+            var medicoEspecialista = new MedicoEspecialista();
+            {
+                medicoEspecialista.IdMedico = medico.Id;
+                medicoEspecialista.IdEspecialidad=cboxEspecialidad.SelectedIndex;
+            }
+            
+               
+            
+
+            MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
+
             MessageBox.Show("Medico insertado con éxito!");
+        }
+
+        private void NuevoMedico_Load(object sender, EventArgs e)
+        {
+            cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
+            cboxEspecialidad.DisplayMember = "Nombre";
+            //cboxEspecialidad.ValueMember = "Id";
         }
     }
 }

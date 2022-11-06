@@ -39,11 +39,13 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
+            this.cboxEspecialidad = new System.Windows.Forms.ComboBox();
+            this.Especialidad = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(508, 144);
+            this.btnGenerar.Location = new System.Drawing.Point(322, 206);
             this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(106, 27);
@@ -142,11 +144,31 @@
             this.txtMatricula.Size = new System.Drawing.Size(191, 23);
             this.txtMatricula.TabIndex = 36;
             // 
+            // cboxEspecialidad
+            // 
+            this.cboxEspecialidad.FormattingEnabled = true;
+            this.cboxEspecialidad.Location = new System.Drawing.Point(508, 147);
+            this.cboxEspecialidad.Name = "cboxEspecialidad";
+            this.cboxEspecialidad.Size = new System.Drawing.Size(190, 23);
+            this.cboxEspecialidad.TabIndex = 37;
+            // 
+            // Especialidad
+            // 
+            this.Especialidad.AutoSize = true;
+            this.Especialidad.Location = new System.Drawing.Point(370, 147);
+            this.Especialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.Size = new System.Drawing.Size(72, 15);
+            this.Especialidad.TabIndex = 38;
+            this.Especialidad.Text = "Especialidad";
+            // 
             // NuevoMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 216);
+            this.ClientSize = new System.Drawing.Size(745, 308);
+            this.Controls.Add(this.Especialidad);
+            this.Controls.Add(this.cboxEspecialidad);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.lbl7);
@@ -160,6 +182,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NuevoMedico";
             this.Text = "NuevoMedico";
+            this.Load += new System.EventHandler(this.NuevoMedico_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +200,7 @@
         private TextBox txtApellido;
         private Label label1;
         private TextBox txtMatricula;
+        private ComboBox cboxEspecialidad;
+        private Label Especialidad;
     }
 }

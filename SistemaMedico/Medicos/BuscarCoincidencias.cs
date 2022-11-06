@@ -1,4 +1,5 @@
 ﻿//using SbsSW.SwiPlCs;
+using SbsSW.DesignByContract;
 using SbsSW.SwiPlCs;
 using SbsSW.SwiPlCs.Exceptions;
 using System;
@@ -21,8 +22,8 @@ namespace UI.Medicos
         {
             InitializeComponent();
 
-            Environment.SetEnvironmentVariable("SWI_HOME_DIR", @"C:\\Program Files (x86)\\swipl");
-            Environment.SetEnvironmentVariable("Path", @"C:\\Program Files (x86)\\swipl\\bin");
+            Environment.SetEnvironmentVariable("SWI_HOME_DIR", @"C:\Program Files (x86)\swipl");
+            Environment.SetEnvironmentVariable("Path", @"C:\Program Files (x86)\swipl\bin");
             string[] p = { "-q", "-f", @"BaseProlog.pl" };
             PlEngine.Initialize(p);
             PlEngine.PlCleanup();
@@ -56,19 +57,43 @@ namespace UI.Medicos
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             string texto = textBox1.Text;
-            string[] p = { "-q", "-f", @"BaseProlog.pl" };
+            //string[] p = { "-q", "-f", @"BaseProlog.pl" };
+
+            //PlEngine.Initialize(p);
                  
             if (chkSintomaDe.Checked == true)
             {
-                string query = $"sintomade({textBox1.Text},X)";
+                //var q = new PlQuery("sintomade", new PlTermV(new PlTerm("X"), new PlTerm("gripe")));
 
-                PlQuery consulta = new PlQuery(query);
-                consulta.NextSolution();
+                var q = new PlQuery("sintomade", new PlTermV(new PlTerm("tos"), new PlTerm("X")));
 
-                foreach (PlQueryVariables z in consulta.SolutionVariables)
-                {
-                    listBox1.Items.Add(z["X"].ToString());
+                foreach (PlTermV item in q.Solutions)
+                {                    
+                    listBox1.Items.Add(item[1].ToString());
                 }
+
+
+                /*string query = $"sintomade(X,[gripe])";
+
+                //PlQuery consulta = new PlQuery();
+                PlTerm term = PlQuery.PlCallQuery(query);
+
+                Console.WriteLine(term.IsList);
+
+                foreach (PlTerm item in term)
+                {
+                    Console.WriteLine(term.ToString());
+                }*/
+
+                //consulta.NextSolution();
+
+                /*using (PlTerm q = PlQuery.PlCallQuery(query))//"sintomade(Y,X), atomic_list_concat([Y,' es sintoma de ',X], L)"))
+                {
+                    foreach (var item in q.Solutions)
+                    {
+                        listBox1.Items.Add(q.Args[0].ToString());                        
+                    }                    
+                } */               
             }
             
             if (chkEspecialista.Checked == true)
@@ -79,6 +104,8 @@ namespace UI.Medicos
                     listBox1.Items.Add(z["X"].ToString());
                 }
             }
+
+            PlEngine.PlCleanup();
         }
 
 

@@ -28,19 +28,16 @@ namespace DAL
         public virtual DbSet<Especialidad> Especialidad { get; set; }
         public virtual DbSet<Estudio> Estudio { get; set; }
         public virtual DbSet<EstudioPaciente> EstudioPaciente { get; set; }
-        //public virtual DbSet<Guardia> Guardia { get; set; }
         ////public virtual DbSet<HistorialPaciente> HistorialPaciente { get; set; }
-        //public virtual DbSet<Horario> Horario { get; set; }
-        ////public virtual DbSet<HorarioProfesional> HorarioProfesional { get; set; }
-        //public virtual DbSet<Medico> Medico { get; set; }
-        ////public virtual DbSet<MedicoPorEspecialidad> MedicoPorEspecialidad { get; set; }
+        public virtual DbSet<MedicoEspecialista> MedicoPorEspecialidad { get; set; }
         public virtual DbSet<Medico> Medico { get; set; }
         public virtual DbSet<ObraSocial> ObraSocial { get; set; }
+        public virtual DbSet<ObraSocial_Paciente> ObraSocialPaciente { get; set; }
         public virtual DbSet<Paciente> Paciente { get; set; }
         //public virtual DbSet<Recepcionista> Recepcionista { get; set; }
         public virtual DbSet<Sintoma> Sintoma { get; set; }
         public virtual DbSet<Enfermedad> Enfermedad { get; set; }
-        //public virtual DbSet<Turno> Turnoes { get; set; }
+
 
 
     }

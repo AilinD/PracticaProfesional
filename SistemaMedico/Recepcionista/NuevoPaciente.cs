@@ -1,6 +1,8 @@
 ﻿
 
 using BLL.Business;
+using DAL.Repo;
+using Domain;
 using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI.Recepcionista
 {
@@ -30,11 +34,9 @@ namespace UI.Recepcionista
             Sexo.Add("Masculino");
             cboxSexo.DataSource = Sexo;
             cboxSexo.DisplayMember = "Value";
+            cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
             cboxObraSocial.DisplayMember = "Nombre";
-            cboxObraSocial.ValueMember = "Id";
-            cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x=>x.Nombre).ToList();
-            
-            
+            //cboxObraSocial.ValueMember = "Id";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,13 +46,9 @@ namespace UI.Recepcionista
             string Nombre = txtNombre.Text;
             DateTime FechaNac = dateTimePicker1.Value;
             string Domicilio = txtDomicilio.Text;
-            string Contacto =txtContacto.Text;
+            string Contacto = txtContacto.Text;
             string Sexo = cboxSexo.Text;
-
-            var os = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(cboxObraSocial.Text));
-            //var xxx= ObraSocialBLL.Current.GetOne().Select(x => x.Nombre).ToList();
-
-            //var idos = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre == cboxObraSocial.Text);
+            int Obrasocial = cboxObraSocial.TabIndex;
             var paciente = new PacienteDto()
             {
                 DNI = DNI,
@@ -60,14 +58,15 @@ namespace UI.Recepcionista
                 Dirección = Domicilio,
                 Contacto = Contacto,
                 Sexo = Sexo,
-                
-
             };
-            //var ospaciente = new pacienteOS()
-            //{
-            
-            //};
-            //ObraSocialBLL.Current.Insert(ObraSocial);
+
+            var odp = new ObraSocial_Paciente()
+            {
+                IdObraSocial = Obrasocial,
+                IdPaciente = paciente.IdPaciente
+            };
+            ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
+
             PacienteBll.Current.Insert(paciente);
             MessageBox.Show("Paciente insertado con éxito!");
 
@@ -77,5 +76,11 @@ namespace UI.Recepcionista
         {
 
         }
+
+       
+
+     
+
+
     }
 }

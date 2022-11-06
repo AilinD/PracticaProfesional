@@ -17,6 +17,8 @@ namespace Domain
 		/// <summary>
 		/// Agregar el contexto al dbset
 		/// </summary>
+		/// 
+		public int Id { get; set; }
 		public int IdEspecialidad { get; set; }
 		public int IdMedico { get; set; }
 

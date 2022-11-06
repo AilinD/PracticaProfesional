@@ -1,7 +1,7 @@
 ﻿using DAL;
 using DAL.GenericRepos;
 using DAL.Interfaces;
-using Domain;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace DAL.Factory
 {
     public static class FactoryDAL
     {
@@ -17,7 +17,7 @@ namespace Services
         public static IGenericRepository<Medico> _medicoRepository { get; private set; }
         public static IGenericRepository<Estudio> _estudioRepository { get; private set; }
 
-        public static IGenericRepository<Enfermedad> _enfermedadRepository { get; private set; }
+        //public static IGenericRepository<Enfermedad> _enfermedadRepository { get; private set; }
         public static IGenericRepository<Sintoma> _sintomaRepository { get; private set; }
         public static IGenericRepository<Especialidad> _especialidadRepository { get; private set; }
 
@@ -27,7 +27,7 @@ namespace Services
 
 
 
-        private static SysEntitiesContext _SysEntitiesContext;
+        private static SysCExpertContext _SysEntitiesContext;
         private static string connectionString = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
 
 
@@ -38,16 +38,16 @@ namespace Services
         /// </summary>
         static FactoryDAL()
         {
-            _SysEntitiesContext = new SysEntitiesContext(connectionString);
-            _pacienteRepository=PatientRepository();
-            _medicoRepository = MedicoRepository();
-            _estudioRepository = EstudioRepository();
-            _enfermedadRepository = EnfermedadRepository();
-            _sintomaRepository = SintomaRepository();
+            _SysEntitiesContext = new SysCExpertContext(connectionString);
+            //_pacienteRepository=PatientRepository();
+            //_medicoRepository = MedicoRepository();
+            //_estudioRepository = EstudioRepository();
+            //_enfermedadRepository = EnfermedadRepository();
+            //_sintomaRepository = SintomaRepository();
             _especialidadRepository = EspecialidadRepository();
-            _obraSocialRepository = ObraSocialRepository();
+            //_obraSocialRepository = ObraSocialRepository();
         }
-        private static  PatientRepository PatientRepository()
+        /*private static  PatientRepository PatientRepository()
         {
             return new PatientRepository(_SysEntitiesContext);
         }
@@ -70,16 +70,16 @@ namespace Services
         private static SintomaRepository SintomaRepository()
         {
             return new SintomaRepository(_SysEntitiesContext);
-        }
+        }*/
 
         private static EspecialidadRepository EspecialidadRepository()
         {
             return new EspecialidadRepository(_SysEntitiesContext);
         }
 
-        private static ObraSocialRepository ObraSocialRepository()
+        /*private static ObraSocialRepository ObraSocialRepository()
         {
             return new ObraSocialRepository(_SysEntitiesContext);
-        }
+        }*/
     }
 }

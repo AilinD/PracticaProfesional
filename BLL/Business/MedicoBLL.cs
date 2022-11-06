@@ -7,12 +7,14 @@
 ///////////////////////////////////////////////////////////
 
 
-using Domain;
+//using Domain;
 using BLL.Interfaces;
 using Services;
 using Services.BLL.Dto;
 using DAL.Interfaces;
 using Services.MapperConfig;
+using DAL.Factory;
+using DAL.Models;
 
 namespace BLL.Business {
 	public class MedicoBLL : IGenericBusiness<MedicoDto>

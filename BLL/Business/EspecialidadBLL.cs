@@ -10,12 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using Domain;
+//using Domain;
 using BLL.Interfaces;
 using Services.BLL.Dto;
 using Services.MapperConfig;
 using Services;
 using DAL.Interfaces;
+using DAL.Factory;
+using DAL.Models;
 
 namespace BLL.Business {
 	public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
@@ -62,8 +64,8 @@ namespace BLL.Business {
         {
             var dtoToentity = new Especialidad()
             {
-                id = obj.id,
-                especialidad = obj.especialidad,
+                Id = obj.Id,
+                Nombre = obj.Nombre,
 
             };
             genericRepository.Insert(dtoToentity);
@@ -73,8 +75,8 @@ namespace BLL.Business {
         {
             var dtoToentity = new Especialidad()
             {
-                id = obj.id,
-                especialidad = obj.especialidad,
+                Id = obj.Id,
+                Nombre = obj.Nombre,
 
             };
             genericRepository.Update(dtoToentity);
@@ -82,8 +84,9 @@ namespace BLL.Business {
 
         public IEnumerable<EspecialidadDto> GetAll()
         {
+            List<DAL.Models.Especialidad> listado = genericRepository.GetAll().ToList();
             var entity = MapperHelper.GetMapper().
-         Map<List<EspecialidadDto>>(genericRepository.GetAll());
+         Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
 
             return entity;
         }

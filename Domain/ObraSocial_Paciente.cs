@@ -10,15 +10,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Domain
 {
 	public class ObraSocial_Paciente {
 
-		public int DNI_Paciente { get; set; }
-		public string ObraSocial { get; set; }
-		public Domain.Paciente m_Paciente { get; set; }
+		[Key]
+		public int Id { get; set; }
+		public int IdPaciente { get; set; }
+		public int IdObraSocial { get; set; }
 
 		public ObraSocial_Paciente(){
 
@@ -26,9 +27,7 @@ namespace Domain
 
 
 
-		public void AgregarObraSocialPaciente(){
-
-		}
+		
 
 	}//end ObraSocial_Paciente
 

@@ -1,16 +1,11 @@
-using AutoMapper;
 using BLL.Interfaces;
-using DAL;
-using DAL.GenericRepos;
+using DAL.Factory;
 using DAL.Interfaces;
-using Domain;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
-using Microsoft.Extensions.FileSystemGlobbing.Internal.PatternContexts;
+//using Domain;
+using DAL.Models;
 using Services;
 using Services.BLL.Dto;
 using Services.MapperConfig;
-using System;
 
 
 namespace BLL.Business;
@@ -60,7 +55,7 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
     {
         var dtoToentity = new Paciente()
         {
-            DNI = obj.DNI,
+            Dni = obj.DNI,
             Nombre=obj.Nombre,
             Apellido=obj.Apellido,
             FechaNacimiento=(DateTime)obj.FechaNacimiento,
@@ -77,7 +72,7 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
         var dtoToentity = new Paciente()
         {
             IdPaciente=obj.IdPaciente,
-            DNI = obj.DNI,
+            Dni = obj.DNI,
             Nombre = obj.Nombre,
             Apellido = obj.Apellido,
             FechaNacimiento = (DateTime)obj.FechaNacimiento,
@@ -90,14 +85,5 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
        
     }
 
-    //public ObraSocial GetObraSocial()
-    //{
-        
 
-    //}
-
-    //public ObraSocial OSPaciente()
-    //{
-    //    return new ObraSocial();
-    //}
 }
