@@ -48,10 +48,10 @@ namespace UI.Medicos
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)
         {
-            //int dniint = int.Parse(txtDniPaciente.Text);
+            int dniint = int.Parse(txtDniPaciente.Text);
             //var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
             //var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtDniPaciente.Text));
-            var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtDniPaciente.Text));
+            var usser = PacienteBll.Current.GetAll().Where(x => x.DNI.Equals(dniint));
 
             gridpaciente.DataSource = usser.ToList();
             //gridpaciente.DataSource = Search;

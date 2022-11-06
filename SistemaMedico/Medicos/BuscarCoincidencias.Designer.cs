@@ -32,8 +32,13 @@
             this.chkEspecialista = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSintomas = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtxEspecialista = new System.Windows.Forms.TextBox();
+            this.chkenf = new System.Windows.Forms.CheckBox();
+            this.txtenfermedad = new System.Windows.Forms.TextBox();
+            this.chkEspecialidades = new System.Windows.Forms.CheckBox();
+            this.txtespecialidades = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // chkSintomaDe
@@ -41,9 +46,9 @@
             this.chkSintomaDe.AutoSize = true;
             this.chkSintomaDe.Location = new System.Drawing.Point(51, 24);
             this.chkSintomaDe.Name = "chkSintomaDe";
-            this.chkSintomaDe.Size = new System.Drawing.Size(87, 19);
+            this.chkSintomaDe.Size = new System.Drawing.Size(70, 19);
             this.chkSintomaDe.TabIndex = 0;
-            this.chkSintomaDe.Text = "Sintoma De";
+            this.chkSintomaDe.Text = "Sintoma";
             this.chkSintomaDe.UseVisualStyleBackColor = true;
             // 
             // chkEspecialista
@@ -62,12 +67,12 @@
             this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(51, 105);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(437, 199);
+            this.listBox1.Size = new System.Drawing.Size(503, 199);
             this.listBox1.TabIndex = 2;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(232, 328);
+            this.btnConsultar.Location = new System.Drawing.Point(176, 328);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 3;
@@ -75,17 +80,17 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // textBox1
+            // txtSintomas
             // 
-            this.textBox1.Location = new System.Drawing.Point(51, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(101, 23);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtSintomas.Location = new System.Drawing.Point(51, 65);
+            this.txtSintomas.Name = "txtSintomas";
+            this.txtSintomas.Size = new System.Drawing.Size(101, 23);
+            this.txtSintomas.TabIndex = 5;
+            this.txtSintomas.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(413, 65);
+            this.btnLimpiar.Location = new System.Drawing.Point(425, 328);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 6;
@@ -93,13 +98,59 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // txtxEspecialista
+            // 
+            this.txtxEspecialista.Location = new System.Drawing.Point(189, 65);
+            this.txtxEspecialista.Name = "txtxEspecialista";
+            this.txtxEspecialista.Size = new System.Drawing.Size(101, 23);
+            this.txtxEspecialista.TabIndex = 7;
+            // 
+            // chkenf
+            // 
+            this.chkenf.AutoSize = true;
+            this.chkenf.Location = new System.Drawing.Point(321, 24);
+            this.chkenf.Name = "chkenf";
+            this.chkenf.Size = new System.Drawing.Size(92, 19);
+            this.chkenf.TabIndex = 8;
+            this.chkenf.Text = "Sintomas De";
+            this.chkenf.UseVisualStyleBackColor = true;
+            // 
+            // txtenfermedad
+            // 
+            this.txtenfermedad.Location = new System.Drawing.Point(321, 66);
+            this.txtenfermedad.Name = "txtenfermedad";
+            this.txtenfermedad.Size = new System.Drawing.Size(101, 23);
+            this.txtenfermedad.TabIndex = 9;
+            // 
+            // chkEspecialidades
+            // 
+            this.chkEspecialidades.AutoSize = true;
+            this.chkEspecialidades.Location = new System.Drawing.Point(451, 24);
+            this.chkEspecialidades.Name = "chkEspecialidades";
+            this.chkEspecialidades.Size = new System.Drawing.Size(119, 19);
+            this.chkEspecialidades.TabIndex = 10;
+            this.chkEspecialidades.Text = "Especialidades De";
+            this.chkEspecialidades.UseVisualStyleBackColor = true;
+            // 
+            // txtespecialidades
+            // 
+            this.txtespecialidades.Location = new System.Drawing.Point(453, 65);
+            this.txtespecialidades.Name = "txtespecialidades";
+            this.txtespecialidades.Size = new System.Drawing.Size(101, 23);
+            this.txtespecialidades.TabIndex = 11;
+            // 
             // BuscarCoincidencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 363);
+            this.ClientSize = new System.Drawing.Size(641, 363);
+            this.Controls.Add(this.txtespecialidades);
+            this.Controls.Add(this.chkEspecialidades);
+            this.Controls.Add(this.txtenfermedad);
+            this.Controls.Add(this.chkenf);
+            this.Controls.Add(this.txtxEspecialista);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSintomas);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.chkEspecialista);
@@ -118,7 +169,12 @@
         private CheckBox chkEspecialista;
         private ListBox listBox1;
         private Button btnConsultar;
-        private TextBox textBox1;
+        private TextBox txtSintomas;
         private Button btnLimpiar;
+        private TextBox txtxEspecialista;
+        private CheckBox chkenf;
+        private TextBox txtenfermedad;
+        private CheckBox chkEspecialidades;
+        private TextBox txtespecialidades;
     }
 }

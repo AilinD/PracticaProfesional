@@ -56,7 +56,10 @@ namespace UI.Medicos
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            string texto = textBox1.Text;
+            string texto1 = txtSintomas.Text;
+            string txt2 = txtenfermedad.Text;
+            string txt3 = txtxEspecialista.Text;
+            string txt4 = txtespecialidades.Text;
             //string[] p = { "-q", "-f", @"BaseProlog.pl" };
 
             //PlEngine.Initialize(p);
@@ -65,7 +68,7 @@ namespace UI.Medicos
             {
                 //var q = new PlQuery("sintomade", new PlTermV(new PlTerm("X"), new PlTerm("gripe")));
 
-                var q = new PlQuery("sintomade", new PlTermV(new PlTerm("tos"), new PlTerm("X")));
+                var q = new PlQuery("sintomade", new PlTermV(new PlTerm(texto1), new PlTerm("X")));
 
                 foreach (PlTermV item in q.Solutions)
                 {                    
@@ -93,19 +96,43 @@ namespace UI.Medicos
                     {
                         listBox1.Items.Add(q.Args[0].ToString());                        
                     }                    
-                } */               
+                } */
+                
             }
             
             if (chkEspecialista.Checked == true)
             {
-                PlQuery consulta = new PlQuery("especialistade(X," + texto + ")");
+                PlQuery consulta = new PlQuery("especialistade(X," + txt3 + ")");
                 foreach (PlQueryVariables z in consulta.SolutionVariables)
                 {
                     listBox1.Items.Add(z["X"].ToString());
                 }
+                
             }
 
-            PlEngine.PlCleanup();
+            if (chkenf.Checked == true)
+            {
+                var q = new PlQuery("sintomade", new PlTermV(new PlTerm("X"), new PlTerm(txt2)));
+
+                foreach (PlTermV item in q.Solutions)
+                {
+                    listBox1.Items.Add(item[0].ToString());
+                }
+                
+
+            }
+
+            if (chkEspecialidades.Checked == true)
+            {
+                PlQuery consulta = new PlQuery("especialistade("+txt4 + ",X )");
+                foreach (PlQueryVariables z in consulta.SolutionVariables)
+                {
+                    listBox1.Items.Add(z["X"].ToString());
+                }
+                
+            }
+
+           
         }
 
 
@@ -165,6 +192,14 @@ namespace UI.Medicos
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            chkEspecialista.Checked = false;
+            chkenf.Checked = false;
+            chkSintomaDe.Checked = false;
+            chkEspecialidades.Checked = false;  
+            txtxEspecialista.Text = "";
+            txtSintomas.Text = "";
+            txtenfermedad.Text = "";
+            txtespecialidades.Text = "";
             Clear();
         }
     }

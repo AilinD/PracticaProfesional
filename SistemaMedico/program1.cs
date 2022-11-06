@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI;
 using UI.Administrador;
+using UI.Generales;
 using UI.Medicos;
 using UI.Recepcionista;
 
@@ -26,10 +28,10 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new EliminarMedico());
-            Application.Run(new ModificarObraSocial());
+            //Application.Run(new FormularioRestore());
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());
-            //Application.Run(new BuscarCoincidencias());
+            Application.Run(new SolicitarEstudio());
 
             var services = new ServiceCollection();
 

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Services.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Services.DAL
         #region Singleton
         private readonly static BackupRepository _instance = new BackupRepository();
 
+       
         public static BackupRepository Current
         {
             get
@@ -26,7 +28,7 @@ namespace Services.DAL
 
         private BackupRepository()
         {
-            //Implement here the initialization code
+            
         }
         #endregion
 
@@ -39,10 +41,11 @@ namespace Services.DAL
         }
         public void CrearBackup(string databasename, string save)
         {
+            string conn = getConn(databasename);
 
             string filePath = BuildBackupPathWithFilename(databasename, save);
 
-            using (var connection = new SqlConnection(_configuration.GetConnectionString("BackupPath")))
+            using (var connection = new SqlConnection(conn))
             {
                 var query = String.Format("BACKUP DATABASE [{0}] TO DISK='{1}'", databasename, filePath);
 
@@ -58,6 +61,22 @@ namespace Services.DAL
             string filename = string.Format("{0}-{1}.bak", databaseName, DateTime.Now.ToString("yyyy-MM-dd"));
 
             return Path.Combine(save, filename);
+        }
+
+        private string getConn(string bd)
+        {
+            var cadena="";
+            if (bd=="SysCExpert")
+            {
+                var opc1 =System.Configuration.ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
+                cadena = opc1;
+            }
+            else if(bd== "PatenteFamilia")
+            {
+                var opc2 = System.Configuration.ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
+                cadena = opc2;
+            }
+            return cadena;
         }
     }
 }

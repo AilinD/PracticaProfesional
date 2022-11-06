@@ -34,7 +34,7 @@ namespace UI.Administrador
                 string db = cboxRestore.Text;
                 string databaseName = string.Format("{0}.bak", db);
                 string path = openFileDialog1.FileName;
-                //ServiceLayer.BLL.RestoreService.Current.RestoreDatabase(databaseName,path);
+                Services.DAL.RestoreRepository.Current.CrearRestore(databaseName,path);
                 CaluculateAll(progressBarRestore);
                 MessageBox.Show("Restore Exitoso!");
                 this.Close();
