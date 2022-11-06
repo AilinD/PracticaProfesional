@@ -70,6 +70,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NuevaObraSocial";
             this.Text = "Nueva Obra Social";
+            this.Load += new System.EventHandler(this.NuevaObraSocial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

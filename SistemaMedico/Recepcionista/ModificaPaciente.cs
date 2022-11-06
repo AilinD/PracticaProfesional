@@ -37,7 +37,7 @@ namespace UI.Recepcionista
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
         {
-            //var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtNombrePaciente.Text));
+            var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtNombrePaciente.Text));
 
 
             var paciente = new PacienteDto();
@@ -70,7 +70,7 @@ namespace UI.Recepcionista
                     paciente.Contacto = txtNuevoContacto.Text;
                 }                  
                 paciente.Sexo = r.Cells["Sexo"].Value.ToString();
-                //PacienteBll.Current.Update(paciente);
+                PacienteBll.Current.Update(paciente);
                 
 
             }
@@ -83,16 +83,21 @@ namespace UI.Recepcionista
         {
             if (string.IsNullOrEmpty(txtNombrePaciente.Text))
             {
-                //var user = PacienteBll.Current.GetAll();
-                //dataGridView1.DataSource = user;
+                var user = PacienteBll.Current.GetAll();
+                dataGridView1.DataSource = user;
             }
             else
             {
-                //var usser = PacienteBll.Current.GetAll().Where(x=>x.Nombre.Contains(txtNombrePaciente.Text));
-                ////dataGridView1.DataSource = usser;
-                //dataGridView1.DataSource = usser.ToList();
+                var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtNombrePaciente.Text));
+                //dataGridView1.DataSource = usser;
+                dataGridView1.DataSource = usser.ToList();
             }
                 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

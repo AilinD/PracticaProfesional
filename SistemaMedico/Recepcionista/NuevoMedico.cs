@@ -62,7 +62,7 @@ namespace SistemaMedico.Recepcionista
             cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
             cboxEspecialidad.DisplayMember = "Nombre";
             cboxEspecialidad.ValueMember = "Id";
-            label4.Hide();
+            
         }
 
 

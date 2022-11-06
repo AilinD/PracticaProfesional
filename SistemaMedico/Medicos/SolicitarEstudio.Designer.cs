@@ -37,7 +37,7 @@
             this.cboxEstudio = new System.Windows.Forms.ComboBox();
             this.lblNuevoDomicilio = new System.Windows.Forms.Label();
             this.btnModificarPaciente = new System.Windows.Forms.Button();
-            this.txtApellidoaciente = new System.Windows.Forms.TextBox();
+            this.txtDniPaciente = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.btnBuscaPaciente = new System.Windows.Forms.Button();
             this.gridpaciente = new System.Windows.Forms.DataGridView();
@@ -128,14 +128,14 @@
             this.btnModificarPaciente.UseVisualStyleBackColor = true;
             this.btnModificarPaciente.Click += new System.EventHandler(this.btnModificarPaciente_Click);
             // 
-            // txtApellidoaciente
+            // txtDniPaciente
             // 
-            this.txtApellidoaciente.Location = new System.Drawing.Point(141, 32);
-            this.txtApellidoaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtApellidoaciente.Name = "txtApellidoaciente";
-            this.txtApellidoaciente.Size = new System.Drawing.Size(178, 23);
-            this.txtApellidoaciente.TabIndex = 47;
-            this.txtApellidoaciente.TextChanged += new System.EventHandler(this.txtApellidoaciente_TextChanged);
+            this.txtDniPaciente.Location = new System.Drawing.Point(141, 32);
+            this.txtDniPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDniPaciente.Name = "txtDniPaciente";
+            this.txtDniPaciente.Size = new System.Drawing.Size(178, 23);
+            this.txtDniPaciente.TabIndex = 47;
+            this.txtDniPaciente.TextChanged += new System.EventHandler(this.txtApellidoaciente_TextChanged);
             // 
             // lblUsuario
             // 
@@ -144,9 +144,9 @@
             this.lblUsuario.Location = new System.Drawing.Point(23, 35);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(99, 15);
+            this.lblUsuario.Size = new System.Drawing.Size(75, 15);
             this.lblUsuario.TabIndex = 46;
-            this.lblUsuario.Text = "Apellido Paciente";
+            this.lblUsuario.Text = "DNI Paciente";
             // 
             // btnBuscaPaciente
             // 
@@ -244,7 +244,7 @@
             this.Controls.Add(this.cbocestudio);
             this.Controls.Add(this.lblNuevoDomicilio);
             this.Controls.Add(this.btnModificarPaciente);
-            this.Controls.Add(this.txtApellidoaciente);
+            this.Controls.Add(this.txtDniPaciente);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnBuscaPaciente);
             this.Controls.Add(this.gridpaciente);
@@ -270,7 +270,7 @@
         private ComboBox cboxEstudio;
         private Label lblNuevoDomicilio;
         private Button btnModificarPaciente;
-        private TextBox txtApellidoaciente;
+        private TextBox txtDniPaciente;
         private Label lblUsuario;
         private Button btnBuscaPaciente;
         private DataGridView gridpaciente;
