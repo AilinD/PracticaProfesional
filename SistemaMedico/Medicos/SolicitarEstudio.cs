@@ -1,7 +1,7 @@
 ﻿using BLL.Business;
 using DAL.Models;
 //using DAL.Models;
-using Services.BLL.Dto;
+using BLL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

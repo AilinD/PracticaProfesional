@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.Interfaces;
-using Services.BLL.Dto;
-using Services.MapperConfig;
+using BLL.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
+using BLL.Dto;
 //using DAL.Models;
 
 namespace BLL.Business

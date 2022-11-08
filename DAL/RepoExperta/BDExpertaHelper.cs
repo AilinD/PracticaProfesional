@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Repo
+namespace DAL.RepoExperta
 {
-    public class EstudioPacientr
+    public class BDExpertaHelper
     {
     }
 }

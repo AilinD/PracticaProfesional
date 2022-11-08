@@ -8,7 +8,7 @@ namespace Services.DAL.Interfaces
 {
     public interface IRestoreRepository
     {
-        void CrearRestore(string databaseName, string path);
+        void CrearRestore(string databaseName, string path,string save);
 
     }
 }

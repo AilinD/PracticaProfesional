@@ -28,10 +28,10 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new EliminarMedico());
-            //Application.Run(new FormularioRestore());
+            Application.Run(new FormularioRestore());
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());
-            Application.Run(new SolicitarEstudio());
+            //Application.Run(new FormularioBakup());
 
             var services = new ServiceCollection();
 

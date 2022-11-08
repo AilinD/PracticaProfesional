@@ -3,7 +3,8 @@
 using BLL.Business;
 using DAL.Models;
 //using DAL.Models;
-using Services.BLL.Dto;
+using BLL.Dto;
+using SistemaMedico.Recepcionista;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,30 +49,38 @@ namespace UI.Recepcionista
             string Domicilio = txtDomicilio.Text;
             string Contacto = txtContacto.Text;
             string Sexo = cboxSexo.Text;
-            var paciente = new PacienteDto()
-            {
-                DNI = DNI,
-                Apellido = Apellido,
-                Nombre = Nombre,
-                FechaNacimiento = FechaNac,
-                Dirección = Domicilio,
-                Contacto = Contacto,
-                Sexo = Sexo,
-            };
-            PacienteBll.Current.Insert(paciente);
-            int dniint = int.Parse(txtDNI.Text);
-            var odp = new ObraSocialPaciente();
-            {
-                var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
-                cboxObraSocial_SelectedIndexChanged(sender,e);
-                odp.IdPaciente = Search.IdPaciente;
-                odp.IdObraSocial = cboxObraSocial.SelectedIndex;
-            };
-            ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
 
-            
-            MessageBox.Show("Paciente insertado con éxito!");
+            var busqueda = Existe(DNI);
+            if (busqueda == true)
+            {
+                MessageBox.Show("Paciente ya existe");
+            }else if(busqueda == false)
+            {
+                var paciente = new PacienteDto()
+                {
+                    DNI = DNI,
+                    Apellido = Apellido,
+                    Nombre = Nombre,
+                    FechaNacimiento = FechaNac,
+                    Dirección = Domicilio,
+                    Contacto = Contacto,
+                    Sexo = Sexo,
+                };
+                PacienteBll.Current.Insert(paciente);
+                int dniint = int.Parse(txtDNI.Text);
+                var odp = new ObraSocialPaciente();
+                {
+                    var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
+                    cboxObraSocial_SelectedIndexChanged(sender, e);
+                    odp.IdPaciente = Search.IdPaciente;
+                    odp.IdObraSocial = cboxObraSocial.SelectedIndex;
+                };
+                ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
 
+
+                MessageBox.Show("Paciente insertado con éxito!");
+            }
+        
         }
 
         private void cboxObraSocial_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,9 +88,17 @@ namespace UI.Recepcionista
 
         }
 
-       
 
-     
+        public bool Existe(int DNIPaciente)
+        {
+            var busqueda = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI == DNIPaciente);
+            if (busqueda != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
 
     }

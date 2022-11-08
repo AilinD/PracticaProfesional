@@ -40,9 +40,10 @@
             // 
             // btnRestore
             // 
-            this.btnRestore.Location = new System.Drawing.Point(181, 212);
+            this.btnRestore.Location = new System.Drawing.Point(221, 269);
+            this.btnRestore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(75, 23);
+            this.btnRestore.Size = new System.Drawing.Size(88, 27);
             this.btnRestore.TabIndex = 0;
             this.btnRestore.Text = "Generar";
             this.btnRestore.UseVisualStyleBackColor = true;
@@ -50,17 +51,19 @@
             // 
             // progressBarRestore
             // 
-            this.progressBarRestore.Location = new System.Drawing.Point(55, 154);
+            this.progressBarRestore.Location = new System.Drawing.Point(71, 189);
+            this.progressBarRestore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.progressBarRestore.Name = "progressBarRestore";
-            this.progressBarRestore.Size = new System.Drawing.Size(340, 23);
+            this.progressBarRestore.Size = new System.Drawing.Size(397, 27);
             this.progressBarRestore.TabIndex = 1;
             this.progressBarRestore.Click += new System.EventHandler(this.progressBarRestore_Click);
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(320, 45);
+            this.btnSeleccionar.Location = new System.Drawing.Point(416, 52);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.Size = new System.Drawing.Size(88, 27);
             this.btnSeleccionar.TabIndex = 2;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -69,33 +72,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 50);
+            this.label1.Location = new System.Drawing.Point(43, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(115, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Guardar en :";
+            this.label1.Text = "Seleccionar backup :";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 47);
+            this.textBox1.Location = new System.Drawing.Point(166, 55);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
+            this.textBox1.Size = new System.Drawing.Size(224, 23);
             this.textBox1.TabIndex = 4;
             // 
             // cboxRestore
             // 
             this.cboxRestore.FormattingEnabled = true;
-            this.cboxRestore.Location = new System.Drawing.Point(150, 103);
+            this.cboxRestore.Location = new System.Drawing.Point(166, 119);
+            this.cboxRestore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxRestore.Name = "cboxRestore";
-            this.cboxRestore.Size = new System.Drawing.Size(245, 21);
+            this.cboxRestore.Size = new System.Drawing.Size(338, 23);
             this.cboxRestore.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 103);
+            this.label3.Location = new System.Drawing.Point(44, 119);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.Size = new System.Drawing.Size(111, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Seleccione la base : ";
             // 
@@ -106,9 +113,9 @@
             // 
             // FormularioRestore
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 265);
+            this.ClientSize = new System.Drawing.Size(548, 353);
             this.Controls.Add(this.cboxRestore);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -116,6 +123,7 @@
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.progressBarRestore);
             this.Controls.Add(this.btnRestore);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormularioRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generar Restore";

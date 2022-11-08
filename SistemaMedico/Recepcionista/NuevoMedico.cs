@@ -1,7 +1,6 @@
 ﻿using BLL.Business;
-using DAL.Repo;
+using BLL.Dto;
 using DAL.Models;
-using Services.BLL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,32 +28,42 @@ namespace SistemaMedico.Recepcionista
             string Domicilio = txtDomicilio.Text;
             string Contacto = txtContacto.Text;
 
-            var medico = new MedicoDto()
+            var busqueda = Existe(Matricula);
+            if (busqueda == true)
             {
-                Matricula = Matricula,
-                Apellido = Apellido,
-                Nombre = Nombre,
-                Direccion = Domicilio,
-                Contacto = Contacto
-
-
-            };
-            MedicoBLL.Current.Insert(medico);
-
-            var medicoEspecialista = new MedicoPorEspecialidad();
+                MessageBox.Show("Medico ya existe");
+            }else if (busqueda==false)
             {
-                var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
-                 cboxEspecialidad_SelectedIndexChanged( sender, e);
-                medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
-                medicoEspecialista.IdMedico = Search.IdMedico;
+                var medico = new MedicoDto()
+                {
+                    Matricula = Matricula,
+                    Apellido = Apellido,
+                    Nombre = Nombre,
+                    Direccion = Domicilio,
+                    Contacto = Contacto
+
+
+                };
+                MedicoBLL.Current.Insert(medico);
+
+                var medicoEspecialista = new MedicoPorEspecialidad();
+                {
+                    var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
+                    cboxEspecialidad_SelectedIndexChanged(sender, e);
+                    medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
+                    medicoEspecialista.IdMedico = Search.IdMedico;
+                }
+
+                MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
+
+                MessageBox.Show("Medico insertado con éxito!");
+                txtApellido.Text = "";
+                txtContacto.Text = "";
+                txtMatricula.Text = "";
+                txtNombre.Text = "";
+                txtDomicilio.Text = "";
             }
-
-
-
-
-            MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
-
-            MessageBox.Show("Medico insertado con éxito!");
+               
         }
 
         private void NuevoMedico_Load(object sender, EventArgs e)
@@ -69,6 +78,16 @@ namespace SistemaMedico.Recepcionista
         private void cboxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        public bool Existe(int Mmedico)
+        {
+            var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Matricula == Mmedico);
+            if (busqueda != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

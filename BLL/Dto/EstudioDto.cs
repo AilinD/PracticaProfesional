@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.BLL.Dto
+namespace BLL.Dto
 {
-    public class SintomaDto
+    public class EstudioDto
     {
         [Key]
-        public int IdSintoma { get; set; }
-        public string sintoma { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        
+
     }
 }

@@ -4,6 +4,8 @@ enfermedad(rubeola).
 enfermedad(tuberculosis).
 enfermedad(anemia).
 enfermedad(hepatitis).
+enfermedad(antraxpulmonar).
+enfermedad(antraxgastrointestinal).
 sintoma(tos).
 sintoma(dolorpecho).
 sintoma(mareos).
@@ -24,6 +26,16 @@ sintoma(nauseas).
 sintoma(desnutricion).
 sintoma(colorpielamarillo).
 sintoma(diarrea).
+sintoma(escalofríos).
+sintoma(molestiaenelpecho).
+sintoma(dificultadpararespirar).
+sintoma(confusión).
+sintoma(dolorestomacal).
+sintoma(dolordecabeza).
+sintoma(sudor).
+sintoma(Cansancio extremo).
+sintoma(dolorcorporal).
+sintoma(dolor corporal).
 area_especialista(otorrino).
 area_especialista(nutricionista).
 area_especialista(endocrinologo).
@@ -52,9 +64,23 @@ sintomade(nauseas,anemia).
 sintomade(vomitos,anemia).
 sintomade(colorpielamarillo,hepatitis).
 sintomade(diarrea,hepatitis).
+sintomade(diarrea,antraxpulmonar).
+sintomade(escalofríos,antraxpulmonar).
+sintomade(molestiaenelpecho,antraxpulmonar).
+sintomade(dificultadpararespirar,antraxpulmonar).
+sintomade(confusión,antraxpulmonar).
+sintomade(tos,antraxpulmonar).
+sintomade(nauseas,antraxpulmonar).
+sintomade(vómitos,antraxpulmonar).
+sintomade(dolorestomacal,antraxpulmonar).
+sintomade(dolordecabeza, Pulmonar).
+sintomade(sudor,antraxpulmonar).
+sintomade(Cansancio extremo,antraxpulmonar).
+sintomade(dolorcorporal,antraxpulmonar).
 especialistade(otorrino,gripe).
 especialistade(nutricionista,anemia).
 especialistade(endocrinologo,hepatitis).
 especialistade(clinico,rubeola).
 especialistade(nutricionista,tuberculosis).
 especialistade(clinico,malaria).
+especialistade(clinico,antraxpulmonar).

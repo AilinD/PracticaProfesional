@@ -37,7 +37,6 @@
             List<string> BDS = new List<string>();
             BDS.Add("SysCExpert");
             BDS.Add("PatenteFamilia");
-            BDS.Add("BaseExperta");
             cboxBackup.DataSource = BDS;
             cboxBackup.DisplayMember = "Value";
 
@@ -62,12 +61,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //if (fbd.ShowDialog() == DialogResult.OK)
-            //{
-            //    txtubicacion.Text = fbd.SelectedPath;
-            //    btnBackup.Enabled = true;
-            //}
+           
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
@@ -89,10 +83,7 @@
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    txtUbic.Text = openFileDialog1.FileName;
-            //}
+       
             
             folder= GetSelectedPath();
             txtUbic.Text = folder;

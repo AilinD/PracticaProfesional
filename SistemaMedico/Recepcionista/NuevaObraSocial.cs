@@ -1,6 +1,6 @@
 ﻿using BLL.Business;
 using Domain;
-using Services.BLL.Dto;
+using BLL.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,20 +23,44 @@ namespace UI.Recepcionista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            string nuevaOS=txtNuevaOS.Text;
+            //var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtNuevaOS.Text));
 
-            var OS = new ObraSocialDto()
+            string nuevaOS =txtNuevaOS.Text;
+
+            var busqueda=Existe( nuevaOS);
+            if (busqueda==true)
             {
-                Nombre = nuevaOS,
+                MessageBox.Show("Obra Social ya existe");
+            }
+            else if(busqueda==false)
+            {
+                var OS = new ObraSocialDto()
+                {
+                    Nombre = nuevaOS,
 
-            };
-            ObraSocialBLL.Current.Insert(OS);
-            MessageBox.Show("Obra Social insertada con éxito!");
+                };
+                ObraSocialBLL.Current.Insert(OS);
+                MessageBox.Show("Obra Social insertada con éxito!");
+            }
+
+           
         }
 
         private void NuevaObraSocial_Load(object sender, EventArgs e)
-        {
+        {            
+            
 
+        }
+
+        public bool Existe(string obrasocial)
+        {
+            var busqueda=ObraSocialBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == obrasocial);
+            if (busqueda!=null)
+            {
+                //busqueda.Nombre = txtNuevaOS.Text;
+                return true;
+            }
+            return false;
         }
     }
 }

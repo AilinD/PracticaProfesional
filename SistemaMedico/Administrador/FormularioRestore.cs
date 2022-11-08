@@ -16,13 +16,12 @@ namespace UI.Administrador
         {
             InitializeComponent();
         }
-
+        private string folder;
         private void FormularioRestore_Load(object sender, EventArgs e)
         {
             List<string> BDS = new List<string>();
             BDS.Add("SysCExpert");
             BDS.Add("PatenteFamilia");
-            BDS.Add("BaseExperta");
             cboxRestore.DataSource = BDS;
             cboxRestore.DisplayMember = "Value";
         }
@@ -32,9 +31,10 @@ namespace UI.Administrador
             try
             {
                 string db = cboxRestore.Text;
-                string databaseName = string.Format("{0}.bak", db);
+                string databaseName = string.Format(/*"{0}.bak"*/ db);
                 string path = openFileDialog1.FileName;
-                Services.DAL.RestoreRepository.Current.CrearRestore(databaseName,path);
+                string save = folder;
+                Services.DAL.RestoreRepository.Current.CrearRestore(databaseName,path,save);
                 CaluculateAll(progressBarRestore);
                 MessageBox.Show("Restore Exitoso!");
                 this.Close();
@@ -74,5 +74,9 @@ namespace UI.Administrador
           
            
         }
+
+        
+
+       
     }
 }

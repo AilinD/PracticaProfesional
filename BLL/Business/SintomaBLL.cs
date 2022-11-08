@@ -16,12 +16,12 @@ using System.IO;
 using BLL;
 //using Domain;
 using BLL.Interfaces;
-using Services.BLL.Dto;
-using Services.MapperConfig;
+using BLL.MapperConfig;
 using Services;
 using DAL.Interfaces;
 using DAL.Factory;
 using DAL.Models;
+using BLL.Dto;
 //using DAL.Models;
 
 namespace BLL.Business {
@@ -111,6 +111,11 @@ namespace BLL.Business {
             {
                 genericRepository.Delete(op);
             }
+        }
+
+        public void IngresarSintomaEnBaseExperta()
+        {
+
         }
     }//end SintomaBLL
 

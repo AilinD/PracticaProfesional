@@ -27,15 +27,15 @@ namespace Services.DAL
 
         }
         #endregion
-        public void CrearRestore(string databaseName, string path)
+        public void CrearRestore(string databaseName, string path, string save)
         {
             string conn = getConn(databaseName);
 
-            string filePath = BuildrestorePathWithFilename(databaseName, path);
+            //string filePath = BuildrestorePathWithFilename(databaseName, path);
 
             using (var connection = new SqlConnection(conn))
             {
-                var query = String.Format("use master RESTORE DATABASE [{0}] FROM DISK='{1}'", databaseName, path);
+                var query = String.Format(" use master RESTORE database {0} FROM DISK='{1} 'WITH STATS = 10", databaseName, path);
 
                 using (var command = new SqlCommand(query, connection))
                 {
@@ -55,12 +55,12 @@ namespace Services.DAL
         private string getConn(string bd)
         {
             var cadena = "";
-            if (bd == "SysCExpert.bak")
+            if (bd == "SysCExpert")
             {
                 var opc1 = System.Configuration.ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
                 cadena = opc1;
             }
-            else if (bd == "PatenteFamilia.bak")
+            else if (bd == "PatenteFamilia")
             {
                 var opc2 = System.Configuration.ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
                 cadena = opc2;

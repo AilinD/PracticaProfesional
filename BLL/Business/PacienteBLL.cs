@@ -3,8 +3,8 @@ using DAL.Factory;
 using DAL.Interfaces;
 using DAL.Models;
 using Services;
-using Services.BLL.Dto;
-using Services.MapperConfig;
+using BLL.Dto;
+using BLL.MapperConfig;
 
 
 namespace BLL.Business;

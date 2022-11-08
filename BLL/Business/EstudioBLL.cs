@@ -10,9 +10,9 @@
 //using Domain;
 using DAL.Interfaces;
 using BLL.Interfaces;
-using Services.BLL.Dto;
+using BLL.Dto;
 using Services;
-using Services.MapperConfig;
+using BLL.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
 //using DAL.Models;

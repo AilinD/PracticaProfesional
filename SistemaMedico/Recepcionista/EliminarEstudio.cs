@@ -12,42 +12,42 @@ using System.Windows.Forms;
 
 namespace SistemaMedico.Recepcionista
 {
-    public partial class EliminarObraSocial : Form
+    public partial class EliminarEstudio : Form
     {
-        public EliminarObraSocial()
+        public EliminarEstudio()
         {
             InitializeComponent();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtOSaEliminar.Text))
+            if (string.IsNullOrEmpty(txtEstudioaEliminar.Text))
             {
-                var user = ObraSocialBLL.Current.GetAll();
+                var user = EstudioBLL.Current.GetAll();
                 dataGridView1.DataSource = user;
             }
             else
             {
-                var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtOSaEliminar.Text));
+                var usser = EstudioBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtEstudioaEliminar.Text));
                 dataGridView1.DataSource = usser.ToList();
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var obrasocial = new ObraSocialDto();
+            var estudio = new EstudioDto();
 
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
-                obrasocial.Id = (int)r.Cells["Id"].Value;
-                obrasocial.Nombre = r.Cells["Nombre"].Value.ToString();
+                estudio.Id = (int)r.Cells["Id"].Value;
+                estudio.Nombre = r.Cells["Nombre"].Value.ToString();
 
 
-                ObraSocialBLL.Current.Delete(obrasocial.Id);
+                EstudioBLL.Current.Delete(estudio.Id);
 
 
             }
-            MessageBox.Show("Obra Social eliminada con éxito!");
+            MessageBox.Show("Estudio eliminado con éxito!");
         }
     }
 }

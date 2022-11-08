@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Models;
 //using DAL.Models;
-using Services.BLL.Dto;
+using BLL.Dto;
 using Services.Domain;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.MapperConfig
+namespace BLL.MapperConfig
 { 
     public static class MapperHelper
     {
@@ -24,8 +24,6 @@ namespace Services.MapperConfig
                 cfg.CreateMap<MedicoDto, Medico>();
                 cfg.CreateMap<EstudioDto, Estudio>();
                 cfg.CreateMap<Estudio, EstudioDto>();
-                //cfg.CreateMap<Enfermedad, EnfermedadDto>();
-                //cfg.CreateMap<EnfermedadDto, Enfermedad>();
                 cfg.CreateMap<Sintoma, SintomaDto>();
                 cfg.CreateMap<SintomaDto, Sintoma>();
                 cfg.CreateMap<Especialidad, EspecialidadDto>();
