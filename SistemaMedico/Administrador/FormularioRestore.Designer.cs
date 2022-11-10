@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRestore = new System.Windows.Forms.Button();
+            this.btnGenerar = new System.Windows.Forms.Button();
             this.progressBarRestore = new System.Windows.Forms.ProgressBar();
             this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSeleccBkp = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cboxRestore = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSeleccionar = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
-            // btnRestore
+            // btnGenerar
             // 
-            this.btnRestore.Location = new System.Drawing.Point(221, 269);
-            this.btnRestore.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(88, 27);
-            this.btnRestore.TabIndex = 0;
-            this.btnRestore.Text = "Generar";
-            this.btnRestore.UseVisualStyleBackColor = true;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            this.btnGenerar.Location = new System.Drawing.Point(221, 269);
+            this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(88, 27);
+            this.btnGenerar.TabIndex = 0;
+            this.btnGenerar.Text = "Generar";
+            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // progressBarRestore
             // 
@@ -69,15 +69,15 @@
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
-            // label1
+            // lblSeleccBkp
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 58);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Seleccionar backup :";
+            this.lblSeleccBkp.AutoSize = true;
+            this.lblSeleccBkp.Location = new System.Drawing.Point(43, 58);
+            this.lblSeleccBkp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSeleccBkp.Name = "lblSeleccBkp";
+            this.lblSeleccBkp.Size = new System.Drawing.Size(115, 15);
+            this.lblSeleccBkp.TabIndex = 3;
+            this.lblSeleccBkp.Text = "Seleccionar backup :";
             // 
             // textBox1
             // 
@@ -96,15 +96,15 @@
             this.cboxRestore.Size = new System.Drawing.Size(338, 23);
             this.cboxRestore.TabIndex = 11;
             // 
-            // label3
+            // lblSeleccionar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 119);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Seleccione la base : ";
+            this.lblSeleccionar.AutoSize = true;
+            this.lblSeleccionar.Location = new System.Drawing.Point(44, 119);
+            this.lblSeleccionar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSeleccionar.Name = "lblSeleccionar";
+            this.lblSeleccionar.Size = new System.Drawing.Size(111, 15);
+            this.lblSeleccionar.TabIndex = 10;
+            this.lblSeleccionar.Text = "Seleccione la base : ";
             // 
             // openFileDialog1
             // 
@@ -117,12 +117,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 353);
             this.Controls.Add(this.cboxRestore);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblSeleccionar);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSeleccBkp);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.progressBarRestore);
-            this.Controls.Add(this.btnRestore);
+            this.Controls.Add(this.btnGenerar);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormularioRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -135,13 +135,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnRestore;
+        private System.Windows.Forms.Button btnGenerar;
         private System.Windows.Forms.ProgressBar progressBarRestore;
         private System.Windows.Forms.Button btnSeleccionar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSeleccBkp;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cboxRestore;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSeleccionar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

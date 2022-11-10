@@ -15,6 +15,7 @@ using DAL.Interfaces;
 using BLL.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
@@ -73,54 +74,104 @@ namespace BLL.Business {
 
         public void Insert(MedicoDto obj)
         {
-            var dtoToentity = new Medico()
+            try
             {
-                Matricula = obj.Matricula,
-                Nombre = obj.Nombre,
-                Apellido = obj.Apellido,
-                Direccion = obj.Direccion,
-                Contacto = obj.Contacto
+                var dtoToentity = new Medico()
+                {
+                    Matricula = obj.Matricula,
+                    Nombre = obj.Nombre,
+                    Apellido = obj.Apellido,
+                    Direccion = obj.Direccion,
+                    Contacto = obj.Contacto
 
-            };
-            genericRepository.Insert(dtoToentity);
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public void Update(MedicoDto obj)
         {
-            var dtoToentity = new Medico()
+            try
             {
-                Matricula = obj.Matricula,
-                Nombre = obj.Nombre,
-                Apellido = obj.Apellido,
-                Direccion = obj.Direccion,
-                Contacto = obj.Contacto
+                var dtoToentity = new Medico()
+                {
+                    Matricula = obj.Matricula,
+                    Nombre = obj.Nombre,
+                    Apellido = obj.Apellido,
+                    Direccion = obj.Direccion,
+                    Contacto = obj.Contacto
 
-            };
-            genericRepository.Update(dtoToentity);
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public IEnumerable<MedicoDto> GetAll()
         {
-            var entity = MapperHelper.GetMapper().
+            try
+            {
+                var entity = MapperHelper.GetMapper().
            Map<List<MedicoDto>>(genericRepository.GetAll());
 
-            return entity;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public MedicoDto GetOne(int? guid)
         {
-            var op = MapperHelper.GetMapper().Map<MedicoDto>(genericRepository.GetOne(guid));
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<MedicoDto>(genericRepository.GetOne(guid));
 
-            return op;
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Delete(int? guid)
         {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            try
             {
-                genericRepository.Delete(op);
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }
 

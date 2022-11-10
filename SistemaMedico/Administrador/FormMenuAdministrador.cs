@@ -1,4 +1,6 @@
-﻿namespace UI.Administrador
+﻿using SistemaMedico.Extensions;
+
+namespace UI.Administrador
 {
     public partial class FormMenuAdministrador : Form
     {
@@ -73,7 +75,7 @@
 
         private void FormMenuAdministrador_Load(object sender, EventArgs e)
         {
-           
+            //menuUsuariodToolStripMenuItem.Translate();
         }
 
         private Form CreateMDIChild<T>() where T : Form

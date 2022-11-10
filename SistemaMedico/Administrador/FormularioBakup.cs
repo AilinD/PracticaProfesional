@@ -1,4 +1,6 @@
-﻿namespace UI.Administrador
+﻿using SistemaMedico.Extensions;
+
+namespace UI.Administrador
 {
     public partial class FormularioBakup : Form
     {
@@ -39,6 +41,11 @@
             BDS.Add("PatenteFamilia");
             cboxBackup.DataSource = BDS;
             cboxBackup.DisplayMember = "Value";
+
+            btnBackup.Translate();
+            btnSeleccionar.Translate();
+            lblGuardar.Translate();
+            lblSeleccionar.Translate();
 
         }
         private void CaluculateAll(System.Windows.Forms.ProgressBar progressBar)

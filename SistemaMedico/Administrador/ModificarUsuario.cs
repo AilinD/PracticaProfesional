@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Administrador
 {
@@ -73,7 +74,12 @@ namespace UI.Administrador
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-           
+            btnModificar.Translate();
+            btnBuscar.Translate();
+            lblDescriptivo.Translate();
+            lblNuevaPass.Translate();
+            lblNuevoNombre.Translate();
+            lblUsuario.Translate();
         }
 
         private void btnModificarUS_Click(object sender, EventArgs e)

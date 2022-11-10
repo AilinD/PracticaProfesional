@@ -30,12 +30,12 @@
         {
             this.txtNuevaPatente = new System.Windows.Forms.TextBox();
             this.lblNuevoNombre = new System.Windows.Forms.Label();
-            this.btnModificarUS = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.txtNombrePatente = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblNombrePat = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblDescriptivo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,16 +57,16 @@
             this.lblNuevoNombre.TabIndex = 40;
             this.lblNuevoNombre.Text = "Nuevo Nombre";
             // 
-            // btnModificarUS
+            // btnModificar
             // 
-            this.btnModificarUS.Location = new System.Drawing.Point(432, 249);
-            this.btnModificarUS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnModificarUS.Name = "btnModificarUS";
-            this.btnModificarUS.Size = new System.Drawing.Size(88, 27);
-            this.btnModificarUS.TabIndex = 38;
-            this.btnModificarUS.Text = "Modificar";
-            this.btnModificarUS.UseVisualStyleBackColor = true;
-            this.btnModificarUS.Click += new System.EventHandler(this.btnModificarUS_Click);
+            this.btnModificar.Location = new System.Drawing.Point(432, 249);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(88, 27);
+            this.btnModificar.TabIndex = 38;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificarUS_Click);
             // 
             // txtNombrePatente
             // 
@@ -76,16 +76,16 @@
             this.txtNombrePatente.Size = new System.Drawing.Size(179, 23);
             this.txtNombrePatente.TabIndex = 37;
             // 
-            // lblUsuario
+            // lblNombrePat
             // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUsuario.Location = new System.Drawing.Point(28, 60);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(94, 15);
-            this.lblUsuario.TabIndex = 36;
-            this.lblUsuario.Text = "Nombre Patente";
+            this.lblNombrePat.AutoSize = true;
+            this.lblNombrePat.BackColor = System.Drawing.SystemColors.Control;
+            this.lblNombrePat.Location = new System.Drawing.Point(28, 60);
+            this.lblNombrePat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombrePat.Name = "lblNombrePat";
+            this.lblNombrePat.Size = new System.Drawing.Size(94, 15);
+            this.lblNombrePat.TabIndex = 36;
+            this.lblNombrePat.Text = "Nombre Patente";
             // 
             // btnBuscar
             // 
@@ -107,15 +107,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(300, 173);
             this.dataGridView1.TabIndex = 34;
             // 
-            // label1
+            // lblDescriptivo
             // 
-            this.label1.Location = new System.Drawing.Point(461, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 85);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Si no indica el nombre de la patente por defecto traera todos los registros ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblDescriptivo.Location = new System.Drawing.Point(461, 23);
+            this.lblDescriptivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescriptivo.Name = "lblDescriptivo";
+            this.lblDescriptivo.Size = new System.Drawing.Size(141, 85);
+            this.lblDescriptivo.TabIndex = 39;
+            this.lblDescriptivo.Text = "Si no indica el nombre de la patente por defecto traera todos los registros ";
+            this.lblDescriptivo.Click += new System.EventHandler(this.label1_Click);
             // 
             // ModificarPatentes
             // 
@@ -124,10 +124,10 @@
             this.ClientSize = new System.Drawing.Size(658, 362);
             this.Controls.Add(this.txtNuevaPatente);
             this.Controls.Add(this.lblNuevoNombre);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnModificarUS);
+            this.Controls.Add(this.lblDescriptivo);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtNombrePatente);
-            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.lblNombrePat);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -143,11 +143,11 @@
         #endregion
         private System.Windows.Forms.TextBox txtNuevaPatente;
         private System.Windows.Forms.Label lblNuevoNombre;
-        private System.Windows.Forms.Button btnModificarUS;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox txtNombrePatente;
-        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblNombrePat;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblDescriptivo;
     }
 }

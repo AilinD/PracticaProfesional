@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DAL.Models;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,18 @@ namespace BLL.Business
 
         public void InsertOsPaciente(ObraSocialPaciente OsPaciente)
         {
-            _context.ObraSocialPacientes.Add(OsPaciente);
-            _context.SaveChanges();
+            try
+            {
+                _context.ObraSocialPacientes.Add(OsPaciente);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }
 }

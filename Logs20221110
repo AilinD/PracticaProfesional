@@ -1,0 +1,6 @@
+20221110 02:13:08 a.m. [LEVEL Error] User: , Mensaje: GetUsuarioByNameAndPassword Usuario_dal Fallo
+20221110 02:13:08 a.m. [LEVEL Error] User: , Mensaje: GetUsuario Usuario_Facade Fallo
+20221110 02:13:08 a.m. [LEVEL Error] User: , Mensaje: Could not find stored procedure 'GetUsuarioByNameAndPassword'.
+20221110 02:15:22 a.m. [LEVEL Error] User: , Mensaje: GetUsuarioByNameAndPassword Usuario_dal Fallo
+20221110 02:15:22 a.m. [LEVEL Error] User: , Mensaje: GetUsuario Usuario_Facade Fallo
+20221110 02:15:22 a.m. [LEVEL Error] User: , Mensaje: Could not find stored procedure 'GetUsuarioByNameAndPassword'.

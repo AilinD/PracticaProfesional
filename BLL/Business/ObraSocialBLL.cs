@@ -11,6 +11,7 @@ using BLL.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
 using BLL.Dto;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business
@@ -33,50 +34,100 @@ namespace BLL.Business
 
         public void Insert(ObraSocialDto obj)
         {
-            var dtoToentity = new ObraSocial()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre,
+                var dtoToentity = new ObraSocial()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre,
 
 
-            };
-            genericRepository.Insert(dtoToentity);
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Update(ObraSocialDto obj)
         {
-            var dtoToentity = new ObraSocial()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre,
+                var dtoToentity = new ObraSocial()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre,
 
 
-            };
-            genericRepository.Update(dtoToentity);
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public IEnumerable<ObraSocialDto> GetAll()
         {
-            var entity = MapperHelper.GetMapper().
+            try
+            {
+                var entity = MapperHelper.GetMapper().
             Map<List<ObraSocialDto>>(genericRepository.GetAll());
 
-            return entity;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public ObraSocialDto GetOne(int? guid)
         {
-            var op = MapperHelper.GetMapper().Map<ObraSocialDto>(genericRepository.GetOne(guid));
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<ObraSocialDto>(genericRepository.GetOne(guid));
 
-            return op;
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Delete(int? guid)
         {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            try
             {
-                genericRepository.Delete(op);
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }
 }

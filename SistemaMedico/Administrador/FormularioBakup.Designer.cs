@@ -33,9 +33,9 @@ namespace UI.Administrador
             this.btnBackup = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.lblGuardar = new System.Windows.Forms.Label();
+            this.lblSeleccionar = new System.Windows.Forms.Label();
             this.txtUbic = new System.Windows.Forms.TextBox();
             this.cboxBackup = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -43,9 +43,10 @@ namespace UI.Administrador
             // 
             // btnBackup
             // 
-            this.btnBackup.Location = new System.Drawing.Point(183, 215);
+            this.btnBackup.Location = new System.Drawing.Point(214, 248);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(75, 23);
+            this.btnBackup.Size = new System.Drawing.Size(88, 27);
             this.btnBackup.TabIndex = 0;
             this.btnBackup.Text = "Generar";
             this.btnBackup.UseVisualStyleBackColor = true;
@@ -53,53 +54,59 @@ namespace UI.Administrador
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(48, 163);
+            this.progressBar1.Location = new System.Drawing.Point(56, 188);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(370, 23);
+            this.progressBar1.Size = new System.Drawing.Size(432, 27);
             this.progressBar1.TabIndex = 3;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
-            // button1
+            // btnSeleccionar
             // 
-            this.button1.Location = new System.Drawing.Point(346, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 22);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnSeleccionar.Location = new System.Drawing.Point(404, 48);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(84, 25);
+            this.btnSeleccionar.TabIndex = 4;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // label1
+            // lblGuardar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Guardar en :";
+            this.lblGuardar.AutoSize = true;
+            this.lblGuardar.Location = new System.Drawing.Point(52, 54);
+            this.lblGuardar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGuardar.Name = "lblGuardar";
+            this.lblGuardar.Size = new System.Drawing.Size(71, 15);
+            this.lblGuardar.TabIndex = 5;
+            this.lblGuardar.Text = "Guardar en :";
             // 
-            // label2
+            // lblSeleccionar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Seleccione la base : ";
+            this.lblSeleccionar.AutoSize = true;
+            this.lblSeleccionar.Location = new System.Drawing.Point(52, 119);
+            this.lblSeleccionar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSeleccionar.Name = "lblSeleccionar";
+            this.lblSeleccionar.Size = new System.Drawing.Size(111, 15);
+            this.lblSeleccionar.TabIndex = 6;
+            this.lblSeleccionar.Text = "Seleccione la base : ";
             // 
             // txtUbic
             // 
-            this.txtUbic.Location = new System.Drawing.Point(117, 44);
+            this.txtUbic.Location = new System.Drawing.Point(136, 51);
+            this.txtUbic.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtUbic.Name = "txtUbic";
-            this.txtUbic.Size = new System.Drawing.Size(204, 20);
+            this.txtUbic.Size = new System.Drawing.Size(237, 23);
             this.txtUbic.TabIndex = 7;
             // 
             // cboxBackup
             // 
             this.cboxBackup.FormattingEnabled = true;
-            this.cboxBackup.Location = new System.Drawing.Point(171, 100);
+            this.cboxBackup.Location = new System.Drawing.Point(200, 115);
+            this.cboxBackup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxBackup.Name = "cboxBackup";
-            this.cboxBackup.Size = new System.Drawing.Size(247, 21);
+            this.cboxBackup.Size = new System.Drawing.Size(288, 23);
             this.cboxBackup.TabIndex = 8;
             // 
             // openFileDialog1
@@ -108,16 +115,17 @@ namespace UI.Administrador
             // 
             // FormularioBakup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 264);
+            this.ClientSize = new System.Drawing.Size(551, 305);
             this.Controls.Add(this.cboxBackup);
             this.Controls.Add(this.txtUbic);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblSeleccionar);
+            this.Controls.Add(this.lblGuardar);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnBackup);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormularioBakup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -133,9 +141,9 @@ namespace UI.Administrador
         private System.Windows.Forms.Button btnBackup;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.Label lblGuardar;
+        private System.Windows.Forms.Label lblSeleccionar;
         private System.Windows.Forms.TextBox txtUbic;
         private System.Windows.Forms.ComboBox cboxBackup;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

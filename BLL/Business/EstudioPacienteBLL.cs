@@ -2,6 +2,7 @@
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Services;
+using Services.BLL.Exepciones;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -39,8 +40,18 @@ namespace BLL.Business
 
         public void InsertEstudioPaciente(EstudioPaciente estudioPaciente)
         {
-            _context.EstudioPacientes.Add(estudioPaciente);
-            _context.SaveChanges();
+            try
+            {
+                _context.EstudioPacientes.Add(estudioPaciente);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }
 }

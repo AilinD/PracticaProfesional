@@ -38,9 +38,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(290, 18);
+            this.btnBuscar.Location = new System.Drawing.Point(338, 21);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // btnEliminar
             // 
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(155, 258);
+            this.btnEliminar.Location = new System.Drawing.Point(181, 298);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -60,39 +62,44 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 73);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(341, 174);
+            this.dataGridView1.Size = new System.Drawing.Size(398, 201);
             this.dataGridView1.TabIndex = 7;
             // 
             // txtPatenteAEliminar
             // 
-            this.txtPatenteAEliminar.Location = new System.Drawing.Point(110, 20);
+            this.txtPatenteAEliminar.Location = new System.Drawing.Point(128, 23);
+            this.txtPatenteAEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPatenteAEliminar.Name = "txtPatenteAEliminar";
-            this.txtPatenteAEliminar.Size = new System.Drawing.Size(154, 20);
+            this.txtPatenteAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtPatenteAEliminar.TabIndex = 6;
             // 
             // lblpatente
             // 
             this.lblpatente.AutoSize = true;
-            this.lblpatente.Location = new System.Drawing.Point(21, 23);
+            this.lblpatente.Location = new System.Drawing.Point(24, 27);
+            this.lblpatente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpatente.Name = "lblpatente";
-            this.lblpatente.Size = new System.Drawing.Size(84, 13);
+            this.lblpatente.Size = new System.Drawing.Size(94, 15);
             this.lblpatente.TabIndex = 5;
             this.lblpatente.Text = "Nombre Patente";
             // 
             // EliminarPatente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 305);
+            this.ClientSize = new System.Drawing.Size(488, 352);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtPatenteAEliminar);
             this.Controls.Add(this.lblpatente);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "EliminarPatente";
             this.Text = "EliminarPatente";
+            this.Load += new System.EventHandler(this.EliminarPatente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

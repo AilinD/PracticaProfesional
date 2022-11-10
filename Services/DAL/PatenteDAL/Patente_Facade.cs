@@ -18,9 +18,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("GetAllAdapted Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -41,9 +41,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("GetAdapted Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -55,9 +55,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("Insert patente_facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -69,9 +69,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("Update Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -83,9 +83,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("Delete Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -97,9 +97,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("Select Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 
@@ -111,9 +111,9 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog("SelectAll Patente_Facade Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 	}

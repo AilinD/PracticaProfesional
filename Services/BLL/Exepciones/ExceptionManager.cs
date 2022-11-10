@@ -25,29 +25,9 @@ namespace Services.BLL.Exepciones
         }
         #endregion
 
-        public void Handle(BLLException ex)
+        public void Handle(Exception ex)
         {
-            if (ex.InnerException is DALException)
-            {
-                //Si viene de DAL reemplazo el mensaje y lanzo...
-                throw new Exception("Error accediendo a base de datos", ex);
-            }
-            else if (ex.IsBusinessException)
-            {
-                //Es una excepción de reglas de negocio...
-                //Registro y relanzo
-
-
-                throw ex;
-            }
-            else if (!ex.IsBusinessException)
-            {
-                //Es una excepción de BLL no especificada...
-
-                //Registrar la excepción
-
-                throw new Exception("Error de negocio. por favor verifique los datos ingresados", ex);
-            }
+            LoggerBLL.WriteLog(ex.Message,System.Diagnostics.Tracing.EventLevel.Warning,"");
         }
     }
 }

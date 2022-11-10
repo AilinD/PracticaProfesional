@@ -28,7 +28,7 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new EliminarMedico());
-            Application.Run(new FormularioRestore());
+            Application.Run(new FormMenuAdministrador());
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());
             //Application.Run(new FormularioBakup());

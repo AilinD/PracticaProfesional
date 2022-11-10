@@ -5,7 +5,7 @@ using DAL.Models;
 using Services;
 using BLL.Dto;
 using BLL.MapperConfig;
-
+using Services.BLL.Exepciones;
 
 namespace BLL.Business;
 
@@ -27,62 +27,108 @@ public class PacienteBll : IGenericBusiness<PacienteDto>
 
     public void Delete(int? guid)
     {
-        var op = genericRepository.GetOne(guid);
-        if (op != null)
+        try
         {
-            genericRepository.Delete(op);
+            var op = genericRepository.GetOne(guid);
+            if (op != null)
+            {
+                genericRepository.Delete(op);
+            }
         }
+        catch (Exception ex)
+        {
+            ExceptionManager.Current.Handle(ex);
+
+            throw;
+        }
+        
 
     }
 
     public IEnumerable<PacienteDto> GetAll()
     {
-        var entity = MapperHelper.GetMapper().
+        try
+        {
+            var entity = MapperHelper.GetMapper().
             Map<List<PacienteDto>>(genericRepository.GetAll());
 
-        return entity;
+            return entity;
+        }
+        catch (Exception ex)
+        {
+            ExceptionManager.Current.Handle(ex);
+
+            throw;
+        }
+        
     }
 
     public PacienteDto GetOne(int? guid)
     {
-        var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
+        try
+        {
+            var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
 
-        return op;
+            return op;
+        }
+        catch (Exception ex)
+        {
+            ExceptionManager.Current.Handle(ex);
+
+            throw;
+        }
+        
     }
 
     public void Insert(PacienteDto obj)
     {
-        var dtoToentity = new Paciente()
+        try
         {
-            Dni = obj.DNI,
-            Nombre = obj.Nombre,
-            Apellido = obj.Apellido,
-            FechaNacimiento = (DateTime)obj.FechaNacimiento,
-            Dirección = obj.Dirección,
-            Contacto = obj.Contacto,
-            Sexo = obj.Sexo
+            var dtoToentity = new Paciente()
+            {
+                Dni = obj.DNI,
+                Nombre = obj.Nombre,
+                Apellido = obj.Apellido,
+                FechaNacimiento = (DateTime)obj.FechaNacimiento,
+                Dirección = obj.Dirección,
+                Contacto = obj.Contacto,
+                Sexo = obj.Sexo
 
-        };
-        genericRepository.Insert(dtoToentity);
+            };
+            genericRepository.Insert(dtoToentity);
+        }
+        catch (Exception ex)
+        {
+            ExceptionManager.Current.Handle(ex);
+
+            throw;
+        }
+        
     }
 
     public async void Update(PacienteDto obj)
     {
-        var dtoToentity = new Paciente()
+        try
         {
-            IdPaciente = obj.IdPaciente,
-            Dni = obj.DNI,
-            Nombre = obj.Nombre,
-            Apellido = obj.Apellido,
-            FechaNacimiento = (DateTime)obj.FechaNacimiento,
-            Dirección = obj.Dirección,
-            Contacto = obj.Contacto,
-            Sexo = obj.Sexo
+            var dtoToentity = new Paciente()
+            {
+                IdPaciente = obj.IdPaciente,
+                Dni = obj.DNI,
+                Nombre = obj.Nombre,
+                Apellido = obj.Apellido,
+                FechaNacimiento = (DateTime)obj.FechaNacimiento,
+                Dirección = obj.Dirección,
+                Contacto = obj.Contacto,
+                Sexo = obj.Sexo
 
-        };
-        genericRepository.Update(dtoToentity);
+            };
+            genericRepository.Update(dtoToentity);
+        }
+        catch (Exception ex)
+        {
+            ExceptionManager.Current.Handle(ex);
 
+            throw;
+        }
 
-
-
-}  }
+}   }

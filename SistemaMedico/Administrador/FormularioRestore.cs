@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaMedico.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,11 @@ namespace UI.Administrador
             BDS.Add("PatenteFamilia");
             cboxRestore.DataSource = BDS;
             cboxRestore.DisplayMember = "Value";
+
+            btnSeleccionar.Translate();
+            btnGenerar.Translate();
+            lblSeleccionar.Translate();
+            lblSeleccBkp.Translate();
         }
 
         private void btnRestore_Click(object sender, EventArgs e)

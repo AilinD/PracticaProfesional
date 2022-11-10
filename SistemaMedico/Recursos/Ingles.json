@@ -1,0 +1,21 @@
+﻿{
+  "btnBuscar": "Search",
+  "btnEliminar": "Delete",
+  "lblBienvenido": "Welcome",
+  "lblpatente": "Name Patent",
+  "EliminarPatente": "Delete Patent",
+  "Nombre Usuario": "Name User",
+  "lblNombreUsuario": "Name User",
+  "Menu Administrador": "Administrator Menu",
+  "Menu Usuario": "User Menu",
+  "lbUsuario": "User",
+  "lblPass": "Password",
+  "btnIngreso": "Log In",
+  "chkSintomaDe": "symptom",
+  "Especialista De": "specialist of",
+  "chkenf": "symptoms of",
+  "chkEspecialidades": "specialties of",
+  "btnConsultar": "Consult",
+  "btnLimpiar": "Clean"
+
+}

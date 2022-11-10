@@ -15,6 +15,7 @@ using Services;
 using BLL.MapperConfig;
 using DAL.Factory;
 using DAL.Models;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
@@ -38,78 +39,101 @@ namespace BLL.Business {
 
         public void Insert(EstudioDto obj)
         {
-            var dtoToentity = new Estudio()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre
+                var dtoToentity = new Estudio()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre
 
-            };
-            genericRepository.Insert(dtoToentity);
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public void Update(EstudioDto obj)
         {
-            var dtoToentity = new Estudio()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre
+                var dtoToentity = new Estudio()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre
 
-            };
-            genericRepository.Update(dtoToentity);
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public IEnumerable<EstudioDto> GetAll()
         {
-            var entity = MapperHelper.GetMapper().
+            try
+            {
+                var entity = MapperHelper.GetMapper().
           Map<List<EstudioDto>>(genericRepository.GetAll());
 
-            return entity;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public EstudioDto GetOne(int? guid)
         {
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<EstudioDto>(genericRepository.GetOne(guid));
 
-            var op = MapperHelper.GetMapper().Map<EstudioDto>(genericRepository.GetOne(guid));
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
 
-            return op;
+                throw;
+            }
+            
         }
 
         public void Delete(int? guid)
         {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            try
             {
-                genericRepository.Delete(op);
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
-        /// 
-        /// <param name="estudio"></param>
-        public Estudio AltaEstudio(Estudio estudio)
-        {
-
-            return null;
-        }
-
-        /// 
-        /// <param name="int"></param>
-        public void BajaEstudio(int ID)
-        {
-
-        }
-
-        public List<Estudio> ListEstudio()
-        {
-
-            return null;
-        }
-
-        /// 
-        /// <param name="estudio"></param>
-        public void ModificacionEstudio(Estudio estudio)
-        {
-
-        }
+       
 
     }//end EstudioBLL
 

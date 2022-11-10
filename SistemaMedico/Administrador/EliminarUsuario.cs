@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,13 @@ namespace UI.Administrador
 
             }
 
+        }
+
+        private void EliminarUsuario_Load(object sender, EventArgs e)
+        {
+            lblNombreUsuario.Translate();
+            btnBuscar.Translate();
+            btnEliminar.Translate();
         }
     }
 }

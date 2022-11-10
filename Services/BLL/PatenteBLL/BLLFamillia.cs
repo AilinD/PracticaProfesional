@@ -1,6 +1,7 @@
 ﻿using Services.DAL.PatenteDAL;
 using Services.Domain;
 using System.Data;
+using System.Diagnostics.Tracing;
 
 namespace Services.BLL.PatenteBLL
 {
@@ -27,9 +28,9 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-				throw ex;
-
-			}
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+				throw;
+            }
 		}
 		public static Familia GetAdapted(System.String IdFamiliaElement)
 		{
@@ -39,8 +40,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Insert( Familia _object)
@@ -51,7 +52,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Update(Familia _object)
@@ -62,8 +64,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Delete(Familia _object)
@@ -74,8 +76,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static DataRow Select(System.String IdFamiliaElement)
@@ -86,7 +88,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 
 			}
 		}
@@ -98,8 +101,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void DeleteAccesos(Familia _object)
@@ -110,7 +113,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 
 			}
 		}

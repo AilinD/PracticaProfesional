@@ -22,6 +22,7 @@ using DAL.Interfaces;
 using DAL.Factory;
 using DAL.Models;
 using BLL.Dto;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
@@ -42,81 +43,103 @@ namespace BLL.Business {
 
 
 
-
-
-        //      /// 
-        //      /// <param name="sintoma"></param>
-        //      public void AltaSintoma(Sintoma sintoma){
-
-        //}
-
-        ///// 
-        ///// <param name="int"></param>
-        //public void BajaSintoma(int ID){
-
-        //}
-
-        //public List<Sintoma> ListarSintoma(){
-
-        //	return null;
-        //}
-
-        ///// 
-        ///// <param name="sintoma"></param>
-        //public void ModificarSintoma(Sintoma sintoma){
-
-        //}
-
         public void Insert(SintomaDto obj)
         {
-            var dtoToentity = new Sintoma()
+            try
             {
-                IdSintoma = obj.IdSintoma,
-                Nombre = obj.sintoma
+                var dtoToentity = new Sintoma()
+                {
+                    IdSintoma = obj.IdSintoma,
+                    Nombre = obj.sintoma
 
-            };
-            genericRepository.Insert(dtoToentity);
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Update(SintomaDto obj)
         {
-            var dtoToentity = new Sintoma()
+            try
             {
-                IdSintoma = obj.IdSintoma,
-                Nombre = obj.sintoma
+                var dtoToentity = new Sintoma()
+                {
+                    IdSintoma = obj.IdSintoma,
+                    Nombre = obj.sintoma
 
-            };
-            genericRepository.Update(dtoToentity);
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public IEnumerable<SintomaDto> GetAll()
         {
-            var entity = MapperHelper.GetMapper().
-         Map<List<SintomaDto>>(genericRepository.GetAll());
+            try
+            {
+                var entity = MapperHelper.GetMapper().
+        Map<List<SintomaDto>>(genericRepository.GetAll());
 
-            return entity;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public SintomaDto GetOne(int? guid)
         {
-            var op = MapperHelper.GetMapper().Map<SintomaDto>(genericRepository.GetOne(guid));
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<SintomaDto>(genericRepository.GetOne(guid));
 
-            return op;
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Delete(int? guid)
         {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            try
             {
-                genericRepository.Delete(op);
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
-        public void IngresarSintomaEnBaseExperta()
-        {
-
-        }
+       
     }//end SintomaBLL
 
 }//end namespace BLL

@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DAL.Models;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,18 @@ namespace BLL.Business
 
         public void InsertEspecialidadMedico(MedicoPorEspecialidad medicoEspecialista)
         {
-            _context.MedicoPorEspecialidads.Add(medicoEspecialista);
-            _context.SaveChanges();
+            try
+            {
+                _context.MedicoPorEspecialidads.Add(medicoEspecialista);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }
 }

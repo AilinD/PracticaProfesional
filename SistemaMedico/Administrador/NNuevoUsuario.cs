@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Services.BLL.PatenteBLL;
 using System.Configuration;
 using Services.Domain;
+using SistemaMedico.Extensions;
 
 namespace UI.Administrador
 {
@@ -80,7 +81,11 @@ namespace UI.Administrador
             cboxPatentes.DataSource =  permisos;
             cboxPatentes.DisplayMember = "Value";
 
-
+            btnGenerar.Translate();
+            lblNombre.Translate();
+            lblPass.Translate();
+            lblRepitePass.Translate();
+            lblSelecPat.Translate();
 
         }
 

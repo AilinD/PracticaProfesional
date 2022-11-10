@@ -18,6 +18,10 @@ using Services;
 using DAL.Interfaces;
 using DAL.Factory;
 using DAL.Models;
+using Services.BLL;
+using System.Diagnostics.Tracing;
+using System.Reflection.Metadata;
+using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
@@ -38,80 +42,104 @@ namespace BLL.Business {
         IGenericRepository<Especialidad> genericRepository = FactoryDAL._especialidadRepository;
 
 
-        /// 
-        /// <param name="especialidad"></param>
-        public void AgregarEspecialidad(Especialidad especialidad)
-        {
-
-        }
-
-        /// 
-        /// <param name="int"></param>
-        public void BajaEspecialidad(int id)
-        {
-
-        }
-
-        public List<Especialidad> ListarEspecialidad()
-        {
-
-            return null;
-        }
-
-        /// 
-        /// <param name="especialidad"></param>
-        public void ModificarExpecialidad(Especialidad especialidad)
-        {
-
-        }
 
         public void Insert(EspecialidadDto obj)
         {
-            var dtoToentity = new Especialidad()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre,
+                var dtoToentity = new Especialidad()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre,
 
-            };
-            genericRepository.Insert(dtoToentity);
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public void Update(EspecialidadDto obj)
         {
-            var dtoToentity = new Especialidad()
+            try
             {
-                Id = obj.Id,
-                Nombre = obj.Nombre,
+                var dtoToentity = new Especialidad()
+                {
+                    Id = obj.Id,
+                    Nombre = obj.Nombre,
 
-            };
-            genericRepository.Update(dtoToentity);
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+           
         }
 
         public IEnumerable<EspecialidadDto> GetAll()
         {
-            List<DAL.Models.Especialidad> listado = genericRepository.GetAll().ToList();
-            //   var entity = MapperHelper.GetMapper().
-            //Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
+            try
+            {
+                List<DAL.Models.Especialidad> listado = genericRepository.GetAll().ToList();
+                //   var entity = MapperHelper.GetMapper().
+                //Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
 
-            var entity = MapperHelper.GetMapper().
-        Map<List<Especialidad>, List< EspecialidadDto >> (genericRepository.GetAll().ToList());
-            return entity;
+                var entity = MapperHelper.GetMapper().
+            Map<List<Especialidad>, List<EspecialidadDto>>(genericRepository.GetAll().ToList());
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+        
         }
 
         public EspecialidadDto GetOne(int? guid)
         {
-            var op = MapperHelper.GetMapper().Map<EspecialidadDto>(genericRepository.GetOne(guid));
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<EspecialidadDto>(genericRepository.GetOne(guid));
 
-            return op;
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
 
         public void Delete(int? guid)
         {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            try
             {
-                genericRepository.Delete(op);
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+            
         }
     }//end EspecialidadBLL
 

@@ -26,9 +26,10 @@ namespace Services.BLL.PatenteBLL
             }
             catch (Exception ex)
             {
-				// LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
-				//new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
-                throw ex;
+                // LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
+                //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
             }
             
         }
@@ -52,8 +53,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                  //LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
-               throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static Usuario GetAdapted(string usuario)
@@ -64,9 +65,9 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                  //LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
 
-                throw ex;
+                throw;
 			}
 		}
 		public static void Insert(Usuario _object)
@@ -89,8 +90,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Update(Usuario _object)
@@ -101,8 +102,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Delete(Usuario _object)
@@ -113,8 +114,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Getpermisos(List<string> permisos)
@@ -128,8 +129,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 
@@ -143,8 +144,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void DeleteFamilias(Usuario _object)
@@ -155,8 +156,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void DeletePatentes(Usuario _object)
@@ -167,8 +168,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		

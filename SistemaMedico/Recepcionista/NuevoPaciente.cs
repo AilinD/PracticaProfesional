@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace UI.Recepcionista
 {
@@ -54,6 +56,7 @@ namespace UI.Recepcionista
             if (busqueda == true)
             {
                 MessageBox.Show("Paciente ya existe");
+                LoggerBLL.WriteLog("Paciente ya existe", EventLevel.Warning,Apellido+Nombre);
             }else if(busqueda == false)
             {
                 var paciente = new PacienteDto()

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Administrador
 {
@@ -40,8 +41,14 @@ namespace UI.Administrador
             familia.Add("Administrador");
             familia.Add("Medicos");
             familia.Add("Usuario");
+            familia.Add("Recepcionista");
+            familia.Add("Base Experta");
             cboxFamiliaPatente.DataSource = familia;
             cboxFamiliaPatente.DisplayMember = "Value";
+
+            btnGenerar.Translate();
+            lblFamiliaPatente.Translate();
+            lblNombrePatente.Translate();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)

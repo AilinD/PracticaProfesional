@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Administrador
 {
@@ -101,7 +102,11 @@ namespace UI.Administrador
 
         private void ModificarPatentes_Load(object sender, EventArgs e)
         {
-
+            btnBuscar.Translate();
+            btnModificar.Translate();
+            lblDescriptivo.Translate();
+            lblNombrePat.Translate();
+            lblNuevoNombre.Translate();
         }
     }
 }

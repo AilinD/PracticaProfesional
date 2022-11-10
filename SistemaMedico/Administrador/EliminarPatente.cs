@@ -1,6 +1,8 @@
 ﻿using Domain;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
+using Services.Service;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,5 +50,14 @@ namespace UI.Administrador
             PatenteBLL.Delete(patente);
             MessageBox.Show("Patente eliminada");
         }
+
+        private void EliminarPatente_Load(object sender, EventArgs e)
+        {
+            btnEliminar.Translate();
+            btnBuscar.Translate();
+            lblpatente.Translate();
+        }
+
+
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.txtUsuarioAEliminar = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -36,36 +36,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblNombreUsuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre Usuario";
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(14, 22);
+            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(94, 15);
+            this.lblNombreUsuario.TabIndex = 0;
+            this.lblNombreUsuario.Text = "Nombre Usuario";
             // 
             // txtUsuarioAEliminar
             // 
-            this.txtUsuarioAEliminar.Location = new System.Drawing.Point(101, 16);
+            this.txtUsuarioAEliminar.Location = new System.Drawing.Point(118, 18);
+            this.txtUsuarioAEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtUsuarioAEliminar.Name = "txtUsuarioAEliminar";
-            this.txtUsuarioAEliminar.Size = new System.Drawing.Size(154, 20);
+            this.txtUsuarioAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtUsuarioAEliminar.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 59);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 68);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(341, 174);
+            this.dataGridView1.Size = new System.Drawing.Size(398, 201);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnEliminar
             // 
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(146, 254);
+            this.btnEliminar.Location = new System.Drawing.Point(170, 293);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -73,9 +77,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(281, 14);
+            this.btnBuscar.Location = new System.Drawing.Point(328, 16);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -83,16 +88,18 @@
             // 
             // EliminarUsuario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 289);
+            this.ClientSize = new System.Drawing.Size(453, 333);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtUsuarioAEliminar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNombreUsuario);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "EliminarUsuario";
             this.Text = "EliminarUsuario";
+            this.Load += new System.EventHandler(this.EliminarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,7 +108,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.TextBox txtUsuarioAEliminar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnEliminar;

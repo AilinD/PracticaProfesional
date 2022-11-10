@@ -3,6 +3,7 @@ using Services.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +37,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static Patente GetAdapted(System.String IdFamiliaElement)
@@ -48,8 +49,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Insert(Patente _object)
@@ -60,8 +61,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Update(Patente _object)
@@ -72,8 +73,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static void Delete(Patente _object)
@@ -84,8 +85,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static DataRow Select(System.String IdFamiliaElement)
@@ -96,8 +97,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw new Exception("Patente no encontrada");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 		public static DataTable SelectAll()
@@ -108,8 +109,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-
-				throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
 			}
 		}
 	}
