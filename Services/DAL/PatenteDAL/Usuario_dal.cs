@@ -14,7 +14,7 @@ namespace Services.DAL.PatenteDAL
 
          static Usuario_dal()
         {
-            ctr = ConfigurationManager.ConnectionStrings["MainConString"].ConnectionString;
+            ctr = ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
         }
 
         

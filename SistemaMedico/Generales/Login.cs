@@ -50,6 +50,7 @@ namespace UI
             btnIngreso.Translate();
             lblPass.Translate();
             lblBienvenido.Translate();
+            lbUsuario.Translate();
 
         }
 

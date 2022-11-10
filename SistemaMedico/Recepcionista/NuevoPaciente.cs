@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using SistemaMedico.Extensions;
 
 namespace UI.Recepcionista
 {
@@ -40,6 +41,16 @@ namespace UI.Recepcionista
             cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
             cboxObraSocial.DisplayMember = "Nombre";
             //cboxObraSocial.ValueMember = "Id";
+
+            lblApellido.Translate();
+            lblNombre.Translate();
+            lblDNI.Translate();
+            lblFechaNac.Translate();
+            lblObraSocial.Translate();
+            lblDomicilio.Translate();
+            lblSexo.Translate();
+            lblContacto.Translate();
+            btnGenerar.Translate();
         }
 
         private void button1_Click(object sender, EventArgs e)

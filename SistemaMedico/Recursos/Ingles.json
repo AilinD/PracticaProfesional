@@ -16,6 +16,15 @@
   "chkenf": "symptoms of",
   "chkEspecialidades": "specialties of",
   "btnConsultar": "Consult",
-  "btnLimpiar": "Clean"
+  "btnLimpiar": "Clean",
+  "btnGenerar": "Create",
+  "lblApellido": "Last Name",
+  "lblNombre": "First Name",
+  "lblSexo": "Sex",
+  "lblDNI": "ID",
+  "lblDomicilio": "Address",
+  "lblContacto": "Phone",
+  "lblFechaNac": "Birth Date",
+  "lblObraSocial": "Health Plan"
 
 }

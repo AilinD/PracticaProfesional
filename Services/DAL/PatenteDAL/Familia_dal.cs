@@ -16,7 +16,7 @@ namespace Services.DAL.PatenteDAL
 
         static Familia_dal()
         {
-            ctr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            ctr = ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
         }
 
 		/// <summary>
