@@ -98,6 +98,7 @@
             this.Controls.Add(this.lblEstudio);
             this.Name = "EliminarEstudio";
             this.Text = "EliminarEstudio";
+            this.Load += new System.EventHandler(this.EliminarEstudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

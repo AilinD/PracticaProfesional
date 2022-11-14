@@ -121,7 +121,24 @@ namespace Services.DAL.PatenteDAL
         {
             try
             {
-                return Usuario_dal.GetUsuarioByNameAndPassword(user);
+                return Usuario_dal.GetUsuarioByName(user);
+
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+
+                throw;
+            }
+
+        }
+
+
+        public static Usuario GetUsuarioUserPass(string user, string password)
+        {
+            try
+            {
+                return Usuario_dal.GetUsuarioByNameAndPassword(user, password);
 
             }
             catch (Exception ex)

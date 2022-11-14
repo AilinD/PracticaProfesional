@@ -49,6 +49,8 @@ namespace UI.Administrador
             //ServiceLayer.BLL.PatenteBLL.Select(guid.ToString());
             PatenteBLL.Delete(patente);
             MessageBox.Show("Patente eliminada");
+
+            Limpiar();
         }
 
         private void EliminarPatente_Load(object sender, EventArgs e)
@@ -58,6 +60,11 @@ namespace UI.Administrador
             lblpatente.Translate();
         }
 
+        private void Limpiar()
+        {
+            txtPatenteAEliminar.Text = "";
+            dataGridView1.ClearSelection();
+        }
 
     }
 }

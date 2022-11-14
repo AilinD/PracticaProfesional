@@ -11,6 +11,6 @@ namespace BLL.Dto
     {
         [Key]
         public int IdSintoma { get; set; }
-        public string sintoma { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace DAL.Factory
 
         public static IGenericRepository<ObraSocial> _obraSocialRepository { get; private set; }
 
+        public static IGenericRepository<Diagnostico> _diagnosticoRepository { get; private set; }
 
 
 
@@ -46,6 +47,7 @@ namespace DAL.Factory
             _sintomaRepository = SintomaRepository();
             _especialidadRepository = EspecialidadRepository();
             _obraSocialRepository = ObraSocialRepository();
+            _diagnosticoRepository = DiagnosticoRepository();
         }
         private static PatientRepository PatientRepository()
         {
@@ -80,6 +82,11 @@ namespace DAL.Factory
         private static ObraSocialRepository ObraSocialRepository()
         {
             return new ObraSocialRepository(_SysEntitiesContext);
+        }
+
+        private static DiagnosticoRepository DiagnosticoRepository()
+        {
+            return new DiagnosticoRepository(_SysEntitiesContext);
         }
     }
 }

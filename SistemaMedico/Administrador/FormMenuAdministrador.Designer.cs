@@ -37,12 +37,8 @@
             this.agregarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.patenteFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarFamiliaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.BackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RestoreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,14 +48,13 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuariodToolStripMenuItem,
             this.menuPatenteToolStripMenuItem,
-            this.patenteFamiliaToolStripMenuItem,
-            this.salirToolStripMenuItem,
-            this.salirToolStripMenuItem1,
+            this.BackupToolStripMenuItem,
+            this.RestoreToolStripMenuItem1,
             this.salirToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(679, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(590, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -77,21 +72,21 @@
             // agregarUsuarioToolStripMenuItem
             // 
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
             this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // modificarUsuarioToolStripMenuItem
             // 
             this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
             this.modificarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.modificarUsuarioToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
@@ -127,47 +122,19 @@
             this.eliminarPatenteToolStripMenuItem.Text = "Eliminar Patente";
             this.eliminarPatenteToolStripMenuItem.Click += new System.EventHandler(this.eliminarPatenteToolStripMenuItem_Click);
             // 
-            // patenteFamiliaToolStripMenuItem
+            // BackupToolStripMenuItem
             // 
-            this.patenteFamiliaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarFamiliaToolStripMenuItem,
-            this.modificarFamiliaToolStripMenuItem,
-            this.eliminarFamiliaToolStripMenuItem});
-            this.patenteFamiliaToolStripMenuItem.Name = "patenteFamiliaToolStripMenuItem";
-            this.patenteFamiliaToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.patenteFamiliaToolStripMenuItem.Text = "Patente Familia";
+            this.BackupToolStripMenuItem.Name = "BackupToolStripMenuItem";
+            this.BackupToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.BackupToolStripMenuItem.Text = "Menu Backup";
+            this.BackupToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // agregarFamiliaToolStripMenuItem
+            // RestoreToolStripMenuItem1
             // 
-            this.agregarFamiliaToolStripMenuItem.Name = "agregarFamiliaToolStripMenuItem";
-            this.agregarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.agregarFamiliaToolStripMenuItem.Text = "Agregar Familia";
-            // 
-            // modificarFamiliaToolStripMenuItem
-            // 
-            this.modificarFamiliaToolStripMenuItem.Name = "modificarFamiliaToolStripMenuItem";
-            this.modificarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.modificarFamiliaToolStripMenuItem.Text = "Modificar Familia";
-            // 
-            // eliminarFamiliaToolStripMenuItem
-            // 
-            this.eliminarFamiliaToolStripMenuItem.Name = "eliminarFamiliaToolStripMenuItem";
-            this.eliminarFamiliaToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.eliminarFamiliaToolStripMenuItem.Text = "Eliminar Familia";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.salirToolStripMenuItem.Text = "Menu Backup";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // salirToolStripMenuItem1
-            // 
-            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(92, 20);
-            this.salirToolStripMenuItem1.Text = "Menu Restore";
-            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
+            this.RestoreToolStripMenuItem1.Name = "RestoreToolStripMenuItem1";
+            this.RestoreToolStripMenuItem1.Size = new System.Drawing.Size(92, 20);
+            this.RestoreToolStripMenuItem1.Text = "Menu Restore";
+            this.RestoreToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
             // 
             // salirToolStripMenuItem2
             // 
@@ -180,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 393);
+            this.ClientSize = new System.Drawing.Size(590, 420);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -206,12 +173,8 @@
         private System.Windows.Forms.ToolStripMenuItem agregarPatenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarPatenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarPatenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem BackupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RestoreToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem patenteFamiliaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarFamiliaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarFamiliaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarFamiliaToolStripMenuItem;
     }
 }

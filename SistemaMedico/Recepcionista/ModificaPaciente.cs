@@ -15,6 +15,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Recepcionista
 {
@@ -32,7 +33,11 @@ namespace UI.Recepcionista
 
         private void ModificaPaciente_Load(object sender, EventArgs e)
         {
-
+            lblNuevoDomicilio.Translate();
+            lblNuevoContacto.Translate();
+            lblApellidoPaciente.Translate();
+            btnBuscar.Translate();
+            btnModificar.Translate();
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
@@ -75,6 +80,7 @@ namespace UI.Recepcionista
 
             }
             MessageBox.Show("Paciente modificado con éxito!");
+            Limpiar();
 
 
         }
@@ -88,7 +94,7 @@ namespace UI.Recepcionista
             }
             else
             {
-                var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtNombrePaciente.Text));
+                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
                 //dataGridView1.DataSource = usser;
                 dataGridView1.DataSource = usser.ToList();
             }
@@ -98,6 +104,14 @@ namespace UI.Recepcionista
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Limpiar()
+        {
+            txtNombrePaciente.Text = "";
+            txtNuevoContacto.Text = "";
+            txtNuevoDomicilio.Text = "";
+            dataGridView1.ClearSelection();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,14 +24,14 @@ namespace SistemaMedico.Recepcionista
         {
             if (string.IsNullOrEmpty(txtPacienteAEliminar.Text))
             {
-                //var user = PacienteBll.Current.GetAll();
-                //dataGridView1.DataSource = user;
+                var user = PacienteBll.Current.GetAll();
+                dataGridView1.DataSource = user;
             }
             else
             {
-                //var usser = PacienteBll.Current.GetAll().Where(x => x.Nombre.Contains(txtPacienteAEliminar.Text));
-                ////dataGridView1.DataSource = usser;
-                //dataGridView1.DataSource = usser.ToList();
+                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtPacienteAEliminar.Text));
+                //dataGridView1.DataSource = usser;
+                dataGridView1.DataSource = usser.ToList();
             }
         }
 
@@ -41,7 +42,7 @@ namespace SistemaMedico.Recepcionista
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
 
-                //var busqueda = PacienteBll.Current.GetOne((int)r.Cells["IdPaciente"].Value);
+                var busqueda = PacienteBll.Current.GetOne((int)r.Cells["IdPaciente"].Value);
                 paciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
                 paciente.DNI = (int)r.Cells["DNI"].Value;
                 paciente.Nombre = r.Cells["Nombre"].Value.ToString();
@@ -50,11 +51,24 @@ namespace SistemaMedico.Recepcionista
                 paciente.Dirección = r.Cells["Dirección"].Value.ToString();
                 paciente.Contacto = r.Cells["Contacto"].Value.ToString();
                 paciente.Sexo = r.Cells["Sexo"].Value.ToString();
-                //PacienteBll.Current.Delete(paciente.IdPaciente);
+                PacienteBll.Current.Delete(paciente.IdPaciente);
 
 
             }
             MessageBox.Show("Paciente Eliminado con éxito!");
+            Limpiar();
+        }
+        private void Limpiar()
+        {
+            txtPacienteAEliminar.Text = "";
+            dataGridView1.ClearSelection();
+        }
+
+        private void EliminarPaciente_Load(object sender, EventArgs e)
+        {
+            lblApellidoPaciente.Translate();
+            btnBuscar.Translate();
+            btnEliminar.Translate();
         }
     }
 }

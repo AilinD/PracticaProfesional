@@ -52,7 +52,7 @@ namespace Services.DAL.PatenteDAL
             }
         }
 
-        public static Usuario GetUsuarioByNameAndPassword(string user)
+        public static Usuario GetUsuarioByNameAndPassword(string user,string password)
         {
             try
             
@@ -89,11 +89,63 @@ namespace Services.DAL.PatenteDAL
                         throw new Exception("Usuario Inexistente");
                     }
 
-                    //string key = ConfigurationManager.AppSettings["key"];
-                    //string passwd = usuario.Password;
-                    //string basePass = Hashing.EncryptString(key, contraseña);
-                    //if (contraseña == basePass);
+                    string key = ConfigurationManager.AppSettings["key"];
+                    string passwd = usuario.Password;
+                    string basePass = Hashing.EncryptString(key, password);
+                    if (usuario.Password == basePass)
+                    {
+                        return usuario;
+                    }
+                    return null;   
 
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, user);
+
+                throw;
+            }
+        }
+
+        public static Usuario GetUsuarioByName(string user)
+        {
+            try
+
+            {
+
+                DataTable data = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ctr))
+                {
+                    Usuario usuario = new Usuario();
+
+
+                    SqlCommand sqlComm = new SqlCommand("GetUsuarioByNameAndPassword", conn);
+                    sqlComm.Parameters.AddWithValue("@User", user);
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                    da.Fill(data);
+
+
+
+                    foreach (DataRow dr in data.Rows)
+                    {
+                        var permisos = usuario.Permisos.Select(x => x.Nombre).ToString();
+                        usuario.Nombre = dr["Nombre"].ToString();
+                        usuario.Password = dr["Contraseña"].ToString();
+                    }
+
+                    if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
+                    {
+                        throw new Exception("Usuario Inexistente");
+                    }
+
+                   
                     return usuario;
 
                 }

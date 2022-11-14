@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,19 @@ namespace SistemaMedico.Recepcionista
 
             }
             MessageBox.Show("Obra Social eliminada con éxito!");
+            Limpiar();
+        }
+        private void Limpiar()
+        {
+            txtOSaEliminar.Text = "";
+            dataGridView1.ClearSelection();
+        }
+
+        private void EliminarObraSocial_Load(object sender, EventArgs e)
+        {
+            lblObraSocial.Translate();
+            btnBuscar.Translate();
+            btnEliminar.Translate();
         }
     }
 }

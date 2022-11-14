@@ -1,5 +1,7 @@
 ﻿using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.BLL.PatenteBLL;
+using Services.Domain;
 using SistemaMedico.Extensions;
 using System.Diagnostics.Tracing;
 using UI.Generales;
@@ -8,9 +10,21 @@ namespace UI
 {
     public partial class Login : Form
     {
+        #region singleton
+        private readonly static Patente _instance = new Patente();
+        public static Patente Current
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        #endregion
+        public Sesion SesionIniciada { get; set; }
 
         public Login()
         {
+            SesionIniciada = new Sesion();
             InitializeComponent();
 
         }
@@ -21,15 +35,23 @@ namespace UI
 
             if (BLLUsuario.TryLogin(txtUsuario.Text, txtContraseña.Text))
             {
-                var isAuth = BLLUsuario.GetUsuarioByUserName(txtUsuario.Text);
-                //SesionIniciada.usuario = isAuth.usuario;
-                this.DialogResult = DialogResult.OK;
 
-                //LoggerBLL.WriteLog("Logueando",EventLevel.Informational,isAuth.usuario.Nombre);
-                MessageBox.Show("Login correcto!");
-                this.Close();
-                //MenuPrincipal menuPrincipal = new MenuPrincipal();
-                //menuPrincipal.ShowDialog();
+                var isAuth = BLLUsuario.GetUsuarioByUserName6Password(txtUsuario.Text,txtContraseña.Text);
+                if (isAuth == null)
+                {
+                    MessageBox.Show("Login incorrecto!");
+                }
+                else if (isAuth != null)
+                {
+                    SesionIniciada.usuario = isAuth.usuario;
+                    this.DialogResult = DialogResult.OK;
+
+                    LoggerBLL.WriteLog("Logueando", EventLevel.Informational, isAuth.usuario.Nombre);
+                    MessageBox.Show("Login correcto!");
+                    this.Close();
+                }
+
+
             }
             else
             {

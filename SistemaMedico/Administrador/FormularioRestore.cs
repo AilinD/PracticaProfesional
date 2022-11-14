@@ -27,7 +27,7 @@ namespace UI.Administrador
             cboxRestore.DisplayMember = "Value";
 
             btnSeleccionar.Translate();
-            btnGenerar.Translate();
+            btnGuardar.Translate();
             lblSeleccionar.Translate();
             lblSeleccBkp.Translate();
         }
@@ -43,6 +43,7 @@ namespace UI.Administrador
                 Services.DAL.RestoreRepository.Current.CrearRestore(databaseName,path,save);
                 CaluculateAll(progressBarRestore);
                 MessageBox.Show("Restore Exitoso!");
+                Limpiar();
                 this.Close();
             }
             catch (Exception ex)
@@ -81,7 +82,10 @@ namespace UI.Administrador
            
         }
 
-        
+        private void Limpiar()
+        {
+            textBox1.Text = "";
+        }
 
        
     }

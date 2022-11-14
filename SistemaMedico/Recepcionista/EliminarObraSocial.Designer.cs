@@ -32,7 +32,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtOSaEliminar = new System.Windows.Forms.TextBox();
-            this.lblOS = new System.Windows.Forms.Label();
+            this.lblObraSocial = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,28 +76,29 @@
             this.txtOSaEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtOSaEliminar.TabIndex = 21;
             // 
-            // lblOS
+            // lblObraSocial
             // 
-            this.lblOS.AutoSize = true;
-            this.lblOS.Location = new System.Drawing.Point(59, 25);
-            this.lblOS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOS.Name = "lblOS";
-            this.lblOS.Size = new System.Drawing.Size(67, 15);
-            this.lblOS.TabIndex = 20;
-            this.lblOS.Text = "Obra Social";
+            this.lblObraSocial.AutoSize = true;
+            this.lblObraSocial.Location = new System.Drawing.Point(59, 25);
+            this.lblObraSocial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblObraSocial.Name = "lblObraSocial";
+            this.lblObraSocial.Size = new System.Drawing.Size(67, 15);
+            this.lblObraSocial.TabIndex = 20;
+            this.lblObraSocial.Text = "Obra Social";
             // 
             // EliminarObraSocial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 345);
+            this.ClientSize = new System.Drawing.Size(522, 345);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtOSaEliminar);
-            this.Controls.Add(this.lblOS);
+            this.Controls.Add(this.lblObraSocial);
             this.Name = "EliminarObraSocial";
             this.Text = "EliminarObraSocial";
+            this.Load += new System.EventHandler(this.EliminarObraSocial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,6 +111,6 @@
         private Button btnEliminar;
         private DataGridView dataGridView1;
         private TextBox txtOSaEliminar;
-        private Label lblOS;
+        private Label lblObraSocial;
     }
 }

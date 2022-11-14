@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,14 +24,14 @@ namespace SistemaMedico.Recepcionista
         {
             if (string.IsNullOrEmpty(txtApellidoMedico.Text))
             {
-                //var user = MedicoBLL.Current.GetAll();
-                //dataGridView1.DataSource = user;
+                var user = MedicoBLL.Current.GetAll();
+                dataGridView1.DataSource = user;
             }
             else
             {
-                //var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
-                //dataGridView1.DataSource = usser;
-                //dataGridView1.DataSource = usser.ToList();
+                var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
+                dataGridView1.DataSource = usser;
+                dataGridView1.DataSource = usser.ToList();
             }
         }
 
@@ -65,11 +66,28 @@ namespace SistemaMedico.Recepcionista
                     medico.Contacto = txtNuevoContacto.Text;
                 }
 
-                //MedicoBLL.Current.Update(medico);
+                MedicoBLL.Current.Update(medico);
 
 
             }
             MessageBox.Show("Medico modificado con éxito!");
+            Limpiar();
+        }
+        private void Limpiar()
+        {
+            txtApellidoMedico.Text = "";
+            txtNuevoContacto.Text = "";
+            txtNuevoDomicilio.Text = "";
+            dataGridView1.ClearSelection();
+        }
+
+        private void ModificarMedico_Load(object sender, EventArgs e)
+        {
+            lblApellidoMedico.Translate();
+            lblNuevoContacto.Translate();
+            lblNuevoDomicilio.Translate();
+            btnBuscar.Translate();
+            btnModificar.Translate();
         }
     }
 }

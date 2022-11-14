@@ -50,7 +50,7 @@ namespace UI.Recepcionista
             lblDomicilio.Translate();
             lblSexo.Translate();
             lblContacto.Translate();
-            btnGenerar.Translate();
+            btnAgregar.Translate();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,6 +93,7 @@ namespace UI.Recepcionista
 
 
                 MessageBox.Show("Paciente insertado con éxito!");
+                Limpiar();
             }
         
         }
@@ -113,6 +114,15 @@ namespace UI.Recepcionista
             return false;
         }
 
+        private void Limpiar()
+        {
+            txtApellido.Clear();
+            txtContacto.Clear();
+            txtDNI.Clear();
+            txtDomicilio.Clear();
+            txtNombre.Clear();
+            
+        }
 
 
     }

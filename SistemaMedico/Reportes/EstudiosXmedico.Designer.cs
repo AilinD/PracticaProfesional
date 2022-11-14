@@ -1,6 +1,6 @@
-﻿namespace UI.Medicos
+﻿namespace SistemaMedico.Reportes
 {
-    partial class DerivarPaciente
+    partial class EstudiosXmedico
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // DerivarPaciente
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 302);
-            this.Name = "DerivarPaciente";
-            this.Text = "DerivarPaciente";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "EstudiosXmedico";
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using DAL.Models;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,7 +72,13 @@ namespace SistemaMedico.Recepcionista
             cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
             cboxEspecialidad.DisplayMember = "Nombre";
             cboxEspecialidad.ValueMember = "Id";
-            
+            lblApellido.Translate();
+            lblContacto.Translate();
+            lblDomicilio.Translate();
+            lblEspecialidad.Translate();
+            lblMatricula.Translate();
+            lblNombre.Translate();
+            btnAgregar.Translate();
         }
 
 

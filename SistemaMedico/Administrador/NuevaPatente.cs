@@ -46,9 +46,9 @@ namespace UI.Administrador
             cboxFamiliaPatente.DataSource = familia;
             cboxFamiliaPatente.DisplayMember = "Value";
 
-            btnGenerar.Translate();
+            btnGuardar.Translate();
             lblFamiliaPatente.Translate();
-            lblNombrePatente.Translate();
+            lblpatente.Translate();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -57,6 +57,12 @@ namespace UI.Administrador
             _instance.Nombre = txtNombrePatente.Text;
             PatenteBLL.Insert(_instance);
             MessageBox.Show("Patente Insertada con exito");
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            txtNombrePatente.Text = "";
         }
     }
 }

@@ -29,6 +29,8 @@ namespace BLL.MapperConfig
                 cfg.CreateMap<EspecialidadDto, Especialidad>();
                 cfg.CreateMap<ObraSocial, ObraSocialDto>();
                 cfg.CreateMap<ObraSocialDto, ObraSocial>();
+                cfg.CreateMap<Diagnostico,DiagnosticoDto>();
+                cfg.CreateMap<DiagnosticoDto, Diagnostico>();
             });
 
             _mapper = config.CreateMapper();

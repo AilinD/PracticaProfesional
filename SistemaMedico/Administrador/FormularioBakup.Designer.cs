@@ -30,7 +30,7 @@ namespace UI.Administrador
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBackup = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnSeleccionar = new System.Windows.Forms.Button();
@@ -41,16 +41,16 @@ namespace UI.Administrador
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
-            // btnBackup
+            // btnGuardar
             // 
-            this.btnBackup.Location = new System.Drawing.Point(214, 248);
-            this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(88, 27);
-            this.btnBackup.TabIndex = 0;
-            this.btnBackup.Text = "Generar";
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(214, 248);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(88, 27);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnBackup_Click);
             // 
             // progressBar1
             // 
@@ -124,7 +124,7 @@ namespace UI.Administrador
             this.Controls.Add(this.lblGuardar);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.btnBackup);
+            this.Controls.Add(this.btnGuardar);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormularioBakup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -138,7 +138,7 @@ namespace UI.Administrador
 
         #endregion
 
-        private System.Windows.Forms.Button btnBackup;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnSeleccionar;

@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.Graphics.Printing.PrintTicket;
 
 namespace SistemaMedico.Recepcionista
 {
@@ -48,6 +50,21 @@ namespace SistemaMedico.Recepcionista
 
             }
             MessageBox.Show("Estudio modificado con éxito!");
+            Limpiar();
+        }
+        private void Limpiar()
+        {
+            txtEstudio.Text = "";
+            txtNuevoNombre.Text = "";
+            dataGridView1.ClearSelection();
+        }
+
+        private void ModificarEstudio_Load(object sender, EventArgs e)
+        {
+            lblNuevoNombre.Translate();
+            lblEstudio.Translate();
+            btnModificar.Translate();
+            btnBuscar.Translate();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace UI.Administrador
                // BLLUsuario.DeletePatentes(busqueda.usuario);
                 BLLUsuario.Delete(busqueda.usuario);
                 MessageBox.Show("Usuario Eliminado con Éxito!");
-
+                Limpiar();
             }
 
         }
@@ -57,6 +57,12 @@ namespace UI.Administrador
             lblNombreUsuario.Translate();
             btnBuscar.Translate();
             btnEliminar.Translate();
+        }
+
+        private void Limpiar()
+        {
+            txtUsuarioAEliminar.Text = "";
+            dataGridView1.ClearSelection();
         }
     }
 }

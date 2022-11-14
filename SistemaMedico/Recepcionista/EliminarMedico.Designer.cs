@@ -32,7 +32,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtMedicoAEliminar = new System.Windows.Forms.TextBox();
-            this.lblMedico = new System.Windows.Forms.Label();
+            this.lblApellidoMedico = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,15 +76,15 @@
             this.txtMedicoAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtMedicoAEliminar.TabIndex = 16;
             // 
-            // lblMedico
+            // lblApellidoMedico
             // 
-            this.lblMedico.AutoSize = true;
-            this.lblMedico.Location = new System.Drawing.Point(67, 33);
-            this.lblMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMedico.Name = "lblMedico";
-            this.lblMedico.Size = new System.Drawing.Size(94, 15);
-            this.lblMedico.TabIndex = 15;
-            this.lblMedico.Text = "Apellido Medico";
+            this.lblApellidoMedico.AutoSize = true;
+            this.lblApellidoMedico.Location = new System.Drawing.Point(67, 33);
+            this.lblApellidoMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellidoMedico.Name = "lblApellidoMedico";
+            this.lblApellidoMedico.Size = new System.Drawing.Size(94, 15);
+            this.lblApellidoMedico.TabIndex = 15;
+            this.lblApellidoMedico.Text = "Apellido Medico";
             // 
             // EliminarMedico
             // 
@@ -95,9 +95,10 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtMedicoAEliminar);
-            this.Controls.Add(this.lblMedico);
+            this.Controls.Add(this.lblApellidoMedico);
             this.Name = "EliminarMedico";
             this.Text = "EliminarMedico";
+            this.Load += new System.EventHandler(this.EliminarMedico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -110,6 +111,6 @@
         private Button btnEliminar;
         private DataGridView dataGridView1;
         private TextBox txtMedicoAEliminar;
-        private Label lblMedico;
+        private Label lblApellidoMedico;
     }
 }

@@ -50,7 +50,7 @@ namespace BLL.Business {
                 var dtoToentity = new Sintoma()
                 {
                     IdSintoma = obj.IdSintoma,
-                    Nombre = obj.sintoma
+                    Nombre = obj.Nombre
 
                 };
                 genericRepository.Insert(dtoToentity);
@@ -71,7 +71,7 @@ namespace BLL.Business {
                 var dtoToentity = new Sintoma()
                 {
                     IdSintoma = obj.IdSintoma,
-                    Nombre = obj.sintoma
+                    Nombre = obj.Nombre
 
                 };
                 genericRepository.Update(dtoToentity);

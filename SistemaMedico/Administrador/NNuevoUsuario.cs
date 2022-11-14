@@ -11,6 +11,7 @@ using Services.BLL.PatenteBLL;
 using System.Configuration;
 using Services.Domain;
 using SistemaMedico.Extensions;
+using Services;
 
 namespace UI.Administrador
 {
@@ -35,12 +36,12 @@ namespace UI.Administrador
         {
             if (txtContraseña.Text.Equals(txtContra2.Text))
             {
-                //var key = ConfigurationManager.AppSettings.Get("key");
+                var key = ConfigurationManager.AppSettings.Get("key");
                 Usuario usuario = new Usuario();
                 Familia familia = new Familia();
                 familia.Nombre = cboxPatentes.SelectedItem.ToString();
                 usuario.Nombre = txtNombre.Text;
-                //usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
+                usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
 
 
 
@@ -52,8 +53,8 @@ namespace UI.Administrador
                 usuario.Permisos.Add(_instance);
                 usuario.Permisos.Add(familia);
                 BLLUsuario.Insert(usuario);
-
-                this.Close();
+                Limpiar();
+                
 
             }
         }
@@ -81,7 +82,7 @@ namespace UI.Administrador
             cboxPatentes.DataSource =  permisos;
             cboxPatentes.DisplayMember = "Value";
 
-            btnGenerar.Translate();
+            btnGuardar.Translate();
             lblNombre.Translate();
             lblPass.Translate();
             lblRepitePass.Translate();
@@ -97,6 +98,13 @@ namespace UI.Administrador
         private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Limpiar()
+        {
+            txtContra2.Text = "";
+            txtContraseña.Text = "";
+            txtNombre.Text = "";
         }
     }
 }

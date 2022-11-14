@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,20 @@ namespace SistemaMedico.Recepcionista
 
             }
             MessageBox.Show("Estudio eliminado con éxito!");
+            Limpiar();
+        }
+
+        private void EliminarEstudio_Load(object sender, EventArgs e)
+        {
+            lblEstudio.Translate();
+            btnBuscar.Translate();
+            btnEliminar.Translate();
+        }
+
+        private void Limpiar()
+        {
+            txtEstudioaEliminar.Text = "";
+           
         }
     }
 }

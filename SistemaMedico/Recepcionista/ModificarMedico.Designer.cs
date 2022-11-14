@@ -32,26 +32,26 @@
             this.lblNuevoContacto = new System.Windows.Forms.Label();
             this.txtNuevoDomicilio = new System.Windows.Forms.TextBox();
             this.lblNuevoDomicilio = new System.Windows.Forms.Label();
-            this.btnModificarMedico = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.txtApellidoMedico = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnBuscaMedico = new System.Windows.Forms.Button();
+            this.lblApellidoMedico = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNuevoContacto
             // 
-            this.txtNuevoContacto.Location = new System.Drawing.Point(612, 152);
+            this.txtNuevoContacto.Location = new System.Drawing.Point(145, 340);
             this.txtNuevoContacto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevoContacto.Name = "txtNuevoContacto";
-            this.txtNuevoContacto.Size = new System.Drawing.Size(116, 23);
+            this.txtNuevoContacto.Size = new System.Drawing.Size(170, 23);
             this.txtNuevoContacto.TabIndex = 52;
             // 
             // lblNuevoContacto
             // 
             this.lblNuevoContacto.AutoSize = true;
-            this.lblNuevoContacto.Location = new System.Drawing.Point(481, 160);
+            this.lblNuevoContacto.Location = new System.Drawing.Point(32, 343);
             this.lblNuevoContacto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevoContacto.Name = "lblNuevoContacto";
             this.lblNuevoContacto.Size = new System.Drawing.Size(94, 15);
@@ -60,67 +60,67 @@
             // 
             // txtNuevoDomicilio
             // 
-            this.txtNuevoDomicilio.Location = new System.Drawing.Point(612, 114);
+            this.txtNuevoDomicilio.Location = new System.Drawing.Point(145, 302);
             this.txtNuevoDomicilio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevoDomicilio.Name = "txtNuevoDomicilio";
-            this.txtNuevoDomicilio.Size = new System.Drawing.Size(116, 23);
+            this.txtNuevoDomicilio.Size = new System.Drawing.Size(170, 23);
             this.txtNuevoDomicilio.TabIndex = 50;
             // 
             // lblNuevoDomicilio
             // 
             this.lblNuevoDomicilio.AutoSize = true;
-            this.lblNuevoDomicilio.Location = new System.Drawing.Point(481, 117);
+            this.lblNuevoDomicilio.Location = new System.Drawing.Point(32, 305);
             this.lblNuevoDomicilio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevoDomicilio.Name = "lblNuevoDomicilio";
             this.lblNuevoDomicilio.Size = new System.Drawing.Size(96, 15);
             this.lblNuevoDomicilio.TabIndex = 49;
             this.lblNuevoDomicilio.Text = "Nuevo Domicilio";
             // 
-            // btnModificarMedico
+            // btnModificar
             // 
-            this.btnModificarMedico.Location = new System.Drawing.Point(587, 248);
-            this.btnModificarMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnModificarMedico.Name = "btnModificarMedico";
-            this.btnModificarMedico.Size = new System.Drawing.Size(88, 27);
-            this.btnModificarMedico.TabIndex = 48;
-            this.btnModificarMedico.Text = "Modificar";
-            this.btnModificarMedico.UseVisualStyleBackColor = true;
-            this.btnModificarMedico.Click += new System.EventHandler(this.btnModificarMedico_Click);
+            this.btnModificar.Location = new System.Drawing.Point(324, 336);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(88, 27);
+            this.btnModificar.TabIndex = 48;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificarMedico_Click);
             // 
             // txtApellidoMedico
             // 
-            this.txtApellidoMedico.Location = new System.Drawing.Point(161, 48);
+            this.txtApellidoMedico.Location = new System.Drawing.Point(136, 24);
             this.txtApellidoMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtApellidoMedico.Name = "txtApellidoMedico";
             this.txtApellidoMedico.Size = new System.Drawing.Size(179, 23);
             this.txtApellidoMedico.TabIndex = 47;
             // 
-            // lblUsuario
+            // lblApellidoMedico
             // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.BackColor = System.Drawing.SystemColors.Control;
-            this.lblUsuario.Location = new System.Drawing.Point(57, 51);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(94, 15);
-            this.lblUsuario.TabIndex = 46;
-            this.lblUsuario.Text = "Apellido Medico";
+            this.lblApellidoMedico.AutoSize = true;
+            this.lblApellidoMedico.BackColor = System.Drawing.SystemColors.Control;
+            this.lblApellidoMedico.Location = new System.Drawing.Point(32, 27);
+            this.lblApellidoMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellidoMedico.Name = "lblApellidoMedico";
+            this.lblApellidoMedico.Size = new System.Drawing.Size(94, 15);
+            this.lblApellidoMedico.TabIndex = 46;
+            this.lblApellidoMedico.Text = "Apellido Medico";
             // 
-            // btnBuscaMedico
+            // btnBuscar
             // 
-            this.btnBuscaMedico.Location = new System.Drawing.Point(465, 51);
-            this.btnBuscaMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnBuscaMedico.Name = "btnBuscaMedico";
-            this.btnBuscaMedico.Size = new System.Drawing.Size(88, 27);
-            this.btnBuscaMedico.TabIndex = 45;
-            this.btnBuscaMedico.Text = "Buscar";
-            this.btnBuscaMedico.UseVisualStyleBackColor = true;
-            this.btnBuscaMedico.Click += new System.EventHandler(this.btnBuscaMedico_Click);
+            this.btnBuscar.Location = new System.Drawing.Point(327, 21);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 27);
+            this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscaMedico_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(60, 94);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 70);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(380, 216);
@@ -130,18 +130,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 357);
+            this.ClientSize = new System.Drawing.Size(442, 390);
             this.Controls.Add(this.txtNuevoContacto);
             this.Controls.Add(this.lblNuevoContacto);
             this.Controls.Add(this.txtNuevoDomicilio);
             this.Controls.Add(this.lblNuevoDomicilio);
-            this.Controls.Add(this.btnModificarMedico);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtApellidoMedico);
-            this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.btnBuscaMedico);
+            this.Controls.Add(this.lblApellidoMedico);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ModificarMedico";
             this.Text = "ModificarMedico";
+            this.Load += new System.EventHandler(this.ModificarMedico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,10 +155,10 @@
         private Label lblNuevoContacto;
         private TextBox txtNuevoDomicilio;
         private Label lblNuevoDomicilio;
-        private Button btnModificarMedico;
+        private Button btnModificar;
         private TextBox txtApellidoMedico;
-        private Label lblUsuario;
-        private Button btnBuscaMedico;
+        private Label lblApellidoMedico;
+        private Button btnBuscar;
         private DataGridView dataGridView1;
     }
 }

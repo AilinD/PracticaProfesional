@@ -1,4 +1,5 @@
-﻿using SistemaMedico.Extensions;
+﻿using DAL.Models;
+using SistemaMedico.Extensions;
 
 namespace UI.Administrador
 {
@@ -75,7 +76,20 @@ namespace UI.Administrador
 
         private void FormMenuAdministrador_Load(object sender, EventArgs e)
         {
-            //menuUsuariodToolStripMenuItem.Translate();
+            menuPatenteToolStripMenuItem.Translate();
+            menuUsuariodToolStripMenuItem.Translate();
+            BackupToolStripMenuItem.Translate();
+            RestoreToolStripMenuItem1.Translate();
+            agregarPatenteToolStripMenuItem.Translate();
+            agregarUsuarioToolStripMenuItem.Translate();
+            modificarPatenteToolStripMenuItem.Translate();
+            modificarUsuarioToolStripMenuItem.Translate();
+            eliminarPatenteToolStripMenuItem.Translate();
+            eliminarUsuarioToolStripMenuItem.Translate();
+            salirToolStripMenuItem2.Translate();
+            salirToolStripMenuItem2.Translate();
+            
+            
         }
 
         private Form CreateMDIChild<T>() where T : Form

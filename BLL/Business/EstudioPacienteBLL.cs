@@ -1,4 +1,6 @@
-﻿using DAL;
+﻿using BLL.Dto;
+using BLL.MapperConfig;
+using DAL;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Services;
@@ -53,5 +55,45 @@ namespace BLL.Business
             }
             
         }
+
+        //public void EstudioPaciente(int idpaciente)
+        //{
+        //    var busqueda =_context.EstudioPacientes.FirstOrDefault().IdPaciente= idpaciente;
+        //    var prueba = _context.EstudioPacientes.Select(x=>x.IdPaciente.Value)
+            
+        //}
+
+        //public EstudioPaciente GetOne(int? guid)
+        //{
+        //    try
+        //    {
+        //        ////var op = MapperHelper.GetMapper().Map<EstudioPaciente>(_context.GetOne(guid));
+
+        //        /* return op;*/
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ExceptionManager.Current.Handle(ex);
+
+        //        throw;
+        //    }
+
+        //}
+
+        public IQueryable< EstudioPaciente> select(int id)
+        {
+            var busqueda = (from a in _context.EstudioPacientes join p in _context.Pacientes on a.IdPaciente equals id join estudio in _context.Estudios on a.IdEstudio equals estudio.Id
+                            where a.Id == id
+                            select new EstudioPaciente { IdEstudio = a.IdEstudio,
+                                Comentarios = a.Comentarios,
+                                IdMedico = a.IdMedico,
+                                IdPaciente = a.IdPaciente,
+                                Fecha = a.Fecha });
+
+
+            return busqueda;
+
+        }
+
     }
 }

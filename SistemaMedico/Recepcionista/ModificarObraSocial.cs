@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,15 @@ namespace SistemaMedico.Recepcionista
             MessageBox.Show("Obra Social modificada con éxito!");
             txtNuevoNombre.Text = "";
             txtObraSocial.Text = "";
+            dataGridView1.ClearSelection();
+        }
+
+        private void ModificarObraSocial_Load(object sender, EventArgs e)
+        {
+            lblNuevoNombre.Translate();
+            lblObraSocial.Translate();
+            btnBuscar.Translate();
+            btnModificar.Translate();
         }
     }
 }

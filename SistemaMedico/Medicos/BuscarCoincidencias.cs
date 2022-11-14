@@ -2,6 +2,7 @@
 using SbsSW.DesignByContract;
 using SbsSW.SwiPlCs;
 using SbsSW.SwiPlCs.Exceptions;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,12 @@ namespace UI.Medicos
             {
                 Console.WriteLine(ex);
             }
+            chkenf.Translate();
+            chkEspecialidades.Translate();
+            chkEspecialista.Translate();
+            chkSintomaDe.Translate();
+            btnConsultar.Translate();
+            btnLimpiar.Translate();
            
 
         }                                           

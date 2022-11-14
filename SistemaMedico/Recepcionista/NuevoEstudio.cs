@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,12 @@ namespace SistemaMedico.Recepcionista
                 return true;
             }
             return false;
+        }
+
+        private void NuevoEstudio_Load(object sender, EventArgs e)
+        {
+            lblEstudio.Translate();
+            btnAgregar.Translate();
         }
     }
 

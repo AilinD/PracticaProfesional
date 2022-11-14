@@ -41,7 +41,7 @@
             this.cboxSexo = new System.Windows.Forms.ComboBox();
             this.lblSexo = new System.Windows.Forms.Label();
             this.cboxObraSocial = new System.Windows.Forms.ComboBox();
-            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
@@ -168,16 +168,16 @@
             this.cboxObraSocial.TabIndex = 14;
             this.cboxObraSocial.SelectedIndexChanged += new System.EventHandler(this.cboxObraSocial_SelectedIndexChanged);
             // 
-            // btnGenerar
+            // btnAgregar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(334, 256);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(189, 27);
-            this.btnGenerar.TabIndex = 15;
-            this.btnGenerar.Text = "Generar";
-            this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.button1_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(334, 256);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(189, 27);
+            this.btnAgregar.TabIndex = 15;
+            this.btnAgregar.Text = "Generar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker1
             // 
@@ -216,7 +216,7 @@
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.lblDNI);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.btnGenerar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cboxObraSocial);
             this.Controls.Add(this.lblSexo);
             this.Controls.Add(this.cboxSexo);
@@ -254,7 +254,7 @@
         private System.Windows.Forms.ComboBox cboxSexo;
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.ComboBox cboxObraSocial;
-        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label lblDNI;

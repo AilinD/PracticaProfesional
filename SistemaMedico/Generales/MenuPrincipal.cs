@@ -1,4 +1,7 @@
 ﻿
+using Services.Domain;
+using SistemaMedico.Extensions;
+using SistemaMedico.Medicos;
 using SistemaMedico.Recepcionista;
 using System;
 using System.Collections.Generic;
@@ -12,15 +15,17 @@ using System.Windows.Forms;
 using UI.Administrador;
 using UI.Medicos;
 using UI.Recepcionista;
+using static System.Collections.Specialized.BitVector32;
 
 namespace UI.Generales
 {
     public partial class MenuPrincipal : Form
     {
-       
-        public MenuPrincipal()
+        private readonly Sesion _sesion;
+        public MenuPrincipal(Sesion sesion)
         {
             IsMdiContainer = true;
+            _sesion = sesion;
             InitializeComponent();
         }
        
@@ -37,7 +42,28 @@ namespace UI.Generales
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            medicosToolStripMenuItem.Translate();
+            menuAdministradorToolStripMenuItem.Translate();
+            menuRecepcionToolStripMenuItem.Translate();
+            salirToolStripMenuItem.Translate();
+            agregarMedicoToolStripMenuItem.Translate();
+            nuevoPacienteToolStripMenuItem.Translate();
+            nuevoPacienteToolStripMenuItem1.Translate();
+            nuevaObraSocialToolStripMenuItem.Translate();
+            modificarMedicoToolStripMenuItem.Translate();
+            modificarObraSocialToolStripMenuItem.Translate();
+            modificarPacienteToolStripMenuItem.Translate();
+            eliminarMedicoToolStripMenuItem.Translate();
+            eliminarObraSocialToolStripMenuItem.Translate();
+            eliminarPacienteToolStripMenuItem.Translate();
+            diagnosticoPacientesToolStripMenuItem.Translate();
+            informeDiagnosticoToolStripMenuItem.Translate();
+            solicitarEstudioToolStripMenuItem.Translate();
+            buscarCoincidenciasToolStripMenuItem.Translate();
+            menuMedicosToolStripMenuItem.Translate();
+            obrasSocialesToolStripMenuItem.Translate();
+            diagnosticoPacientesToolStripMenuItem.Translate();
+            SintomasToolStripMenuItem.Translate();
         }
 
         private void eToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,5 +158,17 @@ namespace UI.Generales
         {
             CreateMDIParent<EliminarObraSocial>();
         }
+
+        private void menuSintomasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<MenuSintomas>();
+        }
+
+        private void informeDiagnosticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIParent<Diagnostico>();
+        }
+
+      
     }
 }

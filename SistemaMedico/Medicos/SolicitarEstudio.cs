@@ -12,6 +12,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Medicos
 {
@@ -38,6 +39,15 @@ namespace UI.Medicos
         private void SolicitarEstudio_Load_1(object sender, EventArgs e)
         {
             cbocestudio.DataSource = EstudioBLL.Current.GetAll().Select(x => x.Nombre).ToList();
+            lblApellidoMedico.Translate();
+            lblComentarios.Translate();
+            lblDNI.Translate();
+            lblSeleccionaEstudio.Translate();
+            btnBusca.Translate();
+            btnBusca1.Translate();
+            btnBuscar.Translate();
+            btnModificar.Translate();
+            btnEstudio.Translate();
 
         }
 
@@ -83,6 +93,7 @@ namespace UI.Medicos
 
             EstudioPacienteBLL.Current.InsertEstudioPaciente(estudioPaciente);
             MessageBox.Show("Estudio solicitado con éxito!");
+            Limpiar();
         }
 
         private void btnBuscaMedico_Click(object sender, EventArgs e)
@@ -95,6 +106,17 @@ namespace UI.Medicos
         private void txtApellidoaciente_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Limpiar()
+        {
+            txtApellidoMedico.Text = "";
+            txtApellidoPaciente.Text = "";
+            txtComentarios.Text = "";
+            txtDniPaciente.Text = "";
+            dataGridView1.ClearSelection();
+            gridmedico.ClearSelection();
+            gridpaciente.ClearSelection();
         }
     }
 }

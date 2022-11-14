@@ -21,6 +21,7 @@ namespace UI.Administrador
                 Services.DAL.BackupRepository.Current.CrearBackup(db, save);
                 CaluculateAll(progressBar1);
                 MessageBox.Show("Backup Exitoso!");
+                Limpiar();
                 this.Close();
             }
             catch (Exception ex)
@@ -42,7 +43,7 @@ namespace UI.Administrador
             cboxBackup.DataSource = BDS;
             cboxBackup.DisplayMember = "Value";
 
-            btnBackup.Translate();
+            btnGuardar.Translate();
             btnSeleccionar.Translate();
             lblGuardar.Translate();
             lblSeleccionar.Translate();
@@ -95,6 +96,12 @@ namespace UI.Administrador
             folder= GetSelectedPath();
             txtUbic.Text = folder;
 
+        }
+
+        private void Limpiar()
+        {
+            txtUbic.Text = "";
+           
         }
 
     }  

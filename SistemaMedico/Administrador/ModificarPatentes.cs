@@ -92,7 +92,8 @@ namespace UI.Administrador
             PatenteBLL.Update(patente);
 
             MessageBox.Show("Patente modificada");
-            
+            Limpiar();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -104,9 +105,14 @@ namespace UI.Administrador
         {
             btnBuscar.Translate();
             btnModificar.Translate();
-            lblDescriptivo.Translate();
-            lblNombrePat.Translate();
             lblNuevoNombre.Translate();
+            lblpatente.Translate();
+            lblNuevoNombre.Translate();
+        }
+        private void Limpiar()
+        {
+            txtNombrePatente.Text = "";
+            txtNuevaPatente.Text = "";
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaMedico.Extensions;
 
 namespace UI.Recepcionista
 {
@@ -41,14 +42,16 @@ namespace UI.Recepcionista
                 };
                 ObraSocialBLL.Current.Insert(OS);
                 MessageBox.Show("Obra Social insertada con éxito!");
+                Limpiar();
             }
 
            
         }
 
         private void NuevaObraSocial_Load(object sender, EventArgs e)
-        {            
-            
+        {
+            lblObraSocial.Translate();
+            btnAgregar.Translate();
 
         }
 
@@ -61,6 +64,11 @@ namespace UI.Recepcionista
                 return true;
             }
             return false;
+        }
+
+        public void Limpiar()
+        {
+            txtNuevaOS.Clear();
         }
     }
 }

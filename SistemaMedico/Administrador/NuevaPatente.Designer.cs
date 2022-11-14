@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.lblNombrePatente = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblpatente = new System.Windows.Forms.Label();
             this.lblFamiliaPatente = new System.Windows.Forms.Label();
             this.txtNombrePatente = new System.Windows.Forms.TextBox();
             this.cboxFamiliaPatente = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // btnGenerar
+            // btnGuardar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(104, 171);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(88, 27);
-            this.btnGenerar.TabIndex = 0;
-            this.btnGenerar.Text = "Generar";
-            this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(104, 171);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(88, 27);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Generar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // lblNombrePatente
+            // lblpatente
             // 
-            this.lblNombrePatente.AutoSize = true;
-            this.lblNombrePatente.Location = new System.Drawing.Point(42, 60);
-            this.lblNombrePatente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombrePatente.Name = "lblNombrePatente";
-            this.lblNombrePatente.Size = new System.Drawing.Size(94, 15);
-            this.lblNombrePatente.TabIndex = 1;
-            this.lblNombrePatente.Text = "Nombre Patente";
+            this.lblpatente.AutoSize = true;
+            this.lblpatente.Location = new System.Drawing.Point(42, 60);
+            this.lblpatente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblpatente.Name = "lblpatente";
+            this.lblpatente.Size = new System.Drawing.Size(94, 15);
+            this.lblpatente.TabIndex = 1;
+            this.lblpatente.Text = "Nombre Patente";
             // 
             // lblFamiliaPatente
             // 
@@ -91,8 +91,8 @@
             this.Controls.Add(this.cboxFamiliaPatente);
             this.Controls.Add(this.txtNombrePatente);
             this.Controls.Add(this.lblFamiliaPatente);
-            this.Controls.Add(this.lblNombrePatente);
-            this.Controls.Add(this.btnGenerar);
+            this.Controls.Add(this.lblpatente);
+            this.Controls.Add(this.btnGuardar);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "NuevaPatente";
             this.Text = "NuevaPatente";
@@ -104,8 +104,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.Label lblNombrePatente;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label lblpatente;
         private System.Windows.Forms.Label lblFamiliaPatente;
         private System.Windows.Forms.TextBox txtNombrePatente;
         private System.Windows.Forms.ComboBox cboxFamiliaPatente;

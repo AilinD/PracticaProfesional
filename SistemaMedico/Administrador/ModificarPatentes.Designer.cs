@@ -32,25 +32,24 @@
             this.lblNuevoNombre = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtNombrePatente = new System.Windows.Forms.TextBox();
-            this.lblNombrePat = new System.Windows.Forms.Label();
+            this.lblpatente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblDescriptivo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNuevaPatente
             // 
-            this.txtNuevaPatente.Location = new System.Drawing.Point(485, 166);
+            this.txtNuevaPatente.Location = new System.Drawing.Point(132, 308);
             this.txtNuevaPatente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNuevaPatente.Name = "txtNuevaPatente";
-            this.txtNuevaPatente.Size = new System.Drawing.Size(116, 23);
+            this.txtNuevaPatente.Size = new System.Drawing.Size(179, 23);
             this.txtNuevaPatente.TabIndex = 41;
             // 
             // lblNuevoNombre
             // 
             this.lblNuevoNombre.AutoSize = true;
-            this.lblNuevoNombre.Location = new System.Drawing.Point(364, 170);
+            this.lblNuevoNombre.Location = new System.Drawing.Point(33, 311);
             this.lblNuevoNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNuevoNombre.Name = "lblNuevoNombre";
             this.lblNuevoNombre.Size = new System.Drawing.Size(89, 15);
@@ -59,7 +58,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(432, 249);
+            this.btnModificar.Location = new System.Drawing.Point(342, 308);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
@@ -76,16 +75,16 @@
             this.txtNombrePatente.Size = new System.Drawing.Size(179, 23);
             this.txtNombrePatente.TabIndex = 37;
             // 
-            // lblNombrePat
+            // lblpatente
             // 
-            this.lblNombrePat.AutoSize = true;
-            this.lblNombrePat.BackColor = System.Drawing.SystemColors.Control;
-            this.lblNombrePat.Location = new System.Drawing.Point(28, 60);
-            this.lblNombrePat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombrePat.Name = "lblNombrePat";
-            this.lblNombrePat.Size = new System.Drawing.Size(94, 15);
-            this.lblNombrePat.TabIndex = 36;
-            this.lblNombrePat.Text = "Nombre Patente";
+            this.lblpatente.AutoSize = true;
+            this.lblpatente.BackColor = System.Drawing.SystemColors.Control;
+            this.lblpatente.Location = new System.Drawing.Point(28, 60);
+            this.lblpatente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblpatente.Name = "lblpatente";
+            this.lblpatente.Size = new System.Drawing.Size(94, 15);
+            this.lblpatente.TabIndex = 36;
+            this.lblpatente.Text = "Nombre Patente";
             // 
             // btnBuscar
             // 
@@ -104,30 +103,19 @@
             this.dataGridView1.Location = new System.Drawing.Point(31, 103);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(300, 173);
+            this.dataGridView1.Size = new System.Drawing.Size(399, 173);
             this.dataGridView1.TabIndex = 34;
-            // 
-            // lblDescriptivo
-            // 
-            this.lblDescriptivo.Location = new System.Drawing.Point(461, 23);
-            this.lblDescriptivo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDescriptivo.Name = "lblDescriptivo";
-            this.lblDescriptivo.Size = new System.Drawing.Size(141, 85);
-            this.lblDescriptivo.TabIndex = 39;
-            this.lblDescriptivo.Text = "Si no indica el nombre de la patente por defecto traera todos los registros ";
-            this.lblDescriptivo.Click += new System.EventHandler(this.label1_Click);
             // 
             // ModificarPatentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 362);
+            this.ClientSize = new System.Drawing.Size(489, 362);
             this.Controls.Add(this.txtNuevaPatente);
             this.Controls.Add(this.lblNuevoNombre);
-            this.Controls.Add(this.lblDescriptivo);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.txtNombrePatente);
-            this.Controls.Add(this.lblNombrePat);
+            this.Controls.Add(this.lblpatente);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -145,9 +133,8 @@
         private System.Windows.Forms.Label lblNuevoNombre;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox txtNombrePatente;
-        private System.Windows.Forms.Label lblNombrePat;
+        private System.Windows.Forms.Label lblpatente;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lblDescriptivo;
     }
 }

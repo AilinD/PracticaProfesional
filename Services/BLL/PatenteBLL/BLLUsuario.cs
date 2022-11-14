@@ -33,8 +33,33 @@ namespace Services.BLL.PatenteBLL
             }
             
         }
-       
-		public static bool TryLogin(string usuario, string contraseña )
+
+        public static Sesion GetUsuarioByUserName6Password(string user, string password)
+        {
+            try
+            {
+                var call = Usuario_Facade.GetUsuarioUserPass(user, password);
+
+                if (call == null)
+                {
+					return null;
+                }
+
+                return new Sesion() { usuario = call };
+                //Serilog.Log.Write("",user);
+            }
+            catch (Exception ex)
+            {
+                // LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
+                //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                throw;
+            }
+
+        }
+
+
+        public static bool TryLogin(string usuario, string contraseña )
 		{
 			if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contraseña))
 				return false;

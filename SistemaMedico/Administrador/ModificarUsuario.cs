@@ -76,10 +76,9 @@ namespace UI.Administrador
         {
             btnModificar.Translate();
             btnBuscar.Translate();
-            lblDescriptivo.Translate();
             lblNuevaPass.Translate();
             lblNuevoNombre.Translate();
-            lblUsuario.Translate();
+            lbUsuario.Translate();
         }
 
         private void btnModificarUS_Click(object sender, EventArgs e)
@@ -95,15 +94,22 @@ namespace UI.Administrador
                 busqueda.usuario.IdUsuario =r.Cells["IdUsuario"].Value.ToString();
                 BLLUsuario.Update(busqueda.usuario);
                 MessageBox.Show("Usuario Modificado con Éxito!");
-
+                Limpiar();
             }
             
-            
+
         }
 
         private void txtNuevaPass_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void Limpiar()
+        {
+            txtNombreUsuario.Text = "";
+            txtNuevaPass.Text = "";
+            txtNuevoNombre.Text = "";
+            dataGridView1.ClearSelection();
         }
     }
 }

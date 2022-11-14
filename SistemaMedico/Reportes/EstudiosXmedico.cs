@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Medicos
+namespace SistemaMedico.Reportes
 {
-    public partial class DerivarPaciente : Form
+    public partial class EstudiosXmedico : Form
     {
-        public DerivarPaciente()
+        public EstudiosXmedico()
         {
             InitializeComponent();
         }

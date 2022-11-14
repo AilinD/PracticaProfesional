@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.progressBarRestore = new System.Windows.Forms.ProgressBar();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.lblSeleccBkp = new System.Windows.Forms.Label();
@@ -38,16 +38,16 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
-            // btnGenerar
+            // btnGuardar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(221, 269);
-            this.btnGenerar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(88, 27);
-            this.btnGenerar.TabIndex = 0;
-            this.btnGenerar.Text = "Generar";
-            this.btnGenerar.UseVisualStyleBackColor = true;
-            this.btnGenerar.Click += new System.EventHandler(this.btnRestore_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(221, 269);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(88, 27);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // progressBarRestore
             // 
@@ -122,7 +122,7 @@
             this.Controls.Add(this.lblSeleccBkp);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.progressBarRestore);
-            this.Controls.Add(this.btnGenerar);
+            this.Controls.Add(this.btnGuardar);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormularioRestore";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -135,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGenerar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ProgressBar progressBarRestore;
         private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.Label lblSeleccBkp;

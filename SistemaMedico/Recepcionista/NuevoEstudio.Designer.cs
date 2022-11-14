@@ -30,14 +30,14 @@
         {
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNuevoestudio = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEstudio = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(136, 154);
+            this.btnAgregar.Location = new System.Drawing.Point(136, 137);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(82, 27);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Insertar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -50,25 +50,26 @@
             this.txtNuevoestudio.Size = new System.Drawing.Size(262, 23);
             this.txtNuevoestudio.TabIndex = 1;
             // 
-            // label1
+            // lblEstudio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(95, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ingrese nombre del nuevo estudio";
+            this.lblEstudio.AutoSize = true;
+            this.lblEstudio.Location = new System.Drawing.Point(95, 36);
+            this.lblEstudio.Name = "lblEstudio";
+            this.lblEstudio.Size = new System.Drawing.Size(187, 15);
+            this.lblEstudio.TabIndex = 2;
+            this.lblEstudio.Text = "Ingrese nombre del nuevo estudio";
             // 
             // NuevoEstudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 222);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblEstudio);
             this.Controls.Add(this.txtNuevoestudio);
             this.Controls.Add(this.btnAgregar);
             this.Name = "NuevoEstudio";
             this.Text = "NuevoEstudio";
+            this.Load += new System.EventHandler(this.NuevoEstudio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +79,6 @@
 
         private Button btnAgregar;
         private TextBox txtNuevoestudio;
-        private Label label1;
+        private Label lblEstudio;
     }
 }

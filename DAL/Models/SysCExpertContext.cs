@@ -58,7 +58,7 @@ namespace DAL.Models
 
                 entity.Property(e => e.Fecha).HasColumnType("date");
 
-                entity.Property(e => e.Nombre)
+                entity.Property(e => e.diagnostico)
                     .HasMaxLength(50)
                     .IsUnicode(false);
 

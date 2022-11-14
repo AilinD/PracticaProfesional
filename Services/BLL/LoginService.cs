@@ -11,7 +11,7 @@ namespace Services.BLL
 {
     public  class LoginService
     {
-        public static Sesion GetUsuarioByUserName(string user)
+        public static Sesion GetUsuarioByUserName(string user,string password)
         {
             try
             {
