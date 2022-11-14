@@ -21,10 +21,8 @@ namespace SistemaMedico.Reportes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            var estudiosPac = new EstudioPaciente()
-            {
-
-            };
+            int dni = Convert.ToInt16(txtDniPaciente.Text);
+            EstudioPacienteBLL.Current.select(dni);
             //var estudioPaciente = new EstudioPaciente();
             //foreach (DataGridViewRow r in gridmedico.SelectedRows)
             //{
@@ -36,6 +34,8 @@ namespace SistemaMedico.Reportes
             //}
 
             //EstudioPacienteBLL.Current.
+
+
         }
     }
 }

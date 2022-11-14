@@ -77,7 +77,7 @@
             // 
             // btnGenerar
             // 
-            this.btnGenerar.Location = new System.Drawing.Point(195, 435);
+            this.btnGenerar.Location = new System.Drawing.Point(187, 417);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 52;
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 517);
+            this.ClientSize = new System.Drawing.Size(464, 466);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.gridpaciente);
             this.Controls.Add(this.txtDniPaciente);
