@@ -3,9 +3,9 @@ using BLL.Business;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
 using Services.Domain;
-using SistemaMedico.Administrador;
 using SistemaMedico.Medicos;
 using SistemaMedico.Recepcionista;
+using SistemaMedico.Reportes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace SistemaMedico
             //Application.Run(new EliminarMedico());
             //Application.Run(new Login());
             //Application.Run(new MenuPrincipal(PromptForLogin()));
-            Application.Run(new FormMenuAdmin());
+            Application.Run(new EstudiosXPaciente());
             
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());

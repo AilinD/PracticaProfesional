@@ -2,6 +2,7 @@
 using BLL.MapperConfig;
 using DAL;
 using DAL.Models;
+using iText.Kernel.Pdf;
 using Microsoft.EntityFrameworkCore;
 using Services;
 using Services.BLL.Exepciones;
@@ -54,45 +55,38 @@ namespace BLL.Business
                 throw;
             }
             
-        }
+        }       
 
-        //public void EstudioPaciente(int idpaciente)
-        //{
-        //    var busqueda =_context.EstudioPacientes.FirstOrDefault().IdPaciente= idpaciente;
-        //    var prueba = _context.EstudioPacientes.Select(x=>x.IdPaciente.Value)
-            
-        //}
-
-        //public EstudioPaciente GetOne(int? guid)
-        //{
-        //    try
-        //    {
-        //        ////var op = MapperHelper.GetMapper().Map<EstudioPaciente>(_context.GetOne(guid));
-
-        //        /* return op;*/
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ExceptionManager.Current.Handle(ex);
-
-        //        throw;
-        //    }
-
-        //}
-
-        public IQueryable< EstudioPaciente> select(int id)
+        public IQueryable< EstudioPaciente> Select(int id)
         {
-            var busqueda = (from a in _context.EstudioPacientes join p in _context.Pacientes on a.IdPaciente equals id join estudio in _context.Estudios on a.IdEstudio equals estudio.Id
-                            where a.Id == id
-                            select new EstudioPaciente { IdEstudio = a.IdEstudio,
-                                Comentarios = a.Comentarios,
-                                IdMedico = a.IdMedico,
-                                IdPaciente = a.IdPaciente,
-                                Fecha = a.Fecha });
-
+                    
+        var busqueda=
+       (from ep in _context.EstudioPacientes
+        join a in _context.Pacientes on ep.IdPaciente equals a.IdPaciente
+        join e in _context.Estudios on ep.IdEstudio equals e.Id
+        where a.Dni == id
+        select new EstudioPaciente
+        {
+            IdEstudio = ep.IdEstudio,
+            Comentarios = ep.Comentarios,
+            IdMedico = ep.IdMedico,
+            IdPaciente = ep.IdPaciente,
+            Fecha = ep.Fecha
+        }); 
 
             return busqueda;
 
+        }
+
+
+        public void PdfMaker(IQueryable<DAL.Models.EstudioPaciente> Search, string nombreArch)
+        {
+            string path = ConfigurationManager.AppSettings["ReportesPath"].ToString();
+            PdfWriter pdf = new PdfWriter(nombreArch);
+            PdfDocument doc = new PdfDocument(pdf);
+            doc.AddNewPage();
+            doc.Close();
+            
         }
 
     }

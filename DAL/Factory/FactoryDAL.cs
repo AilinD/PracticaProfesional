@@ -16,13 +16,9 @@ namespace DAL.Factory
         public static IGenericRepository<Paciente> _pacienteRepository { get; private set; }
         public static IGenericRepository<Medico> _medicoRepository { get; private set; }
         public static IGenericRepository<Estudio> _estudioRepository { get; private set; }
-
-        //public static IGenericRepository<Enfermedad> _enfermedadRepository { get; private set; }
         public static IGenericRepository<Sintoma> _sintomaRepository { get; private set; }
         public static IGenericRepository<Especialidad> _especialidadRepository { get; private set; }
-
         public static IGenericRepository<ObraSocial> _obraSocialRepository { get; private set; }
-
         public static IGenericRepository<Diagnostico> _diagnosticoRepository { get; private set; }
 
 
@@ -43,7 +39,6 @@ namespace DAL.Factory
             _pacienteRepository=PatientRepository();
             _medicoRepository = MedicoRepository();
             _estudioRepository = EstudioRepository();
-            //_enfermedadRepository = EnfermedadRepository();
             _sintomaRepository = SintomaRepository();
             _especialidadRepository = EspecialidadRepository();
             _obraSocialRepository = ObraSocialRepository();
@@ -64,10 +59,6 @@ namespace DAL.Factory
             return new EstudioRepository(_SysEntitiesContext);
         }
 
-        //private static EnfermedadRepository EnfermedadRepository()
-        //{
-        //    return new EnfermedadRepository(_SysEntitiesContext);
-        //}
 
         private static SintomaRepository SintomaRepository()
         {

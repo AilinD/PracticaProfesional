@@ -96,6 +96,8 @@
   "solicitarEstudioToolStripMenuItem":"Medical Study Request",
   "SintomasToolStripMenuItem":"Symptoms Menu",
   "buscarCoincidenciasToolStripMenuItem":"Coincidence Menu",
-  "obrasSocialesToolStripMenuItem":"Health Plan Menu"
+  "obrasSocialesToolStripMenuItem":"Health Plan Menu",
+  "lblArchivo":"FileName"
+  
   
 }

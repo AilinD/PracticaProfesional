@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
-using DAL.Models;
+using Services.Service;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,21 +22,30 @@ namespace SistemaMedico.Reportes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            int dni = Convert.ToInt16(txtDniPaciente.Text);
-            EstudioPacienteBLL.Current.select(dni);
-            //var estudioPaciente = new EstudioPaciente();
-            //foreach (DataGridViewRow r in gridmedico.SelectedRows)
-            //{
-            //    estudioPaciente.IdMedico = (int)r.Cells["IdMedico"].Value;
-            //    estudioPaciente.IdPaciente = idpaciente;
-            //    estudioPaciente.IdEstudio = cbocestudio.SelectedIndex;
-            //    estudioPaciente.Fecha = DateTime.Now;
-            //    estudioPaciente.Comentarios = txtComentarios.Text;
-            //}
+           
+        }
 
-            //EstudioPacienteBLL.Current.
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            int dni = Convert.ToInt32(txtDniPaciente.Text);
+            string nombreArch = string.Format("{0}",txtNombreArch.Text+".pdf");
+            var search = BLL.Business.EstudioPacienteBLL.Current.Select(dni);
+            EstudioPacienteBLL.Current.PdfMaker(search, nombreArch);
+            //ReportesPath
+            MessageBox.Show("Reporte generado");
+            Limpiar();
+        }
 
+        private void EstudiosXPaciente_Load(object sender, EventArgs e)
+        {
+            lblDNI.Translate();
+            btnGenerar.Translate();
+        }
 
+        private void Limpiar()
+        {
+            txtDniPaciente.Clear();
+            txtNombreArch.Clear();
         }
     }
 }
