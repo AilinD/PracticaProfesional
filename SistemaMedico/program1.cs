@@ -16,6 +16,7 @@ using UI.Administrador;
 using UI.Generales;
 using UI.Medicos;
 using UI.Recepcionista;
+using Windows.System.Diagnostics;
 
 namespace SistemaMedico
 {
@@ -31,9 +32,9 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new EliminarMedico());
-            Application.Run(new NNuevoUsuario());
-            //Application.Run(new MenuPrincipal(PromptForLogin()));
-            //Application.Run(new MenuPrincipal(PromptForLogin()));
+            //Application.Run(new NNuevoUsuario());
+            //Application.Run(new Diagnostico(PromptForLogin));
+            Application.Run(new MenuPrincipal(PromptForLogin()));
 
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());

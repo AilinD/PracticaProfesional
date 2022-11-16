@@ -38,6 +38,7 @@ namespace UI.Recepcionista
             lblApellidoPaciente.Translate();
             btnBuscar.Translate();
             btnModificar.Translate();
+            dataGridView1.DataSource = null;
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
@@ -49,8 +50,7 @@ namespace UI.Recepcionista
 
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
-
-                //var busqueda = PacienteBll.Current.GetOne((int)r.Cells["IdPaciente"].Value);
+              
                 paciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
                 paciente.DNI = (int)r.Cells["DNI"].Value;
                 paciente.Nombre = r.Cells["Nombre"].Value.ToString();
@@ -94,8 +94,7 @@ namespace UI.Recepcionista
             }
             else
             {
-                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
-                //dataGridView1.DataSource = usser;
+                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));             
                 dataGridView1.DataSource = usser.ToList();
             }
                 
@@ -112,6 +111,7 @@ namespace UI.Recepcionista
             txtNuevoContacto.Text = "";
             txtNuevoDomicilio.Text = "";
             dataGridView1.ClearSelection();
+            
         }
     }
 }

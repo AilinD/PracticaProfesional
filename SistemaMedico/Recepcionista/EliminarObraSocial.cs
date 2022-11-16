@@ -62,6 +62,7 @@ namespace SistemaMedico.Recepcionista
             lblObraSocial.Translate();
             btnBuscar.Translate();
             btnEliminar.Translate();
+            dataGridView1.DataSource = null;
         }
     }
 }

@@ -78,7 +78,7 @@ namespace SistemaMedico.Recepcionista
             txtApellidoMedico.Text = "";
             txtNuevoContacto.Text = "";
             txtNuevoDomicilio.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
 
         private void ModificarMedico_Load(object sender, EventArgs e)

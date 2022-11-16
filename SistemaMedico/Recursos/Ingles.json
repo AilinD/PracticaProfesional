@@ -27,7 +27,7 @@
   "lblApellido": "Last Name",
   "lblNombre": "First Name",
   "lblSexo": "Sex",
-  "lblDNI": "ID",
+  "lblDNI": "ID Patient",
   "lblDomicilio": "Address",
   "lblContacto": "Phone",
   "lblFechaNac": "Birth Date",

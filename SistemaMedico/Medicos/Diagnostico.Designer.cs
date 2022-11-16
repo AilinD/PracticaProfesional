@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtDniPaciente = new System.Windows.Forms.TextBox();
-            this.lblDNI = new System.Windows.Forms.Label();
+            this.txtApellidoPaciente = new System.Windows.Forms.TextBox();
+            this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gridpaciente = new System.Windows.Forms.DataGridView();
             this.lblDiagnostico = new System.Windows.Forms.Label();
@@ -38,24 +38,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridpaciente)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtDniPaciente
+            // txtApellidoPaciente
             // 
-            this.txtDniPaciente.Location = new System.Drawing.Point(122, 33);
-            this.txtDniPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtDniPaciente.Name = "txtDniPaciente";
-            this.txtDniPaciente.Size = new System.Drawing.Size(225, 23);
-            this.txtDniPaciente.TabIndex = 51;
+            this.txtApellidoPaciente.Location = new System.Drawing.Point(158, 33);
+            this.txtApellidoPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtApellidoPaciente.Name = "txtApellidoPaciente";
+            this.txtApellidoPaciente.Size = new System.Drawing.Size(189, 23);
+            this.txtApellidoPaciente.TabIndex = 51;
             // 
-            // lblDNI
+            // lblApellidoPaciente
             // 
-            this.lblDNI.AutoSize = true;
-            this.lblDNI.BackColor = System.Drawing.SystemColors.Control;
-            this.lblDNI.Location = new System.Drawing.Point(39, 36);
-            this.lblDNI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(75, 15);
-            this.lblDNI.TabIndex = 50;
-            this.lblDNI.Text = "DNI Paciente";
+            this.lblApellidoPaciente.AutoSize = true;
+            this.lblApellidoPaciente.BackColor = System.Drawing.SystemColors.Control;
+            this.lblApellidoPaciente.Location = new System.Drawing.Point(39, 36);
+            this.lblApellidoPaciente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellidoPaciente.Name = "lblApellidoPaciente";
+            this.lblApellidoPaciente.Size = new System.Drawing.Size(99, 15);
+            this.lblApellidoPaciente.TabIndex = 50;
+            this.lblApellidoPaciente.Text = "Apellido Paciente";
             // 
             // btnBuscar
             // 
@@ -66,6 +66,7 @@
             this.btnBuscar.TabIndex = 49;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gridpaciente
             // 
@@ -112,8 +113,8 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblDiagnostico);
             this.Controls.Add(this.txtComentarios);
-            this.Controls.Add(this.txtDniPaciente);
-            this.Controls.Add(this.lblDNI);
+            this.Controls.Add(this.txtApellidoPaciente);
+            this.Controls.Add(this.lblApellidoPaciente);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.gridpaciente);
             this.Name = "Diagnostico";
@@ -127,8 +128,8 @@
 
         #endregion
 
-        private TextBox txtDniPaciente;
-        private Label lblDNI;
+        private TextBox txtApellidoPaciente;
+        private Label lblApellidoPaciente;
         private Button btnBuscar;
         private DataGridView gridpaciente;
         private Label lblDiagnostico;

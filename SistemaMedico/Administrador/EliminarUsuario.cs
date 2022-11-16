@@ -62,7 +62,12 @@ namespace UI.Administrador
         private void Limpiar()
         {
             txtUsuarioAEliminar.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

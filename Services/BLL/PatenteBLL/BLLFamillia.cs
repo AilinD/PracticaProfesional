@@ -1,4 +1,5 @@
-﻿using Services.DAL.PatenteDAL;
+﻿using Services.BLL.Exepciones;
+using Services.DAL.PatenteDAL;
 using Services.Domain;
 using System.Data;
 using System.Diagnostics.Tracing;
@@ -28,7 +29,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 				throw;
             }
 		}
@@ -40,7 +41,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -52,7 +53,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -64,7 +65,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -76,7 +77,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -88,7 +89,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 
 			}
@@ -101,7 +102,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -113,7 +114,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 
 			}

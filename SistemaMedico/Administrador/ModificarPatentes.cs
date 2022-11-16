@@ -113,6 +113,7 @@ namespace UI.Administrador
         {
             txtNombrePatente.Text = "";
             txtNuevaPatente.Text = "";
+            dataGridView1.DataSource = null;
         }
     }
 }

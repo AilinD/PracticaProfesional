@@ -109,7 +109,7 @@ namespace SistemaMedico.Medicos
         {
             txtNuevoNombre.Text = "";
             txtsBuscarSintomas.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
 
         private void MenuSintomas_Load(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.DAL;
 using System.Data;
 using System.Diagnostics.Tracing;
@@ -18,7 +19,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -41,7 +42,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -55,7 +56,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -69,7 +70,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -83,7 +84,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -97,7 +98,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -111,7 +112,7 @@ namespace Services.DAL.PatenteDAL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}

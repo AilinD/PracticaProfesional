@@ -53,6 +53,7 @@ namespace UI.Administrador
                 usuario.Permisos.Add(_instance);
                 usuario.Permisos.Add(familia);
                 BLLUsuario.Insert(usuario);
+                MessageBox.Show("Usuario Ingresado con exito!");
                 Limpiar();
                 
 

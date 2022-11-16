@@ -289,7 +289,7 @@ namespace DAL.Models
 
                 entity.ToTable("Sintoma");
 
-                entity.Property(e => e.IdSintoma).ValueGeneratedNever();
+                entity.Property(e => e.IdSintoma)/*.ValueGeneratedNever()*/;
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)

@@ -57,7 +57,7 @@ namespace SistemaMedico.Recepcionista
         private void Limpiar()
         {
             txtMedicoAEliminar.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
 
         private void EliminarMedico_Load(object sender, EventArgs e)

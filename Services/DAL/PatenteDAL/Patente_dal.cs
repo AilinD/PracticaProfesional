@@ -1,6 +1,7 @@
 ﻿using AutoMapper.Configuration;
 
 using Services.BLL;
+using Services.BLL.Exepciones;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -80,7 +81,7 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -114,7 +115,7 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -147,7 +148,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -181,7 +182,7 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }

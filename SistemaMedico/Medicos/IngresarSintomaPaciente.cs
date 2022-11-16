@@ -56,6 +56,8 @@ namespace SistemaMedico.Medicos
         private void Limpiar()
         {
             txtNombrePaciente.Text = "";
+           dataGridView1.DataSource = null;
+            dataGridView2.DataSource = null;
         }
 
         private void SintomasPaciente_Load(object sender, EventArgs e)

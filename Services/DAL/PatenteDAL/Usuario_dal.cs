@@ -1,4 +1,5 @@
 ﻿using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.Domain;
 using System.Configuration;
 using System.Data;
@@ -46,7 +47,7 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -247,7 +248,7 @@ namespace Services.DAL.PatenteDAL
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
             }
         }
@@ -333,7 +334,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -417,7 +418,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -445,7 +446,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -480,7 +481,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -517,7 +518,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }
@@ -544,7 +545,7 @@ namespace Services.DAL.PatenteDAL
                 }
             }catch(Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
             }

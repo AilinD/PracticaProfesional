@@ -56,7 +56,7 @@ namespace SistemaMedico.Recepcionista
         {
             txtEstudio.Text = "";
             txtNuevoNombre.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
 
         private void ModificarEstudio_Load(object sender, EventArgs e)

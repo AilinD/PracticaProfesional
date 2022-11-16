@@ -89,7 +89,15 @@ namespace UI.Administrador
             foreach (DataGridViewRow r in dataGridView1.SelectedRows)
             {
                 var busqueda = BLLUsuario.GetUsuarioByUserName(r.Cells["Nombre"].Value.ToString());
-                busqueda.usuario.Nombre = txtNuevoNombre.Text;
+                if (string.IsNullOrEmpty(txtNuevoNombre.Text))
+                {
+                    busqueda.usuario.Nombre = r.Cells["Nombre"].Value.ToString();
+                }
+                else
+                {
+                    busqueda.usuario.Nombre = txtNuevoNombre.Text;
+                }
+                
                 busqueda.usuario.Password = txtNuevaPass.Text;
                 busqueda.usuario.IdUsuario =r.Cells["IdUsuario"].Value.ToString();
                 BLLUsuario.Update(busqueda.usuario);
@@ -109,7 +117,7 @@ namespace UI.Administrador
             txtNombreUsuario.Text = "";
             txtNuevaPass.Text = "";
             txtNuevoNombre.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
     }
 }

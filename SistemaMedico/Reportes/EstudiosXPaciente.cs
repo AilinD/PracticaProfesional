@@ -48,8 +48,8 @@ namespace SistemaMedico.Reportes
         private void Limpiar()
         {
             txtDniPaciente.Clear();
-            dataGridView1.ClearSelection();
-          
+            dataGridView1.DataSource = null;
+
         }
 
         private void btnGenerar_Click_1(object sender, EventArgs e)

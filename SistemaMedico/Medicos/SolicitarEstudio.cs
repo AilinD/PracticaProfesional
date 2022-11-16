@@ -114,9 +114,9 @@ namespace UI.Medicos
             txtApellidoPaciente.Text = "";
             txtComentarios.Text = "";
             txtDniPaciente.Text = "";
-            dataGridView1.ClearSelection();
-            gridmedico.ClearSelection();
-            gridpaciente.ClearSelection();
+            dataGridView1.DataSource = null;
+            gridmedico.DataSource = null;
+            gridpaciente.DataSource = null;
         }
     }
 }

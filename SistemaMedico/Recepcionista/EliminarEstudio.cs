@@ -62,7 +62,7 @@ namespace SistemaMedico.Recepcionista
         private void Limpiar()
         {
             txtEstudioaEliminar.Text = "";
-           
+           dataGridView1.DataSource = null;
         }
     }
 }

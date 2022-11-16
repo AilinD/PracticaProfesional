@@ -73,7 +73,7 @@ namespace Services.DAL
             }
             else if(bd== "PatenteFamilia")
             {
-                var opc2 = System.Configuration.ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
+                var opc2 = System.Configuration.ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
                 cadena = opc2;
             }
             return cadena;

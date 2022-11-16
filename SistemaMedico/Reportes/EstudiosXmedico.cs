@@ -113,6 +113,7 @@ namespace SistemaMedico.Reportes
             lblMatricula.Translate();
             btnBuscar.Translate();
             btnGenerar.Translate();
+            dataGridView1.DataSource = null;
         }
     }
 }

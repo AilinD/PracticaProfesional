@@ -4,6 +4,7 @@ using Services;
 using System.Data;
 using System.Diagnostics.Tracing;
 using Services.Logger;
+using Services.BLL.Exepciones;
 
 namespace Services.BLL.PatenteBLL
 {
@@ -28,7 +29,8 @@ namespace Services.BLL.PatenteBLL
             {
                 // LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
                 //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                //ExceptionManager.Current.Handle(ex);
+                ExceptionManager.Current.Handle(ex);
                 throw;
             }
             
@@ -50,9 +52,9 @@ namespace Services.BLL.PatenteBLL
             }
             catch (Exception ex)
             {
-                // LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
             }
 
@@ -78,7 +80,8 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
+                //ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -90,7 +93,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
 
                 throw;
 			}
@@ -99,15 +102,15 @@ namespace Services.BLL.PatenteBLL
 		{
 			try
 			{
-                var key = "b14ca5898a4e4133bbce2ea2315a1916";
-                var encryptedpass = Hashing.EncryptString(key, _object.Password);
+                //var key = "b14ca5898a4e4133bbce2ea2315a1916";
+                //var encryptedpass = Hashing.EncryptString(key, _object.Password);
 
 				var usertoSave = new Usuario()
 				{
 					IdUsuario = _object.IdUsuario,
 					Nombre = _object.Nombre,
 					Permisos = _object.Permisos,
-					Password = encryptedpass
+					Password = _object.Password
 				};
 
 
@@ -115,7 +118,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -123,11 +126,14 @@ namespace Services.BLL.PatenteBLL
 		{
 			try
 			{
-			Usuario_Facade.Update(_object);
+                var key = "b14ca5898a4e4133bbce2ea2315a1916";
+                var encryptedpass = Hashing.EncryptString(key, _object.Password);
+				_object.Password=encryptedpass;	
+                Usuario_Facade.Update(_object);
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -139,7 +145,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -154,7 +160,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -169,7 +175,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -181,7 +187,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}
@@ -193,7 +199,7 @@ namespace Services.BLL.PatenteBLL
 			}
 			catch (Exception ex)
 			{
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Error, "");
+                ExceptionManager.Current.Handle(ex);
                 throw;
 			}
 		}

@@ -52,7 +52,7 @@ namespace SistemaMedico.Recepcionista
             MessageBox.Show("Obra Social modificada con éxito!");
             txtNuevoNombre.Text = "";
             txtObraSocial.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource= null;
         }
 
         private void ModificarObraSocial_Load(object sender, EventArgs e)
@@ -61,7 +61,9 @@ namespace SistemaMedico.Recepcionista
             lblObraSocial.Translate();
             btnBuscar.Translate();
             btnModificar.Translate();
-
+            
         }
+
+        
     }
 }

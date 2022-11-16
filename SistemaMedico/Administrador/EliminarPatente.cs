@@ -63,7 +63,7 @@ namespace UI.Administrador
         private void Limpiar()
         {
             txtPatenteAEliminar.Text = "";
-            dataGridView1.ClearSelection();
+            dataGridView1.DataSource = null;
         }
 
     }
