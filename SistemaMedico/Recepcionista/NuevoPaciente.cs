@@ -121,7 +121,7 @@ namespace UI.Recepcionista
             txtDNI.Clear();
             txtDomicilio.Clear();
             txtNombre.Clear();
-            
+            //dateTimePicker1= dateTimePicker1.TextChanged();
         }
 
 

@@ -57,7 +57,7 @@ namespace BLL.Business
             
         }       
 
-        public IQueryable< EstudioPaciente> Select(int id)
+        public IQueryable< EstudioPaciente> SelectPaciente(int id)
         {
                     
         var busqueda=
@@ -67,6 +67,7 @@ namespace BLL.Business
         where a.Dni == id
         select new EstudioPaciente
         {
+            Id=ep.Id,
             IdEstudio = ep.IdEstudio,
             Comentarios = ep.Comentarios,
             IdMedico = ep.IdMedico,
@@ -78,15 +79,26 @@ namespace BLL.Business
 
         }
 
-
-        public void PdfMaker(IQueryable<DAL.Models.EstudioPaciente> Search, string nombreArch)
+        public IQueryable<EstudioPaciente> SelectMedico(int id)
         {
-            string path = ConfigurationManager.AppSettings["ReportesPath"].ToString();
-            PdfWriter pdf = new PdfWriter(nombreArch);
-            PdfDocument doc = new PdfDocument(pdf);
-            doc.AddNewPage();
-            doc.Close();
-            
+
+            var busqueda =
+           (from ep in _context.EstudioPacientes
+            join a in _context.Medicos on ep.IdMedico equals a.IdMedico
+            join e in _context.Estudios on ep.IdEstudio equals e.Id
+            where a.IdMedico == id
+            select new EstudioPaciente
+            {
+                Id = ep.Id,
+                IdEstudio = ep.IdEstudio,
+                Comentarios = ep.Comentarios,
+                IdMedico = ep.IdMedico,
+                IdPaciente = ep.IdPaciente,
+                Fecha = ep.Fecha
+            });
+
+            return busqueda;
+
         }
 
     }

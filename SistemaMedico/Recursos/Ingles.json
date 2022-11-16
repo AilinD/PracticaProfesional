@@ -97,7 +97,11 @@
   "SintomasToolStripMenuItem":"Symptoms Menu",
   "buscarCoincidenciasToolStripMenuItem":"Coincidence Menu",
   "obrasSocialesToolStripMenuItem":"Health Plan Menu",
-  "lblArchivo":"FileName"
+  "lblArchivo":"FileName",
+  "administrador":"Administrator",
+  "Medico":"Doctor",
+  "Recepcionista":"Receptionist",
+  "cboxPatentes":"Administrator,Doctor,Receptionist"
   
   
 }

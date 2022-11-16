@@ -77,8 +77,8 @@ namespace UI.Administrador
 
             List<string> permisos = new List<string>();
             permisos.Add("administrador");
-            permisos.Add("empleado");
-            permisos.Add("reporteria");
+            permisos.Add("Medico");
+            permisos.Add("Recepcionista");
             cboxPatentes.DataSource =  permisos;
             cboxPatentes.DisplayMember = "Value";
 
@@ -87,6 +87,7 @@ namespace UI.Administrador
             lblPass.Translate();
             lblRepitePass.Translate();
             lblSelecPat.Translate();
+            
 
         }
 
@@ -105,6 +106,18 @@ namespace UI.Administrador
             txtContra2.Text = "";
             txtContraseña.Text = "";
             txtNombre.Text = "";
+        }
+
+        public void traduccion()
+        {
+            //Controls.OfType<Button>().Cast<Control>().ToList().ForEach(o => o.Text = o.Text.Translate());
+            //foreach (DataGridView dgv in Controls.OfType<DataGridView>().Cast<DataGridView>().ToList())
+            //{
+            //    foreach (DataGridViewColumn column in dgv.Columns)
+            //    {
+            //        column.HeaderText = column.HeaderText.Translate();
+            //    }
+            //}
         }
     }
 }

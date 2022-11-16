@@ -31,10 +31,10 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new EliminarMedico());
-            //Application.Run(new Login());
+            Application.Run(new NNuevoUsuario());
             //Application.Run(new MenuPrincipal(PromptForLogin()));
-            Application.Run(new EstudiosXPaciente());
-            
+            //Application.Run(new MenuPrincipal(PromptForLogin()));
+
             //Application.Run(new SolicitarEstudio());
             //Application.Run(new EliminarPaciente());
             //Application.Run(new FormularioBakup());

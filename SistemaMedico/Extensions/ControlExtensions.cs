@@ -1,4 +1,5 @@
-﻿using Services.Service;
+﻿using Org.BouncyCastle.Asn1.Crmf;
+using Services.Service;
 using SistemaMedico.Medicos;
 using System;
 using System.Collections.Generic;
@@ -23,5 +24,18 @@ namespace SistemaMedico.Extensions
         {
             e.Text= LanguageService.Translate(e.Name);
         }
+
+        //public void TranslateDGV()
+        //{
+        //    Controls.OfType<Button>().Cast<Control>().ToList().ForEach(o => o.Text = o.Text.Translate());
+        //    foreach (DataGridView dgv in Controls.OfType<DataGridView>().Cast<DataGridView>().ToList())
+        //    {
+        //        foreach (DataGridViewColumn column in dgv.Columns)
+        //        {
+        //            column.HeaderText = column.HeaderText.Translate();
+        //        }
+        //    }
+       
+        //}
     }
 }

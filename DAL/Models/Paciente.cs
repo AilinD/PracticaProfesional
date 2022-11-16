@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DAL.Models
 {
+    [Browsable(false)]
     public partial class Paciente
     {
         public Paciente()

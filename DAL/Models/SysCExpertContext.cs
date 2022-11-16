@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DAL.Models
 {
+    [Browsable(false)]
     public partial class SysCExpertContext : DbContext
     {
         public SysCExpertContext()

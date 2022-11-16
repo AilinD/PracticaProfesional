@@ -14,7 +14,7 @@ namespace Services.DAL.PatenteDAL
 
          static Usuario_dal()
         {
-            ctr = ConfigurationManager.ConnectionStrings["BackupPath1"].ConnectionString;
+            ctr = ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
         }
 
         
@@ -142,7 +142,7 @@ namespace Services.DAL.PatenteDAL
 
                     if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
                     {
-                        throw new Exception("Usuario Inexistente");
+                        throw new Exception("Usuario  o Contraseña Inexistente");
                     }
 
                    

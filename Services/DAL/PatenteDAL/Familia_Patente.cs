@@ -2,21 +2,24 @@
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
 using Services.Domain;
-using Microsoft.Extensions.Configuration;
 using Services.BLL;
+using System.Runtime.ConstrainedExecution;
+using System.Configuration;
 
 namespace Services.DAL.PatenteDAL
 {
 	public  class Familia_Patente
 	{
-		private static IConfiguration _configuration;
+		//private static IConfiguration _configuration;
+        private static string ctr = string.Empty;
 
-
-        Familia_Patente(IConfiguration configuration)
+        static Familia_Patente(/*IConfiguration configuration*/)
 		{
-			_configuration=configuration;
-		}
-       
+			//_configuration=configuration;
+            ctr = ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
+        }
+    
+      
 		/// <summary>
 		/// 
 		/// </summary>
@@ -26,7 +29,7 @@ namespace Services.DAL.PatenteDAL
 			try
 			{
 				DataSet ds = new DataSet("test");
-				using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+				using (SqlConnection conn = new SqlConnection(ctr))
 				{
 					SqlCommand sqlComm = new SqlCommand("Familia_Patente_SelectAll", conn);
 
@@ -64,7 +67,7 @@ namespace Services.DAL.PatenteDAL
 			{
 
 				DataSet ds = new DataSet("test");
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     SqlCommand sqlComm = new SqlCommand("Familia_Patente_Select", conn);
 					sqlComm.Parameters.AddWithValue("@IdFamilia", IdFamiliaElement);
@@ -106,7 +109,7 @@ namespace Services.DAL.PatenteDAL
 		{
 			try
 			{
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);
                     sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
@@ -138,7 +141,7 @@ namespace Services.DAL.PatenteDAL
 		{
 			try
 			{
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     SqlCommand sqlComm = new SqlCommand("Familia_Patente_Update", conn);
 					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
@@ -173,7 +176,7 @@ namespace Services.DAL.PatenteDAL
 		{
 			try
 			{
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     SqlCommand sqlComm = new SqlCommand("Familia_Patente_Insert", conn);
 					sqlComm.Parameters.AddWithValue("@IdFamilia", _object.IdFamiliaElement);
@@ -213,7 +216,7 @@ namespace Services.DAL.PatenteDAL
 		{
 			try
 			{
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     DataTable data = new DataTable("test");
 					SqlCommand sqlComm = new SqlCommand("Familia_Patente_Select", conn);
@@ -255,7 +258,7 @@ namespace Services.DAL.PatenteDAL
 			{
 
 
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("PatenteFamilia")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Familia_Patente_Delete", conn);

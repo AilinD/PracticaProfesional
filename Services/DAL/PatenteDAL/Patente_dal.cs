@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AutoMapper.Configuration;
+
 using Services.BLL;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.Tracing;
@@ -8,14 +10,18 @@ namespace Services.DAL.PatenteDAL
 {
     public class Patente_dal
     {
-        private static IConfiguration _configuration;
-       
+        //private static IConfiguration _configuration;
+        private static string ctr;
+        static Patente_dal()
+        {
+            ctr = ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
+        }
         public static DataSet SelectAll()
         {
             try
             {
                 DataSet ds = new DataSet("test");
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Patente_SelectAll", conn);
@@ -54,7 +60,7 @@ namespace Services.DAL.PatenteDAL
             {
 
                 DataSet ds = new DataSet("test");
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
                     conn.Open();
                     SqlCommand sqlComm = new SqlCommand("Patente_Select", conn);
@@ -92,7 +98,7 @@ namespace Services.DAL.PatenteDAL
             try
             {
 
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Patente_Delete", conn);
@@ -125,7 +131,7 @@ namespace Services.DAL.PatenteDAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Patente_Update", conn);
@@ -158,7 +164,7 @@ namespace Services.DAL.PatenteDAL
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("")))
+                using (SqlConnection conn = new SqlConnection(ctr))
                 {
 
                     SqlCommand sqlComm = new SqlCommand("Patente_Insert", conn);
