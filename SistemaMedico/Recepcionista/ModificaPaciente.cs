@@ -91,11 +91,13 @@ namespace UI.Recepcionista
             {
                 var user = PacienteBll.Current.GetAll();
                 dataGridView1.DataSource = user;
+                dataGridView1.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));             
                 dataGridView1.DataSource = usser.ToList();
+                dataGridView1.Translate();
             }
                 
         }

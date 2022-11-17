@@ -27,11 +27,14 @@ namespace SistemaMedico.Recepcionista
             {
                 var user = ObraSocialBLL.Current.GetAll();
                 dataGridView1.DataSource = user;
+                dataGridView1.Translate();
+
             }
             else
             {
                 var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtObraSocial.Text));
                 dataGridView1.DataSource = usser.ToList();
+                dataGridView1.Translate();
             }
         }
 

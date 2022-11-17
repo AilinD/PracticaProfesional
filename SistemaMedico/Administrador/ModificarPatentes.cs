@@ -71,6 +71,7 @@ namespace UI.Administrador
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Rows.Add(user["IdPatente"], user["Nombre"]);
                 dataGridView1.DataSource = dt;
+                dataGridView1.Translate();
 
             }
 

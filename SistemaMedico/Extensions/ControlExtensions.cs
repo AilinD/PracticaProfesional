@@ -3,9 +3,11 @@ using Services.Service;
 using SistemaMedico.Medicos;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Globalization;
 using Windows.UI.Notifications;
 
 namespace SistemaMedico.Extensions
@@ -25,17 +27,27 @@ namespace SistemaMedico.Extensions
             e.Text= LanguageService.Translate(e.Name);
         }
 
-        //public void TranslateDGV()
-        //{
-        //    Controls.OfType<Button>().Cast<Control>().ToList().ForEach(o => o.Text = o.Text.Translate());
-        //    foreach (DataGridView dgv in Controls.OfType<DataGridView>().Cast<DataGridView>().ToList())
-        //    {
-        //        foreach (DataGridViewColumn column in dgv.Columns)
-        //        {
-        //            column.HeaderText = column.HeaderText.Translate();
-        //        }
-        //    }
-       
-        //}
+        public static void Translate(this ComboBox e)
+        {
+            
+            var items = new List<string>();
+            items.AddRange(e.Items.Cast<string>().ToList());
+            e.Items.Clear();
+            foreach (var item in items)
+            {
+                e.Items.Add(LanguageService.Translate(item));
+            }            
+            
+        }
+
+        public static void Translate(this DataGridView e)
+        {
+            var columnas = (e.DataSource as DataTable).Columns;
+            foreach (DataColumn columna in columnas)
+            {
+                columna.ColumnName = LanguageService.Translate(columna.ColumnName);
+            }
+        }
+
     }
 }

@@ -13,14 +13,15 @@ namespace Services.Domain
 
 		public Usuario()
 		{
-			_idUsuario = Guid.NewGuid().ToString();
+			
 		}
 
 		public System.String IdUsuario
 		{
 			get
 			{
-				return _idUsuario;
+                
+                return _idUsuario;
 			}
 			set
 			{

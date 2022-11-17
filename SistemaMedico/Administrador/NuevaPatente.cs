@@ -42,13 +42,16 @@ namespace UI.Administrador
             familia.Add("Medicos");
             familia.Add("Usuario");
             familia.Add("Recepcionista");
-            familia.Add("Base Experta");
-            cboxFamiliaPatente.DataSource = familia;
+            //cboxFamiliaPatente.DataSource = familia;
             cboxFamiliaPatente.DisplayMember = "Value";
-
+            cboxFamiliaPatente.Items.Add("Administrador");
+            cboxFamiliaPatente.Items.Add("Medicos");
+            cboxFamiliaPatente.Items.Add("Usuario");
+            cboxFamiliaPatente.Items.Add("Recepcionista");
             btnGuardar.Translate();
             lblFamiliaPatente.Translate();
             lblpatente.Translate();
+            cboxFamiliaPatente.Translate();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)

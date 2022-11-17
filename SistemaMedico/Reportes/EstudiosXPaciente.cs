@@ -34,8 +34,9 @@ namespace SistemaMedico.Reportes
            
             var search = BLL.Business.EstudioPacienteBLL.Current.SelectPaciente(dni);
             dataGridView1.DataSource = search.ToList();
-      
-            
+            dataGridView1.Translate();
+
+
         }
 
         private void EstudiosXPaciente_Load(object sender, EventArgs e)

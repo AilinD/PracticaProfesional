@@ -102,6 +102,7 @@ namespace BLL.Business {
             {
                 var dtoToentity = new Medico()
                 {
+                    IdMedico = obj.IdMedico,
                     Matricula = obj.Matricula,
                     Nombre = obj.Nombre,
                     Apellido = obj.Apellido,

@@ -72,11 +72,13 @@ namespace SistemaMedico.Medicos
             {
                 var user = PacienteBll.Current.GetAll();
                 gridpaciente.DataSource = user;
+                gridpaciente.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
                 gridpaciente.DataSource = usser.ToList();
+                gridpaciente.Translate();
             }
 
 

@@ -55,8 +55,9 @@ namespace UI.Administrador
                 dt.Columns.Add("IdUsuario", typeof(Guid));
                 dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
                 dataGridView1.DataSource = dt;
-
+                dataGridView1.Translate();
             }
+
                 
             
             else
@@ -79,6 +80,7 @@ namespace UI.Administrador
             lblNuevaPass.Translate();
             lblNuevoNombre.Translate();
             lbUsuario.Translate();
+            
         }
 
         private void btnModificarUS_Click(object sender, EventArgs e)

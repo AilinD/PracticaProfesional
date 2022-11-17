@@ -120,6 +120,7 @@
             this.btnBusca.TabIndex = 50;
             this.btnBusca.Text = "Buscar";
             this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
             // dataGridView2
             // 

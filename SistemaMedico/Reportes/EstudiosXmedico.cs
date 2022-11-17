@@ -27,6 +27,7 @@ namespace SistemaMedico.Reportes
 
             var search = BLL.Business.EstudioPacienteBLL.Current.SelectMedico(matricula);
             dataGridView1.DataSource = search.ToList();
+            dataGridView1.Translate();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)

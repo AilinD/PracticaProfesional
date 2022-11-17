@@ -36,7 +36,9 @@ namespace UI.Recepcionista
             List<string> Sexo = new List<string>();
             Sexo.Add("Femenino");
             Sexo.Add("Masculino");
-            cboxSexo.DataSource = Sexo;
+            //cboxSexo.DataSource = Sexo;
+            cboxSexo.Items.Add("Femenino");
+            cboxSexo.Items.Add("Masculino");
             cboxSexo.DisplayMember = "Value";
             cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
             cboxObraSocial.DisplayMember = "Nombre";

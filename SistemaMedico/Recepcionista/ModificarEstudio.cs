@@ -27,11 +27,13 @@ namespace SistemaMedico.Recepcionista
             {
                 var user = EstudioBLL.Current.GetAll();
                 dataGridView1.DataSource = user;
+                dataGridView1.Translate();
             }
             else
             {
                 var usser = EstudioBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtEstudio.Text));
                 dataGridView1.DataSource = usser.ToList();
+                dataGridView1.Translate();
             }
         }
 

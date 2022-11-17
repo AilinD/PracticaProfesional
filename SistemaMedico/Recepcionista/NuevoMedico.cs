@@ -79,6 +79,7 @@ namespace SistemaMedico.Recepcionista
             lblMatricula.Translate();
             lblNombre.Translate();
             btnAgregar.Translate();
+            //cboxEspecialidad.Translate();
         }
 
 

@@ -44,12 +44,14 @@ namespace SistemaMedico.Medicos
             {
                 var user = PacienteBll.Current.GetAll();
                 dataGridView1.DataSource = user;
+                dataGridView1.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
                 //dataGridView1.DataSource = usser;
                 dataGridView1.DataSource = usser.ToList();
+                dataGridView1.Translate();
             }
         }
 
@@ -69,6 +71,11 @@ namespace SistemaMedico.Medicos
             btnBuscar.Translate();
             btnEliminar.Translate();
             btnModificar.Translate();
+        }
+
+        private void btnBusca_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

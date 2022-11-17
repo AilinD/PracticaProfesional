@@ -143,7 +143,13 @@ namespace Services.DAL.PatenteDAL
 
                     if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
                     {
-                        throw new Exception("Usuario  o Contraseña Inexistente");
+                        try{
+
+                        }catch(Exception ex)
+                        {
+                            ExceptionManager.Current.Handle(ex);
+                        }
+                        
                     }
 
                    

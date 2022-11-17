@@ -36,7 +36,7 @@ namespace SistemaMedico
             //Application.Run(new Diagnostico(PromptForLogin));
             Application.Run(new MenuPrincipal(PromptForLogin()));
 
-            //Application.Run(new SolicitarEstudio());
+            //Application.Run(new NNuevoUsuario());
             //Application.Run(new EliminarPaciente());
             //Application.Run(new FormularioBakup());
 

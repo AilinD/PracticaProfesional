@@ -30,6 +30,7 @@ namespace UI.Administrador
             dt.Columns.Add("IdUsuario", typeof(Guid));
             dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
             dataGridView1.DataSource = dt;
+            dataGridView1.Translate();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

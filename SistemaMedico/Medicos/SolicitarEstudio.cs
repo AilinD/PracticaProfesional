@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaMedico.Extensions;
+using GoldoWinformsExtensions;
 
 namespace UI.Medicos
 {
@@ -48,12 +49,13 @@ namespace UI.Medicos
             btnBuscar.Translate();
             btnModificar.Translate();
             btnEstudio.Translate();
+            cboxEstudio.Translate();
 
         }
 
         private void SolicitarEstudio_Load(object sender, EventArgs e)
         {
-
+            gridpaciente.add
         }
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)
@@ -63,7 +65,9 @@ namespace UI.Medicos
             //var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtDniPaciente.Text));
             var usser = PacienteBll.Current.GetAll().Where(x => x.DNI.Equals(dniint));
 
+
             gridpaciente.DataSource = usser.ToList();
+            gridpaciente.Translate();
             //gridpaciente.DataSource = Search;
         }
 
@@ -101,6 +105,7 @@ namespace UI.Medicos
             var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
             //dataGridView1.DataSource = usser;
             gridmedico.DataSource = usser.ToList();
+            gridmedico.Translate();
         }
 
         private void txtApellidoaciente_TextChanged(object sender, EventArgs e)
