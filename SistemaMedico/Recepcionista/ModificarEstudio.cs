@@ -67,6 +67,7 @@ namespace SistemaMedico.Recepcionista
             lblEstudio.Translate();
             btnModificar.Translate();
             btnBuscar.Translate();
+            dataGridView1.DataSource = null;
         }
     }
 }

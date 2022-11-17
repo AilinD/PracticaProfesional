@@ -43,7 +43,7 @@ namespace UI.Recepcionista
             cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
             cboxObraSocial.DisplayMember = "Nombre";
             //cboxObraSocial.ValueMember = "Id";
-
+            
             lblApellido.Translate();
             lblNombre.Translate();
             lblDNI.Translate();

@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaMedico.Extensions;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace UI.Administrador
 {
@@ -57,9 +59,18 @@ namespace UI.Administrador
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             // _instance.IdFamiliaElement = cboxFamiliaPatente.Text;
-            _instance.Nombre = txtNombrePatente.Text;
-            PatenteBLL.Insert(_instance);
-            MessageBox.Show("Patente Insertada con exito");
+            if (string.IsNullOrEmpty(txtNombrePatente.Text))
+            {
+                MessageBox.Show("Por favor ingrese el nombre");
+                LoggerBLL.WriteLog("Error al crear nueva patente", EventLevel.Warning, txtNombrePatente.Text + "campo vacio");
+
+            }
+            else{
+                _instance.Nombre = txtNombrePatente.Text;
+                PatenteBLL.Insert(_instance);
+                MessageBox.Show("Patente Insertada con exito");
+               
+            }
             Limpiar();
         }
 

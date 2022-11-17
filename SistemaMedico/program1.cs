@@ -31,14 +31,8 @@ namespace SistemaMedico
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new EliminarMedico());
-            //Application.Run(new NNuevoUsuario());
-            //Application.Run(new Diagnostico(PromptForLogin));
+            //Application.Run(new MenuPrincipal(PromptForLogin));
             Application.Run(new MenuPrincipal(PromptForLogin()));
-
-            //Application.Run(new NNuevoUsuario());
-            //Application.Run(new EliminarPaciente());
-            //Application.Run(new FormularioBakup());
 
             var services = new ServiceCollection();
 
@@ -46,8 +40,6 @@ namespace SistemaMedico
 
             ServiceProvider serviceProvider = services.BuildServiceProvider();
             DependencyService.SetInstance(serviceProvider);
-
-
 
         }
 
@@ -60,12 +52,9 @@ namespace SistemaMedico
 
                     return loginForm.SesionIniciada;
 
-
                 loginForm.Close();
             }
-
             return default;
         }
-
     }
 }

@@ -49,5 +49,11 @@ namespace SistemaMedico.Extensions
             }
         }
 
+
+        public static void Translate(this string e)
+        {
+            e = LanguageService.Translate(e);
+        }
+
     }
 }

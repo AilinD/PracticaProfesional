@@ -94,5 +94,20 @@
   "IdUsuario":"User ID",
   "Contraseña":"Password",
   "Medicos":"Doctors",
-  "Usuario":"User"
+  "Usuario":"User",
+  "IdPaciente":"Patient ID",
+  "DNI":"ID",
+  "Apellido":"Surname",
+  "FechaNacimiento":"Birth Date",
+  "Dirección":"Address",
+  "Contacto":"Contact",
+  "Sexo":"Gender",
+  "Id":"Id",
+  "Fecha":"Date",
+  "IdMedico":"Doctor ID",
+  "diagnostico":"Diagnosis",
+  "NuevoPaciente":"New Patient",
+  "EliminarEstudio":"Delete Medical Study"
+  
+  
 }

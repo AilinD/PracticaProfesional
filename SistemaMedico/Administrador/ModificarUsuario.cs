@@ -45,7 +45,7 @@ namespace UI.Administrador
         {          
             
 
-            if (txtNombreUsuario.Text != "")
+            if (!string.IsNullOrEmpty(txtNombreUsuario.Text))
             {
                 
                 DataTable dt = new DataTable();

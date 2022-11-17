@@ -56,9 +56,12 @@ namespace SistemaMedico.Recepcionista
 
         private void EliminarEstudio_Load(object sender, EventArgs e)
         {
+            string nombreform = this.Name;
+            nombreform.Translate();
             lblEstudio.Translate();
             btnBuscar.Translate();
             btnEliminar.Translate();
+            dataGridView1.DataSource = null;
         }
 
         private void Limpiar()

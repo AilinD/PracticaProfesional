@@ -90,6 +90,7 @@ namespace SistemaMedico.Recepcionista
             lblNuevoDomicilio.Translate();
             btnBuscar.Translate();
             btnModificar.Translate();
+            dataGridView1.DataSource = null;
         }
     }
 }

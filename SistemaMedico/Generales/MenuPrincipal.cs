@@ -1,4 +1,5 @@
 ﻿
+using iTextSharp.text;
 using Services.Domain;
 using SistemaMedico.Extensions;
 using SistemaMedico.Medicos;
@@ -15,6 +16,7 @@ using System.Windows.Forms;
 using UI.Administrador;
 using UI.Medicos;
 using UI.Recepcionista;
+using Windows.Security.Authentication.Identity.Core;
 using static System.Collections.Specialized.BitVector32;
 
 namespace UI.Generales
@@ -24,11 +26,16 @@ namespace UI.Generales
         private readonly Sesion _sesion;
         public MenuPrincipal(Sesion sesion)
         {
-            IsMdiContainer = true;
+            IsMdiContainer = false;
+
             _sesion = sesion;
             InitializeComponent();
         }
-       
+
+        public Sesion GetSesion(Sesion sesion)
+        {
+            return _sesion;
+        }
 
         private void btnMenuRecepcion_Click(object sender, EventArgs e)
         {
@@ -73,7 +80,7 @@ namespace UI.Generales
 
         private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e) {
 
-            CreateMDIChild<FormMenuAdministrador>();
+            //CreateMDIChild<FormMenuAdministrador>();
              
         }
 
@@ -84,91 +91,163 @@ namespace UI.Generales
 
         private void nuevoPacienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<NuevoPaciente>();
+            CreateMDIChild<NuevoPaciente>();
         }
 
 
-        private Form CreateMDIParent<T>() where T : Form
-        {
+        //private Form CreateMDIParent<T>() where T : Form
+        //{
 
-            var childForm = (Form)Activator.CreateInstance(typeof(T));
-            childForm.Text = string.Empty;
-            childForm.MdiParent = this.MdiParent;
-            childForm.Dock = DockStyle.Fill;
-            childForm.Show();
-            return childForm;
-        }
+        //    var childForm = (Form)Activator.CreateInstance(typeof(T));
+        //    childForm.Text = string.Empty;
+        //    childForm.Dock = DockStyle.Fill;
+        //    childForm.Show();
+        //    return childForm;
+        //}
 
         private Form CreateMDIChild<T>() where T : Form
         {
 
             var childForm = (Form)Activator.CreateInstance(typeof(T));
+            //Activator.CreateInstance(Type, object[])
+            //(Form)Activator.CreateInstance(typeof(T));
+            childForm.MdiParent = this;
             childForm.Text = string.Empty;
             childForm.Dock = DockStyle.Fill;
             childForm.Show();
             return childForm;
         }
+        //public void mdiChild(Form mdiParent, Form mdiChild)
+        //{
+        //    foreach (Form frm in mdiParent.MdiChildren)
+        //    {
+        //        if (frm.Name == mdiChild.Name)
+        //        {
+
+        //            frm.Focus();
+        //            return;
+        //        }
+        //    }
+
+        //    mdiChild.MdiParent = mdiParent;
+        //    mdiChild.Show();
+
+        //}
 
         private void modificarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<ModificaPaciente>();
+            CreateMDIChild<ModificaPaciente>();
         }
 
         private void eliminarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<EliminarPaciente>();
+            CreateMDIChild<EliminarPaciente>();
         }
 
         private void buscarCoincidenciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<BuscarCoincidencias>();
+            CreateMDIChild<BuscarCoincidencias>();
         }
 
         private void modificarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<ModificarMedico>();
+            CreateMDIChild<ModificarMedico>();
         }
 
         private void agregarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<NuevoMedico>();
+            CreateMDIChild<NuevoMedico>();
         }
 
         private void eliminarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<EliminarMedico>();
+            CreateMDIChild<EliminarMedico>();
         }
 
         private void solicitarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<SolicitarEstudio>();
+            CreateMDIChild<SolicitarEstudio>();
         }
 
         private void nuevaObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<NuevaObraSocial>();
+            CreateMDIChild<NuevaObraSocial>();
         }
 
         private void modificarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<ModificarObraSocial>();
+            CreateMDIChild<ModificarObraSocial>();
         }
 
         private void eliminarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<EliminarObraSocial>();
+            CreateMDIChild<EliminarObraSocial>();
         }
 
         private void menuSintomasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<MenuSintomas>();
+            CreateMDIChild<MenuSintomas>();
         }
 
         private void informeDiagnosticoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIParent<Diagnostico>();
+            CreateMDIChild<Diagnostico>();
+
         }
 
-      
+        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<NNuevoUsuario>();
+        }
+
+        private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<ModificarUsuario>();
+        }
+
+        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<EliminarUsuario>();
+        }
+
+        private void agregarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<NuevaPatente>();
+        }
+
+        private void modificarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<ModificarPatentes>();
+        }
+
+        private void eliminarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<EliminarPatente>();
+        }
+
+        private void menuBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<FormularioBakup>();
+        }
+
+        private void menuRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<FormularioRestore>();
+        }
+
+        private void agregarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<NuevoEstudio>();
+        }
+
+        private void modificarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<ModificarEstudio>();
+        }
+
+        private void eliminarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateMDIChild<EliminarEstudio>();
+        }
     }
 }

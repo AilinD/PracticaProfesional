@@ -62,7 +62,7 @@ namespace UI.Administrador
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            if (txtNombrePatente.Text != "")
+            if (!string.IsNullOrEmpty(txtNombrePatente.Text))
             {
 
                 DataTable dt = new DataTable();

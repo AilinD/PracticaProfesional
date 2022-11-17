@@ -49,13 +49,13 @@ namespace UI.Medicos
             btnBuscar.Translate();
             btnModificar.Translate();
             btnEstudio.Translate();
-            cboxEstudio.Translate();
+            //cboxEstudio.Translate();
 
         }
 
         private void SolicitarEstudio_Load(object sender, EventArgs e)
         {
-            gridpaciente.add
+            //gridpaciente.add
         }
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)

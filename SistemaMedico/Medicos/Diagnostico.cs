@@ -22,9 +22,11 @@ namespace SistemaMedico.Medicos
         private readonly Sesion _sesion;
         public Diagnostico(Sesion sesion)
         {
-            _sesion=sesion;
+            _sesion = sesion;
             InitializeComponent();
+            
         }
+        
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -33,12 +35,12 @@ namespace SistemaMedico.Medicos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //string comentario = txtComentarios.Text;
+            string comentario = txtComentarios.Text;
             var diagnostico = new DiagnosticoDto();
 
-            var medico= Convert.ToInt32(_sesion.usuario.IdUsuario);
+            var medico = Convert.ToInt32(_sesion.usuario.IdUsuario);
 
-            MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico ==medico);
+            MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == medico);
             foreach (DataGridViewRow r in gridpaciente.SelectedRows)
             {
 
@@ -62,7 +64,7 @@ namespace SistemaMedico.Medicos
             lblApellidoPaciente.Translate();
             btnBuscar.Translate();
             btnGuardar.Translate();
-            var  permiso=_sesion.usuario.Permisos;
+            var permiso = _sesion.usuario.Permisos;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -72,13 +74,13 @@ namespace SistemaMedico.Medicos
             {
                 var user = PacienteBll.Current.GetAll();
                 gridpaciente.DataSource = user;
-                gridpaciente.Translate();
+                //gridpaciente.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
                 gridpaciente.DataSource = usser.ToList();
-                gridpaciente.Translate();
+                //gridpaciente.Translate();
             }
 
 
@@ -88,7 +90,7 @@ namespace SistemaMedico.Medicos
         {
             txtComentarios.Clear();
             txtApellidoPaciente.Clear();
-            gridpaciente.DataSource = null;
+            //gridpaciente.DataSource = null;
         }
 
     }
