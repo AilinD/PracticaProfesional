@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DAL.Models
 {
-    [Browsable(false)]
     public partial class Medico
     {
         public Medico()
         {
             Diagnosticos = new HashSet<Diagnostico>();
             EstudioPacientes = new HashSet<EstudioPaciente>();
-            HistorialPacientes = new HashSet<HistorialPaciente>();
-            HorarioProfesionals = new HashSet<HorarioProfesional>();
             MedicoPorEspecialidads = new HashSet<MedicoPorEspecialidad>();
         }
 
@@ -25,8 +21,6 @@ namespace DAL.Models
 
         public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
         public virtual ICollection<EstudioPaciente> EstudioPacientes { get; set; }
-        public virtual ICollection<HistorialPaciente> HistorialPacientes { get; set; }
-        public virtual ICollection<HorarioProfesional> HorarioProfesionals { get; set; }
         public virtual ICollection<MedicoPorEspecialidad> MedicoPorEspecialidads { get; set; }
     }
 }

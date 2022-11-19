@@ -107,7 +107,9 @@
   "IdMedico":"Doctor ID",
   "diagnostico":"Diagnosis",
   "NuevoPaciente":"New Patient",
-  "EliminarEstudio":"Delete Medical Study"
+  "EliminarEstudio":"Delete Medical Study",
+  "Femenino":"Female",
+  "Masculino":"Male"
   
   
 }

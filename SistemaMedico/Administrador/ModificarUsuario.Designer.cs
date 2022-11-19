@@ -37,12 +37,14 @@
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
             this.lblNuevaPass = new System.Windows.Forms.Label();
             this.txtNuevaPass = new System.Windows.Forms.TextBox();
+            this.txtIdRol = new System.Windows.Forms.TextBox();
+            this.lblIdRol = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(181, 354);
+            this.btnModificar.Location = new System.Drawing.Point(181, 410);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
@@ -130,11 +132,32 @@
             this.txtNuevaPass.TabIndex = 33;
             this.txtNuevaPass.TextChanged += new System.EventHandler(this.txtNuevaPass_TextChanged);
             // 
+            // txtIdRol
+            // 
+            this.txtIdRol.Location = new System.Drawing.Point(197, 351);
+            this.txtIdRol.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtIdRol.Name = "txtIdRol";
+            this.txtIdRol.PasswordChar = '*';
+            this.txtIdRol.Size = new System.Drawing.Size(235, 23);
+            this.txtIdRol.TabIndex = 35;
+            // 
+            // lblIdRol
+            // 
+            this.lblIdRol.AutoSize = true;
+            this.lblIdRol.Location = new System.Drawing.Point(66, 354);
+            this.lblIdRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdRol.Name = "lblIdRol";
+            this.lblIdRol.Size = new System.Drawing.Size(34, 15);
+            this.lblIdRol.TabIndex = 34;
+            this.lblIdRol.Text = "IdRol";
+            // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 393);
+            this.ClientSize = new System.Drawing.Size(480, 462);
+            this.Controls.Add(this.txtIdRol);
+            this.Controls.Add(this.lblIdRol);
             this.Controls.Add(this.txtNuevaPass);
             this.Controls.Add(this.lblNuevaPass);
             this.Controls.Add(this.txtNuevoNombre);
@@ -165,5 +188,7 @@
         private System.Windows.Forms.TextBox txtNuevoNombre;
         private System.Windows.Forms.Label lblNuevaPass;
         private System.Windows.Forms.TextBox txtNuevaPass;
+        private TextBox txtIdRol;
+        private Label lblIdRol;
     }
 }

@@ -1,9 +1,12 @@
 ﻿
 using iTextSharp.text;
+using iTextSharp.text.pdf.qrcode;
 using Services.Domain;
+using Services.Service;
 using SistemaMedico.Extensions;
 using SistemaMedico.Medicos;
 using SistemaMedico.Recepcionista;
+using SistemaMedico.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +26,7 @@ namespace UI.Generales
 {
     public partial class MenuPrincipal : Form
     {
-        private readonly Sesion _sesion;
+        public readonly Sesion _sesion;
         public MenuPrincipal(Sesion sesion)
         {
             IsMdiContainer = false;
@@ -44,7 +47,7 @@ namespace UI.Generales
 
         private void btnMenuAdm_Click(object sender, EventArgs e)
         {
-    
+
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
@@ -70,7 +73,7 @@ namespace UI.Generales
             menuMedicosToolStripMenuItem.Translate();
             obrasSocialesToolStripMenuItem.Translate();
             diagnosticoPacientesToolStripMenuItem.Translate();
-            SintomasToolStripMenuItem.Translate();
+            //SintomasToolStripMenuItem.Translate();
         }
 
         private void eToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,10 +81,11 @@ namespace UI.Generales
 
         }
 
-        private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void menuAdministradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
             //CreateMDIChild<FormMenuAdministrador>();
-             
+
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,19 +95,29 @@ namespace UI.Generales
 
         private void nuevoPacienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevoPaciente>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<NuevoPaciente>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                nuevoPacienteToolStripMenuItem.Visible = false;
+            }
+               
         }
 
 
-        //private Form CreateMDIParent<T>() where T : Form
-        //{
+        private Form CreateMDIChildSession<T>() where T : Form
+        {
 
-        //    var childForm = (Form)Activator.CreateInstance(typeof(T));
-        //    childForm.Text = string.Empty;
-        //    childForm.Dock = DockStyle.Fill;
-        //    childForm.Show();
-        //    return childForm;
-        //}
+            var childForm = (Form)Activator.CreateInstance(typeof(T), new object[] { _sesion });
+            childForm.MdiParent = this;
+            childForm.Text = string.Empty;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Show();
+            return childForm;
+        }
 
         private Form CreateMDIChild<T>() where T : Form
         {
@@ -117,137 +131,406 @@ namespace UI.Generales
             childForm.Show();
             return childForm;
         }
-        //public void mdiChild(Form mdiParent, Form mdiChild)
-        //{
-        //    foreach (Form frm in mdiParent.MdiChildren)
-        //    {
-        //        if (frm.Name == mdiChild.Name)
-        //        {
 
-        //            frm.Focus();
-        //            return;
-        //        }
-        //    }
-
-        //    mdiChild.MdiParent = mdiParent;
-        //    mdiChild.Show();
-
-        //}
 
         private void modificarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificaPaciente>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<ModificaPaciente>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                modificarPacienteToolStripMenuItem.Visible=false;
+            }
+                
+            
         }
 
         private void eliminarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarPaciente>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+
+            }else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+
+            }
+                CreateMDIChild<EliminarPaciente>();
+            MessageBox.Show("No posee acceso para acceder");
         }
 
         private void buscarCoincidenciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<BuscarCoincidencias>();
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<BuscarCoincidencias>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                buscarCoincidenciasToolStripMenuItem.Visible = false;
+            }
         }
 
         private void modificarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarMedico>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<ModificarMedico>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                modificarMedicoToolStripMenuItem.Visible = false;   
+            }
+                
         }
 
         private void agregarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevoMedico>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<NuevoMedico>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                agregarMedicoToolStripMenuItem.Visible = false;
+            }
+                
+            
         }
 
         private void eliminarMedicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarMedico>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<EliminarMedico>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                eliminarMedicoToolStripMenuItem.Visible = false;
+            }
+                
+            
         }
 
         private void solicitarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<SolicitarEstudio>();
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<SolicitarEstudio>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                solicitarEstudioToolStripMenuItem.Visible = false;
+            }
+               
         }
 
         private void nuevaObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevaObraSocial>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<NuevaObraSocial>();
+
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                nuevaObraSocialToolStripMenuItem.Visible = false;
+            }
+
+                
+            
         }
 
         private void modificarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarObraSocial>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<ModificarObraSocial>();
+            }
+            else if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                modificarObraSocialToolStripMenuItem.Visible = false;
+            }
+                
+            
         }
 
         private void eliminarObraSocialToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarObraSocial>();
+            if (_sesion.usuario.Permisos.Equals("Recepcionista") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<EliminarObraSocial>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Recepcionista") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                eliminarObraSocialToolStripMenuItem.Visible = false;
+                MessageBox.Show("No posee acceso para acceder");
+            }
+                
+            
         }
 
         private void menuSintomasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<MenuSintomas>();
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<MenuSintomas>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                menuSintomasToolStripMenuItem.Visible = false;
+            }
+                
         }
 
         private void informeDiagnosticoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<Diagnostico>();
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChildSession<Diagnostico>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                informeDiagnosticoToolStripMenuItem.Visible = false;
+            }
 
         }
 
         private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NNuevoUsuario>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<NNuevoUsuario>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                agregarEstudioToolStripMenuItem.Visible = false;
+            }
+                
         }
 
         private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarUsuario>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<ModificarUsuario>();
+            }
+            else if(!_sesion.usuario.Permisos.Equals("Administrador"))
+
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                modificarEstudioToolStripMenuItem.Visible = false;  
+            }
         }
 
         private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarUsuario>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<EliminarUsuario>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                eliminarEstudioToolStripMenuItem.Visible = false;
+            }
         }
 
         private void agregarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevaPatente>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<NuevaPatente>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                agregarPatenteToolStripMenuItem.Visible = false;
+            }
         }
 
         private void modificarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarPatentes>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                CreateMDIChild<ModificarPatentes>();
+            }
+            else if(!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                modificarPacienteToolStripMenuItem.Visible = false;
+            }
         }
 
         private void eliminarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarPatente>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<EliminarPatente>();
+            }
+            else if((!_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                eliminarPatenteToolStripMenuItem.Visible = false;
+            }
         }
 
         private void menuBackupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<FormularioBakup>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<FormularioBakup>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                menuBackupToolStripMenuItem.Visible = false;
+                MessageBox.Show("No posee acceso para acceder");
+            }
+
+                
+            
         }
 
         private void menuRestoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<FormularioRestore>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<FormularioRestore>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                menuRestoreToolStripMenuItem.Visible = false;
+            } 
+            
+               
+            
         }
 
         private void agregarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<NuevoEstudio>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<NuevoEstudio>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                agregarEstudioToolStripMenuItem.Visible = false;
+            }
+                
+            
         }
 
         private void modificarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<ModificarEstudio>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<ModificarEstudio>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                modificarEstudioToolStripMenuItem.Visible = false;
+            }
+                
+            
         }
 
         private void eliminarEstudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateMDIChild<EliminarEstudio>();
+            if (_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                CreateMDIChild<EliminarEstudio>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Administrador"))
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                eliminarEstudioToolStripMenuItem.Visible = false;
+            }
+                
+           
+        }
+
+        private void estudiosPorMedicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<EstudiosXmedico>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                estudiosPorMedicoToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void estudiosPorPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<EstudiosXPaciente>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                estudiosPorPacienteToolStripMenuItem.Visible = false;
+            }
+                
+        }
+
+        private void menuSintomasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<MenuSintomas>();
+
+
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                menuSintomasToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void historialPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_sesion.usuario.Permisos.Equals("Medico") || (_sesion.usuario.Permisos.Equals("Administrador")))
+            {
+                CreateMDIChild<HistorialPaciente>();
+            }
+            else if (!_sesion.usuario.Permisos.Equals("Medico") || (!_sesion.usuario.Permisos.Equals("Administrador")))
+
+            {
+                MessageBox.Show("No posee acceso para acceder");
+                historialPacienteToolStripMenuItem.Visible = false;
+            }
+
         }
     }
+
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
-{//[Browsable(false)]
+{
     public partial class Especialidad
     {
         public Especialidad()
@@ -11,7 +10,6 @@ namespace DAL.Models
             MedicoPorEspecialidads = new HashSet<MedicoPorEspecialidad>();
         }
 
-        [Key]
         public int Id { get; set; }
         public string? Nombre { get; set; }
 

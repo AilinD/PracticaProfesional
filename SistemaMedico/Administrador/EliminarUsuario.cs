@@ -38,6 +38,7 @@ namespace UI.Administrador
             else
             {
                 dataGridView1.DataSource = BLLUsuario.SelectAll();
+                dataGridView1.Translate();
             }
         }
 

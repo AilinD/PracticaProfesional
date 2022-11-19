@@ -14,12 +14,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Dto;
 using Services.Domain;
+using Services.Service;
+using iTextSharp.text;
 
 namespace SistemaMedico.Medicos
 {
     public partial class Diagnostico : Form
     {
-        private readonly Sesion _sesion;
+        private static Sesion _sesion;
         public Diagnostico(Sesion sesion)
         {
             _sesion = sesion;
@@ -38,24 +40,36 @@ namespace SistemaMedico.Medicos
             string comentario = txtComentarios.Text;
             var diagnostico = new DiagnosticoDto();
 
-            var medico = Convert.ToInt32(_sesion.usuario.IdUsuario);
+            string nombremedico = (_sesion.usuario.Nombre);
+            string[] separacion = nombremedico.Split('.');
+           
+            //var Apellidomedico = (_sesion.usuario.Permisos);
+            
+            string nombreM = separacion.GetValue(0).ToString();
+            string ApellidoM = separacion.GetValue(1).ToString();
 
-            MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == medico);
-            foreach (DataGridViewRow r in gridpaciente.SelectedRows)
+
+            var m= MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido == ApellidoM);
+            
+            if (m.Nombre.Equals( nombreM))
             {
+                foreach (DataGridViewRow r in gridpaciente.SelectedRows)
+                {
 
 
-                diagnostico.IdPaciente = (int)r.Cells["IdPaciente"].Value;
-                diagnostico.Fecha = DateTime.Now;
-                diagnostico.IdMedico = medico;
-                diagnostico.diagnostico = txtComentarios.Text;
+                    diagnostico.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                    diagnostico.Fecha = DateTime.Now;
+                    diagnostico.IdMedico = m.IdMedico;
+                    diagnostico.diagnostico = txtComentarios.Text;
 
 
-                DiagnosticoBLL.Current.Insert(diagnostico);
-                MessageBox.Show("Diagnostico insertado con éxito!");
-                Limpiar();
+                    DiagnosticoBLL.Current.Insert(diagnostico);
+                    MessageBox.Show("Diagnostico insertado con éxito!");
+                    Limpiar();
 
+                }
             }
+           
         }
         private void Diagnostico_Load(object sender, EventArgs e)
         {
@@ -64,7 +78,7 @@ namespace SistemaMedico.Medicos
             lblApellidoPaciente.Translate();
             btnBuscar.Translate();
             btnGuardar.Translate();
-            var permiso = _sesion.usuario.Permisos;
+            var permiso = SesionService.GetSesion(_sesion.usuario);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -74,13 +88,13 @@ namespace SistemaMedico.Medicos
             {
                 var user = PacienteBll.Current.GetAll();
                 gridpaciente.DataSource = user;
-                //gridpaciente.Translate();
+                gridpaciente.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
                 gridpaciente.DataSource = usser.ToList();
-                //gridpaciente.Translate();
+                gridpaciente.Translate();
             }
 
 
@@ -90,7 +104,7 @@ namespace SistemaMedico.Medicos
         {
             txtComentarios.Clear();
             txtApellidoPaciente.Clear();
-            //gridpaciente.DataSource = null;
+            gridpaciente.DataSource = null;
         }
 
     }

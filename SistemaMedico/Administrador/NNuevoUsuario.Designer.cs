@@ -37,11 +37,13 @@
             this.txtContra2 = new System.Windows.Forms.TextBox();
             this.lblRepitePass = new System.Windows.Forms.Label();
             this.lblSelecPat = new System.Windows.Forms.Label();
+            this.txtIdRol = new System.Windows.Forms.TextBox();
+            this.lblIdRol = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(144, 244);
+            this.btnGuardar.Location = new System.Drawing.Point(144, 298);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
@@ -53,7 +55,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(35, 39);
+            this.lblNombre.Location = new System.Drawing.Point(35, 42);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(51, 15);
@@ -125,11 +127,33 @@
             this.lblSelecPat.TabIndex = 8;
             this.lblSelecPat.Text = "Seleccionar Patente";
             // 
+            // txtIdRol
+            // 
+            this.txtIdRol.Location = new System.Drawing.Point(113, 239);
+            this.txtIdRol.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtIdRol.Name = "txtIdRol";
+            this.txtIdRol.Size = new System.Drawing.Size(238, 23);
+            this.txtIdRol.TabIndex = 10;
+            this.txtIdRol.TextChanged += new System.EventHandler(this.txtIdRol_TextChanged);
+            // 
+            // lblIdRol
+            // 
+            this.lblIdRol.AutoSize = true;
+            this.lblIdRol.Location = new System.Drawing.Point(35, 242);
+            this.lblIdRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdRol.Name = "lblIdRol";
+            this.lblIdRol.Size = new System.Drawing.Size(34, 15);
+            this.lblIdRol.TabIndex = 9;
+            this.lblIdRol.Text = "IdRol";
+            this.lblIdRol.Click += new System.EventHandler(this.lblIdRol_Click);
+            // 
             // NNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 304);
+            this.ClientSize = new System.Drawing.Size(375, 356);
+            this.Controls.Add(this.txtIdRol);
+            this.Controls.Add(this.lblIdRol);
             this.Controls.Add(this.lblSelecPat);
             this.Controls.Add(this.txtContra2);
             this.Controls.Add(this.lblRepitePass);
@@ -159,5 +183,7 @@
         private System.Windows.Forms.TextBox txtContra2;
         private System.Windows.Forms.Label lblRepitePass;
         private System.Windows.Forms.Label lblSelecPat;
+        private TextBox txtIdRol;
+        private Label lblIdRol;
     }
 }

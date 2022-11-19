@@ -83,6 +83,8 @@ namespace Services.DAL.PatenteDAL
                         var permisos = usuario.Permisos.Select(x => x.Nombre).ToString();
                         usuario.Nombre = dr["Nombre"].ToString();
                         usuario.Password = dr["Contraseña"].ToString();
+                        //usuario.Permisos.Add();
+                        
                     }
 
                     if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
@@ -90,6 +92,7 @@ namespace Services.DAL.PatenteDAL
                         throw new Exception("Usuario Inexistente");
                     }
 
+                    GetPatente(usuario);
                     string key = ConfigurationManager.AppSettings["key"];
                     string passwd = usuario.Password;
                     string basePass = Hashing.EncryptString(key, password);
@@ -106,6 +109,38 @@ namespace Services.DAL.PatenteDAL
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Error, user);
 
                 throw;
+            }
+        }
+
+
+        public static Usuario GetPatente(Usuario usuario)
+        {
+            //[Usuario_Patente_SelectParticular]
+            DataTable data = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ctr))
+            {            
+
+                SqlCommand sqlComm = new SqlCommand("SP_GetNombre_Patente_Usuario", conn);
+                sqlComm.Parameters.AddWithValue("@User", usuario.IdUsuario);
+
+                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlComm;
+                conn.Open();
+                sqlComm.ExecuteNonQuery();
+                da.Fill(data);
+
+
+                foreach (DataRow dr in data.Rows)
+                {
+                    
+                    usuario.Patente = dr["Nombre"].ToString();
+
+
+
+                }
+                return usuario;
             }
         }
 
@@ -359,6 +394,7 @@ namespace Services.DAL.PatenteDAL
                     sqlComm.Parameters.AddWithValue("@Nombre", _object.Nombre);
                     //sqlComm.Parameters.AddWithValue("",DateTime.Now);
                     sqlComm.Parameters.AddWithValue("Contraseña", _object.Password);
+                    sqlComm.Parameters.AddWithValue("IdRol", _object.Password);
 
 
 

@@ -37,9 +37,10 @@ namespace UI.Recepcionista
             Sexo.Add("Femenino");
             Sexo.Add("Masculino");
             //cboxSexo.DataSource = Sexo;
+            cboxSexo.DisplayMember = "Value";
             cboxSexo.Items.Add("Femenino");
             cboxSexo.Items.Add("Masculino");
-            cboxSexo.DisplayMember = "Value";
+            
             cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
             cboxObraSocial.DisplayMember = "Nombre";
             //cboxObraSocial.ValueMember = "Id";
@@ -53,6 +54,7 @@ namespace UI.Recepcionista
             lblSexo.Translate();
             lblContacto.Translate();
             btnAgregar.Translate();
+            cboxSexo.Translate();
         }
 
         private void button1_Click(object sender, EventArgs e)

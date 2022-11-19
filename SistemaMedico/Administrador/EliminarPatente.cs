@@ -35,8 +35,13 @@ namespace UI.Administrador
                 dataGridView1.Translate();
 
             }
+            else
+            {
+                dataGridView1.DataSource = PatenteBLL.SelectAll();
+                dataGridView1.Translate();
+            }
 
-           
+
 
 
         }

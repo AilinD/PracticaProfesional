@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace DAL.Models
 {
-    [Browsable(false)]
     public partial class Paciente
     {
         public Paciente()
         {
             Diagnosticos = new HashSet<Diagnostico>();
             EstudioPacientes = new HashSet<EstudioPaciente>();
-            HistorialPacientes = new HashSet<HistorialPaciente>();
             ObraSocialPacientes = new HashSet<ObraSocialPaciente>();
-            IdSintomas = new HashSet<Sintoma>();
+            SintomaPacientes = new HashSet<SintomaPaciente>();
         }
 
         public int IdPaciente { get; set; }
@@ -27,9 +24,7 @@ namespace DAL.Models
 
         public virtual ICollection<Diagnostico> Diagnosticos { get; set; }
         public virtual ICollection<EstudioPaciente> EstudioPacientes { get; set; }
-        public virtual ICollection<HistorialPaciente> HistorialPacientes { get; set; }
         public virtual ICollection<ObraSocialPaciente> ObraSocialPacientes { get; set; }
-
-        public virtual ICollection<Sintoma> IdSintomas { get; set; }
+        public virtual ICollection<SintomaPaciente> SintomaPacientes { get; set; }
     }
 }

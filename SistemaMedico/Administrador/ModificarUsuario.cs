@@ -63,6 +63,8 @@ namespace UI.Administrador
             else
             {
                 dataGridView1.DataSource = BLLUsuario.SelectAll();
+                dataGridView1.Translate();
+
             }
 
 
@@ -99,9 +101,18 @@ namespace UI.Administrador
                 {
                     busqueda.usuario.Nombre = txtNuevoNombre.Text;
                 }
+                if (string.IsNullOrEmpty(txtIdRol.Text))
+                {
+                    busqueda.usuario.IdRol = r.Cells["IdRol"].Value.ToString();
+                }
+                else
+                {
+                    busqueda.usuario.IdRol= txtIdRol.Text;
+                }
                 
                 busqueda.usuario.Password = txtNuevaPass.Text;
                 busqueda.usuario.IdUsuario =r.Cells["IdUsuario"].Value.ToString();
+                
                 BLLUsuario.Update(busqueda.usuario);
                 MessageBox.Show("Usuario Modificado con Éxito!");
                 Limpiar();

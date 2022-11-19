@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace DAL.Models
 {
-    [Browsable(false)]
     public partial class SysCExpertContext : DbContext
     {
         public SysCExpertContext()
@@ -28,9 +26,6 @@ namespace DAL.Models
         public virtual DbSet<Especialidad> Especialidads { get; set; } = null!;
         public virtual DbSet<Estudio> Estudios { get; set; } = null!;
         public virtual DbSet<EstudioPaciente> EstudioPacientes { get; set; } = null!;
-        public virtual DbSet<HistorialPaciente> HistorialPacientes { get; set; } = null!;
-        public virtual DbSet<Horario> Horarios { get; set; } = null!;
-        public virtual DbSet<HorarioProfesional> HorarioProfesionals { get; set; } = null!;
         public virtual DbSet<Medico> Medicos { get; set; } = null!;
         public virtual DbSet<MedicoPorEspecialidad> MedicoPorEspecialidads { get; set; } = null!;
         public virtual DbSet<ObraSocial> ObraSocials { get; set; } = null!;
@@ -38,6 +33,7 @@ namespace DAL.Models
         public virtual DbSet<Paciente> Pacientes { get; set; } = null!;
         public virtual DbSet<Recepcionistum> Recepcionista { get; set; } = null!;
         public virtual DbSet<Sintoma> Sintomas { get; set; } = null!;
+        public virtual DbSet<SintomaPaciente> SintomaPacientes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -54,15 +50,12 @@ namespace DAL.Models
             {
                 entity.ToTable("Diagnostico");
 
-                entity.Property(e => e.Id)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                entity.Property(e => e.Diagnostico1)
+                    .HasMaxLength(150)
+                    .IsUnicode(false)
+                    .HasColumnName("diagnostico");
 
                 entity.Property(e => e.Fecha).HasColumnType("date");
-
-                entity.Property(e => e.diagnostico)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
 
                 entity.HasOne(d => d.IdMedicoNavigation)
                     .WithMany(p => p.Diagnosticos)
@@ -98,7 +91,7 @@ namespace DAL.Models
                 entity.ToTable("EstudioPaciente");
 
                 entity.Property(e => e.Comentarios)
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Fecha).HasColumnType("date");
@@ -111,66 +104,12 @@ namespace DAL.Models
                 entity.HasOne(d => d.IdMedicoNavigation)
                     .WithMany(p => p.EstudioPacientes)
                     .HasForeignKey(d => d.IdMedico)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_EstudioPaciente_Medico");
 
                 entity.HasOne(d => d.IdPacienteNavigation)
                     .WithMany(p => p.EstudioPacientes)
                     .HasForeignKey(d => d.IdPaciente)
                     .HasConstraintName("FK_EstudioPaciente_Paciente");
-            });
-
-            modelBuilder.Entity<HistorialPaciente>(entity =>
-            {
-                entity.ToTable("HistorialPaciente");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Comentario)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Fecha).HasColumnType("date");
-
-                entity.HasOne(d => d.IdMedicoNavigation)
-                    .WithMany(p => p.HistorialPacientes)
-                    .HasForeignKey(d => d.IdMedico)
-                    .HasConstraintName("FK_HistorialPaciente_Medico");
-
-                entity.HasOne(d => d.IdPacienteNavigation)
-                    .WithMany(p => p.HistorialPacientes)
-                    .HasForeignKey(d => d.IdPaciente)
-                    .HasConstraintName("FK_HistorialPaciente_Paciente");
-            });
-
-            modelBuilder.Entity<Horario>(entity =>
-            {
-                entity.ToTable("Horario");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Nombre)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<HorarioProfesional>(entity =>
-            {
-                entity.HasKey(e => new { e.IdMedico, e.IdHorario });
-
-                entity.ToTable("HorarioProfesional");
-
-                entity.HasOne(d => d.IdHorarioNavigation)
-                    .WithMany(p => p.HorarioProfesionals)
-                    .HasForeignKey(d => d.IdHorario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HorarioProfesional_Horario");
-
-                entity.HasOne(d => d.IdMedicoNavigation)
-                    .WithMany(p => p.HorarioProfesionals)
-                    .HasForeignKey(d => d.IdMedico)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_HorarioProfesional_Medico");
             });
 
             modelBuilder.Entity<Medico>(entity =>
@@ -289,24 +228,30 @@ namespace DAL.Models
 
                 entity.ToTable("Sintoma");
 
-                entity.Property(e => e.IdSintoma)/*.ValueGeneratedNever()*/;
-
                 entity.Property(e => e.Nombre)
-                    .HasMaxLength(50)
+                    .HasMaxLength(150)
                     .IsUnicode(false);
+            });
 
-                entity.HasMany(d => d.IdPacientes)
-                    .WithMany(p => p.IdSintomas)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "SintomaPaciente",
-                        l => l.HasOne<Paciente>().WithMany().HasForeignKey("IdPaciente").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_SintomaPaciente_Paciente"),
-                        r => r.HasOne<Sintoma>().WithMany().HasForeignKey("IdSintoma").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_SintomaPaciente_Sintoma"),
-                        j =>
-                        {
-                            j.HasKey("IdSintoma", "IdPaciente");
+            modelBuilder.Entity<SintomaPaciente>(entity =>
+            {
+                entity.HasKey(e => new { e.IdSintoma, e.IdPaciente });
 
-                            j.ToTable("SintomaPaciente");
-                        });
+                entity.ToTable("SintomaPaciente");
+
+                entity.Property(e => e.Fecha).HasColumnType("datetime");
+
+                entity.HasOne(d => d.IdPacienteNavigation)
+                    .WithMany(p => p.SintomaPacientes)
+                    .HasForeignKey(d => d.IdPaciente)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_SintomaPaciente_Paciente");
+
+                entity.HasOne(d => d.IdSintomaNavigation)
+                    .WithMany(p => p.SintomaPacientes)
+                    .HasForeignKey(d => d.IdSintoma)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_SintomaPaciente_Sintoma");
             });
 
             OnModelCreatingPartial(modelBuilder);

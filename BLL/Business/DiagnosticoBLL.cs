@@ -93,7 +93,7 @@ namespace BLL.Business
                     Id = obj.Id,
                     Fecha=obj.Fecha,
                     IdMedico=obj.IdMedico,
-                    diagnostico = obj.diagnostico,
+                    Diagnostico1 = obj.diagnostico,
                     IdPaciente=obj.IdPaciente
 
                 };
@@ -116,7 +116,7 @@ namespace BLL.Business
                     Id = obj.Id,
                     Fecha = obj.Fecha,
                     IdMedico = obj.IdMedico,
-                    diagnostico = obj.diagnostico,
+                    Diagnostico1 = obj.diagnostico,
                     IdPaciente = obj.IdPaciente
 
                 }; 

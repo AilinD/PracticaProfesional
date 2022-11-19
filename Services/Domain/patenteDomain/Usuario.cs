@@ -1,4 +1,5 @@
 ﻿
+using Org.BouncyCastle.Math.EC.Rfc7748;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +10,8 @@ namespace Services.Domain
 		private System.String _idUsuario;
 		private System.String _nombre;
 		private System.String _password;
+		private System.String _IdRol;
+		private System.String _patente;
 		private List<FamiliaElement> _permisos = new List<FamiliaElement>();
 
 		public Usuario()
@@ -51,6 +54,32 @@ namespace Services.Domain
 			set
 			{
 				_password = value;
+			}
+		}
+
+		public System.String IdRol
+		{
+			get
+			{
+				return _IdRol;
+
+            }
+			set
+			{
+				_IdRol = value;
+
+            }
+		}
+
+		public System.String Patente
+		{
+			get
+			{
+				return _patente;
+			}
+			set
+			{
+				_patente = value;
 			}
 		}
 

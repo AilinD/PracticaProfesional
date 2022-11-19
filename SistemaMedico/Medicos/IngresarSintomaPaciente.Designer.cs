@@ -33,7 +33,7 @@
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSintoma = new System.Windows.Forms.TextBox();
             this.lblSintomas = new System.Windows.Forms.Label();
             this.btnBusca = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -92,13 +92,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(380, 216);
             this.dataGridView1.TabIndex = 44;
             // 
-            // textBox1
+            // txtSintoma
             // 
-            this.textBox1.Location = new System.Drawing.Point(523, 43);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 23);
-            this.textBox1.TabIndex = 52;
+            this.txtSintoma.Location = new System.Drawing.Point(523, 43);
+            this.txtSintoma.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtSintoma.Name = "txtSintoma";
+            this.txtSintoma.Size = new System.Drawing.Size(179, 23);
+            this.txtSintoma.TabIndex = 52;
             // 
             // lblSintomas
             // 
@@ -159,7 +159,7 @@
             this.ClientSize = new System.Drawing.Size(854, 412);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSintoma);
             this.Controls.Add(this.lblSintomas);
             this.Controls.Add(this.btnBusca);
             this.Controls.Add(this.dataGridView2);
@@ -184,7 +184,7 @@
         private Label lblApellidoPaciente;
         private Button btnBuscar;
         private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private TextBox txtSintoma;
         private Label lblSintomas;
         private Button btnBusca;
         private DataGridView dataGridView2;

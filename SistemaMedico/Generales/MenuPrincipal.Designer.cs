@@ -51,7 +51,8 @@
             this.buscarCoincidenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeDiagnosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solicitarEstudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SintomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSintomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAdministradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,10 @@
             this.eliminarPatenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estudiosPorMedicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estudiosPorPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -73,11 +78,13 @@
             this.menuRecepcionToolStripMenuItem,
             this.menuMedicosToolStripMenuItem,
             this.menuAdministradorToolStripMenuItem,
+            this.reportesToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(537, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,7 +106,7 @@
             this.modificarPacienteToolStripMenuItem,
             this.eliminarPacienteToolStripMenuItem});
             this.nuevoPacienteToolStripMenuItem.Name = "nuevoPacienteToolStripMenuItem";
-            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPacienteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.nuevoPacienteToolStripMenuItem.Text = "Pacientes";
             // 
             // nuevoPacienteToolStripMenuItem1
@@ -130,7 +137,7 @@
             this.modificarMedicoToolStripMenuItem,
             this.eliminarMedicoToolStripMenuItem});
             this.medicosToolStripMenuItem.Name = "medicosToolStripMenuItem";
-            this.medicosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.medicosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.medicosToolStripMenuItem.Text = "Medicos";
             // 
             // agregarMedicoToolStripMenuItem
@@ -161,7 +168,7 @@
             this.modificarObraSocialToolStripMenuItem,
             this.eliminarObraSocialToolStripMenuItem});
             this.obrasSocialesToolStripMenuItem.Name = "obrasSocialesToolStripMenuItem";
-            this.obrasSocialesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.obrasSocialesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.obrasSocialesToolStripMenuItem.Text = "Obras Sociales";
             // 
             // nuevaObraSocialToolStripMenuItem
@@ -192,34 +199,36 @@
             this.modificarEstudioToolStripMenuItem,
             this.eliminarEstudioToolStripMenuItem});
             this.estudiosToolStripMenuItem.Name = "estudiosToolStripMenuItem";
-            this.estudiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estudiosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.estudiosToolStripMenuItem.Text = "Estudios";
             // 
             // agregarEstudioToolStripMenuItem
             // 
             this.agregarEstudioToolStripMenuItem.Name = "agregarEstudioToolStripMenuItem";
-            this.agregarEstudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agregarEstudioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.agregarEstudioToolStripMenuItem.Text = "Agregar Estudio";
             this.agregarEstudioToolStripMenuItem.Click += new System.EventHandler(this.agregarEstudioToolStripMenuItem_Click);
             // 
             // modificarEstudioToolStripMenuItem
             // 
             this.modificarEstudioToolStripMenuItem.Name = "modificarEstudioToolStripMenuItem";
-            this.modificarEstudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarEstudioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.modificarEstudioToolStripMenuItem.Text = "Modificar Estudio";
             this.modificarEstudioToolStripMenuItem.Click += new System.EventHandler(this.modificarEstudioToolStripMenuItem_Click);
             // 
             // eliminarEstudioToolStripMenuItem
             // 
             this.eliminarEstudioToolStripMenuItem.Name = "eliminarEstudioToolStripMenuItem";
-            this.eliminarEstudioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarEstudioToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.eliminarEstudioToolStripMenuItem.Text = "Eliminar Estudio";
             this.eliminarEstudioToolStripMenuItem.Click += new System.EventHandler(this.eliminarEstudioToolStripMenuItem_Click);
             // 
             // menuMedicosToolStripMenuItem
             // 
             this.menuMedicosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.diagnosticoPacientesToolStripMenuItem});
+            this.diagnosticoPacientesToolStripMenuItem,
+            this.menuSintomasToolStripMenuItem,
+            this.historialPacienteToolStripMenuItem});
             this.menuMedicosToolStripMenuItem.Name = "menuMedicosToolStripMenuItem";
             this.menuMedicosToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.menuMedicosToolStripMenuItem.Text = "Menu Medicos";
@@ -229,8 +238,7 @@
             this.diagnosticoPacientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buscarCoincidenciasToolStripMenuItem,
             this.informeDiagnosticoToolStripMenuItem,
-            this.solicitarEstudioToolStripMenuItem,
-            this.SintomasToolStripMenuItem});
+            this.solicitarEstudioToolStripMenuItem});
             this.diagnosticoPacientesToolStripMenuItem.Name = "diagnosticoPacientesToolStripMenuItem";
             this.diagnosticoPacientesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.diagnosticoPacientesToolStripMenuItem.Text = "DiagnosticoPacientes";
@@ -256,12 +264,19 @@
             this.solicitarEstudioToolStripMenuItem.Text = "Solicitar Estudio";
             this.solicitarEstudioToolStripMenuItem.Click += new System.EventHandler(this.solicitarEstudioToolStripMenuItem_Click);
             // 
-            // SintomasToolStripMenuItem
+            // menuSintomasToolStripMenuItem
             // 
-            this.SintomasToolStripMenuItem.Name = "SintomasToolStripMenuItem";
-            this.SintomasToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.SintomasToolStripMenuItem.Text = "Menu Sintomas";
-            this.SintomasToolStripMenuItem.Click += new System.EventHandler(this.menuSintomasToolStripMenuItem_Click);
+            this.menuSintomasToolStripMenuItem.Name = "menuSintomasToolStripMenuItem";
+            this.menuSintomasToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.menuSintomasToolStripMenuItem.Text = "Menu Sintomas";
+            this.menuSintomasToolStripMenuItem.Click += new System.EventHandler(this.menuSintomasToolStripMenuItem_Click_1);
+            // 
+            // historialPacienteToolStripMenuItem
+            // 
+            this.historialPacienteToolStripMenuItem.Name = "historialPacienteToolStripMenuItem";
+            this.historialPacienteToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.historialPacienteToolStripMenuItem.Text = "Historial Paciente";
+            this.historialPacienteToolStripMenuItem.Click += new System.EventHandler(this.historialPacienteToolStripMenuItem_Click);
             // 
             // menuAdministradorToolStripMenuItem
             // 
@@ -351,6 +366,35 @@
             this.menuRestoreToolStripMenuItem.Text = "Menu Restore";
             this.menuRestoreToolStripMenuItem.Click += new System.EventHandler(this.menuRestoreToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estudiosPorMedicoToolStripMenuItem,
+            this.estudiosPorPacienteToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // estudiosPorMedicoToolStripMenuItem
+            // 
+            this.estudiosPorMedicoToolStripMenuItem.Name = "estudiosPorMedicoToolStripMenuItem";
+            this.estudiosPorMedicoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.estudiosPorMedicoToolStripMenuItem.Text = "Estudios Por Medico";
+            this.estudiosPorMedicoToolStripMenuItem.Click += new System.EventHandler(this.estudiosPorMedicoToolStripMenuItem_Click);
+            // 
+            // estudiosPorPacienteToolStripMenuItem
+            // 
+            this.estudiosPorPacienteToolStripMenuItem.Name = "estudiosPorPacienteToolStripMenuItem";
+            this.estudiosPorPacienteToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.estudiosPorPacienteToolStripMenuItem.Text = "Estudios Por Paciente";
+            this.estudiosPorPacienteToolStripMenuItem.Click += new System.EventHandler(this.estudiosPorPacienteToolStripMenuItem_Click);
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -362,7 +406,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 424);
+            this.ClientSize = new System.Drawing.Size(662, 448);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -409,7 +453,6 @@
         private ToolStripMenuItem nuevaObraSocialToolStripMenuItem;
         private ToolStripMenuItem modificarObraSocialToolStripMenuItem;
         private ToolStripMenuItem eliminarObraSocialToolStripMenuItem;
-        private ToolStripMenuItem SintomasToolStripMenuItem;
         private ToolStripMenuItem menuUsuarioToolStripMenuItem;
         private ToolStripMenuItem menuPastenteToolStripMenuItem;
         private ToolStripMenuItem menuBackupToolStripMenuItem;
@@ -424,5 +467,11 @@
         private ToolStripMenuItem agregarEstudioToolStripMenuItem;
         private ToolStripMenuItem modificarEstudioToolStripMenuItem;
         private ToolStripMenuItem eliminarEstudioToolStripMenuItem;
+        private ToolStripMenuItem reportesToolStripMenuItem;
+        private ToolStripMenuItem estudiosPorMedicoToolStripMenuItem;
+        private ToolStripMenuItem estudiosPorPacienteToolStripMenuItem;
+        private ToolStripMenuItem ayudaToolStripMenuItem;
+        private ToolStripMenuItem menuSintomasToolStripMenuItem;
+        private ToolStripMenuItem historialPacienteToolStripMenuItem;
     }
 }

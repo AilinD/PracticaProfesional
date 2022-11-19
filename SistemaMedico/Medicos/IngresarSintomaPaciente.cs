@@ -23,17 +23,17 @@ namespace SistemaMedico.Medicos
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //var sintomasPaciente = new SintomasPacienteDto()
-            //{
-            //    //Fecha=DateTime.Now,
-            //    //IdMedico=
-            //    //Fecha = DateTime.Now,
-            //    //IdMedico = obj.IdMedico,
-            //    //diagnostico = obj.diagnostico,
-            //    //IdPaciente = obj.IdPaciente
-            //};
+            var sintomasPaciente = new SintomasPacienteDto()
+            {
+                //Fecha = DateTime.Now,
+                //IdMedico =
+                //Fecha = DateTime.Now,
+                //IdMedico = obj.IdMedico,
+                //diagnostico = obj.diagnostico,
+                //IdPaciente = obj.IdPaciente
+            };
             //DiagnosticoBLL.Current.Insert(diagnostico);
-           
+
 
             Limpiar();
         }
@@ -49,7 +49,6 @@ namespace SistemaMedico.Medicos
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
-                //dataGridView1.DataSource = usser;
                 dataGridView1.DataSource = usser.ToList();
                 dataGridView1.Translate();
             }
@@ -58,7 +57,7 @@ namespace SistemaMedico.Medicos
         private void Limpiar()
         {
             txtNombrePaciente.Text = "";
-           dataGridView1.DataSource = null;
+            dataGridView1.DataSource = null;
             dataGridView2.DataSource = null;
         }
 
@@ -76,6 +75,18 @@ namespace SistemaMedico.Medicos
         private void btnBusca_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(txtSintoma.Text))
+            {
+                var user = SintomaBLL.Current.GetAll();
+                dataGridView1.DataSource = user;
+                dataGridView1.Translate();
+            }
+            else
+            {
+                var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtSintoma.Text));
+                dataGridView1.DataSource = usser.ToList();
+                dataGridView1.Translate();
+            }
         }
     }
 }

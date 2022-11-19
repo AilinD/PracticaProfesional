@@ -55,7 +55,7 @@ namespace UI.Administrador
                     usuario.Nombre = txtNombre.Text;
                     usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
                     usuario.IdUsuario= Guid.NewGuid().ToString();
-
+                    usuario.IdRol = txtIdRol.Text;
 
                     _instance.Nombre = Convert.ToString(cboxPatentes.SelectedItem);
                     PatenteBLL.Insert(_instance);
@@ -146,6 +146,16 @@ namespace UI.Administrador
             //        column.HeaderText = column.HeaderText.Translate();
             //    }
             //}
+        }
+
+        private void lblIdRol_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdRol_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
