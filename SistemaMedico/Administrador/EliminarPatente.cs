@@ -32,13 +32,13 @@ namespace UI.Administrador
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Rows.Add(pat["IdPatente"], pat["Nombre"]);
                 dataGridView1.DataSource = dt;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
 
             }
             else
             {
                 dataGridView1.DataSource = PatenteBLL.SelectAll();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
 
 

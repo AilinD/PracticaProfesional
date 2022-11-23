@@ -6,7 +6,7 @@ using System.Diagnostics.Tracing;
 
 namespace Services.BLL.PatenteBLL
 {
-	public class BLLFamilia
+    public class BLLFamilia
 	{
         #region Singleton
         private readonly static BLLFamilia _instance = new BLLFamilia();

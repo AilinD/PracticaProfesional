@@ -26,14 +26,14 @@ namespace SistemaMedico.Recepcionista
             {
                 var user = MedicoBLL.Current.GetAll();
                 dataGridView1.DataSource = user;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
             else
             {
                 var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
                 dataGridView1.DataSource = usser;
                 dataGridView1.DataSource = usser.ToList();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
         }
 

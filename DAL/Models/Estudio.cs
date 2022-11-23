@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DAL.Models
 {
     public partial class Estudio
     {
+        [Browsable(false)]
         public Estudio()
         {
             EstudioPacientes = new HashSet<EstudioPaciente>();

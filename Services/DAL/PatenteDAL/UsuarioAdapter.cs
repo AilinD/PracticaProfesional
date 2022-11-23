@@ -1,5 +1,4 @@
-﻿using Services.DAL.PatenteDAL;
-using Services.Domain;
+﻿using Services.Domain;
 using System.Data;
 
 

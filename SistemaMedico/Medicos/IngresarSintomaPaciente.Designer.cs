@@ -1,6 +1,6 @@
 ﻿namespace SistemaMedico.Medicos
 {
-    partial class SintomasPaciente
+    partial class IngresarSintomasPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnModificar = new System.Windows.Forms.Button();
             this.txtNombrePaciente = new System.Windows.Forms.TextBox();
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridPaciente = new System.Windows.Forms.DataGridView();
             this.txtSintoma = new System.Windows.Forms.TextBox();
             this.lblSintomas = new System.Windows.Forms.Label();
             this.btnBusca = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.gridSintoma = new System.Windows.Forms.DataGridView();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPaciente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSintoma)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(392, 332);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(88, 27);
-            this.btnModificar.TabIndex = 48;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
             // 
             // txtNombrePaciente
             // 
@@ -83,14 +71,14 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaPaciente_Click);
             // 
-            // dataGridView1
+            // gridPaciente
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 89);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 216);
-            this.dataGridView1.TabIndex = 44;
+            this.gridPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPaciente.Location = new System.Drawing.Point(39, 89);
+            this.gridPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gridPaciente.Name = "gridPaciente";
+            this.gridPaciente.Size = new System.Drawing.Size(380, 216);
+            this.gridPaciente.TabIndex = 44;
             // 
             // txtSintoma
             // 
@@ -122,73 +110,59 @@
             this.btnBusca.UseVisualStyleBackColor = true;
             this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
-            // dataGridView2
+            // gridSintoma
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(449, 89);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(380, 216);
-            this.dataGridView2.TabIndex = 49;
+            this.gridSintoma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSintoma.Location = new System.Drawing.Point(449, 89);
+            this.gridSintoma.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.gridSintoma.Name = "gridSintoma";
+            this.gridSintoma.Size = new System.Drawing.Size(380, 216);
+            this.gridSintoma.TabIndex = 49;
             // 
-            // btnAgregar
+            // btnGuardar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(174, 332);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(88, 27);
-            this.btnAgregar.TabIndex = 53;
-            this.btnAgregar.Text = "Ingresar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnIngresar_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(388, 332);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(88, 27);
+            this.btnGuardar.TabIndex = 53;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(599, 332);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(88, 27);
-            this.btnEliminar.TabIndex = 54;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // SintomasPaciente
+            // IngresarSintomasPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 412);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtSintoma);
             this.Controls.Add(this.lblSintomas);
             this.Controls.Add(this.btnBusca);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.gridSintoma);
             this.Controls.Add(this.txtNombrePaciente);
             this.Controls.Add(this.lblApellidoPaciente);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "SintomasPaciente";
+            this.Controls.Add(this.gridPaciente);
+            this.Name = "IngresarSintomasPaciente";
             this.Text = "SintomasPaciente";
             this.Load += new System.EventHandler(this.SintomasPaciente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPaciente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSintoma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Button btnModificar;
         private TextBox txtNombrePaciente;
         private Label lblApellidoPaciente;
         private Button btnBuscar;
-        private DataGridView dataGridView1;
+        private DataGridView gridPaciente;
         private TextBox txtSintoma;
         private Label lblSintomas;
         private Button btnBusca;
-        private DataGridView dataGridView2;
-        private Button btnAgregar;
-        private Button btnEliminar;
+        private DataGridView gridSintoma;
+        private Button btnGuardar;
     }
 }

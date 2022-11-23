@@ -8,7 +8,7 @@ namespace DAL.Models
 {
     public partial class Recepcionistum
     {
-        public Guid Guid { get; set; }
+        //public Guid Guid { get; set; }
         
     }
 }

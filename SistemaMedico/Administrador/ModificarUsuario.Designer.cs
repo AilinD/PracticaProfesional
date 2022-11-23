@@ -39,12 +39,14 @@
             this.txtNuevaPass = new System.Windows.Forms.TextBox();
             this.txtIdRol = new System.Windows.Forms.TextBox();
             this.lblIdRol = new System.Windows.Forms.Label();
+            this.lblPatente = new System.Windows.Forms.Label();
+            this.cboxPatentes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(181, 410);
+            this.btnModificar.Location = new System.Drawing.Point(181, 458);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
@@ -137,7 +139,6 @@
             this.txtIdRol.Location = new System.Drawing.Point(197, 351);
             this.txtIdRol.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtIdRol.Name = "txtIdRol";
-            this.txtIdRol.PasswordChar = '*';
             this.txtIdRol.Size = new System.Drawing.Size(235, 23);
             this.txtIdRol.TabIndex = 35;
             // 
@@ -151,11 +152,32 @@
             this.lblIdRol.TabIndex = 34;
             this.lblIdRol.Text = "IdRol";
             // 
+            // lblPatente
+            // 
+            this.lblPatente.AutoSize = true;
+            this.lblPatente.Location = new System.Drawing.Point(66, 397);
+            this.lblPatente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPatente.Name = "lblPatente";
+            this.lblPatente.Size = new System.Drawing.Size(47, 15);
+            this.lblPatente.TabIndex = 36;
+            this.lblPatente.Text = "Patente";
+            // 
+            // cboxPatentes
+            // 
+            this.cboxPatentes.FormattingEnabled = true;
+            this.cboxPatentes.Location = new System.Drawing.Point(197, 394);
+            this.cboxPatentes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboxPatentes.Name = "cboxPatentes";
+            this.cboxPatentes.Size = new System.Drawing.Size(235, 23);
+            this.cboxPatentes.TabIndex = 37;
+            // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 462);
+            this.ClientSize = new System.Drawing.Size(480, 516);
+            this.Controls.Add(this.cboxPatentes);
+            this.Controls.Add(this.lblPatente);
             this.Controls.Add(this.txtIdRol);
             this.Controls.Add(this.lblIdRol);
             this.Controls.Add(this.txtNuevaPass);
@@ -190,5 +212,7 @@
         private System.Windows.Forms.TextBox txtNuevaPass;
         private TextBox txtIdRol;
         private Label lblIdRol;
+        private Label lblPatente;
+        private ComboBox cboxPatentes;
     }
 }

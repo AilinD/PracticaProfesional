@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DAL.Models
 {
+    
     public partial class EstudioPaciente
     {
         public int Id { get; set; }
@@ -12,6 +14,7 @@ namespace DAL.Models
         public int? IdMedico { get; set; }
         public int? IdPaciente { get; set; }
 
+        [Browsable(false)]
         public virtual Estudio? IdEstudioNavigation { get; set; }
         public virtual Medico? IdMedicoNavigation { get; set; }
         public virtual Paciente? IdPacienteNavigation { get; set; }

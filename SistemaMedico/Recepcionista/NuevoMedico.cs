@@ -1,6 +1,10 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Services.BLL.PatenteBLL;
+using Services.Domain;
+using Services;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -11,11 +15,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using Domain;
 
 namespace SistemaMedico.Recepcionista
 {
     public partial class NuevoMedico : Form
     {
+        private readonly static Patente _instance = new Patente();
+        private  static int _IdMedico;
         public NuevoMedico()
         {
             InitializeComponent();
@@ -46,7 +54,7 @@ namespace SistemaMedico.Recepcionista
 
                 };
                 MedicoBLL.Current.Insert(medico);
-
+                _IdMedico = Matricula;
                 var medicoEspecialista = new MedicoPorEspecialidad();
                 {
                     var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
@@ -56,7 +64,7 @@ namespace SistemaMedico.Recepcionista
                 }
 
                 MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
-
+                InsertarUsuarioMedico();
                 MessageBox.Show("Medico insertado con éxito!");
                 txtApellido.Text = "";
                 txtContacto.Text = "";
@@ -82,6 +90,29 @@ namespace SistemaMedico.Recepcionista
             
         }
 
+        public void InsertarUsuarioMedico()
+        {
+            var key = ConfigurationManager.AppSettings.Get("key");
+            Usuario usuario = new Usuario();
+            Familia familia = new Familia();
+            familia.Nombre = "Medico";
+            usuario.Nombre = txtNombre.Text+txtApellido.Text;
+            usuario.Password = Hashing.EncryptString(key, txtNombre.Text);
+            usuario.IdUsuario = Guid.NewGuid().ToString();
+            
+
+            var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == _IdMedico);
+            usuario.IdRol = busqueda.Matricula;
+
+            _instance.Nombre = familia.Nombre;
+            PatenteBLL.Insert(_instance);
+            familia.Add(_instance);
+            BLLFamilia.Insert(familia);
+
+            usuario.Permisos.Add(_instance);
+            usuario.Permisos.Add(familia);
+            BLLUsuario.Insert(usuario);
+        }
 
         private void cboxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
         {

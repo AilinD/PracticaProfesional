@@ -1,6 +1,7 @@
 ﻿using Services.BLL;
 using Services.BLL.Exepciones;
 using Services.DAL;
+using Services.Domain;
 using System.Data;
 using System.Diagnostics.Tracing;
 
@@ -23,6 +24,37 @@ namespace Services.DAL.PatenteDAL
 
                 throw;
 			}
+		}
+
+		public static DataTable getPatenteUs(Usuario usuario) 
+		{
+			try
+			{
+				return Patente_dal.GetPatente(usuario);
+
+            }
+			catch (Exception ex)
+			{
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+
+        }
+
+
+		public static DataTable GetNombrePatente(Usuario usuario)
+		{
+			try
+			{
+				return PatenteDAL.Patente_dal.GetNombrePatente( usuario);
+			}
+			catch (Exception ex)
+			{
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
 		}
 
 		public static Domain.Patente GetAdapted(System.String IdFamiliaElement)

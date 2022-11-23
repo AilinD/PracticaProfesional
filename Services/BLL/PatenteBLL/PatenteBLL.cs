@@ -114,7 +114,36 @@ namespace Services.BLL.PatenteBLL
                 throw;
 			}
 		}
-	}
+
+		public static DataTable getPatenteUs(Usuario usuario)
+		{
+			try
+			{
+				return Patente_Facade.getPatenteUs(usuario);
+			}
+			catch (Exception ex)
+			{
+                ExceptionManager.Current.Handle(ex);
+                throw;
+            }
+		}
+
+		public static DataTable GetNombrePatente(Usuario usuario)
+		{
+			try
+			{
+				return Patente_Facade.GetNombrePatente(usuario);
+
+            }
+			catch (Exception ex)
+			{
+                ExceptionManager.Current.Handle(ex);
+                throw;
+            }
+
+		}
+
+    }
 }
 
  

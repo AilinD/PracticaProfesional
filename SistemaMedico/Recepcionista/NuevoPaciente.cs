@@ -19,6 +19,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Services.BLL;
 using System.Diagnostics.Tracing;
 using SistemaMedico.Extensions;
+using Services.BLL.PatenteBLL;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Services.Domain;
+using Services;
 
 namespace UI.Recepcionista
 {
@@ -95,6 +99,7 @@ namespace UI.Recepcionista
                 };
                 ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
 
+                
 
                 MessageBox.Show("Paciente insertado con éxito!");
                 Limpiar();
@@ -106,6 +111,8 @@ namespace UI.Recepcionista
         {
 
         }
+
+       
 
 
         public bool Existe(int DNIPaciente)

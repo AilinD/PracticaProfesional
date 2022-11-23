@@ -37,29 +37,26 @@ namespace SistemaMedico.Medicos
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string comentario = txtComentarios.Text;
+
             var diagnostico = new DiagnosticoDto();
 
-            string nombremedico = (_sesion.usuario.Nombre);
-            string[] separacion = nombremedico.Split('.');
+            //string nombremedico = (_sesion.usuario.Nombre);
+            //string[] separacion = nombremedico.Split('.');
            
-            //var Apellidomedico = (_sesion.usuario.Permisos);
             
-            string nombreM = separacion.GetValue(0).ToString();
-            string ApellidoM = separacion.GetValue(1).ToString();
+            //string nombreM = separacion.GetValue(0).ToString();
+            //string ApellidoM = separacion.GetValue(1).ToString();
 
-
-            var m= MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido == ApellidoM);
-            
-            if (m.Nombre.Equals( nombreM))
-            {
+           
+            //var m= MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido == ApellidoM);
+                     
                 foreach (DataGridViewRow r in gridpaciente.SelectedRows)
                 {
 
 
                     diagnostico.IdPaciente = (int)r.Cells["IdPaciente"].Value;
                     diagnostico.Fecha = DateTime.Now;
-                    diagnostico.IdMedico = m.IdMedico;
+                    diagnostico.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol);
                     diagnostico.diagnostico = txtComentarios.Text;
 
 
@@ -67,8 +64,8 @@ namespace SistemaMedico.Medicos
                     MessageBox.Show("Diagnostico insertado con éxito!");
                     Limpiar();
 
-                }
-            }
+               }
+            
            
         }
         private void Diagnostico_Load(object sender, EventArgs e)
@@ -88,13 +85,13 @@ namespace SistemaMedico.Medicos
             {
                 var user = PacienteBll.Current.GetAll();
                 gridpaciente.DataSource = user;
-                gridpaciente.Translate();
+                //gridpaciente.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
                 gridpaciente.DataSource = usser.ToList();
-                gridpaciente.Translate();
+                //gridpaciente.Translate();
             }
 
 

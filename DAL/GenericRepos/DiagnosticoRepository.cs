@@ -52,7 +52,7 @@ namespace DAL.GenericRepos
                 diagnostico.Id = obj.Id;
                 diagnostico.Fecha = obj.Fecha;
                 diagnostico.IdMedico = obj.IdMedico;
-                diagnostico.Diagnostico1 = obj.Diagnostico1;
+                diagnostico.diagnostico = obj.diagnostico;
                 diagnostico.IdPaciente=obj.IdPaciente;
                 _context.Update(diagnostico);
                 _context.SaveChanges();

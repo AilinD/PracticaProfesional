@@ -2,6 +2,7 @@
 
 using Services.BLL;
 using Services.BLL.Exepciones;
+using Services.Domain;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -185,6 +186,81 @@ namespace Services.DAL.PatenteDAL
                 ExceptionManager.Current.Handle(ex);
 
                 throw;
+            }
+        }
+
+
+        public static DataTable GetPatente(Domain.Usuario _object) {
+
+            //SpSelectPatenteUsuario
+
+            try
+                
+            {
+                DataTable data = new DataTable();
+                using (SqlConnection conn = new SqlConnection(ctr))
+                {
+
+                    SqlCommand sqlComm = new SqlCommand("SpSelectPatenteUsuario", conn);
+                    sqlComm.Parameters.AddWithValue("@IdUsuario", _object.IdUsuario);
+
+                    sqlComm.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = sqlComm;
+                    conn.Open();
+                    sqlComm.ExecuteNonQuery();
+                    da.Fill(data);
+                    //_object.Patente =;
+
+                    foreach (DataRow dr in data.Rows)
+                    {
+                       
+                        _object.IdPatente = dr["IdPatente"].ToString();
+
+                        //usuario.Permisos.Add();
+
+                    }
+
+                }
+                return data;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+        }
+
+
+        public static DataTable GetNombrePatente(Usuario usuario)
+        {
+            DataTable data = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ctr))
+            {
+
+                SqlCommand sqlComm = new SqlCommand("SP_GetNombre_Patente_Usuario", conn);
+                sqlComm.Parameters.AddWithValue("@IdPatente", usuario.IdPatente);
+
+                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlComm;
+                conn.Open();
+                sqlComm.ExecuteNonQuery();
+                da.Fill(data);
+
+
+                foreach (DataRow dr in data.Rows)
+                {
+
+                    usuario.Patente = dr["Nombre"].ToString();
+
+
+
+                }
+                return data;
             }
         }
     }

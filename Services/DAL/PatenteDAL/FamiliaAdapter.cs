@@ -1,11 +1,10 @@
-﻿
-using Services.Domain;
+﻿using Services.Domain;
 using System.Data;
 
 namespace Services.DAL.PatenteDAL
 {
 
-	public class FamiliaAdapter
+    public class FamiliaAdapter
 	{
 		private DataRow row;
 

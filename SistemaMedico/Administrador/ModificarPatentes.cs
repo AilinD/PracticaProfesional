@@ -49,14 +49,14 @@ namespace UI.Administrador
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Rows.Add(user["IdPatente"], user["Nombre"]);
                 dataGridView1.DataSource = dt;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
 
 
             else
             {
                 dataGridView1.DataSource = BLLUsuario.SelectAll();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
         }
 
@@ -72,7 +72,7 @@ namespace UI.Administrador
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Rows.Add(user["IdPatente"], user["Nombre"]);
                 dataGridView1.DataSource = dt;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
 
             }
 

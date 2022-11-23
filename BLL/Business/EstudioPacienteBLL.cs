@@ -52,7 +52,7 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                //throw;
             }
             
         }       

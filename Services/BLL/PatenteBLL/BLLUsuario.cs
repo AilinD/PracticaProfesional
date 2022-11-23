@@ -42,6 +42,8 @@ namespace Services.BLL.PatenteBLL
             {
                 var call = Usuario_Facade.GetUsuarioUserPass(user, password);
 
+				var pat = "";
+
                 if (call == null)
                 {
 					return null;
@@ -110,7 +112,9 @@ namespace Services.BLL.PatenteBLL
 					IdUsuario = _object.IdUsuario,
 					Nombre = _object.Nombre,
 					Permisos = _object.Permisos,
-					Password = _object.Password
+					Password = _object.Password,
+					IdRol=_object.IdRol
+					
 				};
 
 

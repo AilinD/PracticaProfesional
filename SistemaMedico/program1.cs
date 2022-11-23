@@ -2,6 +2,7 @@
 using BLL.Business;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
+using Services.BLL.PatenteBLL;
 using Services.Domain;
 using SistemaMedico.Medicos;
 using SistemaMedico.Recepcionista;
@@ -16,6 +17,7 @@ using UI.Administrador;
 using UI.Generales;
 using UI.Medicos;
 using UI.Recepcionista;
+using Windows.Storage.Provider;
 using Windows.System.Diagnostics;
 
 namespace SistemaMedico
@@ -32,8 +34,9 @@ namespace SistemaMedico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MenuPrincipal(PromptForLogin));
+            //getpar();
             Application.Run(new MenuPrincipal(PromptForLogin()));
-
+            
             var services = new ServiceCollection();
 
             services.AddSingleton(x => ServiceContainer.Instance.GetService<PacienteBll>());
@@ -41,6 +44,12 @@ namespace SistemaMedico
             ServiceProvider serviceProvider = services.BuildServiceProvider();
             DependencyService.SetInstance(serviceProvider);
 
+        }
+
+        public static void getpar()
+        {
+            PatenteBLL.GetAllAdapted();
+            //PatenteBLL.GetAdapted();
         }
 
         public static Sesion PromptForLogin()

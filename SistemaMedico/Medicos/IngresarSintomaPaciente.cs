@@ -1,5 +1,6 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.Domain;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -14,26 +15,34 @@ using System.Windows.Forms;
 
 namespace SistemaMedico.Medicos
 {
-    public partial class SintomasPaciente : Form
+    public partial class IngresarSintomasPaciente : Form
     {
-        public SintomasPaciente()
+        private static Sesion _sesion;
+        public IngresarSintomasPaciente(Sesion sesion)
         {
+            _sesion = sesion;
             InitializeComponent();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            var sintomasPaciente = new SintomasPacienteDto()
-            {
-                //Fecha = DateTime.Now,
-                //IdMedico =
-                //Fecha = DateTime.Now,
-                //IdMedico = obj.IdMedico,
-                //diagnostico = obj.diagnostico,
-                //IdPaciente = obj.IdPaciente
-            };
-            //DiagnosticoBLL.Current.Insert(diagnostico);
+            var sintomasPaciente = new DAL.Models.SintomaPaciente();
 
+            foreach (DataGridViewRow r in gridPaciente.SelectedRows)
+            {
+                sintomasPaciente.Fecha=DateTime.Now;
+                sintomasPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                sintomasPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol); ;
+                
+               
+            }
+
+            foreach (DataGridViewRow r in gridSintoma.SelectedRows)
+            { 
+                sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+            }
+            SintomaPacienteBLL.Current.InsertSintomaPaciente(sintomasPaciente);
+            MessageBox.Show("Sintoma Paciente ingresdo con exito!");
 
             Limpiar();
         }
@@ -43,33 +52,32 @@ namespace SistemaMedico.Medicos
             if (string.IsNullOrEmpty(txtNombrePaciente.Text))
             {
                 var user = PacienteBll.Current.GetAll();
-                dataGridView1.DataSource = user;
-                dataGridView1.Translate();
+                gridPaciente.DataSource = user;
+                //gridPaciente.Translate();
             }
             else
             {
                 var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
-                dataGridView1.DataSource = usser.ToList();
-                dataGridView1.Translate();
+                gridPaciente.DataSource = usser.ToList();
+                //gridPaciente.Translate();
             }
         }
 
         private void Limpiar()
         {
             txtNombrePaciente.Text = "";
-            dataGridView1.DataSource = null;
-            dataGridView2.DataSource = null;
+            gridPaciente.DataSource = null;
+            gridSintoma.DataSource = null;
         }
 
         private void SintomasPaciente_Load(object sender, EventArgs e)
         {
             lblApellidoPaciente.Translate();
             lblSintomas.Translate();
-            btnAgregar.Translate();
+            btnGuardar.Translate();
             btnBusca.Translate();
             btnBuscar.Translate();
-            btnEliminar.Translate();
-            btnModificar.Translate();
+ 
         }
 
         private void btnBusca_Click(object sender, EventArgs e)
@@ -78,15 +86,25 @@ namespace SistemaMedico.Medicos
             if (string.IsNullOrEmpty(txtSintoma.Text))
             {
                 var user = SintomaBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
-                dataGridView1.Translate();
+                gridSintoma.DataSource = user;
+                //gridPaciente.Translate();
             }
             else
             {
                 var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtSintoma.Text));
-                dataGridView1.DataSource = usser.ToList();
-                dataGridView1.Translate();
+                gridSintoma.DataSource = usser.ToList();
+                //gridPaciente.Translate();
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

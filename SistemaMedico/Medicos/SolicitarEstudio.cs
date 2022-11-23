@@ -67,7 +67,7 @@ namespace UI.Medicos
 
 
             gridpaciente.DataSource = usser.ToList();
-            gridpaciente.Translate();
+            //gridpaciente.Translate();
             //gridpaciente.DataSource = Search;
         }
 
@@ -105,7 +105,7 @@ namespace UI.Medicos
             var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
             //dataGridView1.DataSource = usser;
             gridmedico.DataSource = usser.ToList();
-            gridmedico.Translate();
+            //gridmedico.Translate();
         }
 
         private void txtApellidoaciente_TextChanged(object sender, EventArgs e)

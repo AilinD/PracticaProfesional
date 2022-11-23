@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Services.Service
         static Dictionary<string, string> DiccionarioLenguaje = new Dictionary<string, string>();
         static LanguageService()
         {
-            DiccionarioLenguaje = GetLanguageFile("Ingles");
+            DiccionarioLenguaje = GetLanguageFile(ConfigurationManager.AppSettings["LanguageOptions"].ToString());
         }
 
         /// <summary>

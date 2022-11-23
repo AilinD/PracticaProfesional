@@ -8,6 +8,6 @@ namespace DAL.Models
 {
     public partial class Medico
     {
-        public Guid Guid { get; set; }
+        //public Guid Guid { get; set; }
     }
 }

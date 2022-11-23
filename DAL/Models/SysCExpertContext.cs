@@ -50,7 +50,7 @@ namespace DAL.Models
             {
                 entity.ToTable("Diagnostico");
 
-                entity.Property(e => e.Diagnostico1)
+                entity.Property(e => e.diagnostico)
                     .HasMaxLength(150)
                     .IsUnicode(false)
                     .HasColumnName("diagnostico");

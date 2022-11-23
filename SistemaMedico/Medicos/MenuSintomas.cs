@@ -61,13 +61,13 @@ namespace SistemaMedico.Medicos
             {
                 var user = SintomaBLL.Current.GetAll();
                 dataGridView1.DataSource = user;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
             else
             {
                 var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtsBuscarSintomas.Text));
                 dataGridView1.DataSource = usser.ToList();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
         }
 

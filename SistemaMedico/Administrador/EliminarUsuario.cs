@@ -33,12 +33,12 @@ namespace UI.Administrador
                 dt.Columns.Add("IdUsuario", typeof(Guid));
                 dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
                 dataGridView1.DataSource = dt;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
             else
             {
                 dataGridView1.DataSource = BLLUsuario.SelectAll();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
         }
 

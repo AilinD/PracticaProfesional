@@ -55,7 +55,7 @@ namespace UI.Administrador
                     usuario.Nombre = txtNombre.Text;
                     usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
                     usuario.IdUsuario= Guid.NewGuid().ToString();
-                    usuario.IdRol = txtIdRol.Text;
+                    usuario.IdRol = Convert.ToInt16(txtIdRol.Text);
 
                     _instance.Nombre = Convert.ToString(cboxPatentes.SelectedItem);
                     PatenteBLL.Insert(_instance);

@@ -10,8 +10,9 @@ namespace Services.Domain
 		private System.String _idUsuario;
 		private System.String _nombre;
 		private System.String _password;
-		private System.String _IdRol;
+		private System.Int32 _IdRol;
 		private System.String _patente;
+		private System.String _IdPatente;
 		private List<FamiliaElement> _permisos = new List<FamiliaElement>();
 
 		public Usuario()
@@ -57,7 +58,7 @@ namespace Services.Domain
 			}
 		}
 
-		public System.String IdRol
+		public System.Int32 IdRol
 		{
 			get
 			{
@@ -83,7 +84,19 @@ namespace Services.Domain
 			}
 		}
 
-		public List<FamiliaElement> Permisos
+        public System.String IdPatente
+        {
+            get
+            {
+                return _IdPatente;
+            }
+            set
+            {
+                _IdPatente = value;
+            }
+        }
+
+        public List<FamiliaElement> Permisos
 		{
 			get
 			{

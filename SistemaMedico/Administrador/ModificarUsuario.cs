@@ -16,8 +16,9 @@ namespace UI.Administrador
     public partial class ModificarUsuario : Form
     {
          #region singleton
-        private readonly static ModificarUsuario _instance = new ModificarUsuario();
-        public static ModificarUsuario Current
+        //private readonly static ModificarUsuario _instance = new ModificarUsuario();
+        private readonly static Patente _instance = new Patente();
+        public static Patente Current
         {
             get
             {
@@ -53,9 +54,10 @@ namespace UI.Administrador
                 dt.Columns.Add("Nombre", typeof(string));
                 dt.Columns.Add("Contraseña", typeof(string));
                 dt.Columns.Add("IdUsuario", typeof(Guid));
-                dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]);
+                //dt.Columns.Add("IdRol", typeof(int));
+                dt.Rows.Add(user["Nombre"], user["Contraseña"], user["IdUsuario"]/*, user["IdRol"]*/);
                 dataGridView1.DataSource = dt;
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
             }
 
                 
@@ -63,7 +65,7 @@ namespace UI.Administrador
             else
             {
                 dataGridView1.DataSource = BLLUsuario.SelectAll();
-                dataGridView1.Translate();
+                //dataGridView1.Translate();
 
             }
 
@@ -82,7 +84,19 @@ namespace UI.Administrador
             lblNuevaPass.Translate();
             lblNuevoNombre.Translate();
             lbUsuario.Translate();
-            
+            lblIdRol.Translate();
+
+
+            List<string> permisos = new List<string>();
+            permisos.Add("Administrador");
+            permisos.Add("Medico");
+            permisos.Add("Recepcionista");
+            //cboxPatentes.DataSource =  permisos;
+            cboxPatentes.DisplayMember = "Value";
+            cboxPatentes.Items.Add("Administrador");
+            cboxPatentes.Items.Add("Medico");
+            cboxPatentes.Items.Add("Recepcionista");
+
         }
 
         private void btnModificarUS_Click(object sender, EventArgs e)
@@ -103,16 +117,29 @@ namespace UI.Administrador
                 }
                 if (string.IsNullOrEmpty(txtIdRol.Text))
                 {
-                    busqueda.usuario.IdRol = r.Cells["IdRol"].Value.ToString();
+                    busqueda.usuario.IdRol =(int)r.Cells["IdRol"].Value;
                 }
                 else
                 {
-                    busqueda.usuario.IdRol= txtIdRol.Text;
+                    busqueda.usuario.IdRol= Convert.ToInt16(txtIdRol.Text);
                 }
                 
                 busqueda.usuario.Password = txtNuevaPass.Text;
                 busqueda.usuario.IdUsuario =r.Cells["IdUsuario"].Value.ToString();
-                
+                //busqueda.usuario.Patente = cboxPatentes.SelectedItem.ToString();
+                if (busqueda.usuario.IdPatente == null)
+                {
+                    Familia familia = new Familia();
+                    familia.Nombre = cboxPatentes.SelectedItem.ToString();
+                    _instance.Nombre = Convert.ToString(cboxPatentes.SelectedItem);
+                    PatenteBLL.Insert(_instance);
+                    familia.Add(_instance);
+                    BLLFamilia.Insert(familia);
+
+                    busqueda.usuario.Permisos.Add(_instance);
+                    busqueda.usuario.Permisos.Add(familia);
+                }
+
                 BLLUsuario.Update(busqueda.usuario);
                 MessageBox.Show("Usuario Modificado con Éxito!");
                 Limpiar();
@@ -130,6 +157,7 @@ namespace UI.Administrador
             txtNombreUsuario.Text = "";
             txtNuevaPass.Text = "";
             txtNuevoNombre.Text = "";
+            txtIdRol.Text = "";
             dataGridView1.DataSource = null;
         }
     }

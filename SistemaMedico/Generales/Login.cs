@@ -45,9 +45,11 @@ namespace UI
                 {
                     SesionIniciada.usuario = isAuth.usuario;
                     this.DialogResult = DialogResult.OK;
-
+                     PatenteBLL.getPatenteUs(isAuth.usuario);
+                    PatenteBLL.GetNombrePatente(isAuth.usuario);
                     LoggerBLL.WriteLog("Logueando", EventLevel.Informational, isAuth.usuario.Nombre);
                     MessageBox.Show("Login correcto!");
+                    
                     this.Close();
                 }
 
@@ -73,6 +75,8 @@ namespace UI
             lblPass.Translate();
             lblBienvenido.Translate();
             lbUsuario.Translate();
+
+          
 
         }
 
