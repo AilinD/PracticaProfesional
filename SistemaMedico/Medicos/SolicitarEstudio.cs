@@ -13,14 +13,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaMedico.Extensions;
-using GoldoWinformsExtensions;
+using Services.Domain;
+
 
 namespace UI.Medicos
 {
     public partial class SolicitarEstudio : Form
     {
-        public SolicitarEstudio()
+        private static Sesion _sesion;
+        public SolicitarEstudio(Sesion sesion)
         {
+            _sesion = sesion;
             InitializeComponent();
         }
 
@@ -40,12 +43,12 @@ namespace UI.Medicos
         private void SolicitarEstudio_Load_1(object sender, EventArgs e)
         {
             cbocestudio.DataSource = EstudioBLL.Current.GetAll().Select(x => x.Nombre).ToList();
-            lblApellidoMedico.Translate();
+            //lblApellidoMedico.Translate();
             lblComentarios.Translate();
             lblDNI.Translate();
             lblSeleccionaEstudio.Translate();
             btnBusca.Translate();
-            btnBusca1.Translate();
+            //btnBusca1.Translate();
             btnBuscar.Translate();
             btnModificar.Translate();
             btnEstudio.Translate();
@@ -69,27 +72,30 @@ namespace UI.Medicos
             gridpaciente.DataSource = usser.ToList();
             //gridpaciente.Translate();
             //gridpaciente.DataSource = Search;
+
+
+
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
         {
-            var paciente = new PacienteDto();
-            int idpaciente =0;
+            //var paciente = new PacienteDto();
+            
+            //foreach (DataGridViewRow r in gridpaciente.SelectedRows)
+            //{
+            //    idpaciente = (int)r.Cells["IdPaciente"].Value;
+            //    paciente.DNI = (int)r.Cells["DNI"].Value;
+            //    paciente.Nombre = r.Cells["Nombre"].Value.ToString();
+            //    paciente.Apellido = r.Cells["Apellido"].Value.ToString();
+            //    paciente.FechaNacimiento = (DateTime)r.Cells["FechaNacimiento"].Value;
+               
+            //}
+
+            var estudioPaciente = new DAL.Models.EstudioPaciente();
             foreach (DataGridViewRow r in gridpaciente.SelectedRows)
             {
-                idpaciente = (int)r.Cells["IdPaciente"].Value;
-                paciente.DNI = (int)r.Cells["DNI"].Value;
-                paciente.Nombre = r.Cells["Nombre"].Value.ToString();
-                paciente.Apellido = r.Cells["Apellido"].Value.ToString();
-                paciente.FechaNacimiento = (DateTime)r.Cells["FechaNacimiento"].Value;
-               
-            }
-
-            var estudioPaciente = new EstudioPaciente();
-            foreach (DataGridViewRow r in gridmedico.SelectedRows)
-            {
-                estudioPaciente.IdMedico = (int)r.Cells["IdMedico"].Value;
-                estudioPaciente.IdPaciente = idpaciente;
+                estudioPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol);
+                estudioPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
                 estudioPaciente.IdEstudio = cbocestudio.SelectedIndex;
                 estudioPaciente.Fecha = DateTime.Now;
                 estudioPaciente.Comentarios = txtComentarios.Text;
@@ -102,10 +108,10 @@ namespace UI.Medicos
 
         private void btnBuscaMedico_Click(object sender, EventArgs e)
         {
-            var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
-            //dataGridView1.DataSource = usser;
-            gridmedico.DataSource = usser.ToList();
-            //gridmedico.Translate();
+            //var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
+            ////dataGridView1.DataSource = usser;
+            //gridmedico.DataSource = usser.ToList();
+            ////gridmedico.Translate();
         }
 
         private void txtApellidoaciente_TextChanged(object sender, EventArgs e)
@@ -115,12 +121,12 @@ namespace UI.Medicos
 
         private void Limpiar()
         {
-            txtApellidoMedico.Text = "";
+            //txtApellidoMedico.Text = "";
             txtApellidoPaciente.Text = "";
             txtComentarios.Text = "";
             txtDniPaciente.Text = "";
             dataGridView1.DataSource = null;
-            gridmedico.DataSource = null;
+            //gridmedico.DataSource = null;
             gridpaciente.DataSource = null;
         }
     }

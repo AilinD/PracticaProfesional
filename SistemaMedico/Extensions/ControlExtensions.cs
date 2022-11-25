@@ -7,8 +7,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Globalization;
-using Windows.UI.Notifications;
+//using Windows.Globalization;
+//using Windows.UI.Notifications;
 
 namespace SistemaMedico.Extensions
 {

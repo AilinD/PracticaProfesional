@@ -42,15 +42,10 @@
             this.btnBusca = new System.Windows.Forms.Button();
             this.gridpaciente = new System.Windows.Forms.DataGridView();
             this.cbocestudio = new System.Windows.Forms.ComboBox();
-            this.txtApellidoMedico = new System.Windows.Forms.TextBox();
-            this.lblApellidoMedico = new System.Windows.Forms.Label();
-            this.btnBusca1 = new System.Windows.Forms.Button();
-            this.gridmedico = new System.Windows.Forms.DataGridView();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.lblComentarios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridpaciente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridmedico)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -130,7 +125,7 @@
             // 
             // txtDniPaciente
             // 
-            this.txtDniPaciente.Location = new System.Drawing.Point(141, 32);
+            this.txtDniPaciente.Location = new System.Drawing.Point(147, 32);
             this.txtDniPaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDniPaciente.Name = "txtDniPaciente";
             this.txtDniPaciente.Size = new System.Drawing.Size(178, 23);
@@ -141,7 +136,7 @@
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.BackColor = System.Drawing.SystemColors.Control;
-            this.lblDNI.Location = new System.Drawing.Point(23, 35);
+            this.lblDNI.Location = new System.Drawing.Point(29, 35);
             this.lblDNI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(75, 15);
@@ -150,7 +145,7 @@
             // 
             // btnBusca
             // 
-            this.btnBusca.Location = new System.Drawing.Point(355, 32);
+            this.btnBusca.Location = new System.Drawing.Point(361, 32);
             this.btnBusca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnBusca.Name = "btnBusca";
             this.btnBusca.Size = new System.Drawing.Size(87, 25);
@@ -162,10 +157,10 @@
             // gridpaciente
             // 
             this.gridpaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridpaciente.Location = new System.Drawing.Point(26, 78);
+            this.gridpaciente.Location = new System.Drawing.Point(32, 78);
             this.gridpaciente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gridpaciente.Name = "gridpaciente";
-            this.gridpaciente.Size = new System.Drawing.Size(416, 147);
+            this.gridpaciente.Size = new System.Drawing.Size(416, 391);
             this.gridpaciente.TabIndex = 44;
             // 
             // cbocestudio
@@ -175,45 +170,6 @@
             this.cbocestudio.Name = "cbocestudio";
             this.cbocestudio.Size = new System.Drawing.Size(200, 23);
             this.cbocestudio.TabIndex = 50;
-            // 
-            // txtApellidoMedico
-            // 
-            this.txtApellidoMedico.Location = new System.Drawing.Point(141, 270);
-            this.txtApellidoMedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtApellidoMedico.Name = "txtApellidoMedico";
-            this.txtApellidoMedico.Size = new System.Drawing.Size(179, 23);
-            this.txtApellidoMedico.TabIndex = 54;
-            // 
-            // lblApellidoMedico
-            // 
-            this.lblApellidoMedico.AutoSize = true;
-            this.lblApellidoMedico.BackColor = System.Drawing.SystemColors.Control;
-            this.lblApellidoMedico.Location = new System.Drawing.Point(23, 273);
-            this.lblApellidoMedico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApellidoMedico.Name = "lblApellidoMedico";
-            this.lblApellidoMedico.Size = new System.Drawing.Size(94, 15);
-            this.lblApellidoMedico.TabIndex = 53;
-            this.lblApellidoMedico.Text = "Apellido Medico";
-            // 
-            // btnBusca1
-            // 
-            this.btnBusca1.Location = new System.Drawing.Point(355, 270);
-            this.btnBusca1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnBusca1.Name = "btnBusca1";
-            this.btnBusca1.Size = new System.Drawing.Size(88, 27);
-            this.btnBusca1.TabIndex = 52;
-            this.btnBusca1.Text = "Buscar";
-            this.btnBusca1.UseVisualStyleBackColor = true;
-            this.btnBusca1.Click += new System.EventHandler(this.btnBuscaMedico_Click);
-            // 
-            // gridmedico
-            // 
-            this.gridmedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridmedico.Location = new System.Drawing.Point(26, 316);
-            this.gridmedico.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gridmedico.Name = "gridmedico";
-            this.gridmedico.Size = new System.Drawing.Size(416, 153);
-            this.gridmedico.TabIndex = 51;
             // 
             // txtComentarios
             // 
@@ -237,10 +193,6 @@
             this.ClientSize = new System.Drawing.Size(739, 490);
             this.Controls.Add(this.lblComentarios);
             this.Controls.Add(this.txtComentarios);
-            this.Controls.Add(this.txtApellidoMedico);
-            this.Controls.Add(this.lblApellidoMedico);
-            this.Controls.Add(this.btnBusca1);
-            this.Controls.Add(this.gridmedico);
             this.Controls.Add(this.cbocestudio);
             this.Controls.Add(this.lblSeleccionaEstudio);
             this.Controls.Add(this.btnModificar);
@@ -253,7 +205,6 @@
             this.Load += new System.EventHandler(this.SolicitarEstudio_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridpaciente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridmedico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,10 +226,6 @@
         private Button btnBusca;
         private DataGridView gridpaciente;
         private ComboBox cbocestudio;
-        private TextBox txtApellidoMedico;
-        private Label lblApellidoMedico;
-        private Button btnBusca1;
-        private DataGridView gridmedico;
         private TextBox txtComentarios;
         private Label lblComentarios;
     }

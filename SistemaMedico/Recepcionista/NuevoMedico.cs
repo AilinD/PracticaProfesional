@@ -1,7 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using DAL.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+//using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
 using Services;
@@ -16,7 +16,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using Domain;
 
 namespace SistemaMedico.Recepcionista
 {

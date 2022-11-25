@@ -20,7 +20,7 @@ using System.Windows.Forms;
 using UI.Administrador;
 using UI.Medicos;
 using UI.Recepcionista;
-using Windows.Security.Authentication.Identity.Core;
+//using Windows.Security.Authentication.Identity.Core;
 using static System.Collections.Specialized.BitVector32;
 
 namespace UI.Generales

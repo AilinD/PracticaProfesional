@@ -17,8 +17,8 @@ using UI.Administrador;
 using UI.Generales;
 using UI.Medicos;
 using UI.Recepcionista;
-using Windows.Storage.Provider;
-using Windows.System.Diagnostics;
+//using Windows.Storage.Provider;
+//using Windows.System.Diagnostics;
 
 namespace SistemaMedico
 {

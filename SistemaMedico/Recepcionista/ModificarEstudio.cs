@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Windows.Graphics.Printing.PrintTicket;
+//using System.Windows.Graphics.Printing.PrintTicket;
 
 namespace SistemaMedico.Recepcionista
 {

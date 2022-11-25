@@ -6,129 +6,134 @@ using Services;
 using BLL.Dto;
 using BLL.MapperConfig;
 using Services.BLL.Exepciones;
+using System;
+using System.Collections.Generic;
 
-namespace BLL.Business;
-
-public class PacienteBll : IGenericBusiness<PacienteDto>
+namespace BLL.Business
 {
-    private readonly static PacienteBll _instance = new PacienteBll();
 
-
-    public static PacienteBll Current
+    public class PacienteBll : IGenericBusiness<PacienteDto>
     {
-        get
+        private readonly static PacienteBll _instance = new PacienteBll();
+
+
+        public static PacienteBll Current
         {
-            return _instance;
-        }
-    }
-
-
-    IGenericRepository<Paciente> genericRepository = FactoryDAL._pacienteRepository;
-
-    public void Delete(int? guid)
-    {
-        try
-        {
-            var op = genericRepository.GetOne(guid);
-            if (op != null)
+            get
             {
-                genericRepository.Delete(op);
+                return _instance;
             }
         }
-        catch (Exception ex)
+
+
+        IGenericRepository<Paciente> genericRepository = FactoryDAL._pacienteRepository;
+
+        public void Delete(int? guid)
         {
-            ExceptionManager.Current.Handle(ex);
-
-            throw;
-        }
-        
-
-    }
-
-    public IEnumerable<PacienteDto> GetAll()
-    {
-        try
-        {
-            var entity = MapperHelper.GetMapper().
-            Map<List<PacienteDto>>(genericRepository.GetAll());
-
-            return entity;
-        }
-        catch (Exception ex)
-        {
-            ExceptionManager.Current.Handle(ex);
-
-            throw;
-        }
-        
-    }
-
-    public PacienteDto GetOne(int? guid)
-    {
-        try
-        {
-            var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
-
-            return op;
-        }
-        catch (Exception ex)
-        {
-            ExceptionManager.Current.Handle(ex);
-
-            throw;
-        }
-        
-    }
-
-    public void Insert(PacienteDto obj)
-    {
-        try
-        {
-            var dtoToentity = new Paciente()
+            try
             {
-                Dni = obj.DNI,
-                Nombre = obj.Nombre,
-                Apellido = obj.Apellido,
-                FechaNacimiento = (DateTime)obj.FechaNacimiento,
-                Dirección = obj.Dirección,
-                Contacto = obj.Contacto,
-                Sexo = obj.Sexo
-
-            };
-            genericRepository.Insert(dtoToentity);
-        }
-        catch (Exception ex)
-        {
-            ExceptionManager.Current.Handle(ex);
-
-            throw;
-        }
-        
-    }
-
-    public async void Update(PacienteDto obj)
-    {
-        try
-        {
-            var dtoToentity = new Paciente()
+                var op = genericRepository.GetOne(guid);
+                if (op != null)
+                {
+                    genericRepository.Delete(op);
+                }
+            }
+            catch (Exception ex)
             {
-                IdPaciente = obj.IdPaciente,
-                Dni = obj.DNI,
-                Nombre = obj.Nombre,
-                Apellido = obj.Apellido,
-                FechaNacimiento = (DateTime)obj.FechaNacimiento,
-                Dirección = obj.Dirección,
-                Contacto = obj.Contacto,
-                Sexo = obj.Sexo
+                ExceptionManager.Current.Handle(ex);
 
-            };
-            genericRepository.Update(dtoToentity);
+                throw;
+            }
+
+
         }
-        catch (Exception ex)
+
+        public IEnumerable<PacienteDto> GetAll()
         {
-            ExceptionManager.Current.Handle(ex);
+            try
+            {
+                var entity = MapperHelper.GetMapper().
+                Map<List<PacienteDto>>(genericRepository.GetAll());
 
-            throw;
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+
         }
 
-}   }
+        public PacienteDto GetOne(int? guid)
+        {
+            try
+            {
+                var op = MapperHelper.GetMapper().Map<PacienteDto>(genericRepository.GetOne(guid));
+
+                return op;
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+
+        }
+
+        public void Insert(PacienteDto obj)
+        {
+            try
+            {
+                var dtoToentity = new Paciente()
+                {
+                    Dni = obj.DNI,
+                    Nombre = obj.Nombre,
+                    Apellido = obj.Apellido,
+                    FechaNacimiento = (DateTime)obj.FechaNacimiento,
+                    Dirección = obj.Dirección,
+                    Contacto = obj.Contacto,
+                    Sexo = obj.Sexo
+
+                };
+                genericRepository.Insert(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+
+        }
+
+        public async void Update(PacienteDto obj)
+        {
+            try
+            {
+                var dtoToentity = new Paciente()
+                {
+                    IdPaciente = obj.IdPaciente,
+                    Dni = obj.DNI,
+                    Nombre = obj.Nombre,
+                    Apellido = obj.Apellido,
+                    FechaNacimiento = (DateTime)obj.FechaNacimiento,
+                    Dirección = obj.Dirección,
+                    Contacto = obj.Contacto,
+                    Sexo = obj.Sexo
+
+                };
+                genericRepository.Update(dtoToentity);
+            }
+            catch (Exception ex)
+            {
+                ExceptionManager.Current.Handle(ex);
+
+                throw;
+            }
+
+        }
+    }
+}
