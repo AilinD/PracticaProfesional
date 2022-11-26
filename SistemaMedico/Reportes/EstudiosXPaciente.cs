@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using DAL.Models;
+using BLL.Dto;
 
 namespace SistemaMedico.Reportes
 {
@@ -31,8 +33,8 @@ namespace SistemaMedico.Reportes
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             int dni = Convert.ToInt32(txtDniPaciente.Text);
-           
-            var search = BLL.Business.EstudioPacienteBLL.Current.SelectPaciente(dni);
+
+            List<EstudioPacienteDTO> search = BLL.Business.EstudioPacienteBLL.Current.SelectPacienteDto(dni).ToList();
             dataGridView1.DataSource = search.ToList();
             //dataGridView1.Translate();
 

@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaMedico.Extensions;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace UI.Recepcionista
 {
@@ -26,23 +28,31 @@ namespace UI.Recepcionista
         {
             //var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtNuevaOS.Text));
 
-            string nuevaOS =txtNuevaOS.Text;
+            try
+            {
+                string nuevaOS = txtNuevaOS.Text;
 
-            var busqueda=Existe( nuevaOS);
-            if (busqueda==true)
-            {
-                MessageBox.Show("Obra Social ya existe");
-            }
-            else if(busqueda==false)
-            {
-                var OS = new ObraSocialDto()
+                var busqueda = Existe(nuevaOS);
+                if (busqueda == true)
                 {
-                    Nombre = nuevaOS,
+                    MessageBox.Show("Obra Social ya existe");
+                }
+                else if (busqueda == false)
+                {
+                    var OS = new ObraSocialDto()
+                    {
+                        Nombre = nuevaOS,
 
-                };
-                ObraSocialBLL.Current.Insert(OS);
-                MessageBox.Show("Obra Social insertada con éxito!");
-                Limpiar();
+                    };
+                    ObraSocialBLL.Current.Insert(OS);
+                    MessageBox.Show("Obra Social insertada con éxito!");
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
 
            
@@ -50,20 +60,38 @@ namespace UI.Recepcionista
 
         private void NuevaObraSocial_Load(object sender, EventArgs e)
         {
-            lblObraSocial.Translate();
-            btnAgregar.Translate();
+            try
+            {
+                lblObraSocial.Translate();
+                btnAgregar.Translate();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
 
         }
 
         public bool Existe(string obrasocial)
         {
-            var busqueda=ObraSocialBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == obrasocial);
-            if (busqueda!=null)
+            try
             {
-                //busqueda.Nombre = txtNuevaOS.Text;
-                return true;
+                var busqueda = ObraSocialBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == obrasocial);
+                if (busqueda != null)
+                {
+                    //busqueda.Nombre = txtNuevaOS.Text;
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                return false;
+            }
+            
         }
 
         public void Limpiar()

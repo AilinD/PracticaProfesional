@@ -1,10 +1,12 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.BLL;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,49 +24,81 @@ namespace SistemaMedico.Recepcionista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtOSaEliminar.Text))
+            try
             {
-                var user = ObraSocialBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
-                //dataGridView1.Translate();
+                if (string.IsNullOrEmpty(txtOSaEliminar.Text))
+                {
+                    var user = ObraSocialBLL.Current.GetAll();
+                    dataGridView1.DataSource = user;
+                    //dataGridView1.Translate();
+                }
+                else
+                {
+                    var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtOSaEliminar.Text));
+                    dataGridView1.DataSource = usser.ToList();
+                    //dataGridView1.Translate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = ObraSocialBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtOSaEliminar.Text));
-                dataGridView1.DataSource = usser.ToList();
-                //dataGridView1.Translate();
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var obrasocial = new ObraSocialDto();
-
-            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            try
             {
-                obrasocial.Id = (int)r.Cells["Id"].Value;
-                obrasocial.Nombre = r.Cells["Nombre"].Value.ToString();
+                var obrasocial = new ObraSocialDto();
+
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    obrasocial.Id = (int)r.Cells["Id"].Value;
+                    obrasocial.Nombre = r.Cells["Nombre"].Value.ToString();
 
 
-                ObraSocialBLL.Current.Delete(obrasocial.Id);
+                    ObraSocialBLL.Current.Delete(obrasocial.Id);
 
 
+                }
+                MessageBox.Show("Obra Social eliminada con éxito!");
+                Limpiar();
             }
-            MessageBox.Show("Obra Social eliminada con éxito!");
-            Limpiar();
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
         private void Limpiar()
         {
-            txtOSaEliminar.Text = "";
-            dataGridView1.ClearSelection();
+            try
+            {
+                txtOSaEliminar.Text = "";
+                dataGridView1.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void EliminarObraSocial_Load(object sender, EventArgs e)
         {
-            lblObraSocial.Translate();
-            btnBuscar.Translate();
-            btnEliminar.Translate();
-            dataGridView1.DataSource = null;
+            try
+            {
+                lblObraSocial.Translate();
+                btnBuscar.Translate();
+                btnEliminar.Translate();
+                dataGridView1.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
     }
 }

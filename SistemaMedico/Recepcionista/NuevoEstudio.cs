@@ -1,10 +1,12 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.BLL;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,43 +24,71 @@ namespace SistemaMedico.Recepcionista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string nuevoEstudio = txtNuevoestudio.Text;
-
-
-            var busqueda = Existe(nuevoEstudio);
-            if (busqueda == true)
+            try
             {
-                MessageBox.Show("Estudio ya existe");
-            }else if(busqueda == false)
-            {
+                string nuevoEstudio = txtNuevoestudio.Text;
 
-                var estudio = new EstudioDto()
+
+                var busqueda = Existe(nuevoEstudio);
+                if (busqueda == true)
                 {
-                    Nombre = nuevoEstudio,
+                    MessageBox.Show("Estudio ya existe");
+                }
+                else if (busqueda == false)
+                {
 
-                };
-                EstudioBLL.Current.Insert(estudio);
-                MessageBox.Show("Estudio insertado con éxito!");
+                    var estudio = new EstudioDto()
+                    {
+                        Nombre = nuevoEstudio,
 
-                txtNuevoestudio.Text = "";
+                    };
+                    EstudioBLL.Current.Insert(estudio);
+                    MessageBox.Show("Estudio insertado con éxito!");
+
+                    txtNuevoestudio.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
 
         }
 
         public bool Existe(string estudio)
         {
-            var busqueda = EstudioBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == estudio);
-            if (busqueda != null)
+            try
             {
-                return true;
+                var busqueda = EstudioBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == estudio);
+                if (busqueda != null)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                return false;
+            }
+            
         }
 
         private void NuevoEstudio_Load(object sender, EventArgs e)
         {
-            lblEstudio.Translate();
-            btnAgregar.Translate();
+            try
+            {
+
+                lblEstudio.Translate();
+                btnAgregar.Translate();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
     }
 

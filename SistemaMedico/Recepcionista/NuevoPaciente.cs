@@ -23,6 +23,7 @@ using Services.BLL.PatenteBLL;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services.Domain;
 using Services;
+using Org.BouncyCastle.Crypto.Engines;
 
 namespace UI.Recepcionista
 {
@@ -37,72 +38,89 @@ namespace UI.Recepcionista
         private void NuevoPaciente_Load(object sender, EventArgs e)
         {
 
-            List<string> Sexo = new List<string>();
-            Sexo.Add("Femenino");
-            Sexo.Add("Masculino");
-            //cboxSexo.DataSource = Sexo;
-            cboxSexo.DisplayMember = "Value";
-            cboxSexo.Items.Add("Femenino");
-            cboxSexo.Items.Add("Masculino");
-            
-            cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
-            cboxObraSocial.DisplayMember = "Nombre";
-            //cboxObraSocial.ValueMember = "Id";
-            
-            lblApellido.Translate();
-            lblNombre.Translate();
-            lblDNI.Translate();
-            lblFechaNac.Translate();
-            lblObraSocial.Translate();
-            lblDomicilio.Translate();
-            lblSexo.Translate();
-            lblContacto.Translate();
-            btnAgregar.Translate();
-            cboxSexo.Translate();
+            try
+            {
+                List<string> Sexo = new List<string>();
+                Sexo.Add("Femenino");
+                Sexo.Add("Masculino");
+                //cboxSexo.DataSource = Sexo;
+                cboxSexo.DisplayMember = "Value";
+                cboxSexo.Items.Add("Femenino");
+                cboxSexo.Items.Add("Masculino");
+
+                cboxObraSocial.DataSource = ObraSocialBLL.Current.GetAll().Select(x => x.Nombre).ToList();
+                cboxObraSocial.DisplayMember = "Nombre";
+                //cboxObraSocial.ValueMember = "Id";
+
+                lblApellido.Translate();
+                lblNombre.Translate();
+                lblDNI.Translate();
+                lblFechaNac.Translate();
+                lblObraSocial.Translate();
+                lblDomicilio.Translate();
+                lblSexo.Translate();
+                lblContacto.Translate();
+                btnAgregar.Translate();
+                cboxSexo.Translate();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int DNI = int.Parse(txtDNI.Text);
-            string Apellido = txtApellido.Text;
-            string Nombre = txtNombre.Text;
-            DateTime FechaNac = dateTimePicker1.Value;
-            string Domicilio = txtDomicilio.Text;
-            string Contacto = txtContacto.Text;
-            string Sexo = cboxSexo.Text;
-
-            var busqueda = Existe(DNI);
-            if (busqueda == true)
+            try
             {
-                MessageBox.Show("Paciente ya existe");
-                LoggerBLL.WriteLog("Paciente ya existe", EventLevel.Warning,Apellido+Nombre);
-            }else if(busqueda == false)
+                int DNI = int.Parse(txtDNI.Text);
+                string Apellido = txtApellido.Text;
+                string Nombre = txtNombre.Text;
+                DateTime FechaNac = dateTimePicker1.Value;
+                string Domicilio = txtDomicilio.Text;
+                string Contacto = txtContacto.Text;
+                string Sexo = cboxSexo.Text;
+
+                var busqueda = Existe(DNI);
+                if (busqueda == true)
+                {
+                    MessageBox.Show("Paciente ya existe");
+                    LoggerBLL.WriteLog("Paciente ya existe", EventLevel.Warning, Apellido + Nombre);
+                }
+                else if (busqueda == false)
+                {
+                    var paciente = new PacienteDto()
+                    {
+                        DNI = DNI,
+                        Apellido = Apellido,
+                        Nombre = Nombre,
+                        FechaNacimiento = FechaNac,
+                        Dirección = Domicilio,
+                        Contacto = Contacto,
+                        Sexo = Sexo,
+                    };
+                    PacienteBll.Current.Insert(paciente);
+                    int dniint = int.Parse(txtDNI.Text);
+                    var odp = new ObraSocialPaciente();
+                    {
+                        var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
+                        cboxObraSocial_SelectedIndexChanged(sender, e);
+                        odp.IdPaciente = Search.IdPaciente;
+                        odp.IdObraSocial = cboxObraSocial.SelectedIndex;
+                    };
+                    ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
+
+
+
+                    MessageBox.Show("Paciente insertado con éxito!");
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
             {
-                var paciente = new PacienteDto()
-                {
-                    DNI = DNI,
-                    Apellido = Apellido,
-                    Nombre = Nombre,
-                    FechaNacimiento = FechaNac,
-                    Dirección = Domicilio,
-                    Contacto = Contacto,
-                    Sexo = Sexo,
-                };
-                PacienteBll.Current.Insert(paciente);
-                int dniint = int.Parse(txtDNI.Text);
-                var odp = new ObraSocialPaciente();
-                {
-                    var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
-                    cboxObraSocial_SelectedIndexChanged(sender, e);
-                    odp.IdPaciente = Search.IdPaciente;
-                    odp.IdObraSocial = cboxObraSocial.SelectedIndex;
-                };
-                ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
 
-                
-
-                MessageBox.Show("Paciente insertado con éxito!");
-                Limpiar();
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         
         }
@@ -117,22 +135,39 @@ namespace UI.Recepcionista
 
         public bool Existe(int DNIPaciente)
         {
-            var busqueda = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI == DNIPaciente);
-            if (busqueda != null)
+            try
             {
-                return true;
+                var busqueda = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI == DNIPaciente);
+                if (busqueda != null)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                return false;
+            }
         }
 
         private void Limpiar()
         {
-            txtApellido.Clear();
-            txtContacto.Clear();
-            txtDNI.Clear();
-            txtDomicilio.Clear();
-            txtNombre.Clear();
-            //dateTimePicker1= dateTimePicker1.TextChanged();
+            try
+            {
+                txtApellido.Clear();
+                txtContacto.Clear();
+                txtDNI.Clear();
+                txtDomicilio.Clear();
+                txtNombre.Clear();
+                //dateTimePicker1= dateTimePicker1.TextChanged();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
 

@@ -38,9 +38,9 @@ namespace UI.Generales
 
         public static void GetSesion(Sesion sesion)
         {
-            
-           var busqueda= PatenteBLL.GetAllAdapted();
-            
+
+            var busqueda = PatenteBLL.GetAllAdapted();
+
         }
 
         private void btnMenuRecepcion_Click(object sender, EventArgs e)
@@ -80,6 +80,13 @@ namespace UI.Generales
             reportesToolStripMenuItem.Translate();
             estudiosPorMedicoToolStripMenuItem.Translate();
             estudiosPorPacienteToolStripMenuItem.Translate();
+            tamanio();
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void eToolStripMenuItem_Click(object sender, EventArgs e)
@@ -230,7 +237,8 @@ namespace UI.Generales
         {
             if (_sesion.usuario.Patente.Equals("Medico") || (_sesion.usuario.Patente.Equals("Administrador")))
             {
-                CreateMDIChild<SolicitarEstudio>();
+                CreateMDIChildSession<SolicitarEstudio>();
+                //CreateMDIChild<SolicitarEstudio>();
             }
             else if (!_sesion.usuario.Patente.Equals("Medico") || (!_sesion.usuario.Patente.Equals("Administrador")))
 

@@ -1,10 +1,12 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.BLL;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,75 +24,106 @@ namespace SistemaMedico.Recepcionista
 
         private void btnBuscaMedico_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtApellidoMedico.Text))
+            try
             {
-                var user = MedicoBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
-                //dataGridView1.Translate();
+                if (string.IsNullOrEmpty(txtApellidoMedico.Text))
+                {
+                    var user = MedicoBLL.Current.GetAll();
+                    dataGridView1.DataSource = user;
+                    //dataGridView1.Translate();
+                }
+                else
+                {
+                    var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
+                    dataGridView1.DataSource = usser;
+                    dataGridView1.DataSource = usser.ToList();
+                    //dataGridView1.Translate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = MedicoBLL.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoMedico.Text));
-                dataGridView1.DataSource = usser;
-                dataGridView1.DataSource = usser.ToList();
-                //dataGridView1.Translate();
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void btnModificarMedico_Click(object sender, EventArgs e)
         {
-
-            var medico = new MedicoDto();
-
-            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            try
             {
-                medico.IdMedico = (int)r.Cells["IdMedico"].Value;
-                medico.Matricula = (int)r.Cells["Matricula"].Value;
-                medico.Nombre = r.Cells["Nombre"].Value.ToString();
-                medico.Apellido = r.Cells["Apellido"].Value.ToString();
-                
-                if (string.IsNullOrEmpty(txtNuevoDomicilio.Text))
+
+                var medico = new MedicoDto();
+
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
                 {
+                    medico.IdMedico = (int)r.Cells["IdMedico"].Value;
+                    medico.Matricula = (int)r.Cells["Matricula"].Value;
+                    medico.Nombre = r.Cells["Nombre"].Value.ToString();
+                    medico.Apellido = r.Cells["Apellido"].Value.ToString();
 
-                    medico.Direccion = r.Cells["Direccion"].Value.ToString();
+                    if (string.IsNullOrEmpty(txtNuevoDomicilio.Text))
+                    {
+
+                        medico.Direccion = r.Cells["Direccion"].Value.ToString();
+                    }
+                    else
+                    {
+                        medico.Direccion = txtNuevoDomicilio.Text;
+                    }
+
+                    if (string.IsNullOrEmpty(txtNuevoContacto.Text))
+                    {
+                        medico.Contacto = r.Cells["Contacto"].Value.ToString();
+                    }
+                    else
+                    {
+                        medico.Contacto = txtNuevoContacto.Text;
+                    }
+
+                    MedicoBLL.Current.Update(medico);
+
+
                 }
-                else
-                {
-                    medico.Direccion = txtNuevoDomicilio.Text;
-                }
-
-                if (string.IsNullOrEmpty(txtNuevoContacto.Text))
-                {
-                    medico.Contacto = r.Cells["Contacto"].Value.ToString();
-                }
-                else
-                {
-                    medico.Contacto = txtNuevoContacto.Text;
-                }
-
-                MedicoBLL.Current.Update(medico);
-
-
+                MessageBox.Show("Medico modificado con éxito!");
+                Limpiar();
             }
-            MessageBox.Show("Medico modificado con éxito!");
-            Limpiar();
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
         private void Limpiar()
         {
-            txtApellidoMedico.Text = "";
-            txtNuevoContacto.Text = "";
-            txtNuevoDomicilio.Text = "";
-            dataGridView1.DataSource = null;
+            try
+            {
+                txtApellidoMedico.Text = "";
+                txtNuevoContacto.Text = "";
+                txtNuevoDomicilio.Text = "";
+                dataGridView1.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void ModificarMedico_Load(object sender, EventArgs e)
         {
-            lblApellidoMedico.Translate();
-            lblNuevoContacto.Translate();
-            lblNuevoDomicilio.Translate();
-            btnBuscar.Translate();
-            btnModificar.Translate();
-            dataGridView1.DataSource = null;
+            try
+            {
+                lblApellidoMedico.Translate();
+                lblNuevoContacto.Translate();
+                lblNuevoDomicilio.Translate();
+                btnBuscar.Translate();
+                btnModificar.Translate();
+                dataGridView1.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
     }
 }

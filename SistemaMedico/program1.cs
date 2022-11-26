@@ -2,6 +2,7 @@
 using BLL.Business;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
+using Services.BLL;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
 using SistemaMedico.Medicos;
@@ -9,6 +10,7 @@ using SistemaMedico.Recepcionista;
 using SistemaMedico.Reportes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +25,15 @@ using UI.Recepcionista;
 namespace SistemaMedico
 {
     internal static  class program1
-    {    
-        
+    {
+
         [STAThread]
         static void Main()
         {
+            try
+            {
+
+            
             Application.EnableVisualStyles();
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
@@ -36,14 +42,18 @@ namespace SistemaMedico
             //Application.Run(new MenuPrincipal(PromptForLogin));
             //getpar();
             Application.Run(new MenuPrincipal(PromptForLogin()));
-            
+
             var services = new ServiceCollection();
 
             services.AddSingleton(x => ServiceContainer.Instance.GetService<PacienteBll>());
 
             ServiceProvider serviceProvider = services.BuildServiceProvider();
             DependencyService.SetInstance(serviceProvider);
-
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog("", EventLevel.Warning, "");
+            }
         }
 
         public static void getpar()

@@ -56,7 +56,11 @@ namespace BLL.Business
             }
             
         }       
-
+        /// <summary>
+        /// en vez de estudiopaciente devuelve dto,  y medico y paciente son tipo texto
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IQueryable< EstudioPaciente> SelectPaciente(int id)
         {
                     
@@ -74,6 +78,27 @@ namespace BLL.Business
             IdPaciente = ep.IdPaciente,
             Fecha = ep.Fecha
         }); 
+
+            return busqueda;
+
+        }
+
+        public IQueryable<EstudioPacienteDTO> SelectPacienteDto(int id)
+        {
+
+            var busqueda =
+           (from ep in _context.EstudioPacientes
+            join a in _context.Pacientes on ep.IdPaciente equals a.IdPaciente
+            join e in _context.Estudios on ep.IdEstudio equals e.Id
+            where a.Dni == id
+            select new EstudioPacienteDTO
+            {
+                Estudio = ep.IdEstudioNavigation.Nombre,
+                Comentarios = ep.Comentarios,
+                Medico = ep.IdMedicoNavigation.Nombre,
+                Paciente = ep.IdPacienteNavigation.Nombre,
+                Fecha = ep.Fecha
+            });
 
             return busqueda;
 

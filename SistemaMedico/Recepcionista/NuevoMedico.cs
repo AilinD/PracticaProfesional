@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace SistemaMedico.Recepcionista
 {
@@ -30,87 +32,113 @@ namespace SistemaMedico.Recepcionista
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            int Matricula = int.Parse(txtMatricula.Text);
-            string Apellido = txtApellido.Text;
-            string Nombre = txtNombre.Text;
-            string Domicilio = txtDomicilio.Text;
-            string Contacto = txtContacto.Text;
-
-            var busqueda = Existe(Matricula);
-            if (busqueda == true)
+            try
             {
-                MessageBox.Show("Medico ya existe");
-            }else if (busqueda==false)
-            {
-                var medico = new MedicoDto()
-                {
-                    Matricula = Matricula,
-                    Apellido = Apellido,
-                    Nombre = Nombre,
-                    Direccion = Domicilio,
-                    Contacto = Contacto
+                int Matricula = int.Parse(txtMatricula.Text);
+                string Apellido = txtApellido.Text;
+                string Nombre = txtNombre.Text;
+                string Domicilio = txtDomicilio.Text;
+                string Contacto = txtContacto.Text;
 
-
-                };
-                MedicoBLL.Current.Insert(medico);
-                _IdMedico = Matricula;
-                var medicoEspecialista = new MedicoPorEspecialidad();
+                var busqueda = Existe(Matricula);
+                if (busqueda == true)
                 {
-                    var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
-                    cboxEspecialidad_SelectedIndexChanged(sender, e);
-                    medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
-                    medicoEspecialista.IdMedico = Search.IdMedico;
+                    MessageBox.Show("Medico ya existe");
                 }
+                else if (busqueda == false)
+                {
+                    var medico = new MedicoDto()
+                    {
+                        Matricula = Matricula,
+                        Apellido = Apellido,
+                        Nombre = Nombre,
+                        Direccion = Domicilio,
+                        Contacto = Contacto
 
-                MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
-                InsertarUsuarioMedico();
-                MessageBox.Show("Medico insertado con éxito!");
-                txtApellido.Text = "";
-                txtContacto.Text = "";
-                txtMatricula.Text = "";
-                txtNombre.Text = "";
-                txtDomicilio.Text = "";
+
+                    };
+                    MedicoBLL.Current.Insert(medico);
+                    _IdMedico = Matricula;
+                    var medicoEspecialista = new MedicoPorEspecialidad();
+                    {
+                        var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
+                        cboxEspecialidad_SelectedIndexChanged(sender, e);
+                        medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
+                        medicoEspecialista.IdMedico = Search.IdMedico;
+                    }
+
+                    MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
+                    InsertarUsuarioMedico();
+                    MessageBox.Show("Medico insertado con éxito!");
+                    txtApellido.Text = "";
+                    txtContacto.Text = "";
+                    txtMatricula.Text = "";
+                    txtNombre.Text = "";
+                    txtDomicilio.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
                
         }
 
         private void NuevoMedico_Load(object sender, EventArgs e)
         {
-            cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
-            cboxEspecialidad.DisplayMember = "Nombre";
-            cboxEspecialidad.ValueMember = "Id";
-            lblApellido.Translate();
-            lblContacto.Translate();
-            lblDomicilio.Translate();
-            lblEspecialidad.Translate();
-            lblMatricula.Translate();
-            lblNombre.Translate();
-            btnAgregar.Translate();
+            try
+            {
+
+                cboxEspecialidad.DataSource = EspecialidadBLL.Current.GetAll().ToList();
+                cboxEspecialidad.DisplayMember = "Nombre";
+                cboxEspecialidad.ValueMember = "Id";
+                lblApellido.Translate();
+                lblContacto.Translate();
+                lblDomicilio.Translate();
+                lblEspecialidad.Translate();
+                lblMatricula.Translate();
+                lblNombre.Translate();
+                btnAgregar.Translate();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
             
         }
 
         public void InsertarUsuarioMedico()
         {
-            var key = ConfigurationManager.AppSettings.Get("key");
-            Usuario usuario = new Usuario();
-            Familia familia = new Familia();
-            familia.Nombre = "Medico";
-            usuario.Nombre = txtNombre.Text+txtApellido.Text;
-            usuario.Password = Hashing.EncryptString(key, txtNombre.Text);
-            usuario.IdUsuario = Guid.NewGuid().ToString();
-            
+            try
+            {
+                var key = ConfigurationManager.AppSettings.Get("key");
+                Usuario usuario = new Usuario();
+                Familia familia = new Familia();
+                familia.Nombre = "Medico";
+                usuario.Nombre = txtNombre.Text + txtApellido.Text;
+                usuario.Password = Hashing.EncryptString(key, txtNombre.Text);
+                usuario.IdUsuario = Guid.NewGuid().ToString();
 
-            var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == _IdMedico);
-            usuario.IdRol = busqueda.Matricula;
 
-            _instance.Nombre = familia.Nombre;
-            PatenteBLL.Insert(_instance);
-            familia.Add(_instance);
-            BLLFamilia.Insert(familia);
+                var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == _IdMedico);
+                usuario.IdRol = busqueda.Matricula;
 
-            usuario.Permisos.Add(_instance);
-            usuario.Permisos.Add(familia);
-            BLLUsuario.Insert(usuario);
+                _instance.Nombre = familia.Nombre;
+                PatenteBLL.Insert(_instance);
+                familia.Add(_instance);
+                BLLFamilia.Insert(familia);
+
+                usuario.Permisos.Add(_instance);
+                usuario.Permisos.Add(familia);
+                BLLUsuario.Insert(usuario);
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void cboxEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,12 +148,22 @@ namespace SistemaMedico.Recepcionista
 
         public bool Existe(int Mmedico)
         {
-            var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Matricula == Mmedico);
-            if (busqueda != null)
+            try
             {
-                return true;
+                var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Matricula == Mmedico);
+                if (busqueda != null)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                return false;
+            }
+          
         }
     }
 }
