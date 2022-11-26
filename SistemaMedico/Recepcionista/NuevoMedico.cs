@@ -100,6 +100,7 @@ namespace SistemaMedico.Recepcionista
                 lblMatricula.Translate();
                 lblNombre.Translate();
                 btnAgregar.Translate();
+                tamanio();
             }
             catch (Exception ex)
             {
@@ -107,6 +108,12 @@ namespace SistemaMedico.Recepcionista
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
             
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         public void InsertarUsuarioMedico()

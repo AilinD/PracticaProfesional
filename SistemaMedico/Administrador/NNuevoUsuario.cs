@@ -38,85 +38,114 @@ namespace UI.Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var busqueda = Existe(txtNombre.Text);
-            if (busqueda == true)
+            try
             {
-                MessageBox.Show("Usario existente");
-                LoggerBLL.WriteLog("Error al insertar nuevo usuario ya que el usuario existe", EventLevel.Warning, txtNombre.Text + "");
-            }
-            else if (busqueda == false)
-            {
-                if (txtContraseña.Text.Equals(txtContra2.Text))
+                var busqueda = Existe(txtNombre.Text);
+                if (busqueda == true)
                 {
-                    var key = ConfigurationManager.AppSettings.Get("key");
-                    Usuario usuario = new Usuario();
-                    Familia familia = new Familia();
-                    familia.Nombre = cboxPatentes.SelectedItem.ToString();
-                    usuario.Nombre = txtNombre.Text;
-                    usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
-                    usuario.IdUsuario= Guid.NewGuid().ToString();
-                    usuario.IdRol = Convert.ToInt16(txtIdRol.Text);
+                    MessageBox.Show("Usario existente");
+                    LoggerBLL.WriteLog("Error al insertar nuevo usuario ya que el usuario existe", EventLevel.Warning, txtNombre.Text + "");
+                }
+                else if (busqueda == false)
+                {
+                    if (txtContraseña.Text.Equals(txtContra2.Text))
+                    {
+                        var key = ConfigurationManager.AppSettings.Get("key");
+                        Usuario usuario = new Usuario();
+                        Familia familia = new Familia();
+                        familia.Nombre = cboxPatentes.SelectedItem.ToString();
+                        usuario.Nombre = txtNombre.Text;
+                        usuario.Password = Hashing.EncryptString(key, txtContraseña.Text);
+                        usuario.IdUsuario = Guid.NewGuid().ToString();
+                        usuario.IdRol = Convert.ToInt16(txtIdRol.Text);
 
-                    _instance.Nombre = Convert.ToString(cboxPatentes.SelectedItem);
-                    PatenteBLL.Insert(_instance);
-                    familia.Add(_instance);
-                    BLLFamilia.Insert(familia);
+                        _instance.Nombre = Convert.ToString(cboxPatentes.SelectedItem);
+                        PatenteBLL.Insert(_instance);
+                        familia.Add(_instance);
+                        BLLFamilia.Insert(familia);
 
-                    usuario.Permisos.Add(_instance);
-                    usuario.Permisos.Add(familia);
-                    BLLUsuario.Insert(usuario);
-                    MessageBox.Show("Usuario Ingresado con exito!");
-                    Limpiar();
+                        usuario.Permisos.Add(_instance);
+                        usuario.Permisos.Add(familia);
+                        BLLUsuario.Insert(usuario);
+                        MessageBox.Show("Usuario Ingresado con exito!");
+                        Limpiar();
+
+
+                    }
 
 
                 }
-
-
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void NNuevoUsuario_Load(object sender, EventArgs e)
         {
-            // Set to no text.
-            //txtPassword.Text = "";
-            // The password character is an asterisk.
-            txtContraseña.PasswordChar = '*';
-            // The control will allow no more than 14 characters.
-            txtContraseña.MaxLength = 14;
-            txtContraseña.UseSystemPasswordChar = true;
+            try
+            {
+                // Set to no text.
+                //txtPassword.Text = "";
+                // The password character is an asterisk.
+                txtContraseña.PasswordChar = '*';
+                // The control will allow no more than 14 characters.
+                txtContraseña.MaxLength = 14;
+                txtContraseña.UseSystemPasswordChar = true;
 
-            txtContra2.PasswordChar = '*';
-            // The control will allow no more than 14 characters.
-            txtContra2.MaxLength = 14;
-            txtContra2.UseSystemPasswordChar = true;
+                txtContra2.PasswordChar = '*';
+                // The control will allow no more than 14 characters.
+                txtContra2.MaxLength = 14;
+                txtContra2.UseSystemPasswordChar = true;
 
 
-            List<string> permisos = new List<string>();
-            permisos.Add("Administrador");
-            permisos.Add("Medico");
-            permisos.Add("Recepcionista");
-            //cboxPatentes.DataSource =  permisos;
-            cboxPatentes.DisplayMember = "Value";
-            cboxPatentes.Items.Add("Administrador");
-            cboxPatentes.Items.Add("Medico");
-            cboxPatentes.Items.Add("Recepcionista");
-            btnGuardar.Translate();
-            lblNombre.Translate();
-            lblPass.Translate();
-            lblRepitePass.Translate();
-            lblSelecPat.Translate();
-            //cboxPatentes.Translate();
-            cboxPatentes.Translate();
+                List<string> permisos = new List<string>();
+                permisos.Add("Administrador");
+                permisos.Add("Medico");
+                permisos.Add("Recepcionista");
+                //cboxPatentes.DataSource =  permisos;
+                cboxPatentes.DisplayMember = "Value";
+                cboxPatentes.Items.Add("Administrador");
+                cboxPatentes.Items.Add("Medico");
+                cboxPatentes.Items.Add("Recepcionista");
+                btnGuardar.Translate();
+                lblNombre.Translate();
+                lblPass.Translate();
+                lblRepitePass.Translate();
+                lblSelecPat.Translate();
+                //cboxPatentes.Translate();
+                cboxPatentes.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         public bool Existe(string nombreusuario)
         {
-            var busqueda = BLLUsuario.GetUsuarioByUserName(txtNombre.Text);
-            if (busqueda.usuario.IdUsuario == null)
+            try
             {
+                var busqueda = BLLUsuario.GetUsuarioByUserName(txtNombre.Text);
+                if (busqueda.usuario.IdUsuario == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
                 return false;
             }
-            return true;
         }
 
         private void cboxPatentes_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,11 +1,13 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.BLL;
 using Services.Domain;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -26,40 +28,56 @@ namespace SistemaMedico.Medicos
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            var sintomasPaciente = new DAL.Models.SintomaPaciente();
-
-            foreach (DataGridViewRow r in gridPaciente.SelectedRows)
+            try
             {
-                sintomasPaciente.Fecha=DateTime.Now;
-                sintomasPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
-                sintomasPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol); ;
-                
-               
-            }
+                var sintomasPaciente = new DAL.Models.SintomaPaciente();
 
-            foreach (DataGridViewRow r in gridSintoma.SelectedRows)
-            { 
-                sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
-            }
-            SintomaPacienteBLL.Current.InsertSintomaPaciente(sintomasPaciente);
-            MessageBox.Show("Sintoma Paciente ingresdo con exito!");
+                foreach (DataGridViewRow r in gridPaciente.SelectedRows)
+                {
+                    sintomasPaciente.Fecha = DateTime.Now;
+                    sintomasPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                    sintomasPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol); ;
 
-            Limpiar();
+
+                }
+
+                foreach (DataGridViewRow r in gridSintoma.SelectedRows)
+                {
+                    sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+                }
+                SintomaPacienteBLL.Current.InsertSintomaPaciente(sintomasPaciente);
+                MessageBox.Show("Sintoma Paciente ingresdo con exito!");
+
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void btnBuscaPaciente_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombrePaciente.Text))
+            try
             {
-                var user = PacienteBll.Current.GetAll();
-                gridPaciente.DataSource = user;
-                //gridPaciente.Translate();
+                if (string.IsNullOrEmpty(txtNombrePaciente.Text))
+                {
+                    var user = PacienteBll.Current.GetAll();
+                    gridPaciente.DataSource = user;
+                    //gridPaciente.Translate();
+                }
+                else
+                {
+                    var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
+                    gridPaciente.DataSource = usser.ToList();
+                    //gridPaciente.Translate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtNombrePaciente.Text));
-                gridPaciente.DataSource = usser.ToList();
-                //gridPaciente.Translate();
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
@@ -72,28 +90,50 @@ namespace SistemaMedico.Medicos
 
         private void SintomasPaciente_Load(object sender, EventArgs e)
         {
-            lblApellidoPaciente.Translate();
-            lblSintomas.Translate();
-            btnGuardar.Translate();
-            btnBusca.Translate();
-            btnBuscar.Translate();
- 
+            try
+            {
+                lblApellidoPaciente.Translate();
+                lblSintomas.Translate();
+                btnGuardar.Translate();
+                btnBusca.Translate();
+                btnBuscar.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+
+        }
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnBusca_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtSintoma.Text))
+            try
             {
-                var user = SintomaBLL.Current.GetAll();
-                gridSintoma.DataSource = user;
-                //gridPaciente.Translate();
+                if (string.IsNullOrEmpty(txtSintoma.Text))
+                {
+                    var user = SintomaBLL.Current.GetAll();
+                    gridSintoma.DataSource = user;
+                    
+                }
+                else
+                {
+                    var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtSintoma.Text));
+                    gridSintoma.DataSource = usser.ToList();
+                   
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtSintoma.Text));
-                gridSintoma.DataSource = usser.ToList();
-                //gridPaciente.Translate();
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 

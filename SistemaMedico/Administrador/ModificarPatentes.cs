@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaMedico.Extensions;
+using Services.BLL;
+using System.Diagnostics.Tracing;
 
 namespace UI.Administrador
 {
@@ -32,69 +34,97 @@ namespace UI.Administrador
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NuevaPatente nuevaPatente = new NuevaPatente();
-            nuevaPatente.Show();
-            this.Hide();
+            try
+            {
+                NuevaPatente nuevaPatente = new NuevaPatente();
+                nuevaPatente.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (txtNombrePatente.Text != "")
+            try
             {
+                if (txtNombrePatente.Text != "")
+                {
 
-                DataTable dt = new DataTable();
-                var user = PatenteBLL.Select(txtNombrePatente.Text);
-                dt.Columns.Add("IdPatente", typeof(string));
-                dt.Columns.Add("Nombre", typeof(string));
-                dt.Rows.Add(user["IdPatente"], user["Nombre"]);
-                dataGridView1.DataSource = dt;
-                //dataGridView1.Translate();
+                    DataTable dt = new DataTable();
+                    var user = PatenteBLL.Select(txtNombrePatente.Text);
+                    dt.Columns.Add("IdPatente", typeof(string));
+                    dt.Columns.Add("Nombre", typeof(string));
+                    dt.Rows.Add(user["IdPatente"], user["Nombre"]);
+                    dataGridView1.DataSource = dt;
+                    //dataGridView1.Translate();
+                }
+
+
+                else
+                {
+                    dataGridView1.DataSource = BLLUsuario.SelectAll();
+                    //dataGridView1.Translate();
+                }
             }
-
-
-            else
+            catch (Exception ex)
             {
-                dataGridView1.DataSource = BLLUsuario.SelectAll();
-                //dataGridView1.Translate();
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrEmpty(txtNombrePatente.Text))
+            try
             {
+                if (!string.IsNullOrEmpty(txtNombrePatente.Text))
+                {
 
-                DataTable dt = new DataTable();
-                var user = PatenteBLL.Select(txtNombrePatente.Text);
-                dt.Columns.Add("IdPatente", typeof(string));
-                dt.Columns.Add("Nombre", typeof(string));
-                dt.Rows.Add(user["IdPatente"], user["Nombre"]);
-                dataGridView1.DataSource = dt;
-                //dataGridView1.Translate();
+                    DataTable dt = new DataTable();
+                    var user = PatenteBLL.Select(txtNombrePatente.Text);
+                    dt.Columns.Add("IdPatente", typeof(string));
+                    dt.Columns.Add("Nombre", typeof(string));
+                    dt.Rows.Add(user["IdPatente"], user["Nombre"]);
+                    dataGridView1.DataSource = dt;
+                    //dataGridView1.Translate();
 
+                }
+
+
+                else
+                {
+                    dataGridView1.DataSource = PatenteBLL.SelectAll();
+                }
             }
-
-
-            else
+            catch (Exception ex)
             {
-                dataGridView1.DataSource = PatenteBLL.SelectAll();
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void btnModificarUS_Click(object sender, EventArgs e)
         {
-            var patente = new Patente();
-            patente.Nombre = txtNuevaPatente.Text;
-            Guid guid = Guid.Parse(dataGridView1.SelectedRows[0].Cells["IdPatente"].Value.ToString());
-            patente.IdFamiliaElement = guid.ToString();
-            //ServiceLayer.BLL.PatenteBLL.Select(guid.ToString());
+            try
+            {
+                var patente = new Patente();
+                patente.Nombre = txtNuevaPatente.Text;
+                Guid guid = Guid.Parse(dataGridView1.SelectedRows[0].Cells["IdPatente"].Value.ToString());
+                patente.IdFamiliaElement = guid.ToString();
+                //ServiceLayer.BLL.PatenteBLL.Select(guid.ToString());
 
-            PatenteBLL.Update(patente);
+                PatenteBLL.Update(patente);
 
-            MessageBox.Show("Patente modificada");
-            Limpiar();
+                MessageBox.Show("Patente modificada");
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
 
         }
 
@@ -105,11 +135,24 @@ namespace UI.Administrador
 
         private void ModificarPatentes_Load(object sender, EventArgs e)
         {
-            btnBuscar.Translate();
-            btnModificar.Translate();
-            lblNuevoNombre.Translate();
-            lblpatente.Translate();
-            lblNuevoNombre.Translate();
+            try
+            {
+                btnBuscar.Translate();
+                btnModificar.Translate();
+                lblNuevoNombre.Translate();
+                lblpatente.Translate();
+                lblNuevoNombre.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+        }
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
         private void Limpiar()
         {

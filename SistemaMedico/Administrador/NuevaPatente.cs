@@ -39,39 +39,60 @@ namespace UI.Administrador
 
         private void NuevaPatente_Load(object sender, EventArgs e)
         {
-            List<string> familia = new List<string>();
-            familia.Add("Administrador");
-            familia.Add("Medicos");
-            familia.Add("Usuario");
-            familia.Add("Recepcionista");
-            //cboxFamiliaPatente.DataSource = familia;
-            cboxFamiliaPatente.DisplayMember = "Value";
-            cboxFamiliaPatente.Items.Add("Administrador");
-            cboxFamiliaPatente.Items.Add("Medicos");
-            cboxFamiliaPatente.Items.Add("Usuario");
-            cboxFamiliaPatente.Items.Add("Recepcionista");
-            btnGuardar.Translate();
-            lblFamiliaPatente.Translate();
-            lblpatente.Translate();
-            cboxFamiliaPatente.Translate();
+            try
+            {
+                List<string> familia = new List<string>();
+                familia.Add("Administrador");
+                familia.Add("Medicos");
+                familia.Add("Usuario");
+                familia.Add("Recepcionista");
+                //cboxFamiliaPatente.DataSource = familia;
+                cboxFamiliaPatente.DisplayMember = "Value";
+                cboxFamiliaPatente.Items.Add("Administrador");
+                cboxFamiliaPatente.Items.Add("Medicos");
+                cboxFamiliaPatente.Items.Add("Usuario");
+                cboxFamiliaPatente.Items.Add("Recepcionista");
+                btnGuardar.Translate();
+                lblFamiliaPatente.Translate();
+                lblpatente.Translate();
+                cboxFamiliaPatente.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+        }
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            // _instance.IdFamiliaElement = cboxFamiliaPatente.Text;
-            if (string.IsNullOrEmpty(txtNombrePatente.Text))
+            try
             {
-                MessageBox.Show("Por favor ingrese el nombre");
-                LoggerBLL.WriteLog("Error al crear nueva patente", EventLevel.Warning, txtNombrePatente.Text + "campo vacio");
+                // _instance.IdFamiliaElement = cboxFamiliaPatente.Text;
+                if (string.IsNullOrEmpty(txtNombrePatente.Text))
+                {
+                    MessageBox.Show("Por favor ingrese el nombre");
+                    LoggerBLL.WriteLog("Error al crear nueva patente", EventLevel.Warning, txtNombrePatente.Text + "campo vacio");
 
+                }
+                else
+                {
+                    _instance.Nombre = txtNombrePatente.Text;
+                    PatenteBLL.Insert(_instance);
+                    MessageBox.Show("Patente Insertada con exito");
+
+                }
+                Limpiar();
             }
-            else{
-                _instance.Nombre = txtNombrePatente.Text;
-                PatenteBLL.Insert(_instance);
-                MessageBox.Show("Patente Insertada con exito");
-               
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
-            Limpiar();
         }
 
         private void Limpiar()

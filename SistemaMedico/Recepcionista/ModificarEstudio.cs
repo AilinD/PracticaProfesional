@@ -96,12 +96,19 @@ namespace SistemaMedico.Recepcionista
                 btnModificar.Translate();
                 btnBuscar.Translate();
                 dataGridView1.DataSource = null;
+                tamanio();
             }
             catch (Exception ex)
             {
 
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

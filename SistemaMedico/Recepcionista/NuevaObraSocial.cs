@@ -64,6 +64,7 @@ namespace UI.Recepcionista
             {
                 lblObraSocial.Translate();
                 btnAgregar.Translate();
+                tamanio();
             }
             catch (Exception ex)
             {
@@ -71,6 +72,12 @@ namespace UI.Recepcionista
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
 
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         public bool Existe(string obrasocial)

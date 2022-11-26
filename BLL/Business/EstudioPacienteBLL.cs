@@ -56,33 +56,7 @@ namespace BLL.Business
             }
             
         }       
-        /// <summary>
-        /// en vez de estudiopaciente devuelve dto,  y medico y paciente son tipo texto
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IQueryable< EstudioPaciente> SelectPaciente(int id)
-        {
-                    
-        var busqueda=
-       (from ep in _context.EstudioPacientes
-        join a in _context.Pacientes on ep.IdPaciente equals a.IdPaciente
-        join e in _context.Estudios on ep.IdEstudio equals e.Id
-        where a.Dni == id
-        select new EstudioPaciente
-        {
-            Id=ep.Id,
-            IdEstudio = ep.IdEstudio,
-            Comentarios = ep.Comentarios,
-            IdMedico = ep.IdMedico,
-            IdPaciente = ep.IdPaciente,
-            Fecha = ep.Fecha
-        }); 
-
-            return busqueda;
-
-        }
-
+       
         public IQueryable<EstudioPacienteDTO> SelectPacienteDto(int id)
         {
 
@@ -95,8 +69,8 @@ namespace BLL.Business
             {
                 Estudio = ep.IdEstudioNavigation.Nombre,
                 Comentarios = ep.Comentarios,
-                Medico = ep.IdMedicoNavigation.Nombre,
-                Paciente = ep.IdPacienteNavigation.Nombre,
+                Medico = ep.IdMedicoNavigation.Apellido + " " + ep.IdMedicoNavigation.Nombre,
+                Paciente = ep.IdPacienteNavigation.Apellido + " " + ep.IdPacienteNavigation.Nombre,
                 Fecha = ep.Fecha
             });
 
@@ -104,27 +78,28 @@ namespace BLL.Business
 
         }
 
-        public IQueryable<EstudioPaciente> SelectMedico(int id)
+
+        public IQueryable<EstudioPacienteDTO> SelectMedicoDto(int id)
         {
 
             var busqueda =
            (from ep in _context.EstudioPacientes
-            join a in _context.Medicos on ep.IdMedico equals a.IdMedico
-            join e in _context.Estudios on ep.IdEstudio equals e.Id
-            where a.IdMedico == id
-            select new EstudioPaciente
+                    join a in _context.Medicos on ep.IdMedico equals a.IdMedico
+                    join e in _context.Estudios on ep.IdEstudio equals e.Id
+                    where a.Matricula == id
+            select new EstudioPacienteDTO
             {
-                Id = ep.Id,
-                IdEstudio = ep.IdEstudio,
+                
+                Estudio = ep.IdEstudioNavigation.Nombre,
                 Comentarios = ep.Comentarios,
-                IdMedico = ep.IdMedico,
-                IdPaciente = ep.IdPaciente,
+                Medico = ep.IdMedicoNavigation.Apellido+ " " + ep.IdMedicoNavigation.Nombre,
+                Paciente = ep.IdPacienteNavigation.Apellido+" "+ ep.IdPacienteNavigation.Nombre,
                 Fecha = ep.Fecha
+
             });
 
             return busqueda;
 
-        }
-
+        }       
     }
 }

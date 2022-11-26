@@ -26,9 +26,9 @@ namespace SistemaMedico.Medicos
         {
             _sesion = sesion;
             InitializeComponent();
-            
+
         }
-        
+
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -38,18 +38,11 @@ namespace SistemaMedico.Medicos
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            var diagnostico = new DiagnosticoDto();
+            try
+            {
+                var diagnostico = new DiagnosticoDto();
 
-            //string nombremedico = (_sesion.usuario.Nombre);
-            //string[] separacion = nombremedico.Split('.');
-           
-            
-            //string nombreM = separacion.GetValue(0).ToString();
-            //string ApellidoM = separacion.GetValue(1).ToString();
 
-           
-            //var m= MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido == ApellidoM);
-                     
                 foreach (DataGridViewRow r in gridpaciente.SelectedRows)
                 {
 
@@ -64,34 +57,63 @@ namespace SistemaMedico.Medicos
                     MessageBox.Show("Diagnostico insertado con éxito!");
                     Limpiar();
 
-               }
-            
-           
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+
+
         }
         private void Diagnostico_Load(object sender, EventArgs e)
         {
-            //var isAuth = BLLUsuario.GetUsuarioByUserName();
-            lblDiagnostico.Translate();
-            lblApellidoPaciente.Translate();
-            btnBuscar.Translate();
-            btnGuardar.Translate();
-            var permiso = SesionService.GetSesion(_sesion.usuario);
+            try
+            {
+                //var isAuth = BLLUsuario.GetUsuarioByUserName();
+                lblDiagnostico.Translate();
+                lblApellidoPaciente.Translate();
+                btnBuscar.Translate();
+                btnGuardar.Translate();
+                var permiso = SesionService.GetSesion(_sesion.usuario);
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+
         }
 
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrEmpty(txtApellidoPaciente.Text))
+            try
             {
-                var user = PacienteBll.Current.GetAll();
-                gridpaciente.DataSource = user;
-                //gridpaciente.Translate();
+                if (string.IsNullOrEmpty(txtApellidoPaciente.Text))
+                {
+                    var user = PacienteBll.Current.GetAll();
+                    gridpaciente.DataSource = user;
+                    //gridpaciente.Translate();
+                }
+                else
+                {
+                    var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
+                    gridpaciente.DataSource = usser.ToList();
+                    //gridpaciente.Translate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = PacienteBll.Current.GetAll().Where(x => x.Apellido.Contains(txtApellidoPaciente.Text));
-                gridpaciente.DataSource = usser.ToList();
-                //gridpaciente.Translate();
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
 
 

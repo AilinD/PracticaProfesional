@@ -62,12 +62,18 @@ namespace UI.Recepcionista
                 lblContacto.Translate();
                 btnAgregar.Translate();
                 cboxSexo.Translate();
+                tamanio();
             }
             catch (Exception ex)
             {
 
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
+        }
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void button1_Click(object sender, EventArgs e)

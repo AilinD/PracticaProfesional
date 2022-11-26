@@ -1,10 +1,12 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using Services.BLL;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,87 +26,120 @@ namespace SistemaMedico.Medicos
         {
             string nuevoSintoma = txtNuevoNombre.Text;
 
-
-            var busqueda = Existe(nuevoSintoma);
-            if (busqueda == true)
-            {
-                MessageBox.Show("Sintoma ya existe");
-                Limpiar();
-            }
-            else if (busqueda == false)
+            try
             {
 
-                var sintoma = new SintomaDto()
+                var busqueda = Existe(nuevoSintoma);
+                if (busqueda == true)
                 {
-                    Nombre = nuevoSintoma,
+                    MessageBox.Show("Sintoma ya existe");
+                    Limpiar();
+                }
+                else if (busqueda == false)
+                {
 
-                };
-                SintomaBLL.Current.Insert(sintoma);
-                MessageBox.Show("Sintoma insertado con éxito!");
+                    var sintoma = new SintomaDto()
+                    {
+                        Nombre = nuevoSintoma,
 
-                Limpiar();
+                    };
+                    SintomaBLL.Current.Insert(sintoma);
+                    MessageBox.Show("Sintoma insertado con éxito!");
+
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
         public bool Existe(string sintoma)
         {
-            var busqueda = SintomaBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == sintoma);
-            if (busqueda != null)
+            try
             {
-                return true;
+                var busqueda = SintomaBLL.Current.GetAll().FirstOrDefault(x => x.Nombre == sintoma);
+                if (busqueda != null)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                return false;
+            }
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtsBuscarSintomas.Text))
+            try
             {
-                var user = SintomaBLL.Current.GetAll();
-                dataGridView1.DataSource = user;
-                //dataGridView1.Translate();
+                if (string.IsNullOrEmpty(txtsBuscarSintomas.Text))
+                {
+                    var user = SintomaBLL.Current.GetAll();
+                    dataGridView1.DataSource = user;
+                    //dataGridView1.Translate();
+                }
+                else
+                {
+                    var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtsBuscarSintomas.Text));
+                    dataGridView1.DataSource = usser.ToList();
+                    //dataGridView1.Translate();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                var usser = SintomaBLL.Current.GetAll().Where(x => x.Nombre.Contains(txtsBuscarSintomas.Text));
-                dataGridView1.DataSource = usser.ToList();
-                //dataGridView1.Translate();
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            var simtoma = new SintomaDto();
-
-            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            try
             {
-                simtoma.IdSintoma = (int)r.Cells["IdSintoma"].Value;
-                simtoma.Nombre = r.Cells["Nombre"].Value.ToString();
+                var simtoma = new SintomaDto();
 
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    simtoma.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+                    simtoma.Nombre = r.Cells["Nombre"].Value.ToString();
 
-                SintomaBLL.Current.Delete(simtoma.IdSintoma);
-
-
+                    SintomaBLL.Current.Delete(simtoma.IdSintoma);
+                }
+                MessageBox.Show("Sintoma eliminado con éxito!");
+                Limpiar();
             }
-            MessageBox.Show("Sintoma eliminado con éxito!");
-            Limpiar();
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
         {
-            var sintoma = new SintomaDto();
-
-            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            try
             {
-                sintoma.IdSintoma = (int)r.Cells["IdSintoma"].Value;
-                sintoma.Nombre = txtNuevoNombre.Text;               
-                
+                var sintoma = new SintomaDto();
 
-                SintomaBLL.Current.Update(sintoma);
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    sintoma.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+                    sintoma.Nombre = txtNuevoNombre.Text;
 
-
+                    SintomaBLL.Current.Update(sintoma);
+                }
+                MessageBox.Show("Sintoma modificado con éxito!");
+                Limpiar();
             }
-            MessageBox.Show("Sintoma modificado con éxito!");
-            Limpiar();
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
 
         private void Limpiar()
@@ -116,12 +151,27 @@ namespace SistemaMedico.Medicos
 
         private void MenuSintomas_Load(object sender, EventArgs e)
         {
-            lblNuevoNombre.Translate();
-            btnModificar.Translate();
-            btnBuscar.Translate();
-            btnAgregar.Translate();
-            btnEliminar.Translate();
-            lblSintomas.Translate();
+            try
+            {
+                lblNuevoNombre.Translate();
+                btnModificar.Translate();
+                btnBuscar.Translate();
+                btnAgregar.Translate();
+                btnEliminar.Translate();
+                lblSintomas.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
         }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
     }
 }

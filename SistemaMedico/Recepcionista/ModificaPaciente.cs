@@ -43,12 +43,19 @@ namespace UI.Recepcionista
                 btnBuscar.Translate();
                 btnModificar.Translate();
                 dataGridView1.DataSource = null;
+                tamanio();
             }
             catch (Exception ex)
             {
 
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
+        }
+
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)

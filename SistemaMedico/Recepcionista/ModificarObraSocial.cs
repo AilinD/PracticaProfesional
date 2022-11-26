@@ -85,6 +85,7 @@ namespace SistemaMedico.Recepcionista
                 btnBuscar.Translate();
                 btnModificar.Translate();
                 dataGridView1.DataSource = null;
+                tamanio();
             }
             catch (Exception ex)
             {
@@ -93,6 +94,12 @@ namespace SistemaMedico.Recepcionista
             }
         }
 
-        
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+
     }
 }

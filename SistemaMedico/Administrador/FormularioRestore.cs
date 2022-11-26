@@ -1,8 +1,10 @@
-﻿using SistemaMedico.Extensions;
+﻿using Services.BLL;
+using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,16 +22,29 @@ namespace UI.Administrador
         private string folder;
         private void FormularioRestore_Load(object sender, EventArgs e)
         {
-            List<string> BDS = new List<string>();
-            BDS.Add("SysCExpert");
-            BDS.Add("PatenteFamilia");
-            cboxRestore.DataSource = BDS;
-            cboxRestore.DisplayMember = "Value";
+            try
+            {
+                List<string> BDS = new List<string>();
+                BDS.Add("SysCExpert");
+                BDS.Add("PatenteFamilia");
+                cboxRestore.DataSource = BDS;
+                cboxRestore.DisplayMember = "Value";
 
-            btnSeleccionar.Translate();
-            btnGuardar.Translate();
-            lblSeleccionar.Translate();
-            lblSeleccBkp.Translate();
+                btnSeleccionar.Translate();
+                btnGuardar.Translate();
+                lblSeleccionar.Translate();
+                lblSeleccBkp.Translate();
+                tamanio();
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+            }
+        }
+        private void tamanio()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnRestore_Click(object sender, EventArgs e)
@@ -48,20 +63,26 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
         private void CaluculateAll(System.Windows.Forms.ProgressBar progressBar)
         {
-            progressBar.Maximum = 100000;
-            progressBar.Step = 1;
-
-            for (int j = 0; j < 100000; j++)
+            try
             {
-                double pow = Math.Pow(j, j); //Calculation
-                progressBar.PerformStep();
+                progressBar.Maximum = 100000;
+                progressBar.Step = 1;
+
+                for (int j = 0; j < 100000; j++)
+                {
+                    double pow = Math.Pow(j, j); //Calculation
+                    progressBar.PerformStep();
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
         }
 
@@ -72,14 +93,21 @@ namespace UI.Administrador
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-           
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+
+            try
             {
-                textBox1.Text = openFileDialog1.FileName;
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = openFileDialog1.FileName;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
             }
 
-          
-           
+
+
         }
 
         private void Limpiar()
