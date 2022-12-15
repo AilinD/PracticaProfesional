@@ -1,0 +1,1 @@
+search_result['193']=["topic_0000000000000042.html","PacienteBll.Update Method","Actualiza un registro en la tabla Paciente"];

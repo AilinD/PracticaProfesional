@@ -1,0 +1,1 @@
+search_result['52']=["topic_0000000000000020.html","MedicoPorEspecialidadRepository.GetOne Method","Ovbtiene un registro en la tabla de MedicoPorEspecialidad"];

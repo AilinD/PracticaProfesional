@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.txtUsuarioAEliminar = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             this.txtUsuarioAEliminar.Name = "txtUsuarioAEliminar";
             this.txtUsuarioAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtUsuarioAEliminar.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtUsuarioAEliminar, "Ingresar nombre de usuario a eliminar");
             // 
             // dataGridView1
             // 
@@ -73,6 +76,8 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Seleccionar la fila del usuario desde el margen izquierdo de la tabla  y click ac" +
+        "a");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -84,6 +89,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Click para buscar el usuario");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -114,5 +120,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;
+        private ToolTip toolTip1;
     }
 }

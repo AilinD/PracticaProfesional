@@ -1,0 +1,1 @@
+search_result['863']=["topic_000000000000019A.html","PatenteBLL.GetAllAdapted Method",""];

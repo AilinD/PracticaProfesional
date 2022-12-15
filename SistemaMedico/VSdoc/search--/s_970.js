@@ -1,0 +1,1 @@
+search_result['970']=["topic_00000000000001D3.html","FamiliaCollectionAdapter Class",""];

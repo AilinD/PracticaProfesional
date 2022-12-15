@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['108',"BLL.Dto Namespace","topic_0000000000000052.html"],['136',"MedicoDto Class","topic_0000000000000069.html"],['137',"Properties","topic_0000000000000069_props--.html"],['142',"Matricula Property","topic_000000000000006B.html"]];

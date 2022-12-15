@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
+    /// <summary>
+    /// Clase generica para aplicar UnitOfWork para que los repos genericos tengan los metodos necesarios para interactuar con la base
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public  interface IGenericBusiness<T> where T : class, new()
     {
         /// <summary>

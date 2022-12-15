@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace BLL.Dto
 {
-    public  class PacienteDto
+    /// <summary>
+    /// Clase que sirve para insertar en la base del negocio
+    /// </summary>
+    public class PacienteDto
     {
         [Key]
         public int IdPaciente { get; set; }

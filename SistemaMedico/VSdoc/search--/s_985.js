@@ -1,0 +1,1 @@
+search_result['985']=["topic_00000000000001D8.html","Patente_dal.Select Method","Selecciona un registro desde la tabla Patente."];

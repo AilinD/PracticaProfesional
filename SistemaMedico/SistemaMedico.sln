@@ -11,7 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "..\Services\Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaMedico", "SistemaMedico.csproj", "{1C8E2990-143E-4F5F-8733-89B09DFEFB46}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSysCExpert", "..\SetupSysCExpert\SetupSysCExpert.vdproj", "{EDACE9C4-C157-4FE2-A034-6C49D10C405B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{E64D211B-2BCE-4C53-BC26-DBDAC67CCB17}"
+	ProjectSection(SolutionItems) = preProject
+		SistemaMedico.config = SistemaMedico.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +56,6 @@ Global
 		{1C8E2990-143E-4F5F-8733-89B09DFEFB46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C8E2990-143E-4F5F-8733-89B09DFEFB46}.Release|x86.ActiveCfg = Release|x86
 		{1C8E2990-143E-4F5F-8733-89B09DFEFB46}.Release|x86.Build.0 = Release|x86
-		{EDACE9C4-C157-4FE2-A034-6C49D10C405B}.Debug|Any CPU.ActiveCfg = Debug
-		{EDACE9C4-C157-4FE2-A034-6C49D10C405B}.Debug|x86.ActiveCfg = Debug
-		{EDACE9C4-C157-4FE2-A034-6C49D10C405B}.Release|Any CPU.ActiveCfg = Release
-		{EDACE9C4-C157-4FE2-A034-6C49D10C405B}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

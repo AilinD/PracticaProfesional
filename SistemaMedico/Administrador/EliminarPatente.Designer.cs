@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtPatenteAEliminar = new System.Windows.Forms.TextBox();
             this.lblpatente = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Click para buscar la patente");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -56,6 +59,8 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Seleccionar la fila de la patente desde el margen superior izquierdo de la tabla " +
+        "y click aca");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -75,6 +80,7 @@
             this.txtPatenteAEliminar.Name = "txtPatenteAEliminar";
             this.txtPatenteAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtPatenteAEliminar.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtPatenteAEliminar, "Ingrese el nombre de la patente a eliminar");
             // 
             // lblpatente
             // 
@@ -113,5 +119,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtPatenteAEliminar;
         private System.Windows.Forms.Label lblpatente;
+        private ToolTip toolTip1;
     }
 }

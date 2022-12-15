@@ -1,0 +1,1 @@
+search_result['266']=["topic_0000000000000092.html","IGenericBusiness\u0026lt;T\u0026gt;.Delete Method","Elimina un registro del repositorio."];

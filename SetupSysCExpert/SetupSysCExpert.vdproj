@@ -45,8 +45,26 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AAFE764ACCAA4504976BB9EE7E7A3875"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E36600487CCC43F0A5E4FDE38AB85A9A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EB78D533A6554F84B81D8CACAF988A14"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AAFE764ACCAA4504976BB9EE7E7A3875"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -167,6 +185,14 @@
                 "Architecture" = "2:0"
                 "Runtime" = "2:0"
                 }
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_A6E0347452184963B025CFCF3163B804"
+                {
+                "Name" = "8:.NET Framework"
+                "Message" = "8:[VSDNETMSG]"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
+                }
             }
         }
         "File"
@@ -251,6 +277,57 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AAFE764ACCAA4504976BB9EE7E7A3875"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SQL2019-SSEI-Expr, Version=15.2204.0.0, Culture=neutral, PublicKeyToken=57d8c1d10de9dc02, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_AAFE764ACCAA4504976BB9EE7E7A3875"
+                    {
+                    "Name" = "8:SQL2019-SSEI-Expr.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\SistemaMedico\\Recursos\\SqlServer\\SQL2019-SSEI-Expr.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E871849049DD4F23A09F75AC5DB50C0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E36600487CCC43F0A5E4FDE38AB85A9A"
+            {
+            "SourcePath" = "8:..\\SistemaMedico\\SistemaMedico.config"
+            "TargetName" = "8:SistemaMedico.config"
+            "Tag" = "8:"
+            "Folder" = "8:_08A486D906E244A588CCD7C7D5611DCF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB78D533A6554F84B81D8CACAF988A14"
             {
             "SourcePath" = "8:..\\SistemaMedico\\Recursos\\BaseProlog.pl"
@@ -309,6 +386,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_08A486D906E244A588CCD7C7D5611DCF"
+                    {
+                    "Name" = "8:Config"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_270AC887545945D79ED76EAE8285826B"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_E871849049DD4F23A09F75AC5DB50C0D"
                     {
                     "Name" = "8:Recursos"
@@ -339,7 +427,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupSysCExpert"
         "ProductCode" = "8:{0E51BCB5-962F-45B1-8985-F8B752DC9A87}"
-        "PackageCode" = "8:{DC4C2DDE-1B37-4816-B7A1-401C9DBCB7D3}"
+        "PackageCode" = "8:{3E104C32-C24E-4B09-B40B-A80CA8B12425}"
         "UpgradeCode" = "8:{DA7704F7-AE6E-4C61-B3EA-CF0B664E6504}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

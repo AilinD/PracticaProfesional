@@ -1,0 +1,1 @@
+search_result['76']=["topic_000000000000002E.html","ObraSocialBLL Class","Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos"];

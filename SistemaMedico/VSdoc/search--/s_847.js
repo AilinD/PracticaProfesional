@@ -1,0 +1,1 @@
+search_result['847']=["topic_000000000000018F.html","BLLUsuario.GetAdapted Method",""];

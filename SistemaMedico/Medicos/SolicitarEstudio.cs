@@ -16,6 +16,7 @@ using SistemaMedico.Extensions;
 using Services.Domain;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using Services.BLL.Exepciones;
 
 namespace UI.Medicos
 {
@@ -60,7 +61,7 @@ namespace UI.Medicos
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -79,14 +80,20 @@ namespace UI.Medicos
         {
             try
             {
-                int dniint = int.Parse(txtDniPaciente.Text);
-                var usser = PacienteBll.Current.GetAll().Where(x => x.DNI.Equals(dniint));
+                if (txtDniPaciente.Text!=null)
+                {
+                    int dniint = int.Parse(txtDniPaciente.Text);
+                    var usser = PacienteBll.Current.GetAll().Where(x => x.DNI.Equals(dniint));
 
-                gridpaciente.DataSource = usser.ToList();
+                    gridpaciente.DataSource = usser.ToList(); 
+                }else if(txtDniPaciente.Text != null)
+                {
+                    MessageBox.Show("Ingrese el dni del paciente por favor");
+                }
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -95,7 +102,7 @@ namespace UI.Medicos
 
             try
             {
-                var estudioPaciente = new DAL.Models.EstudioPaciente();
+                var estudioPaciente = new EstudioPacienteDto();
                 foreach (DataGridViewRow r in gridpaciente.SelectedRows)
                 {
                     estudioPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol);
@@ -105,13 +112,14 @@ namespace UI.Medicos
                     estudioPaciente.Comentarios = txtComentarios.Text;
                 }
 
-                EstudioPacienteBLL.Current.InsertEstudioPaciente(estudioPaciente);
+                EstudioPacienteBLL.Current.Insert(estudioPaciente);
                 MessageBox.Show("Estudio solicitado con éxito!");
                 Limpiar();
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
 

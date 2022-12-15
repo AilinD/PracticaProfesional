@@ -224,7 +224,7 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("Update Familia_dal Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
         }
 

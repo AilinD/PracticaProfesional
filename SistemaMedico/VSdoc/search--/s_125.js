@@ -1,0 +1,1 @@
+search_result['125']=["topic_000000000000002B.html","MedicoEspecialidadBLL.GetAll Method","Obtiene todos los registros de la tabla MedicoPorEspecialidad"];

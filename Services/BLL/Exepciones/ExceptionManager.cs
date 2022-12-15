@@ -27,7 +27,8 @@ namespace Services.BLL.Exepciones
 
         public void Handle(Exception ex)
         {
-            LoggerBLL.WriteLog(ex.Message,System.Diagnostics.Tracing.EventLevel.Warning,"");
+            LoggerBLL.WriteLog(ex.InnerException.Message,System.Diagnostics.Tracing.EventLevel.Warning,"");
+            Console.WriteLine("Ocurrio un error inesperado");
         }
     }
 }

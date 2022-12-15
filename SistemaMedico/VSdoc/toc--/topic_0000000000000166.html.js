@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['286',"DAL.Models Namespace","topic_00000000000000EB.html"],['408',"SysCExpertContext Class","topic_0000000000000156.html"],['426',"Methods","topic_0000000000000156_methods--.html"],['427',"OnConfiguring Method","topic_0000000000000166.html"]];

@@ -1,0 +1,1 @@
+search_result['112']=["topic_0000000000000043.html","SintomaPacienteRepository.GetAll Method","Obtiene todos los registros de la tabla de SintomaPaciente"];

@@ -1,0 +1,1 @@
+search_result['930']=["topic_00000000000001BA.html","Familia_dal.Delete Method","Suprime un registro de la tabla Familia por una clave primaria(primary key)."];

@@ -1,0 +1,1 @@
+c['804']=[['805',"ModificarPatentes Constructor","topic_0000000000000252.html",0],['806',"Properties","topic_0000000000000250_props--.html",1],['808',"Methods","topic_0000000000000250_methods--.html",1]];

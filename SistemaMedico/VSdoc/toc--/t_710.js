@@ -1,0 +1,1 @@
+c['710']=[['711',"Diagnostico Class","topic_000000000000027B.html",1],['715',"HistorialPaciente Class","topic_000000000000027E.html",1],['719',"IngresarSintomasPaciente Class","topic_0000000000000281.html",1],['723',"MenuSintomas Class","topic_0000000000000284.html",1]];

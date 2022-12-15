@@ -1,0 +1,1 @@
+search_result['257']=["topic_000000000000008B.html","Usuario_dal.GetPatentes Method","Selecciona las dependencias de Permisos."];

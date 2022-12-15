@@ -14,6 +14,10 @@ using SistemaMedico.Extensions;
 using BLL.Dto;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using System.Runtime.InteropServices;
+using Services.BLL.Exepciones;
+using BLL.Business;
+using System.Net;
 
 namespace SistemaMedico.Reportes
 {
@@ -28,14 +32,45 @@ namespace SistemaMedico.Reportes
         {
             try
             {
-                int matricula = Convert.ToInt32(txtMatriculaM.Text);
+                if (string.IsNullOrEmpty(txtMatriculaM.Text))
+                {
+                    MessageBox.Show("Ingrese la matricula del médico por favor");
+                }
+                else if (!string.IsNullOrEmpty(txtMatriculaM.Text))
+                {
 
-                List<EstudioPacienteDTO> search = BLL.Business.EstudioPacienteBLL.Current.SelectMedicoDto(matricula).ToList();
-                dataGridView1.DataSource = search.ToList();
+                    var estudiomedicoext = new EstudioPacienteExtendido();
+                    List<EstudioPacienteExtendido> estudioPacienteExtendidos = new List<EstudioPacienteExtendido>();
+                    int matricula = Convert.ToInt32(txtMatriculaM.Text);
+                   
+                    var medico = BLL.Business.MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Matricula == matricula);
+                    var search = BLL.Business.EstudioPacienteBLL.Current.GetAll().Where(x => x.IdMedico == medico.IdMedico);
+
+                    foreach (var item in search)
+                    {
+                        //var medico = BLL.Business.MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == item.IdMedico);
+                        var paciente = PacienteBll.Current.GetAll().FirstOrDefault(x => x.IdPaciente == item.IdPaciente);
+
+                        estudiomedicoext.Comentarios = item.Comentarios;
+                        estudiomedicoext.FullnameMedico = String.Concat(medico.Nombre + " " + medico.Apellido);
+                        estudiomedicoext.FullnamePaciente = String.Concat(paciente.Nombre + " " + paciente.Apellido);
+                        estudiomedicoext.Fecha = item.Fecha;
+                        estudiomedicoext.Estudio = EstudioBLL.Current.GetAll().FirstOrDefault(x => x.Id == item.IdEstudio).Nombre;
+                        estudioPacienteExtendidos.Add(estudiomedicoext);
+                    }
+
+
+
+
+
+                    dataGridView1.DataSource = estudioPacienteExtendidos.ToList();
+
+
+                }
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
             //dataGridView1.Translate();
         }
@@ -62,7 +97,7 @@ namespace SistemaMedico.Reportes
                             catch (IOException ex)
                             {
                                 fileError = true;
-                                MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                                MessageBox.Show("It wasn't possible to write the data to the disk." + ex.InnerException.Message);
                             }
                         }
                         if (!fileError)
@@ -103,7 +138,7 @@ namespace SistemaMedico.Reportes
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Error :" + ex.Message);
+                                MessageBox.Show("Error :" + ex.InnerException.Message);
                                 Limpiar();
                             }
                         }
@@ -117,7 +152,8 @@ namespace SistemaMedico.Reportes
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -140,7 +176,8 @@ namespace SistemaMedico.Reportes
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 

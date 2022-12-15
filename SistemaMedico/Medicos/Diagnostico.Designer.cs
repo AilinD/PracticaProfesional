@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtApellidoPaciente = new System.Windows.Forms.TextBox();
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.lblDiagnostico = new System.Windows.Forms.Label();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridpaciente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             this.txtApellidoPaciente.Name = "txtApellidoPaciente";
             this.txtApellidoPaciente.Size = new System.Drawing.Size(189, 23);
             this.txtApellidoPaciente.TabIndex = 51;
+            this.toolTip1.SetToolTip(this.txtApellidoPaciente, "Ingrese el Apellido del Paciente");
             // 
             // lblApellidoPaciente
             // 
@@ -65,6 +68,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(87, 25);
             this.btnBuscar.TabIndex = 49;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "click para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -102,6 +106,8 @@
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 59;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Seleccione la fila de los resultados de la tabla en el margen izquierdo y haga cl" +
+        "ick aqui");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -135,5 +141,6 @@
         private Label lblDiagnostico;
         private TextBox txtComentarios;
         private Button btnGuardar;
+        private ToolTip toolTip1;
     }
 }

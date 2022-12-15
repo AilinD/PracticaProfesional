@@ -16,8 +16,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 LoggerBLL.WriteLog("Select Familia_Patente_Facade Fallo", EventLevel.Error, "");
 
-                throw;
-			}
+                return null;
+            }
 		}
 	}
 }

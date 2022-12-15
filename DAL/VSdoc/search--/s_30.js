@@ -1,0 +1,1 @@
+search_result['30']=["topic_0000000000000014.html","EspecialidadRepository.Update Method","Actualiza un registro en la tabla de Especialidad"];

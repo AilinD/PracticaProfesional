@@ -1,5 +1,8 @@
 ﻿//using Domain;
+using BLL.Business;
+using DAL.Models;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
 using SistemaMedico.Extensions;
@@ -47,7 +50,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -66,14 +69,17 @@ namespace UI.Administrador
                     busqueda.usuario.IdUsuario = r.Cells["IdUsuario"].Value.ToString();
                     //Borramos la patente del usuario primero
                     // BLLUsuario.DeletePatentes(busqueda.usuario);
+
+                   
                     BLLUsuario.Delete(busqueda.usuario);
+
                     MessageBox.Show("Usuario Eliminado con Éxito!");
                     Limpiar();
                 }
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -89,7 +95,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void tamanio()

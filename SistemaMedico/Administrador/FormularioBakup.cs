@@ -1,4 +1,5 @@
 ﻿using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System.Diagnostics.Tracing;
 
@@ -55,7 +56,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -79,7 +80,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -114,9 +115,11 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
-                throw;
+                ExceptionManager.Current.Handle(ex);
+                 
             }
+            return null;
+
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -127,7 +130,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtApellidoPaciente = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.cbocestudio = new System.Windows.Forms.ComboBox();
             this.txtComentarios = new System.Windows.Forms.TextBox();
             this.lblComentarios = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridpaciente)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +122,7 @@
             this.btnModificar.Size = new System.Drawing.Size(105, 27);
             this.btnModificar.TabIndex = 48;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Click para guardar solicitud de Estudio");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarPaciente_Click);
             // 
@@ -130,6 +133,7 @@
             this.txtDniPaciente.Name = "txtDniPaciente";
             this.txtDniPaciente.Size = new System.Drawing.Size(178, 23);
             this.txtDniPaciente.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.txtDniPaciente, "Ingrese el DNI del Paciente");
             this.txtDniPaciente.TextChanged += new System.EventHandler(this.txtApellidoaciente_TextChanged);
             // 
             // lblDNI
@@ -151,6 +155,7 @@
             this.btnBusca.Size = new System.Drawing.Size(87, 25);
             this.btnBusca.TabIndex = 45;
             this.btnBusca.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBusca, "click para buscar");
             this.btnBusca.UseVisualStyleBackColor = true;
             this.btnBusca.Click += new System.EventHandler(this.btnBuscaPaciente_Click);
             // 
@@ -170,6 +175,7 @@
             this.cbocestudio.Name = "cbocestudio";
             this.cbocestudio.Size = new System.Drawing.Size(200, 23);
             this.cbocestudio.TabIndex = 50;
+            this.toolTip1.SetToolTip(this.cbocestudio, "Seleccione Estudio");
             // 
             // txtComentarios
             // 
@@ -178,6 +184,7 @@
             this.txtComentarios.Name = "txtComentarios";
             this.txtComentarios.Size = new System.Drawing.Size(200, 263);
             this.txtComentarios.TabIndex = 55;
+            this.toolTip1.SetToolTip(this.txtComentarios, "Escriba el comentario que desea guardar");
             // 
             // lblComentarios
             // 
@@ -228,5 +235,6 @@
         private ComboBox cbocestudio;
         private TextBox txtComentarios;
         private Label lblComentarios;
+        private ToolTip toolTip1;
     }
 }

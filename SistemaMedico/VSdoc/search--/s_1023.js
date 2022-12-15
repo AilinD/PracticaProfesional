@@ -1,0 +1,1 @@
+search_result['1023']=["topic_00000000000001EF.html","Usuario_dal.Select Method","Selecciona un registro desde la tabla Usuario."];

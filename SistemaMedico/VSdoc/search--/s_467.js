@@ -1,0 +1,1 @@
+search_result['467']=["topic_00000000000000B4.html","MedicoPorEspecialidadRepository.Delete Method","Elimina un registro en la tabla de MedicoPorEspecialidad"];

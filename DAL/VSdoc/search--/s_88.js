@@ -1,0 +1,1 @@
+search_result['88']=["topic_0000000000000035.html","ObraSocialRepository.GetOne Method","Obtiene un registro en la tabla de ObraSocial"];

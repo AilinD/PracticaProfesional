@@ -1,0 +1,1 @@
+c['788']=[['789',"EliminarPatente Constructor","topic_0000000000000245.html",0],['790',"Methods","topic_0000000000000244_methods--.html",1]];

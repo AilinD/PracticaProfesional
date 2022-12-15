@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.txtMatriculaM = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +45,7 @@
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 13;
             this.btnGenerar.Text = "Generar";
+            this.toolTip1.SetToolTip(this.btnGenerar, "Seleccione las filas desde el margen izquierdo y haga click aqui");
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
@@ -62,6 +65,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "click para buscar al medico");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -80,6 +84,7 @@
             this.txtMatriculaM.Name = "txtMatriculaM";
             this.txtMatriculaM.Size = new System.Drawing.Size(268, 23);
             this.txtMatriculaM.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtMatriculaM, "Ingrese la matrícula del médico");
             // 
             // EstudiosXmedico
             // 
@@ -107,5 +112,6 @@
         private Button btnBuscar;
         private Label lblMatricula;
         private TextBox txtMatriculaM;
+        private ToolTip toolTip1;
     }
 }

@@ -1,0 +1,1 @@
+c['205']=[['206',"EspecialidadRepository Constructor","topic_00000000000000A5.html",0],['207',"Methods","topic_00000000000000A4_methods--.html",1]];

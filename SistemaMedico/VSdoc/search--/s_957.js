@@ -1,0 +1,1 @@
+search_result['957']=["topic_00000000000001CB.html","Familia_Patente.Delete Method","Suprime un registro de la tabla FamiliaElement por una clave primaria(primary key)."];

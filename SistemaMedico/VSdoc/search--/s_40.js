@@ -1,0 +1,1 @@
+search_result['40']=["topic_000000000000000D.html","EspecialidadBLL.GetOne Method","Retorna un objeto de la tabla Especialidad"];

@@ -16,7 +16,10 @@ using Services.BLL.Exepciones;
 
 namespace BLL.Business
 {
-    public  class ObraSocialBLL : IGenericBusiness<ObraSocialDto>
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
+    public class ObraSocialBLL : IGenericBusiness<ObraSocialDto>
     {
         private readonly static ObraSocialBLL _instance = new ObraSocialBLL();
 
@@ -32,6 +35,10 @@ namespace BLL.Business
 
         IGenericRepository<ObraSocial> genericRepository = FactoryDAL._obraSocialRepository;
 
+        /// <summary>
+        /// Inserta un registro en la tabla ObraSocial
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(ObraSocialDto obj)
         {
             try
@@ -49,11 +56,15 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }
 
+        /// <summary>
+        /// Acutaliza un registro en la tabla ObraSocial
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(ObraSocialDto obj)
         {
             try
@@ -71,11 +82,15 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla ObraSocial
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ObraSocialDto> GetAll()
         {
             try
@@ -89,11 +104,17 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Obtiene un registro de la tabla ObraSocial
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public ObraSocialDto GetOne(int? guid)
         {
             try
@@ -106,11 +127,16 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Elimina un registro en la tabla ObraSocial
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -124,8 +150,7 @@ namespace BLL.Business
             catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
-
-                throw;
+  
             }
             
         }

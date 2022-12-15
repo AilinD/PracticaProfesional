@@ -1,0 +1,1 @@
+c['52']=[['53',"MedicoEspecialidadBLL Constructor","topic_0000000000000028.html",0],['54',"Properties","topic_0000000000000026_props--.html",1],['56',"Methods","topic_0000000000000026_methods--.html",1]];

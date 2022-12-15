@@ -1,0 +1,1 @@
+search_result['209']=["topic_0000000000000048.html","SintomaBLL.GetOne Method","Obtienme un registro de la tabla Sintoma"];

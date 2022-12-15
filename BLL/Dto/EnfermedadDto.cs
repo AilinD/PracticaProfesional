@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Dto
 {
+    /// <summary>
+    /// Clase que sirve para insertar en la base del negocio
+    /// </summary>
     public class EnfermedadDto
     {
         [Key]

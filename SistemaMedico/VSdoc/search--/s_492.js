@@ -1,0 +1,1 @@
+search_result['492']=["topic_00000000000000C3.html","ObraSocialPacienteRepository.GetAll Method","Obtiene todos los registros en la tabla de ObraSocialPaciente"];

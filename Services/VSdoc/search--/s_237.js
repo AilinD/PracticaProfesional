@@ -1,0 +1,1 @@
+search_result['237']=["topic_000000000000007E_methods--.html","PatenteAdapter Methods",""];

@@ -1,0 +1,1 @@
+search_result['106']=["topic_0000000000000024.html","MedicoBLL.GetOne Method","Obtiene un registro en la tabla Medico"];

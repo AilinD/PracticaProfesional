@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNombrePaciente = new System.Windows.Forms.TextBox();
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.btnBusca = new System.Windows.Forms.Button();
             this.gridSintoma = new System.Windows.Forms.DataGridView();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridPaciente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSintoma)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +61,7 @@
             this.lblApellidoPaciente.Size = new System.Drawing.Size(99, 15);
             this.lblApellidoPaciente.TabIndex = 46;
             this.lblApellidoPaciente.Text = "Apellido Paciente";
+            this.toolTip1.SetToolTip(this.lblApellidoPaciente, "Ingrese el Apellido del Paciente");
             // 
             // btnBuscar
             // 
@@ -68,6 +71,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 45;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "click para buscar el paciente");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaPaciente_Click);
             // 
@@ -87,6 +91,7 @@
             this.txtSintoma.Name = "txtSintoma";
             this.txtSintoma.Size = new System.Drawing.Size(179, 23);
             this.txtSintoma.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.txtSintoma, "Ingrese el Nombre del Sintoma");
             // 
             // lblSintomas
             // 
@@ -107,6 +112,7 @@
             this.btnBusca.Size = new System.Drawing.Size(88, 27);
             this.btnBusca.TabIndex = 50;
             this.btnBusca.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBusca, "click para buscar");
             this.btnBusca.UseVisualStyleBackColor = true;
             this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
@@ -127,6 +133,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
             this.btnGuardar.TabIndex = 53;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "seleccione las columnas en el margen izquierdo de la tabla y hga click aqui");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -164,5 +171,6 @@
         private Button btnBusca;
         private DataGridView gridSintoma;
         private Button btnGuardar;
+        private ToolTip toolTip1;
     }
 }

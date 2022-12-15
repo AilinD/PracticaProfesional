@@ -48,9 +48,9 @@ namespace Services.DAL.PatenteDAL
 			catch (Exception ex)
 			{
                 LoggerBLL.WriteLog("SelectAll familia_patente Fallo", EventLevel.Error, "");
+                return null;
 
-                throw;
-			}
+            }
 		}
 
 		/// <summary>
@@ -94,8 +94,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 LoggerBLL.WriteLog("select familia_patente Fallo", EventLevel.Error, "");
 
-                throw;
-			}
+                return null;
+            }
 		}
 
 		/// <summary>
@@ -129,7 +129,7 @@ namespace Services.DAL.PatenteDAL
 
                 LoggerBLL.WriteLog("delete familia_patente Fallo", EventLevel.Error, "");
 
-                throw;
+                 
 			}
 		}
 
@@ -159,7 +159,7 @@ namespace Services.DAL.PatenteDAL
 			{
                 LoggerBLL.WriteLog("update familia_patente Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
 		}
 
@@ -194,7 +194,7 @@ namespace Services.DAL.PatenteDAL
 			{
                 LoggerBLL.WriteLog("insert familia_patente Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
 
 
@@ -243,9 +243,9 @@ namespace Services.DAL.PatenteDAL
 			catch (Exception ex)
 			{
                 LoggerBLL.WriteLog("GetAccesos Familia_patente Fallo", EventLevel.Error, "");
+                return null;
 
-                throw;
-			}
+            }
 		}
 
 		/// <summary>
@@ -276,7 +276,7 @@ namespace Services.DAL.PatenteDAL
 			{
                 LoggerBLL.WriteLog("DeleteAccesos Familia_patente Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
 		}
 	}

@@ -1,0 +1,1 @@
+search_result['98']=["topic_000000000000003A.html","PatientRepository.Delete Method","Elimina un registro en la tabla de Paciente"];

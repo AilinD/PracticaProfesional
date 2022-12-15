@@ -1,0 +1,1 @@
+search_result['170']=["topic_0000000000000057.html","Familia_Facade.GetAdapted Method","Obtiene el id de una familia"];

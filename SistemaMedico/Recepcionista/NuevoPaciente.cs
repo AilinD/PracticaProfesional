@@ -24,6 +24,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services.Domain;
 using Services;
 using Org.BouncyCastle.Crypto.Engines;
+using Services.BLL.Exepciones;
 
 namespace UI.Recepcionista
 {
@@ -66,8 +67,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void tamanio()
@@ -108,14 +109,14 @@ namespace UI.Recepcionista
                     };
                     PacienteBll.Current.Insert(paciente);
                     int dniint = int.Parse(txtDNI.Text);
-                    var odp = new ObraSocialPaciente();
+                    var odp = new ObraSocialPacienteDto();
                     {
                         var Search = PacienteBll.Current.GetAll().FirstOrDefault(x => x.DNI.Equals(dniint));
                         cboxObraSocial_SelectedIndexChanged(sender, e);
                         odp.IdPaciente = Search.IdPaciente;
                         odp.IdObraSocial = cboxObraSocial.SelectedIndex;
                     };
-                    ObraSocialPacienteBLL.Current.InsertOsPaciente(odp);
+                    ObraSocialPacienteBLL.Current.Insert(odp);
 
 
 
@@ -125,8 +126,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         
         }
@@ -152,8 +153,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
         }
@@ -168,11 +169,12 @@ namespace UI.Recepcionista
                 txtDomicilio.Clear();
                 txtNombre.Clear();
                 //dateTimePicker1= dateTimePicker1.TextChanged();
+                
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 

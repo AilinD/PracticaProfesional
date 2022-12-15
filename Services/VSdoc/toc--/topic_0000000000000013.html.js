@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Services Reference","topic_00000000000000D9.html"],['21',"Services.BLL.Exepciones Namespace","topic_0000000000000000.html"],['45',"UIException Class","topic_0000000000000012.html"],['47',"Properties","topic_0000000000000012_props--.html"],['48',"Current Property","topic_0000000000000013.html"]];

@@ -39,11 +39,11 @@ namespace SistemaMedico
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MenuPrincipal(PromptForLogin));
-            //getpar();
-            Application.Run(new MenuPrincipal(PromptForLogin()));
+                //Application.Run(new MenuPrincipal(PromptForLogin));
+                //getpar();
+                Application.Run(new MenuPrincipal(PromptForLogin()));
 
-            var services = new ServiceCollection();
+                var services = new ServiceCollection();
 
             services.AddSingleton(x => ServiceContainer.Instance.GetService<PacienteBll>());
 

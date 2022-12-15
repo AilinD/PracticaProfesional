@@ -16,6 +16,7 @@ using BLL.Business;
 using Services.BLL;
 using System.Net;
 using System.Diagnostics.Tracing;
+using Services.BLL.Exepciones;
 
 namespace UI.Administrador
 {
@@ -78,7 +79,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -120,7 +121,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -143,7 +144,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
         }

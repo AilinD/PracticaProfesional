@@ -1,0 +1,1 @@
+search_result['201']=["topic_0000000000000045.html","SintomaBLL.Insert Method","Inserta un registro en la tabla Sintoma"];

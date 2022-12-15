@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtPacienteAEliminar = new System.Windows.Forms.TextBox();
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Seleccione para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -56,6 +59,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "Click para eliminar el paciente");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -75,6 +79,7 @@
             this.txtPacienteAEliminar.Name = "txtPacienteAEliminar";
             this.txtPacienteAEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtPacienteAEliminar.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.txtPacienteAEliminar, "Ingrese el Apellido del Paciente a eliminar");
             // 
             // lblApellidoPaciente
             // 
@@ -112,5 +117,6 @@
         private DataGridView dataGridView1;
         private TextBox txtPacienteAEliminar;
         private Label lblApellidoPaciente;
+        private ToolTip toolTip1;
     }
 }

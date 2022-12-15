@@ -11,7 +11,9 @@ using System.Collections.Generic;
 
 namespace BLL.Business
 {
-
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
     public class PacienteBll : IGenericBusiness<PacienteDto>
     {
         private readonly static PacienteBll _instance = new PacienteBll();
@@ -28,6 +30,10 @@ namespace BLL.Business
 
         IGenericRepository<Paciente> genericRepository = FactoryDAL._pacienteRepository;
 
+        /// <summary>
+        ///  Elimina un registro en la tabla Paciente
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -42,12 +48,16 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
 
 
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Paciente
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<PacienteDto> GetAll()
         {
             try
@@ -61,11 +71,16 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                
             }
-
+            return null;
         }
 
+        /// <summary>
+        /// Obtiene un registro de la tabla Paciente
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public PacienteDto GetOne(int? guid)
         {
             try
@@ -78,11 +93,15 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-
+            return null;
         }
 
+        /// <summary>
+        /// Inserta un registro en la tabla Paciente
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(PacienteDto obj)
         {
             try
@@ -104,11 +123,15 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
 
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla Paciente
+        /// </summary>
+        /// <param name="obj"></param>
         public async void Update(PacienteDto obj)
         {
             try
@@ -131,9 +154,10 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
 
         }
+
     }
 }

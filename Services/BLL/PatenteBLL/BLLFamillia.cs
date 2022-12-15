@@ -30,8 +30,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-				throw;
+				 
             }
+			return null;
 		}
 		public static Familia GetAdapted(System.String IdFamiliaElement)
 		{
@@ -42,8 +43,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
+			return null;
 		}
 		public static void Insert( Familia _object)
 		{
@@ -54,7 +56,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void Update(Familia _object)
@@ -66,7 +68,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void Delete(Familia _object)
@@ -78,7 +80,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static DataRow Select(System.String IdFamiliaElement)
@@ -90,9 +92,8 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
-
 			}
+			return null;
 		}
 		public static DataTable SelectAll()
 		{
@@ -103,8 +104,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
+			return null;
 		}
 		public static void DeleteAccesos(Familia _object)
 		{
@@ -115,9 +117,10 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 
 			}
+			
 		}
 	}
 }

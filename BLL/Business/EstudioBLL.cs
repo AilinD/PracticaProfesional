@@ -19,7 +19,10 @@ using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
-	public class EstudioBLL : IGenericBusiness<EstudioDto>
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
+    public class EstudioBLL : IGenericBusiness<EstudioDto>
     {
 
 
@@ -37,6 +40,10 @@ namespace BLL.Business {
 
         IGenericRepository<Estudio> genericRepository = FactoryDAL._estudioRepository;
 
+        /// <summary>
+        /// Inserta un registro en la tabla Estudio
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(EstudioDto obj)
         {
             try
@@ -53,11 +60,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
            
         }
 
+        /// <summary>
+        /// Actualiza un registro de la tabla Estudio
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(EstudioDto obj)
         {
             try
@@ -74,11 +85,14 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
             }
            
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Estudio
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<EstudioDto> GetAll()
         {
             try
@@ -90,13 +104,17 @@ namespace BLL.Business {
             }
             catch (Exception ex)
             {
-                ExceptionManager.Current.Handle(ex);
-
-                throw;
+                ExceptionManager.Current.Handle(ex);               
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Retorna un registro de la tabla Estudio
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public EstudioDto GetOne(int? guid)
         {
             try
@@ -108,12 +126,15 @@ namespace BLL.Business {
             catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
-
-                throw;
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Elimina un registro de la tabla Estudio
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -128,7 +149,7 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }

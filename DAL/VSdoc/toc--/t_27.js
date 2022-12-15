@@ -1,0 +1,1 @@
+c['27']=[['28',"EstudioRepository Constructor","topic_0000000000000016.html",0],['29',"Methods","topic_0000000000000015_methods--.html",1]];

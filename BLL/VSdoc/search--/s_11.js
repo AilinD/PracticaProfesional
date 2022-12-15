@@ -1,0 +1,1 @@
+search_result['11']=["topic_0000000000000006.html","DiagnosticoBLL.Insert Method","Inserta un registto en la base Diagnostico"];

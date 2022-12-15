@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtDniPaciente = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gridDiagnostico = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gridDiagnostico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,6 +44,7 @@
             this.txtDniPaciente.Name = "txtDniPaciente";
             this.txtDniPaciente.Size = new System.Drawing.Size(210, 23);
             this.txtDniPaciente.TabIndex = 59;
+            this.toolTip1.SetToolTip(this.txtDniPaciente, "Ingrese el DNI del Paciente");
             // 
             // lblDNI
             // 
@@ -62,6 +65,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(87, 25);
             this.btnBuscar.TabIndex = 57;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "click para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -97,5 +101,6 @@
         private Label lblDNI;
         private Button btnBuscar;
         private DataGridView gridDiagnostico;
+        private ToolTip toolTip1;
     }
 }

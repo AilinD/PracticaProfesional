@@ -1,0 +1,1 @@
+c['120']=[['121',"FamiliaAdapter Constructor","topic_0000000000000067.html",0],['122',"Methods","topic_0000000000000066_methods--.html",1]];

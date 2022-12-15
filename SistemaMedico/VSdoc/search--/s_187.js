@@ -1,0 +1,1 @@
+search_result['187']=["topic_0000000000000041.html","PacienteBll.Insert Method","Inserta un registro en la tabla Paciente"];

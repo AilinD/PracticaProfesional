@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"BLL Reference","topic_0000000000000096.html"],['186',"BLL.MapperConfig Namespace","topic_0000000000000093.html"],['187',"MapperHelper Class","topic_0000000000000094.html"],['188',"Methods","topic_0000000000000094_methods--.html"],['189',"GetMapper Method","topic_0000000000000095.html"]];

@@ -1,0 +1,1 @@
+search_result['185']=["topic_0000000000000069.html","MedicoDto Class","Clase que sirve para insertar en la base del negocio"];

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.lblDNI = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblApellido
@@ -64,6 +66,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(191, 23);
             this.txtApellido.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtApellido, "Ingrese el Apellido del paciente");
             // 
             // txtNombre
             // 
@@ -72,6 +75,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(191, 23);
             this.txtNombre.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtNombre, "Ingrese el Nombre del paciente");
             // 
             // lblNombre
             // 
@@ -90,6 +94,7 @@
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(191, 23);
             this.txtDomicilio.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtDomicilio, "Ingrese el Domicilio del paciente");
             // 
             // lblDomicilio
             // 
@@ -108,6 +113,7 @@
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(191, 23);
             this.txtContacto.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtContacto, "Ingrese el numero de contacto del paciente");
             // 
             // lblContacto
             // 
@@ -147,6 +153,7 @@
             this.cboxSexo.Name = "cboxSexo";
             this.cboxSexo.Size = new System.Drawing.Size(191, 23);
             this.cboxSexo.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.cboxSexo, "Seleccione el sexo del paciente");
             // 
             // lblSexo
             // 
@@ -166,6 +173,7 @@
             this.cboxObraSocial.Name = "cboxObraSocial";
             this.cboxObraSocial.Size = new System.Drawing.Size(191, 23);
             this.cboxObraSocial.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.cboxObraSocial, "Seleccione la Obra Social del paciente");
             this.cboxObraSocial.SelectedIndexChanged += new System.EventHandler(this.cboxObraSocial_SelectedIndexChanged);
             // 
             // btnAgregar
@@ -176,6 +184,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(189, 27);
             this.btnAgregar.TabIndex = 15;
             this.btnAgregar.Text = "Generar";
+            this.toolTip1.SetToolTip(this.btnAgregar, "Pulse para registrar al paciente");
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -187,6 +196,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(191, 23);
             this.dateTimePicker1.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.dateTimePicker1, "Seleccione la fecha de nacimiento del paciente");
             this.dateTimePicker1.Value = new System.DateTime(2022, 10, 9, 13, 0, 15, 0);
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.NuevoPaciente_Load);
             // 
@@ -197,6 +207,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(191, 23);
             this.txtDNI.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.txtDNI, "Ingrese el DNI del paciente");
             // 
             // lblDNI
             // 
@@ -258,5 +269,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label lblDNI;
+        private ToolTip toolTip1;
     }
 }

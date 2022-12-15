@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using Services.BLL.Exepciones;
 
 namespace SistemaMedico.Recepcionista
 {
@@ -59,30 +60,38 @@ namespace SistemaMedico.Recepcionista
                     };
                     MedicoBLL.Current.Insert(medico);
                     _IdMedico = Matricula;
-                    var medicoEspecialista = new MedicoPorEspecialidad();
+                    var medicoEspecialista = new MedicoPorEspecialidadDto();
                     {
-                        var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Apellido.Contains(txtApellido.Text));
+                        var Search = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.Matricula ==medico.Matricula);
                         cboxEspecialidad_SelectedIndexChanged(sender, e);
                         medicoEspecialista.IdEspecialidad = cboxEspecialidad.SelectedIndex;
                         medicoEspecialista.IdMedico = Search.IdMedico;
+                        _IdMedico = Search.IdMedico;
                     }
 
-                    MedicoEspecialidadBLL.Current.InsertEspecialidadMedico(medicoEspecialista);
+                    MedicoEspecialidadBLL.Current.Insert(medicoEspecialista);
                     InsertarUsuarioMedico();
                     MessageBox.Show("Medico insertado con éxito!");
-                    txtApellido.Text = "";
-                    txtContacto.Text = "";
-                    txtMatricula.Text = "";
-                    txtNombre.Text = "";
-                    txtDomicilio.Text = "";
+                    Limpiar();
                 }
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
+                Limpiar();
             }
                
+        }
+
+        public void Limpiar()
+        {
+            
+            txtApellido.Text = "";
+            txtContacto.Text = "";
+            txtMatricula.Text = "";
+            txtNombre.Text = "";
+            txtDomicilio.Text = "";
         }
 
         private void NuevoMedico_Load(object sender, EventArgs e)
@@ -104,8 +113,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
             
         }
@@ -130,7 +139,7 @@ namespace SistemaMedico.Recepcionista
 
 
                 var busqueda = MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == _IdMedico);
-                usuario.IdRol = busqueda.Matricula;
+                usuario.IdRol = busqueda.IdMedico;
 
                 _instance.Nombre = familia.Nombre;
                 PatenteBLL.Insert(_instance);
@@ -143,8 +152,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -166,8 +175,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
           

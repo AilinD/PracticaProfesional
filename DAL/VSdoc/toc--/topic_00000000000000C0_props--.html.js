@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"DAL Reference","topic_00000000000000D4.html"],['100',"DAL.Models Namespace","topic_0000000000000055.html"],['222',"SysCExpertContext Class","topic_00000000000000C0.html"],['227',"Properties","topic_00000000000000C0_props--.html"]];

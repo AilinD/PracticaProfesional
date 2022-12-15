@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.chkSintomaDe = new System.Windows.Forms.CheckBox();
             this.chkEspecialista = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -39,6 +40,7 @@
             this.txtenfermedad = new System.Windows.Forms.TextBox();
             this.chkEspecialidades = new System.Windows.Forms.CheckBox();
             this.txtespecialidades = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // chkSintomaDe
@@ -59,6 +61,7 @@
             this.chkEspecialista.Size = new System.Drawing.Size(103, 19);
             this.chkEspecialista.TabIndex = 1;
             this.chkEspecialista.Text = "Especialista De";
+            this.toolTip1.SetToolTip(this.chkEspecialista, "Tilde el cuadro de arriba y escriba el nombre de la enfermedad");
             this.chkEspecialista.UseVisualStyleBackColor = true;
             // 
             // listBox1
@@ -77,6 +80,7 @@
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
+            this.toolTip1.SetToolTip(this.btnConsultar, "click para consultar la base experta");
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
@@ -86,6 +90,7 @@
             this.txtSintomas.Name = "txtSintomas";
             this.txtSintomas.Size = new System.Drawing.Size(101, 23);
             this.txtSintomas.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtSintomas, "Tilde el cuadro de arriba y escriba el nombre del sintoma");
             this.txtSintomas.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnLimpiar
@@ -95,6 +100,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
+            this.toolTip1.SetToolTip(this.btnLimpiar, "click para limpair el cuadro de resultados");
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
@@ -113,6 +119,7 @@
             this.chkenf.Size = new System.Drawing.Size(92, 19);
             this.chkenf.TabIndex = 8;
             this.chkenf.Text = "Sintomas De";
+            this.toolTip1.SetToolTip(this.chkenf, "Tilde el cuadro de arriba y escriba el nombre de la enfermedad");
             this.chkenf.UseVisualStyleBackColor = true;
             // 
             // txtenfermedad
@@ -130,6 +137,7 @@
             this.chkEspecialidades.Size = new System.Drawing.Size(119, 19);
             this.chkEspecialidades.TabIndex = 10;
             this.chkEspecialidades.Text = "Especialidades De";
+            this.toolTip1.SetToolTip(this.chkEspecialidades, "Tilde el cuadro de arriba y escriba el nombre del especialista");
             this.chkEspecialidades.UseVisualStyleBackColor = true;
             // 
             // txtespecialidades
@@ -176,5 +184,6 @@
         private TextBox txtenfermedad;
         private CheckBox chkEspecialidades;
         private TextBox txtespecialidades;
+        private ToolTip toolTip1;
     }
 }

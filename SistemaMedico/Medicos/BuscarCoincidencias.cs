@@ -3,10 +3,12 @@ using SbsSW.DesignByContract;
 using SbsSW.SwiPlCs;
 using SbsSW.SwiPlCs.Exceptions;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics.Tracing;
 using System.Drawing;
@@ -36,8 +38,7 @@ namespace UI.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -51,7 +52,7 @@ namespace UI.Medicos
             {
                 try
                 {
-                    string file = @"C:\\Programa\\PracticaProfesional\\SistemaMedico\\Recursos\\BaseProlog.pl";
+                    string file = ConfigurationManager.AppSettings["PrologFile"];
                     Load_file(file);
                 }
                 catch (PlException ex)
@@ -68,8 +69,7 @@ namespace UI.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -113,8 +113,8 @@ namespace UI.Medicos
                     }
                     catch (Exception ex)
                     {
+                        ExceptionManager.Current.Handle(ex);
 
-                        LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
                     }
 
 
@@ -155,8 +155,7 @@ namespace UI.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -191,8 +190,8 @@ namespace UI.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                MessageBox.Show("Ocurrió");
             }
         }
 
@@ -213,9 +212,9 @@ namespace UI.Medicos
                 Clear();
             }
             catch (Exception ex)
+                
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
     }

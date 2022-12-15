@@ -1,0 +1,1 @@
+search_result['62']=["topic_0000000000000025.html","MedicoBLL.Delete Method","Elimina un registro en la tabla Medico"];

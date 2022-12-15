@@ -1,0 +1,1 @@
+c['715']=[['716',"HistorialPaciente Constructor","topic_000000000000027F.html",0],['717',"Methods","topic_000000000000027E_methods--.html",1]];

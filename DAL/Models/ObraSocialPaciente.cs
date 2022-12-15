@@ -7,6 +7,7 @@ namespace DAL.Models
     [Browsable(false)]
     public partial class ObraSocialPaciente
     {
+
         public int Id { get; set; }
         public int IdObraSocial { get; set; }
         public int IdPaciente { get; set; }

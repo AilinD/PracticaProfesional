@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Services Reference","topic_00000000000000D9.html"],['119',"Services.DAL.PatenteDAL Namespace","topic_000000000000004C.html"],['124',"FamiliaCollectionAdapter Class","topic_0000000000000069.html"],['126',"Methods","topic_0000000000000069_methods--.html"],['127',"Fill Method","topic_000000000000006B.html"]];

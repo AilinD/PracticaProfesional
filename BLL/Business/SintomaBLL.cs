@@ -26,7 +26,10 @@ using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
-	public class SintomaBLL : IGenericBusiness<SintomaDto>
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
+    public class SintomaBLL : IGenericBusiness<SintomaDto>
     {
         private readonly static SintomaBLL _instance = new SintomaBLL();
 
@@ -42,7 +45,10 @@ namespace BLL.Business {
         IGenericRepository<Sintoma> genericRepository = FactoryDAL._sintomaRepository;
 
 
-
+        /// <summary>
+        /// Inserta un registro en la tabla Sintoma
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(SintomaDto obj)
         {
             try
@@ -59,11 +65,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla Sintoma
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(SintomaDto obj)
         {
             try
@@ -80,11 +90,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Sintoma
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<SintomaDto> GetAll()
         {
             try
@@ -98,11 +112,17 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-           
+            return null;
+
         }
 
+        /// <summary>
+        /// Obtienme un registro de la tabla Sintoma
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public SintomaDto GetOne(int? guid)
         {
             try
@@ -115,11 +135,16 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Elimina un registro en la tabla Sintoma
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -134,7 +159,7 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }

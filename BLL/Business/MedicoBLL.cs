@@ -19,7 +19,11 @@ using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
-	public class MedicoBLL : IGenericBusiness<MedicoDto>
+
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
+    public class MedicoBLL : IGenericBusiness<MedicoDto>
     {
 
         private readonly static MedicoBLL _instance = new MedicoBLL();
@@ -72,6 +76,10 @@ namespace BLL.Business {
 
         IGenericRepository<Medico> genericRepository = FactoryDAL._medicoRepository;
 
+        /// <summary>
+        /// Inserta un registro en la tabla Medico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(MedicoDto obj)
         {
             try
@@ -91,11 +99,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
            
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla Medico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(MedicoDto obj)
         {
             try
@@ -116,11 +128,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }
 
+        /// <summary>
+        /// Obtiene todos los registros en la tabla Medico
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<MedicoDto> GetAll()
         {
             try
@@ -134,11 +150,17 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla Medico
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public MedicoDto GetOne(int? guid)
         {
             try
@@ -151,11 +173,16 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Elimina un registro en la tabla Medico
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -170,7 +197,7 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }

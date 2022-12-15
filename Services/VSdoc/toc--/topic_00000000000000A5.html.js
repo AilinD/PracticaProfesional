@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Services Reference","topic_00000000000000D9.html"],['90',"Services.DAL Namespace","topic_000000000000009F.html"],['97',"RestoreRepository Class","topic_00000000000000A4.html"],['98',"Properties","topic_00000000000000A4_props--.html"],['99',"Current Property","topic_00000000000000A5.html"]];

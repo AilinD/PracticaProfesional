@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['710',"SistemaMedico.Medicos Namespace","topic_000000000000027A.html"],['723',"MenuSintomas Class","topic_0000000000000284.html"],['725',"Methods","topic_0000000000000284_methods--.html"]];

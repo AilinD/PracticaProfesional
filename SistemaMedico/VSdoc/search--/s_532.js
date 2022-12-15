@@ -1,0 +1,1 @@
+search_result['532']=["topic_00000000000000DC.html","SintomaPacienteRepository.Update Method","Actualiza un registro en la tabla de SintomaPaciente"];

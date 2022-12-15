@@ -1,0 +1,1 @@
+search_result['443']=["topic_00000000000000A6.html","EspecialidadRepository.Delete Method","Elimina un registro en la tabla de Especialidad"];

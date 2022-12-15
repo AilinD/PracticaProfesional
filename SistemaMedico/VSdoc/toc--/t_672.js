@@ -1,0 +1,1 @@
+c['672']=[['673',"Usuario Constructor","topic_000000000000022A.html",0],['674',"Properties","topic_0000000000000229_props--.html",1]];

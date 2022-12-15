@@ -1,0 +1,1 @@
+c['173']=[['174',"Fecha Property","topic_000000000000008A.html",0],['175',"IdMedico Property","topic_000000000000008B.html",0],['176',"IdPaciente Property","topic_0000000000000089.html",0],['177',"IdSintoma Property","topic_0000000000000088.html",0]];

@@ -13,7 +13,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Business
-{
+{/// <summary>
+/// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+/// </summary>
     public class DiagnosticoBLL : IGenericBusiness<DiagnosticoDto>
     {
 
@@ -31,7 +33,10 @@ namespace BLL.Business
         IGenericRepository<Diagnostico> genericRepository = FactoryDAL._diagnosticoRepository;
 
 
-
+        /// <summary>
+        /// Borra un registro de la base Diagnostico
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -46,10 +51,14 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Diagnostico
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DiagnosticoDto> GetAll()
         {
             try
@@ -64,10 +73,16 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
+            return null;
         }
 
+        /// <summary>
+        /// Obtiene un solo registro de la base Diagnostico
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public DiagnosticoDto GetOne(int? guid)
         {
             try
@@ -80,10 +95,15 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
+            return null;
         }
 
+        /// <summary>
+        /// Inserta un registto en la base Diagnostico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(DiagnosticoDto obj)
         {
             try
@@ -103,10 +123,14 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }          
         }
 
+        /// <summary>
+        /// Actuializa un registro de la tabla Diagnostico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(DiagnosticoDto obj)
         {
             try
@@ -126,7 +150,7 @@ namespace BLL.Business
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
     }

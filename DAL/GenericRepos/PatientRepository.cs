@@ -19,6 +19,10 @@ namespace DAL.GenericRepos
         }
 
 
+        /// <summary>
+        /// Elimina un registro en la tabla de Paciente
+        /// </summary>
+        /// <param name="obj"></param>
         public void Delete(Paciente obj)
         {
             var r = _context.Pacientes.FirstOrDefault(x => x.IdPaciente == obj.IdPaciente);
@@ -30,12 +34,21 @@ namespace DAL.GenericRepos
 
         }
 
-
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Paciente
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public IEnumerable<Paciente> GetAll(Paciente parameters = null)
         {
             return _context.Pacientes.ToList();
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla de Paciente
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public Paciente GetOne(int? guid)
         {
             var r = _context.Pacientes.FirstOrDefault(x => x.IdPaciente == guid);
@@ -43,6 +56,10 @@ namespace DAL.GenericRepos
             return r;
         }
 
+        /// <summary>
+        /// Inserta un registro en la tabla de Paciente
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(Paciente obj)
         {
             _context.Pacientes.Add(obj);
@@ -50,6 +67,10 @@ namespace DAL.GenericRepos
 
         }
 
+        /// <summary>
+        /// Elimina un registro en la tabla de Paciente
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(Paciente obj)
         {
             var patient = _context.Pacientes.FirstOrDefault(x => x.IdPaciente == obj.IdPaciente);
@@ -68,6 +89,10 @@ namespace DAL.GenericRepos
             }
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla de Paciente
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ObraSocial> GetObraSocial()
         {
             return _context.ObraSocials.ToList();

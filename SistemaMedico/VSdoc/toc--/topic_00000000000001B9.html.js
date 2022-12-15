@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['546',"Services.DAL.PatenteDAL Namespace","topic_00000000000001B6.html"],['574',"Familia_dal Class","topic_00000000000001B7.html"],['575',"Methods","topic_00000000000001B7_methods--.html"],['580',"Select Method","topic_00000000000001B9.html"]];

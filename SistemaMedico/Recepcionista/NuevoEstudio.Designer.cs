@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNuevoestudio = new System.Windows.Forms.TextBox();
             this.lblEstudio = new System.Windows.Forms.Label();
+            this.toolTipHelp = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -40,6 +42,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(82, 27);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Insertar";
+            this.toolTipHelp.SetToolTip(this.btnAgregar, "Click para insertar el nuevo Estudio");
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -49,6 +52,7 @@
             this.txtNuevoestudio.Name = "txtNuevoestudio";
             this.txtNuevoestudio.Size = new System.Drawing.Size(262, 23);
             this.txtNuevoestudio.TabIndex = 1;
+            this.toolTipHelp.SetToolTip(this.txtNuevoestudio, "Ingrese el nombre de el nuevo Estudio");
             // 
             // lblEstudio
             // 
@@ -80,5 +84,6 @@
         private Button btnAgregar;
         private TextBox txtNuevoestudio;
         private Label lblEstudio;
+        private ToolTip toolTipHelp;
     }
 }

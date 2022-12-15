@@ -1,0 +1,1 @@
+search_result['123']=["topic_0000000000000029.html","MedicoEspecialidadBLL.Insert Method","Inserta un registro en la tabla MedicoPorEspecialidad"];

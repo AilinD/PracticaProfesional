@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using SistemaMedico.Extensions;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using Services.BLL.Exepciones;
 
 namespace UI.Recepcionista
 {
@@ -51,8 +52,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
 
            
@@ -68,8 +69,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -94,8 +95,8 @@ namespace UI.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
             

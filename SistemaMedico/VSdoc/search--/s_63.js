@@ -1,0 +1,1 @@
+search_result['63']=["topic_0000000000000015.html","EstudioBLL.Delete Method","Elimina un registro de la tabla Estudio"];

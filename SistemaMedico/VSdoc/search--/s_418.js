@@ -1,0 +1,1 @@
+search_result['418']=["topic_0000000000000097.html","FactoryDAL Class","Clase tipo Factory con las interfaces de los repos genericos"];

@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -50,8 +51,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -69,8 +70,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
             
@@ -87,8 +88,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 

@@ -1,0 +1,1 @@
+c['229']=[['230',"MedicoRepository Constructor","topic_00000000000000BA.html",0],['231',"Methods","topic_00000000000000B9_methods--.html",1]];

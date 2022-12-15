@@ -1,0 +1,1 @@
+c['23']=[['24',"BLLException(Exception, bool) Constructor","topic_0000000000000006.html",0],['25',"BLLException(bool) Constructor","topic_0000000000000004.html",0],['26',"BLLException(string, Exception, bool) Constructor","topic_0000000000000007.html",0],['27',"BLLException(string, bool) Constructor","topic_0000000000000005.html",0]];

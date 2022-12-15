@@ -27,8 +27,8 @@ namespace Services.BLL
             }
             catch (Exception ex)
             {
-                //LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
-                throw;
+                LoggerBLL.WriteLog("Loguin Fallo", EventLevel.Error, "");
+                return null;
             }
 
         }

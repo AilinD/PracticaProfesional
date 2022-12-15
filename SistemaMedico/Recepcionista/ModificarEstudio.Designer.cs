@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
             this.lblNuevoNombre = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.lblEstudio = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             this.txtNuevoNombre.Name = "txtNuevoNombre";
             this.txtNuevoNombre.Size = new System.Drawing.Size(211, 23);
             this.txtNuevoNombre.TabIndex = 66;
+            this.toolTip1.SetToolTip(this.txtNuevoNombre, "Ingrese el nuevo nombre del Estudio");
             // 
             // lblNuevoNombre
             // 
@@ -64,6 +67,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 64;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Click para guardar los cambios del estudio");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarEstudio_Click);
             // 
@@ -74,6 +78,7 @@
             this.txtEstudio.Name = "txtEstudio";
             this.txtEstudio.Size = new System.Drawing.Size(211, 23);
             this.txtEstudio.TabIndex = 63;
+            this.toolTip1.SetToolTip(this.txtEstudio, "Ingrese el nombre del Estudio");
             // 
             // lblEstudio
             // 
@@ -94,6 +99,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 61;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Seleccione para realizar la busqueda");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaEstudio_Click);
             // 
@@ -136,5 +142,6 @@
         private Label lblEstudio;
         private Button btnBuscar;
         private DataGridView dataGridView1;
+        private ToolTip toolTip1;
     }
 }

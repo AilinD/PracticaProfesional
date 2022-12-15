@@ -1,5 +1,6 @@
 ﻿//using Domain;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.BLL.PatenteBLL;
 using Services.Domain;
 using Services.Service;
@@ -48,7 +49,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -71,7 +72,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -86,7 +87,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 

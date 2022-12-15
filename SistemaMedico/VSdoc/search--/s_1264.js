@@ -1,0 +1,1 @@
+search_result['1264']=["topic_0000000000000263.html","ControlExtensions Class","Clase de extension que le agrega el metodo de tranbslate al objeto que lo invoca"];

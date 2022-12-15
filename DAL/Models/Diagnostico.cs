@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Models
 {
+    [Browsable(false)]
+
     public partial class Diagnostico
     {
         public int Id { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void tamanio()
@@ -63,7 +64,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -82,7 +83,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -103,7 +104,7 @@ namespace UI.Administrador
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 

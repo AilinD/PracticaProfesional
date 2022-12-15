@@ -1,0 +1,1 @@
+c['723']=[['724',"MenuSintomas Constructor","topic_0000000000000285.html",0],['725',"Methods","topic_0000000000000284_methods--.html",1]];

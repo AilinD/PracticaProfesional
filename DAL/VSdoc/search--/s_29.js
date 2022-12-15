@@ -1,0 +1,1 @@
+search_result['29']=["topic_0000000000000013.html","EspecialidadRepository.Insert Method","Inserta un registro en la tabla de Especialidad"];

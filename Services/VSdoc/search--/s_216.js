@@ -1,0 +1,1 @@
+search_result['216']=["topic_0000000000000071.html","Patente_dal.Insert Method","Inserta registros en la tabla Patente."];

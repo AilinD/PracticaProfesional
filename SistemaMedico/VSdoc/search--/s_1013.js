@@ -1,0 +1,1 @@
+search_result['1013']=["topic_00000000000001EA.html","PatenteAdapter.Fill Method",""];

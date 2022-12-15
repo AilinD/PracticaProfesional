@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Factory
 {
+    /// <summary>
+    /// Clase tipo Factory con las interfaces de los repos genericos
+    /// </summary>
     public static class FactoryDAL
     {
         public static IGenericRepository<Paciente> _pacienteRepository { get; private set; }
@@ -20,7 +23,10 @@ namespace DAL.Factory
         public static IGenericRepository<Especialidad> _especialidadRepository { get; private set; }
         public static IGenericRepository<ObraSocial> _obraSocialRepository { get; private set; }
         public static IGenericRepository<Diagnostico> _diagnosticoRepository { get; private set; }
-
+        public static IGenericRepository<ObraSocialPaciente> _obrasocialPacienteRepository { get; private set; }
+        public static IGenericRepository<MedicoPorEspecialidad> _medicoPorEspecialidadRepository { get; private set; }
+        public static IGenericRepository<SintomaPaciente> _sintomaPacienteRepository { get; private set; }
+        public static IGenericRepository<EstudioPaciente> _estudioPacienteRepository { get; private set; }
 
 
 
@@ -43,6 +49,10 @@ namespace DAL.Factory
             _especialidadRepository = EspecialidadRepository();
             _obraSocialRepository = ObraSocialRepository();
             _diagnosticoRepository = DiagnosticoRepository();
+            _obrasocialPacienteRepository = ObraSocialPacienteRepository();
+            _medicoPorEspecialidadRepository = MedicoPorEspecialidadRepository();
+            _sintomaPacienteRepository = SintomaPacienteRepository();
+            _estudioPacienteRepository = EstudioPacientedRepository();
         }
         private static PatientRepository PatientRepository()
         {
@@ -78,6 +88,24 @@ namespace DAL.Factory
         private static DiagnosticoRepository DiagnosticoRepository()
         {
             return new DiagnosticoRepository(_SysEntitiesContext);
+        }
+
+        private static ObraSocialPacienteRepository ObraSocialPacienteRepository()
+        {
+            return new ObraSocialPacienteRepository(_SysEntitiesContext);
+        }
+        private static MedicoPorEspecialidadRepository MedicoPorEspecialidadRepository()
+        {
+            return new MedicoPorEspecialidadRepository(_SysEntitiesContext);
+        }
+
+        private static SintomaPacienteRepository SintomaPacienteRepository()
+        {
+            return new SintomaPacienteRepository(_SysEntitiesContext);
+        }
+        private static EstudioPacienteRepository EstudioPacientedRepository()
+        {
+            return new EstudioPacienteRepository(_SysEntitiesContext);
         }
     }
 }

@@ -1,0 +1,1 @@
+c['529']=[['530',"LoggerRepository Class","topic_00000000000001B4.html",1],['533',"IBackupRepository Interface","topic_00000000000001AA.html",1],['536',"IGenericRepository\u003cT\u003e Interface","topic_00000000000001AC.html",1],['543',"IRestoreRepository Interface","topic_00000000000001B2.html",1]];

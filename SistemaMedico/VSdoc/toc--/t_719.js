@@ -1,0 +1,1 @@
+c['719']=[['720',"IngresarSintomasPaciente Constructor","topic_0000000000000282.html",0],['721',"Methods","topic_0000000000000281_methods--.html",1]];

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblObraSocial = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNuevaOS = new System.Windows.Forms.TextBox();
+            this.toolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblObraSocial
@@ -49,6 +51,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(77, 26);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Insertar";
+            this.toolTipAyuda.SetToolTip(this.btnAgregar, "Click para insertar la obra social");
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
@@ -58,6 +61,7 @@
             this.txtNuevaOS.Name = "txtNuevaOS";
             this.txtNuevaOS.Size = new System.Drawing.Size(144, 23);
             this.txtNuevaOS.TabIndex = 2;
+            this.toolTipAyuda.SetToolTip(this.txtNuevaOS, "Ingrese el Nombre de la obra Social");
             // 
             // NuevaObraSocial
             // 
@@ -81,5 +85,6 @@
         private Label lblObraSocial;
         private Button btnAgregar;
         private TextBox txtNuevaOS;
+        private ToolTip toolTipAyuda;
     }
 }

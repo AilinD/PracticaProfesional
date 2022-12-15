@@ -1,0 +1,1 @@
+c['37']=[['38',"Delete Method","topic_000000000000001E.html",0],['39',"GetAll Method","topic_000000000000001F.html",0],['40',"GetOne Method","topic_0000000000000020.html",0],['41',"Insert Method","topic_0000000000000021.html",0],['42',"Update Method","topic_0000000000000022.html",0]];

@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"DAL Reference","topic_00000000000000D4.html"],['100',"DAL.Models Namespace","topic_0000000000000055.html"],['133',"HistorialPaciente Class","topic_0000000000000072.html"],['134',"Properties","topic_0000000000000072_props--.html"],['139',"IdMedicoNavigation Property","topic_0000000000000078.html"]];

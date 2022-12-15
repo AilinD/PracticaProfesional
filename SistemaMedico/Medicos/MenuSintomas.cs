@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,8 @@ namespace SistemaMedico.Medicos
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
         public bool Existe(string sintoma)
@@ -69,7 +71,7 @@ namespace SistemaMedico.Medicos
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
                 return false;
             }
 
@@ -82,7 +84,7 @@ namespace SistemaMedico.Medicos
                 if (string.IsNullOrEmpty(txtsBuscarSintomas.Text))
                 {
                     var user = SintomaBLL.Current.GetAll();
-                    dataGridView1.DataSource = user;
+                    dataGridView1.DataSource = user.ToList();
                     //dataGridView1.Translate();
                 }
                 else
@@ -94,7 +96,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
 
@@ -116,7 +119,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
 
@@ -138,7 +142,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
 
@@ -163,7 +168,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+                 
             }
         }
 

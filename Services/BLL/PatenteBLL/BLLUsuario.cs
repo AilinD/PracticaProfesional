@@ -27,13 +27,10 @@ namespace Services.BLL.PatenteBLL
             }
             catch (Exception ex)
             {
-                // LoggerService.WriteLog("Loguin Fallo", EventLevel.Error, "");
-                //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
-                //ExceptionManager.Current.Handle(ex);
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
             }
-            
+			return null;
         }
 
         public static Sesion GetUsuarioByUserName6Password(string user, string password)
@@ -57,8 +54,9 @@ namespace Services.BLL.PatenteBLL
                 ExceptionManager.Current.Handle(ex);
                 //new Services.Logger.LoggerService().WriteLog("",EventLevel,"");
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
             }
+			return null;
 
         }
 
@@ -84,8 +82,9 @@ namespace Services.BLL.PatenteBLL
 			{
                 ExceptionManager.Current.Handle(ex);
                 //ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
+			return null;
 		}
 		public static Usuario GetAdapted(string usuario)
 		{
@@ -96,9 +95,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-
-                throw;
+                 
 			}
+			return null;
 		}
 		public static void Insert(Usuario _object)
 		{
@@ -123,7 +122,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void Update(Usuario _object)
@@ -138,7 +137,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void Delete(Usuario _object)
@@ -150,7 +149,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void Getpermisos(List<string> permisos)
@@ -165,8 +164,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
+			return null;
 		}
 
 		
@@ -180,8 +180,9 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
+			return null;
 		}
 		public static void DeleteFamilias(Usuario _object)
 		{
@@ -192,7 +193,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		public static void DeletePatentes(Usuario _object)
@@ -204,7 +205,7 @@ namespace Services.BLL.PatenteBLL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
-                throw;
+                 
 			}
 		}
 		

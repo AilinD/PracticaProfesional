@@ -1,0 +1,1 @@
+search_result['78']=["topic_0000000000000030.html","ObraSocialPacienteRepository.Update Method","Actualiza un registro en la tabla de ObraSocialPaciente"];

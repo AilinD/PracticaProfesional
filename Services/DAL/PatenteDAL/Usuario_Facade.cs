@@ -24,7 +24,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                return null;
             }
         }
 
@@ -41,8 +41,9 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                
             }
+            return null;
         }
 
         public static void Insert(Usuario _object)
@@ -55,7 +56,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
         /// <summary>
@@ -72,7 +73,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -86,7 +87,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -100,8 +101,9 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
+            return null;
         }
 
         public static DataTable SelectAll()
@@ -114,8 +116,9 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
+            return null;
         }
 
         public static Usuario GetUsuario(string user)
@@ -129,9 +132,9 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-
+            return null;
         }
 
 
@@ -146,8 +149,9 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
+            return null;
 
         }
 
@@ -161,7 +165,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -175,7 +179,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
     }

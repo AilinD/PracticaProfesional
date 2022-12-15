@@ -1,0 +1,1 @@
+search_result['1024']=["topic_00000000000001F0.html","Usuario_dal.Delete Method","Suprime un registro de la tabla Usuario por una clave primaria(primary key)."];

@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using Services.Domain;
 using SistemaMedico.Extensions;
 using System;
@@ -30,7 +31,7 @@ namespace SistemaMedico.Medicos
         {
             try
             {
-                var sintomasPaciente = new DAL.Models.SintomaPaciente();
+                var sintomasPaciente = new SintomaPacienteDto();
 
                 foreach (DataGridViewRow r in gridPaciente.SelectedRows)
                 {
@@ -45,15 +46,15 @@ namespace SistemaMedico.Medicos
                 {
                     sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
                 }
-                SintomaPacienteBLL.Current.InsertSintomaPaciente(sintomasPaciente);
+                SintomaPacienteBLL.Current.Insert(sintomasPaciente);
                 MessageBox.Show("Sintoma Paciente ingresdo con exito!");
 
                 Limpiar();
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -76,8 +77,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -101,8 +102,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -132,8 +133,8 @@ namespace SistemaMedico.Medicos
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -145,6 +146,69 @@ namespace SistemaMedico.Medicos
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var sintomasPaciente = new SintomaPacienteDto();
+
+                foreach (DataGridViewRow r in gridPaciente.SelectedRows)
+                {
+                    sintomasPaciente.Fecha = DateTime.Now;
+                    sintomasPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                    sintomasPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol); ;
+
+
+                }
+
+                foreach (DataGridViewRow r in gridSintoma.SelectedRows)
+                {
+                    sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+                }
+                SintomaPacienteBLL.Current.Update(sintomasPaciente);
+                MessageBox.Show("Sintoma Paciente modificado con exito!");
+
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                 
+                ExceptionManager.Current.Handle(ex);
+                Limpiar();
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var sintomasPaciente = new SintomaPacienteDto();
+
+                foreach (DataGridViewRow r in gridPaciente.SelectedRows)
+                {
+                    sintomasPaciente.Fecha = DateTime.Now;
+                    sintomasPaciente.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                    sintomasPaciente.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol); ;
+
+
+                }
+
+                foreach (DataGridViewRow r in gridSintoma.SelectedRows)
+                {
+                    sintomasPaciente.IdSintoma = (int)r.Cells["IdSintoma"].Value;
+                }
+                SintomaPacienteBLL.Current.Delete(sintomasPaciente.IdPaciente);
+                MessageBox.Show("Sintoma Paciente eliminado con exito!");
+
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                 
+                ExceptionManager.Current.Handle(ex);
+            }
         }
     }
 }

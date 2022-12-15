@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -43,8 +44,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -62,17 +63,16 @@ namespace SistemaMedico.Recepcionista
 
                     ObraSocialBLL.Current.Update(obrasocial);
 
-
+                    MessageBox.Show("Obra Social modificada con éxito!");
+                    Limpiar();
                 }
-                MessageBox.Show("Obra Social modificada con éxito!");
-                txtNuevoNombre.Text = "";
-                txtObraSocial.Text = "";
-                dataGridView1.DataSource = null;
+                
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
+                Limpiar();
             }
         }
 
@@ -89,8 +89,9 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
+                Limpiar();
             }
         }
 
@@ -100,6 +101,12 @@ namespace SistemaMedico.Recepcionista
             this.WindowState = FormWindowState.Maximized;
         }
 
+        public void Limpiar()
+        {
+            txtNuevoNombre.Clear();
+            txtObraSocial.Clear();
+            dataGridView1.DataSource = null;
 
+        }
     }
 }

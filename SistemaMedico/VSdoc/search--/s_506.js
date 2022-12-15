@@ -1,0 +1,1 @@
+search_result['506']=["topic_00000000000000CC.html","ObraSocialRepository.Insert Method","Inserta un registro en la tabla de ObraSocial"];

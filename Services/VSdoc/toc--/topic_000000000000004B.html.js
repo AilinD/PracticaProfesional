@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Services Reference","topic_00000000000000D9.html"],['102',"Services.DAL.Interfaces Namespace","topic_000000000000003F.html"],['103',"LoggerRepository Class","topic_000000000000004A.html"],['104',"Methods","topic_000000000000004A_methods--.html"],['105',"WriteLog Method","topic_000000000000004B.html"]];

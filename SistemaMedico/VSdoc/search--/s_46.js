@@ -1,0 +1,1 @@
+search_result['46']=["topic_000000000000000E.html","EspecialidadBLL.Delete Method","Elimina un registro de la tabla Especialidad"];

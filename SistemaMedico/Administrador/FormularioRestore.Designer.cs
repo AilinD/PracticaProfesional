@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.progressBarRestore = new System.Windows.Forms.ProgressBar();
             this.btnSeleccionar = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.cboxRestore = new System.Windows.Forms.ComboBox();
             this.lblSeleccionar = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -46,6 +48,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Click para guardar el backup de la base");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnRestore_Click);
             // 
@@ -143,5 +146,6 @@
         private System.Windows.Forms.ComboBox cboxRestore;
         private System.Windows.Forms.Label lblSeleccionar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private ToolTip toolTip1;
     }
 }

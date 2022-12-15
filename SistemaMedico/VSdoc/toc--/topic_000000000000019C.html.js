@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['476',"Services.BLL.PatenteBLL Namespace","topic_000000000000017F.html"],['504',"PatenteBLL Class","topic_0000000000000198.html"],['507',"Methods","topic_0000000000000198_methods--.html"],['512',"Insert Method","topic_000000000000019C.html"]];

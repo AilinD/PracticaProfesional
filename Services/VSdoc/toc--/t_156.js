@@ -1,0 +1,1 @@
+c['156']=[['157',"PatenteAdapter Constructor","topic_000000000000007F.html",0],['158',"Methods","topic_000000000000007E_methods--.html",1]];

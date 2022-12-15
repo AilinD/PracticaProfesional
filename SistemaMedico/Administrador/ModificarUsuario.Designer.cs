@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.lbUsuario = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.lblIdRol = new System.Windows.Forms.Label();
             this.lblPatente = new System.Windows.Forms.Label();
             this.cboxPatentes = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +54,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Click para modificar el usuario");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarUS_Click);
             // 
@@ -62,6 +65,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(179, 23);
             this.txtNombreUsuario.TabIndex = 23;
+            this.toolTip1.SetToolTip(this.txtNombreUsuario, "Ingrese nombre del usuario a modificar");
             this.txtNombreUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbUsuario
@@ -83,6 +87,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 21;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Click para buscar el usuario");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -113,6 +118,7 @@
             this.txtNuevoNombre.Name = "txtNuevoNombre";
             this.txtNuevoNombre.Size = new System.Drawing.Size(235, 23);
             this.txtNuevoNombre.TabIndex = 31;
+            this.toolTip1.SetToolTip(this.txtNuevoNombre, "Ingrese el nuevo nombre del usuario");
             // 
             // lblNuevaPass
             // 
@@ -132,6 +138,7 @@
             this.txtNuevaPass.PasswordChar = '*';
             this.txtNuevaPass.Size = new System.Drawing.Size(235, 23);
             this.txtNuevaPass.TabIndex = 33;
+            this.toolTip1.SetToolTip(this.txtNuevaPass, "Ingrese la nueva contraseña para el usuario");
             this.txtNuevaPass.TextChanged += new System.EventHandler(this.txtNuevaPass_TextChanged);
             // 
             // txtIdRol
@@ -141,6 +148,7 @@
             this.txtIdRol.Name = "txtIdRol";
             this.txtIdRol.Size = new System.Drawing.Size(235, 23);
             this.txtIdRol.TabIndex = 35;
+            this.toolTip1.SetToolTip(this.txtIdRol, "Ingrese el numero de rol de la tabla medico");
             // 
             // lblIdRol
             // 
@@ -170,6 +178,7 @@
             this.cboxPatentes.Name = "cboxPatentes";
             this.cboxPatentes.Size = new System.Drawing.Size(235, 23);
             this.cboxPatentes.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.cboxPatentes, "Seleccione la patente a asignar");
             // 
             // ModificarUsuario
             // 
@@ -214,5 +223,6 @@
         private Label lblIdRol;
         private Label lblPatente;
         private ComboBox cboxPatentes;
+        private ToolTip toolTip1;
     }
 }

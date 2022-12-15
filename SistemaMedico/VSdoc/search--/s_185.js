@@ -1,0 +1,1 @@
+search_result['185']=["topic_000000000000003F.html","PacienteBll.GetAll Method","Obtiene todos los registros de la tabla Paciente"];

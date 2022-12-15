@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace BLL.MapperConfig
 { 
+    /// <summary>
+    /// Clase que contiene las configraciones del AutoMapper para poder mapear los objetos locales con los necesarios para la base
+    /// </summary>
     public static class MapperHelper
     {
         readonly private static IMapper _mapper;
@@ -31,12 +34,24 @@ namespace BLL.MapperConfig
                 cfg.CreateMap<ObraSocialDto, ObraSocial>();
                 cfg.CreateMap<Diagnostico,DiagnosticoDto>();
                 cfg.CreateMap<DiagnosticoDto, Diagnostico>();
+                cfg.CreateMap<ObraSocialPaciente, ObraSocialPacienteDto>();
+                cfg.CreateMap<ObraSocialPacienteDto, ObraSocialPaciente>();
+                cfg.CreateMap<MedicoPorEspecialidad, MedicoPorEspecialidadDto>();
+                cfg.CreateMap<MedicoPorEspecialidadDto, MedicoPorEspecialidad>();
+                cfg.CreateMap<EstudioPaciente, EstudioPacienteDto>();
+                cfg.CreateMap<EstudioPacienteDto, EstudioPaciente>();
+                cfg.CreateMap<SintomaPaciente, SintomaPacienteDto>();
+                cfg.CreateMap<SintomaPacienteDto, SintomaPaciente>();
             });
 
             _mapper = config.CreateMapper();
   
         }
 
+        /// <summary>
+        /// Devuelve el mapper solicitado
+        /// </summary>
+        /// <returns></returns>
         public static IMapper GetMapper()
         {
             return _mapper;

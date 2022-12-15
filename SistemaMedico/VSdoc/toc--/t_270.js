@@ -1,0 +1,1 @@
+c['270']=[['271',"SintomaRepository Constructor","topic_00000000000000DE.html",0],['272',"Methods","topic_00000000000000DD_methods--.html",1]];

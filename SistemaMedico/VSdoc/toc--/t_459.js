@@ -1,0 +1,1 @@
+c['459']=[['460',"DALException(Exception) Constructor","topic_0000000000000177.html",0],['461',"DALException(bool) Constructor","topic_0000000000000174.html",0],['462',"DALException(string, Exception, bool) Constructor","topic_0000000000000178.html",0],['463',"DALException(string, bool) Constructor","topic_0000000000000175.html",0]];

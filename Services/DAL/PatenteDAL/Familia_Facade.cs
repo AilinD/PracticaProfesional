@@ -50,8 +50,9 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("GetAdapted Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
+            return null;
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace Services.DAL.PatenteDAL
                 //GestorErrores.Execute(ex);
                 LoggerBLL.WriteLog("Insert Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
         }
 
@@ -87,7 +88,7 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("Update Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
         }
 
@@ -105,7 +106,7 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("Delete Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
         }
 
@@ -124,8 +125,9 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("Select Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
+            return null;
         }
 
         /// <summary>
@@ -142,8 +144,9 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("Select_All Familia_facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
+            return null;
         }
 
         /// <summary>
@@ -160,7 +163,7 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog("DeleteAccesos Familia_Facade Fallo", EventLevel.Error, "");
 
-                throw;
+                 
             }
         }
     }

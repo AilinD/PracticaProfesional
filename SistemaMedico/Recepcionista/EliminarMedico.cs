@@ -1,6 +1,7 @@
 ﻿using BLL.Business;
 using BLL.Dto;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,7 @@ namespace SistemaMedico.Recepcionista
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -51,6 +52,8 @@ namespace SistemaMedico.Recepcionista
             try
             {
                 var medico = new MedicoDto();
+
+                var medicoespecialidad = new MedicoPorEspecialidadDto();
 
                 foreach (DataGridViewRow r in dataGridView1.SelectedRows)
                 {
@@ -61,17 +64,32 @@ namespace SistemaMedico.Recepcionista
                     medico.Apellido = r.Cells["Apellido"].Value.ToString();
                     medico.Direccion = r.Cells["Direccion"].Value.ToString();
                     medico.Contacto = r.Cells["Contacto"].Value.ToString();
-                    MedicoBLL.Current.Delete(medico.IdMedico);
 
+                    var search = MedicoEspecialidadBLL.Current.GetOne(medico.IdMedico);
+                    if (search.Equals(null))
+                    {
+                        MessageBox.Show("Datos no encontrados");
+                    }else if (search!=null)
+                    {
+                        medicoespecialidad.Id = search.Id;
+                        medicoespecialidad.IdMedico = medico.IdMedico;
+                        medicoespecialidad.IdEspecialidad = search.IdEspecialidad;
+                        MedicoEspecialidadBLL.Current.Delete(medicoespecialidad.IdMedico);
 
+                        MedicoBLL.Current.Delete(medico.IdMedico);
+                        MessageBox.Show("Medico Eliminado con éxito!");
+                        Limpiar();
+
+                    }
+
+                    Limpiar();
                 }
-                MessageBox.Show("Medico Eliminado con éxito!");
-                Limpiar();
+               
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void Limpiar()
@@ -83,8 +101,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -100,8 +118,9 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                MessageBox.Show("Error al eliminar el backup");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 

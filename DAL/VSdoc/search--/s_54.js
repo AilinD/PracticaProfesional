@@ -1,0 +1,1 @@
+search_result['54']=["topic_0000000000000022.html","MedicoPorEspecialidadRepository.Update Method","Actualiza un registro en la tabla de MedicoPorEspecialidad"];

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNuevaPatente = new System.Windows.Forms.TextBox();
             this.lblNuevoNombre = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.lblpatente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             this.txtNuevaPatente.Name = "txtNuevaPatente";
             this.txtNuevaPatente.Size = new System.Drawing.Size(179, 23);
             this.txtNuevaPatente.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.txtNuevaPatente, "Ingrese el nuevo nombre de la patente");
             // 
             // lblNuevoNombre
             // 
@@ -64,6 +67,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 38;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Click para modificar la patente");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarUS_Click);
             // 
@@ -74,6 +78,7 @@
             this.txtNombrePatente.Name = "txtNombrePatente";
             this.txtNombrePatente.Size = new System.Drawing.Size(179, 23);
             this.txtNombrePatente.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.txtNombrePatente, "Ingrese el nombre de la patente");
             // 
             // lblpatente
             // 
@@ -94,6 +99,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 35;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Click para buscar la patente");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -136,5 +142,6 @@
         private System.Windows.Forms.Label lblpatente;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private ToolTip toolTip1;
     }
 }

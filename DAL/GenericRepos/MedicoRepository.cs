@@ -18,6 +18,11 @@ namespace DAL.GenericRepos
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Elimina un registro en la tabla de Medico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Delete(Medico obj)
         {
             var r = _context.Medicos.FirstOrDefault(x => x.IdMedico == obj.IdMedico);
@@ -28,11 +33,21 @@ namespace DAL.GenericRepos
             }
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla de Medico
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public IEnumerable<Medico> GetAll(Medico parameters = null)
         {
             return _context.Medicos.ToList();
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla de Medico
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public Medico GetOne(int? guid)
         {
             var r = _context.Medicos.FirstOrDefault(x => x.IdMedico == guid);
@@ -40,12 +55,20 @@ namespace DAL.GenericRepos
             return r;
         }
 
+        /// <summary>
+        ///Inserta un registro en la tabla de Medico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(Medico obj)
         {
             _context.Medicos.Add(obj);
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla de Medico
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(Medico obj)
         {
             var medico = _context.Medicos.FirstOrDefault(x => x.IdMedico == obj.IdMedico);

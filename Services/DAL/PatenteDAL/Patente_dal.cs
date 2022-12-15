@@ -13,7 +13,7 @@ namespace Services.DAL.PatenteDAL
     public class Patente_dal
     {
         //private static IConfiguration _configuration;
-        private static string ctr;
+        private static string ctr = string.Empty;
         static Patente_dal()
         {
             ctr = ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
@@ -43,8 +43,8 @@ namespace Services.DAL.PatenteDAL
             catch (Exception ex)
             {
                 LoggerBLL.WriteLog(ex.Message,EventLevel.Error,"");
+                return null;
 
-                throw;
             }
         }
 
@@ -83,8 +83,8 @@ namespace Services.DAL.PatenteDAL
             catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
+                return null;
 
-                throw;
             }
         }
 
@@ -118,7 +118,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -151,7 +151,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -185,7 +185,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -229,7 +229,7 @@ namespace Services.DAL.PatenteDAL
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                return null;
             }
         }
 

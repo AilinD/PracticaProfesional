@@ -1,0 +1,1 @@
+search_result['997']=["topic_00000000000001DF.html","Patente_Facade.GetAllAdapted Method",""];

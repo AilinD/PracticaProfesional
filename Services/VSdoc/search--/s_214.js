@@ -1,0 +1,1 @@
+search_result['214']=["topic_000000000000006F.html","Patente_dal.Delete Method","Suprime un registro de la tabla Patente por una clave primaria(primary key)."];

@@ -1,0 +1,1 @@
+search_result['27']=["topic_0000000000000011.html","EspecialidadRepository.GetAll Method","Obtiene todos los registros de la tabla de Especialidad"];

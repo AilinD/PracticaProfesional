@@ -22,8 +22,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+                return null;
+            }
 		}
 
 		public static DataTable getPatenteUs(Usuario usuario) 
@@ -37,7 +37,7 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                return null;
             }
 
         }
@@ -53,7 +53,7 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                return null;
             }
 		}
 
@@ -76,8 +76,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+                return null;
+            }
 		}
 
 		public static void Insert(Domain.Patente _object)
@@ -90,8 +90,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+              
+            }
 		}
 
 		public static void Update(Domain.Patente _object)
@@ -104,8 +104,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+                
+            }
 		}
 
 		public static void Delete(Domain.Patente _object)
@@ -118,8 +118,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+               
+            }
 		}
 
 		public static DataRow Select(System.String IdFamiliaElement)
@@ -132,8 +132,8 @@ namespace Services.DAL.PatenteDAL
 			{
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
-			}
+                return null;
+            }
 		}
 
 		public static DataTable SelectAll()
@@ -145,9 +145,9 @@ namespace Services.DAL.PatenteDAL
 			catch (Exception ex)
 			{
                 ExceptionManager.Current.Handle(ex);
+                return null;
 
-                throw;
-			}
+            }
 		}
 	}
 }

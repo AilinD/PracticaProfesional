@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtOSaEliminar = new System.Windows.Forms.TextBox();
             this.lblObraSocial = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 24;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "click para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -56,6 +59,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 23;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "click para eliminar la obra social");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -75,6 +79,7 @@
             this.txtOSaEliminar.Name = "txtOSaEliminar";
             this.txtOSaEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtOSaEliminar.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.txtOSaEliminar, "Ingrese el Nombre de la obra social");
             // 
             // lblObraSocial
             // 
@@ -112,5 +117,6 @@
         private DataGridView dataGridView1;
         private TextBox txtOSaEliminar;
         private Label lblObraSocial;
+        private ToolTip toolTip1;
     }
 }

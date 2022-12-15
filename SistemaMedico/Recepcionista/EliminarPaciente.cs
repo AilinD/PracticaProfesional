@@ -1,6 +1,8 @@
 ﻿using BLL.Business;
 using BLL.Dto;
+using DAL.Models;
 using Services.BLL;
+using Services.BLL.Exepciones;
 using SistemaMedico.Extensions;
 using System;
 using System.Collections.Generic;
@@ -42,8 +44,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -65,7 +67,36 @@ namespace SistemaMedico.Recepcionista
                     paciente.Dirección = r.Cells["Dirección"].Value.ToString();
                     paciente.Contacto = r.Cells["Contacto"].Value.ToString();
                     paciente.Sexo = r.Cells["Sexo"].Value.ToString();
-                    PacienteBll.Current.Delete(paciente.IdPaciente);
+
+
+                    try
+                    {
+
+                        var searchOSPA = ObraSocialPacienteBLL.Current.GetOne(paciente.IdPaciente);
+                        if (searchOSPA == null)
+                        {
+                            MessageBox.Show("Error , el paciente existe en alguna de las tablas");
+                        }
+                        else if(searchOSPA != null)
+                        {
+                            var odp = new ObraSocialPaciente();
+                            {
+                                odp.Id = searchOSPA.Id;
+                                odp.IdPaciente = paciente.IdPaciente;
+                                odp.IdObraSocial = searchOSPA.IdObraSocial;
+
+                            };
+                            ObraSocialPacienteBLL.Current.Delete(odp.IdPaciente);
+
+
+                            PacienteBll.Current.Delete(paciente.IdPaciente);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ExceptionManager.Current.Handle(ex);
+                         
+                    }
 
 
                 }
@@ -75,7 +106,7 @@ namespace SistemaMedico.Recepcionista
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void Limpiar()
@@ -83,12 +114,12 @@ namespace SistemaMedico.Recepcionista
             try
             {
                 txtPacienteAEliminar.Text = "";
-                dataGridView1.ClearSelection();
+                dataGridView1.DataSource = null;
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -104,8 +135,8 @@ namespace SistemaMedico.Recepcionista
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                 
+                ExceptionManager.Current.Handle(ex);
             }
         }
         private void tamanio()

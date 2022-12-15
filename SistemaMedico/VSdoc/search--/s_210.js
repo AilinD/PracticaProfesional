@@ -1,0 +1,1 @@
+search_result['210']=["topic_0000000000000049.html","SintomaBLL.Delete Method","Elimina un registro en la tabla Sintoma"];

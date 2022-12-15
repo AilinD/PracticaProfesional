@@ -16,6 +16,7 @@ using BLL.Dto;
 using Services.Domain;
 using Services.Service;
 using iTextSharp.text;
+using Services.BLL.Exepciones;
 
 namespace SistemaMedico.Medicos
 {
@@ -42,27 +43,31 @@ namespace SistemaMedico.Medicos
             {
                 var diagnostico = new DiagnosticoDto();
 
-
-                foreach (DataGridViewRow r in gridpaciente.SelectedRows)
+                if (string.IsNullOrEmpty(txtComentarios.Text))
                 {
+                    MessageBox.Show("Por favor ingrese el diagnostico");
+                }
+                else
+                {
+                    foreach (DataGridViewRow r in gridpaciente.SelectedRows)
+                    {
 
 
-                    diagnostico.IdPaciente = (int)r.Cells["IdPaciente"].Value;
-                    diagnostico.Fecha = DateTime.Now;
-                    diagnostico.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol);
-                    diagnostico.diagnostico = txtComentarios.Text;
+                        diagnostico.IdPaciente = (int)r.Cells["IdPaciente"].Value;
+                        diagnostico.Fecha = DateTime.Now;
+                        diagnostico.IdMedico = Convert.ToInt32(_sesion.usuario.IdRol);
+                        diagnostico.diagnostico = txtComentarios.Text;
 
 
-                    DiagnosticoBLL.Current.Insert(diagnostico);
-                    MessageBox.Show("Diagnostico insertado con éxito!");
-                    Limpiar();
-
+                        DiagnosticoBLL.Current.Insert(diagnostico);
+                        MessageBox.Show("Diagnostico insertado con éxito!");
+                        Limpiar();
+                    }
                 }
             }
             catch (Exception ex)
             {
-
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -82,7 +87,7 @@ namespace SistemaMedico.Medicos
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
         }
@@ -113,7 +118,8 @@ namespace SistemaMedico.Medicos
             catch (Exception ex)
             {
 
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
+
             }
 
 

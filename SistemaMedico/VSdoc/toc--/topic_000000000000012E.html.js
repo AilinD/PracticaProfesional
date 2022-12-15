@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['286',"DAL.Models Namespace","topic_00000000000000EB.html"],['360',"ObraSocial Class","topic_000000000000012C.html"],['362',"Properties","topic_000000000000012C_props--.html"],['363',"Id Property","topic_000000000000012E.html"]];

@@ -1,0 +1,1 @@
+search_result['1170']=["topic_000000000000023C.html","LanguageService.GetLanguageFile Method","Busca y carga un archivo de lenguaje de formato JSON. La carpeta de busca por defecto es \\locale\\."];

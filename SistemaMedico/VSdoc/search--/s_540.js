@@ -1,0 +1,1 @@
+search_result['540']=["topic_00000000000000DF.html","SintomaRepository.Delete Method","Elimina un registro en la tabla de Sintoma"];

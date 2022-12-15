@@ -1,0 +1,1 @@
+search_result['129']=["topic_000000000000004F.html","IGenericRepository\u0026lt;T\u0026gt; Interface","Interfaz con metodos necesarios para los repos genéricos"];

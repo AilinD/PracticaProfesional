@@ -1,0 +1,1 @@
+search_result['542']=["topic_00000000000000E1.html","SintomaRepository.GetOne Method","Obtiene un registro de la tabla de Sintoma"];

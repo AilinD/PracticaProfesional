@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.lblSelecPat = new System.Windows.Forms.Label();
             this.txtIdRol = new System.Windows.Forms.TextBox();
             this.lblIdRol = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -49,6 +51,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Generar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Click para generar usuario");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -69,6 +72,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(238, 23);
             this.txtNombre.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtNombre, "Ingrese nombre del usuario");
             // 
             // cboxPatentes
             // 
@@ -78,6 +82,7 @@
             this.cboxPatentes.Name = "cboxPatentes";
             this.cboxPatentes.Size = new System.Drawing.Size(159, 23);
             this.cboxPatentes.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.cboxPatentes, "Seleccione la patente del nuevo usuario");
             this.cboxPatentes.SelectedIndexChanged += new System.EventHandler(this.cboxPatentes_SelectedIndexChanged);
             // 
             // txtContraseña
@@ -87,6 +92,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(223, 23);
             this.txtContraseña.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtContraseña, "Ingrese contraseña del usuario");
             this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // lblPass
@@ -106,6 +112,7 @@
             this.txtContra2.Name = "txtContra2";
             this.txtContra2.Size = new System.Drawing.Size(184, 23);
             this.txtContra2.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtContra2, "repita la contraseña ");
             // 
             // lblRepitePass
             // 
@@ -134,6 +141,7 @@
             this.txtIdRol.Name = "txtIdRol";
             this.txtIdRol.Size = new System.Drawing.Size(238, 23);
             this.txtIdRol.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txtIdRol, "Ingrese el numero del rol del usuario de la tabla medico");
             this.txtIdRol.TextChanged += new System.EventHandler(this.txtIdRol_TextChanged);
             // 
             // lblIdRol
@@ -185,5 +193,6 @@
         private System.Windows.Forms.Label lblSelecPat;
         private TextBox txtIdRol;
         private Label lblIdRol;
+        private ToolTip toolTip1;
     }
 }

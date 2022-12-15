@@ -16,6 +16,11 @@ namespace DAL.GenericRepos
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Elimina un registro en la tabla de ObraSocial
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(ObraSocial guid)
         {
             var r = _context.ObraSocials.FirstOrDefault(x => x.Id == guid.Id);
@@ -26,12 +31,22 @@ namespace DAL.GenericRepos
             }
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla de ObraSocial
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public IEnumerable<ObraSocial> GetAll(ObraSocial parameters = null)
         {
             return _context.ObraSocials.ToList();
             
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla de ObraSocial
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public ObraSocial GetOne(int? guid)
         {
             var r = _context.ObraSocials.FirstOrDefault(x => x.Id == guid);
@@ -40,6 +55,10 @@ namespace DAL.GenericRepos
 
         }
 
+        /// <summary>
+        /// Inserta un registro en la tabla de ObraSocial
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(ObraSocial obj)
         {
             _context.ObraSocials.Add(obj);
@@ -47,6 +66,10 @@ namespace DAL.GenericRepos
 
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla de ObraSocial
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(ObraSocial obj)
         {
             var obrasocial = _context.ObraSocials.FirstOrDefault(x => x.Id == obj.Id);

@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"DAL Reference","topic_00000000000000D4.html"],['18',"DAL.GenericRepos Namespace","topic_000000000000000D.html"],['35',"MedicoPorEspecialidadRepository Class","topic_000000000000001C.html"],['37',"Methods","topic_000000000000001C_methods--.html"],['41',"Insert Method","topic_0000000000000021.html"]];

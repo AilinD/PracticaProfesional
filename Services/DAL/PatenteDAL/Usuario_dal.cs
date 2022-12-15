@@ -11,14 +11,19 @@ namespace Services.DAL.PatenteDAL
 {
     public static class Usuario_dal
     {
-        private static string ctr;
+        private readonly static string ctr = string.Empty;
 
-         static Usuario_dal()
+        static Usuario_dal()
         {
             ctr = ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
         }
 
-        
+        //private static string ctr
+        //{
+        //    string cadenaconn= ConfigurationManager.ConnectionStrings["PatenteFamilia"].ConnectionString;
+
+        //    return cadenaconn;
+        //}
 
 
         public static DataSet SelectAll()
@@ -48,15 +53,15 @@ namespace Services.DAL.PatenteDAL
             catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
+                return null;
 
-                throw;
             }
         }
 
-        public static Usuario GetUsuarioByNameAndPassword(string user,string password)
+        public static Usuario GetUsuarioByNameAndPassword(string user, string password)
         {
             try
-            
+
             {
 
                 DataTable data = new DataTable();
@@ -81,13 +86,13 @@ namespace Services.DAL.PatenteDAL
                     foreach (DataRow dr in data.Rows)
                     {
                         var permisos = usuario.Permisos.Select(x => x.Nombre).ToString();
+                        usuario.IdUsuario = dr["IdUsuario"].ToString();
                         usuario.Nombre = dr["Nombre"].ToString();
                         usuario.Password = dr["Contraseña"].ToString();
-                        usuario.IdUsuario = dr["IdUsuario"].ToString();
-                        usuario.IdRol =(int)dr["IdRol"];
+                        usuario.IdRol = (int)dr["IdRol"];
                         
-                        //usuario.Permisos.Add();
-                        
+                        //usuario.Permisos.Add);
+
                     }
 
                     if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
@@ -103,20 +108,20 @@ namespace Services.DAL.PatenteDAL
                     {
                         return usuario;
                     }
-                    return null;   
+                    return null;
 
                 }
             }
             catch (Exception ex)
             {
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Error, user);
+                return null;
 
-                throw;
             }
         }
 
 
-        
+
 
         public static Usuario GetUsuarioByName(string user)
         {
@@ -152,16 +157,18 @@ namespace Services.DAL.PatenteDAL
 
                     if (string.IsNullOrEmpty(usuario.Nombre) || (string.IsNullOrEmpty(usuario.Password)))
                     {
-                        try{
+                        try
+                        {
 
-                        }catch(Exception ex)
+                        }
+                        catch (Exception ex)
                         {
                             ExceptionManager.Current.Handle(ex);
                         }
-                        
+
                     }
 
-                   
+
                     return usuario;
 
                 }
@@ -170,7 +177,7 @@ namespace Services.DAL.PatenteDAL
             {
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Error, user);
 
-                throw;
+                return null;
             }
         }
 
@@ -191,7 +198,7 @@ namespace Services.DAL.PatenteDAL
         {
             try
             {
-               
+
                 DataSet ds = new DataSet("test");
                 using (SqlConnection conn = new SqlConnection(ctr))
                 {
@@ -210,18 +217,18 @@ namespace Services.DAL.PatenteDAL
                     sqlComm.ExecuteNonQuery();
                     da.Fill(ds);
                 }
-               
+
                 return ds;
             }
             catch (Exception ex)
             {
                 LoggerBLL.WriteLog(ex.Message, EventLevel.Error, Usuario);
 
-                throw;
+                return null;
             }
         }
 
-   
+
 
 
         /// <summary>
@@ -347,11 +354,12 @@ namespace Services.DAL.PatenteDAL
                     }
 
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -432,11 +440,12 @@ namespace Services.DAL.PatenteDAL
                         }
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -460,11 +469,12 @@ namespace Services.DAL.PatenteDAL
                     sqlComm.ExecuteNonQuery();
                     return data;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
+                return null;
 
-                throw;
             }
         }
 
@@ -495,11 +505,12 @@ namespace Services.DAL.PatenteDAL
 
 
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
 
@@ -532,11 +543,12 @@ namespace Services.DAL.PatenteDAL
                     sqlComm.ExecuteNonQuery();
                     return data;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                return null;
             }
         }
 
@@ -559,11 +571,12 @@ namespace Services.DAL.PatenteDAL
                     conn.Open();
                     sqlComm.ExecuteNonQuery();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
         }
     }

@@ -1,0 +1,1 @@
+search_result['1006']=["topic_00000000000001E8.html","PatenteAdapter Class",""];

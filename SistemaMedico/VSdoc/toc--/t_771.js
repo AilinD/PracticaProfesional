@@ -1,0 +1,1 @@
+c['771']=[['772',"EstudiosXPaciente Constructor","topic_00000000000002BE.html",0],['773',"Methods","topic_00000000000002BD_methods--.html",1]];

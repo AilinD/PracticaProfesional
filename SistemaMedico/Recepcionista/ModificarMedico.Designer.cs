@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNuevoContacto = new System.Windows.Forms.TextBox();
             this.lblNuevoContacto = new System.Windows.Forms.Label();
             this.txtNuevoDomicilio = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@
             this.lblApellidoMedico = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.txtNuevoContacto.Name = "txtNuevoContacto";
             this.txtNuevoContacto.Size = new System.Drawing.Size(170, 23);
             this.txtNuevoContacto.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.txtNuevoContacto, "Ingrese el nuevo contacto del Medico");
             // 
             // lblNuevoContacto
             // 
@@ -65,6 +68,7 @@
             this.txtNuevoDomicilio.Name = "txtNuevoDomicilio";
             this.txtNuevoDomicilio.Size = new System.Drawing.Size(170, 23);
             this.txtNuevoDomicilio.TabIndex = 50;
+            this.toolTip1.SetToolTip(this.txtNuevoDomicilio, "Ingrese el nuevo domicilio del Medico");
             // 
             // lblNuevoDomicilio
             // 
@@ -84,6 +88,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 48;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Seleccione para modificar los datos del medico");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarMedico_Click);
             // 
@@ -94,6 +99,7 @@
             this.txtApellidoMedico.Name = "txtApellidoMedico";
             this.txtApellidoMedico.Size = new System.Drawing.Size(179, 23);
             this.txtApellidoMedico.TabIndex = 47;
+            this.toolTip1.SetToolTip(this.txtApellidoMedico, "Ingrese el Apellido del Medico");
             // 
             // lblApellidoMedico
             // 
@@ -114,6 +120,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 45;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Seleccione para Buscar al medico");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaMedico_Click);
             // 
@@ -160,5 +167,6 @@
         private Label lblApellidoMedico;
         private Button btnBuscar;
         private DataGridView dataGridView1;
+        private ToolTip toolTip1;
     }
 }

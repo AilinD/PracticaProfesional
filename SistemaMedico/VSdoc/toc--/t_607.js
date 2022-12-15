@@ -1,0 +1,1 @@
+c['607']=[['608',"UsuarioAdapter Constructor","topic_0000000000000204.html",0],['609',"Methods","topic_0000000000000203_methods--.html",1]];

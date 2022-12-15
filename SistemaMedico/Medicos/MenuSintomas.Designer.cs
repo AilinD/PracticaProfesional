@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtsBuscarSintomas = new System.Windows.Forms.TextBox();
             this.lblSintomas = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
             this.lblNuevoNombre = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.txtsBuscarSintomas.Name = "txtsBuscarSintomas";
             this.txtsBuscarSintomas.Size = new System.Drawing.Size(179, 23);
             this.txtsBuscarSintomas.TabIndex = 56;
+            this.toolTip1.SetToolTip(this.txtsBuscarSintomas, "Ingrese el nombre del sintoma a buscar para poder modificarlo o eliminarlo");
             // 
             // lblSintomas
             // 
@@ -67,6 +70,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 54;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Click para buscar el sintoma");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -87,6 +91,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 59;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "click para eliminar el sintoma");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -98,6 +103,8 @@
             this.btnAgregar.Size = new System.Drawing.Size(88, 27);
             this.btnAgregar.TabIndex = 58;
             this.btnAgregar.Text = "Insertar";
+            this.toolTip1.SetToolTip(this.btnAgregar, "Para poder generar un nuevo sintoma solo inserte el nombre en \"Nuevo Nombre\" y ha" +
+        "ga click aqui");
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
@@ -109,6 +116,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 57;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "click para modificar el sintoma");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarPaciente_Click);
             // 
@@ -119,6 +127,8 @@
             this.txtNuevoNombre.Name = "txtNuevoNombre";
             this.txtNuevoNombre.Size = new System.Drawing.Size(179, 23);
             this.txtNuevoNombre.TabIndex = 61;
+            this.toolTip1.SetToolTip(this.txtNuevoNombre, "Ingrese el nombre del nuevo sintoma directamente o el nuevo nombre para poder mod" +
+        "ificarlo");
             // 
             // lblNuevoNombre
             // 
@@ -165,5 +175,6 @@
         private Button btnModificar;
         private TextBox txtNuevoNombre;
         private Label lblNuevoNombre;
+        private ToolTip toolTip1;
     }
 }

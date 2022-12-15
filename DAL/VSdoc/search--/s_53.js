@@ -1,0 +1,1 @@
+search_result['53']=["topic_0000000000000021.html","MedicoPorEspecialidadRepository.Insert Method","Inserta un registro en la tabla de MedicoPorEspecialidad"];

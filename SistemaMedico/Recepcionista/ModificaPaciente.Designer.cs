@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNuevoContacto = new System.Windows.Forms.TextBox();
             this.lblNuevoContacto = new System.Windows.Forms.Label();
             this.txtNuevoDomicilio = new System.Windows.Forms.TextBox();
@@ -37,6 +38,7 @@
             this.lblApellidoPaciente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.txtNuevoContacto.Name = "txtNuevoContacto";
             this.txtNuevoContacto.Size = new System.Drawing.Size(210, 23);
             this.txtNuevoContacto.TabIndex = 43;
+            this.toolTip1.SetToolTip(this.txtNuevoContacto, "Ingrese el nuevo contacto del Paciente");
             // 
             // lblNuevoContacto
             // 
@@ -65,6 +68,7 @@
             this.txtNuevoDomicilio.Name = "txtNuevoDomicilio";
             this.txtNuevoDomicilio.Size = new System.Drawing.Size(210, 23);
             this.txtNuevoDomicilio.TabIndex = 41;
+            this.toolTip1.SetToolTip(this.txtNuevoDomicilio, "Ingrese el nuevo domicilio del Paciente");
             // 
             // lblNuevoDomicilio
             // 
@@ -94,6 +98,7 @@
             this.txtNombrePaciente.Name = "txtNombrePaciente";
             this.txtNombrePaciente.Size = new System.Drawing.Size(215, 23);
             this.txtNombrePaciente.TabIndex = 37;
+            this.toolTip1.SetToolTip(this.txtNombrePaciente, "Ingrese el Apellido del Paciente");
             // 
             // lblApellidoPaciente
             // 
@@ -114,6 +119,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 35;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Seleccione para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaPaciente_Click);
             // 
@@ -162,5 +168,6 @@
         private Label lblApellidoPaciente;
         private Button btnBuscar;
         private DataGridView dataGridView1;
+        private ToolTip toolTip1;
     }
 }

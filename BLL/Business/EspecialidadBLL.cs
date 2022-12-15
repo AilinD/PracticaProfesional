@@ -25,7 +25,10 @@ using Services.BLL.Exepciones;
 //using DAL.Models;
 
 namespace BLL.Business {
-	public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
+    /// <summary>
+    /// Clase de negocio, a traves del UnitOfWork tiene los metodos necesarios para poder comunciarse con la capa de Datos
+    /// </summary>
+    public class EspecialidadBLL : IGenericBusiness<EspecialidadDto>
     {
 
         private readonly static EspecialidadBLL _instance = new EspecialidadBLL();
@@ -42,7 +45,10 @@ namespace BLL.Business {
         IGenericRepository<Especialidad> genericRepository = FactoryDAL._especialidadRepository;
 
 
-
+        /// <summary>
+        /// Inserta un registro en la tabla de Especialidad
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(EspecialidadDto obj)
         {
             try
@@ -59,11 +65,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
            
         }
 
+        /// <summary>
+        /// Actualiza un registro de la tabla Especialidad
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(EspecialidadDto obj)
         {
             try
@@ -80,11 +90,15 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
            
         }
 
+        /// <summary>
+        /// Obtiene todos los registros de la tabla Especialidad
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<EspecialidadDto> GetAll()
         {
             try
@@ -101,11 +115,17 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-        
+            return null;
+
         }
 
+        /// <summary>
+        /// Retorna un objeto de la tabla Especialidad
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public EspecialidadDto GetOne(int? guid)
         {
             try
@@ -118,11 +138,16 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
-            
+            return null;
+
         }
 
+        /// <summary>
+        /// Elimina un registro de la tabla Especialidad
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(int? guid)
         {
             try
@@ -137,7 +162,7 @@ namespace BLL.Business {
             {
                 ExceptionManager.Current.Handle(ex);
 
-                throw;
+                 
             }
             
         }

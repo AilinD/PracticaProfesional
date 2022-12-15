@@ -1,0 +1,1 @@
+search_result['74']=["topic_000000000000002C.html","ObraSocialPacienteRepository.Delete Method","Elimina un registro en la tabla de ObraSocialPaciente"];

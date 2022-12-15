@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtEstudioaEliminar = new System.Windows.Forms.TextBox();
             this.lblEstudio = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 29;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "clik para buscar");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -56,6 +59,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(88, 27);
             this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnEliminar, "click para eliminar el estudio");
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -75,6 +79,7 @@
             this.txtEstudioaEliminar.Name = "txtEstudioaEliminar";
             this.txtEstudioaEliminar.Size = new System.Drawing.Size(179, 23);
             this.txtEstudioaEliminar.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.txtEstudioaEliminar, "Ingrese el Nombre del estudio");
             // 
             // lblEstudio
             // 
@@ -85,6 +90,10 @@
             this.lblEstudio.Size = new System.Drawing.Size(93, 15);
             this.lblEstudio.TabIndex = 25;
             this.lblEstudio.Text = "Nombre Estudio";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.UseFading = false;
             // 
             // EliminarEstudio
             // 
@@ -112,5 +121,6 @@
         private DataGridView dataGridView1;
         private TextBox txtEstudioaEliminar;
         private Label lblEstudio;
+        private ToolTip toolTip1;
     }
 }

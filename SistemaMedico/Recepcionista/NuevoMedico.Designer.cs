@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.txtContacto = new System.Windows.Forms.TextBox();
@@ -41,6 +42,7 @@
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.cboxEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
+            this.toolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -51,6 +53,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(106, 27);
             this.btnAgregar.TabIndex = 32;
             this.btnAgregar.Text = "Generar";
+            this.toolTipAyuda.SetToolTip(this.btnAgregar, "Click para guardar el Medico");
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
@@ -71,6 +74,7 @@
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(191, 23);
             this.txtContacto.TabIndex = 26;
+            this.toolTipAyuda.SetToolTip(this.txtContacto, "Ingrese el numero de contacto del Medico");
             // 
             // lblContacto
             // 
@@ -89,6 +93,7 @@
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(191, 23);
             this.txtDomicilio.TabIndex = 24;
+            this.toolTipAyuda.SetToolTip(this.txtDomicilio, "Ingrese el Domicilio del Medico");
             // 
             // lblDomicilio
             // 
@@ -107,6 +112,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(191, 23);
             this.txtNombre.TabIndex = 22;
+            this.toolTipAyuda.SetToolTip(this.txtNombre, "Ingrese el Nombre del Medico");
             // 
             // lblNombre
             // 
@@ -125,6 +131,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(191, 23);
             this.txtApellido.TabIndex = 20;
+            this.toolTipAyuda.SetToolTip(this.txtApellido, "Ingrese el Apellido del Medico");
             // 
             // lblApellido
             // 
@@ -143,6 +150,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(191, 23);
             this.txtMatricula.TabIndex = 36;
+            this.toolTipAyuda.SetToolTip(this.txtMatricula, "Ingrese el numero de Matricula del Medico");
             // 
             // cboxEspecialidad
             // 
@@ -151,6 +159,7 @@
             this.cboxEspecialidad.Name = "cboxEspecialidad";
             this.cboxEspecialidad.Size = new System.Drawing.Size(190, 23);
             this.cboxEspecialidad.TabIndex = 37;
+            this.toolTipAyuda.SetToolTip(this.cboxEspecialidad, "Seleccione la especialidad del Médico");
             this.cboxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cboxEspecialidad_SelectedIndexChanged);
             // 
             // lblEspecialidad
@@ -203,5 +212,6 @@
         private TextBox txtMatricula;
         private ComboBox cboxEspecialidad;
         private Label lblEspecialidad;
+        private ToolTip toolTipAyuda;
     }
 }

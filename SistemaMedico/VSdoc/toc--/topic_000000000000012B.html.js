@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"SOLUTION-WIDE PROPERTIES Reference","topic_00000000000002C4.html"],['286',"DAL.Models Namespace","topic_00000000000000EB.html"],['353',"MedicoPorEspecialidad Class","topic_0000000000000126.html"],['354',"Properties","topic_0000000000000126_props--.html"],['359',"IdMedicoNavigation Property","topic_000000000000012B.html"]];

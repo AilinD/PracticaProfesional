@@ -1,0 +1,1 @@
+search_result['410']=["topic_0000000000000094.html","MapperHelper Class","Clase que contiene las configraciones del AutoMapper para poder mapear los objetos locales con los necesarios para la base"];

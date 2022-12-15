@@ -17,6 +17,8 @@ using DAL.Models;
 using BLL.Dto;
 using Services.BLL;
 using System.Diagnostics.Tracing;
+using Services.BLL.Exepciones;
+using iText.IO.Font.Otf;
 
 namespace SistemaMedico.Reportes
 {
@@ -36,15 +38,42 @@ namespace SistemaMedico.Reportes
         {
             try
             {
+
+                var estudiomedicoext = new EstudioPacienteExtendido();
+                List<EstudioPacienteExtendido> estudioPacienteExtendidos = new List<EstudioPacienteExtendido>();
                 int dni = Convert.ToInt32(txtDniPaciente.Text);
 
-                List<EstudioPacienteDTO> search = BLL.Business.EstudioPacienteBLL.Current.SelectPacienteDto(dni).ToList();
-                dataGridView1.DataSource = search;
+                var paciente = PacienteBll.Current.GetAll().FirstOrDefault(x=>x.DNI==dni);
+    
+                var search = BLL.Business.EstudioPacienteBLL.Current.GetAll().Where(x => x.IdPaciente==paciente.IdPaciente);
+
+               
+                foreach (var item in search)
+                {
+                    var medico = BLL.Business.MedicoBLL.Current.GetAll().FirstOrDefault(x => x.IdMedico == item.IdMedico);
+
+                    estudiomedicoext.Comentarios = item.Comentarios;
+                    estudiomedicoext.FullnameMedico = String.Concat(medico.Nombre + " " + medico.Apellido);
+                    estudiomedicoext.FullnamePaciente = String.Concat(paciente.Nombre + " " + paciente.Apellido);
+                    estudiomedicoext.Fecha = item.Fecha;
+                    estudiomedicoext.Estudio = EstudioBLL.Current.GetAll().FirstOrDefault(x => x.Id == item.IdEstudio).Nombre;
+                    estudioPacienteExtendidos.Add(estudiomedicoext);
+                }
+
+
+
+                    
+
+                dataGridView1.DataSource = estudioPacienteExtendidos.ToList();
+
+
+                //var search = BLL.Business.EstudioPacienteBLL.Current.GetAll().Where(x => x.IdMedico == medico.IdMedico);
+
                 //dataGridView1.Translate();
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
 
 
@@ -61,7 +90,7 @@ namespace SistemaMedico.Reportes
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
 
@@ -101,7 +130,7 @@ namespace SistemaMedico.Reportes
                             catch (IOException ex)
                             {
                                 fileError = true;
-                                MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                                MessageBox.Show("It wasn't possible to write the data to the disk." + ex.InnerException.Message);
                             }
                         }
                         if (!fileError)
@@ -142,7 +171,7 @@ namespace SistemaMedico.Reportes
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("Error :" + ex.Message);
+                                MessageBox.Show("Error :" + ex.InnerException.Message);
                             }
                             Limpiar();
                         }
@@ -156,7 +185,7 @@ namespace SistemaMedico.Reportes
             }
             catch (Exception ex)
             {
-                LoggerBLL.WriteLog(ex.Message, EventLevel.Warning, "");
+                ExceptionManager.Current.Handle(ex);
             }
         }
     }

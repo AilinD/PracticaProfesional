@@ -30,6 +30,7 @@ namespace UI.Administrador
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -39,6 +40,7 @@ namespace UI.Administrador
             this.txtUbic = new System.Windows.Forms.TextBox();
             this.cboxBackup = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -49,6 +51,7 @@ namespace UI.Administrador
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Click para realizar el restore de la base");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnBackup_Click);
             // 
@@ -147,5 +150,6 @@ namespace UI.Administrador
         private System.Windows.Forms.TextBox txtUbic;
         private System.Windows.Forms.ComboBox cboxBackup;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private ToolTip toolTip1;
     }
 }

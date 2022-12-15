@@ -1,0 +1,1 @@
+c['689']=[['690',"GetLanguageFile Method","topic_000000000000023C.html",0],['691',"Translate Method","topic_000000000000023D.html",0]];

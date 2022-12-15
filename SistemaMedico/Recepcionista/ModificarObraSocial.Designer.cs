@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
             this.lblNuevoNombre = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.lblObraSocial = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             this.txtNuevoNombre.Name = "txtNuevoNombre";
             this.txtNuevoNombre.Size = new System.Drawing.Size(195, 23);
             this.txtNuevoNombre.TabIndex = 59;
+            this.toolTip1.SetToolTip(this.txtNuevoNombre, "Ingrese el Nuevo nombre para la Obra Social");
             // 
             // lblNuevoNombre
             // 
@@ -64,6 +67,7 @@
             this.btnModificar.Size = new System.Drawing.Size(88, 27);
             this.btnModificar.TabIndex = 57;
             this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Seleccione para modificar la Obra Social");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificarMedico_Click);
             // 
@@ -74,6 +78,7 @@
             this.txtObraSocial.Name = "txtObraSocial";
             this.txtObraSocial.Size = new System.Drawing.Size(212, 23);
             this.txtObraSocial.TabIndex = 56;
+            this.toolTip1.SetToolTip(this.txtObraSocial, "Ingrese la Obra Social a modificar");
             // 
             // lblObraSocial
             // 
@@ -94,6 +99,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(88, 27);
             this.btnBuscar.TabIndex = 54;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Seleccione para realizar la busqueda");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscaMedico_Click);
             // 
@@ -135,5 +141,6 @@
         private Label lblObraSocial;
         private Button btnBuscar;
         private DataGridView dataGridView1;
+        private ToolTip toolTip1;
     }
 }

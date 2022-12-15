@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Services Reference","topic_00000000000000D9.html"],['49',"Services.BLL.PatenteBLL Namespace","topic_0000000000000015.html"],['50',"BLLFamilia Class","topic_0000000000000016.html"],['51',"Properties","topic_0000000000000016_props--.html"],['52',"Current Property","topic_0000000000000017.html"]];

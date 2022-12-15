@@ -17,6 +17,10 @@ namespace DAL.GenericRepos
         {
             _context = context;
         }
+        /// <summary>
+        ///Elimina un registro en la tabla de Estudio
+        /// </summary>
+        /// <param name="guid"></param>
         public void Delete(Estudio guid)
         {
             var r = _context.Estudios.FirstOrDefault(x => x.Id == guid.Id);
@@ -26,25 +30,41 @@ namespace DAL.GenericRepos
                 _context.SaveChanges();
             }
         }
-
+        /// <summary>
+        /// Obtiene todos los registros en la tabla de Estudio
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public IEnumerable<Estudio> GetAll(Estudio parameters = null)
         {
             return _context.Estudios.ToList();
         }
 
+        /// <summary>
+        /// Obtiene un registro en la tabla de Estudio
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
         public Estudio GetOne(int? guid)
         {
             var r = _context.Estudios.FirstOrDefault(x => x.Id == guid);
 
             return r;
         }
-
+        /// <summary>
+        /// Inserta un registro en la tabla de Estudio
+        /// </summary>
+        /// <param name="obj"></param>
         public void Insert(Estudio obj)
         {
             _context.Estudios.Add(obj);
             _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Actualiza un registro en la tabla de Estudio
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(Estudio obj)
         {
             var estudio = _context.Estudios.FirstOrDefault(x => x.Id == obj.Id);

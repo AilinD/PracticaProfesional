@@ -1,0 +1,1 @@
+search_result['1484']=["topic_00000000000002C2.html","DependencyService.SetInstance Method","Setea una instancia del proveedor de servicios. Solo funciona en el primer uso."];

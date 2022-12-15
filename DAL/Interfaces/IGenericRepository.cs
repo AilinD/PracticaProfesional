@@ -1,4 +1,6 @@
 ﻿
+using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
+    /// <summary>
+    /// Interfaz con metodos necesarios para los repos genéricos
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IGenericRepository<T> where T : class, new()
     {
+        
         /// <summary>
         /// Inserta un objeto en el repositorio.
         /// </summary>

@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblpatente = new System.Windows.Forms.Label();
             this.lblFamiliaPatente = new System.Windows.Forms.Label();
             this.txtNombrePatente = new System.Windows.Forms.TextBox();
             this.cboxFamiliaPatente = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -43,6 +45,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(88, 27);
             this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Generar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Click para generar la patente");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
@@ -73,6 +76,7 @@
             this.txtNombrePatente.Name = "txtNombrePatente";
             this.txtNombrePatente.Size = new System.Drawing.Size(116, 23);
             this.txtNombrePatente.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtNombrePatente, "Ingrese Nombre de la patente");
             // 
             // cboxFamiliaPatente
             // 
@@ -82,6 +86,7 @@
             this.cboxFamiliaPatente.Name = "cboxFamiliaPatente";
             this.cboxFamiliaPatente.Size = new System.Drawing.Size(116, 23);
             this.cboxFamiliaPatente.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.cboxFamiliaPatente, "Seleccione la familia de la patente");
             // 
             // NuevaPatente
             // 
@@ -109,5 +114,6 @@
         private System.Windows.Forms.Label lblFamiliaPatente;
         private System.Windows.Forms.TextBox txtNombrePatente;
         private System.Windows.Forms.ComboBox cboxFamiliaPatente;
+        private ToolTip toolTip1;
     }
 }
